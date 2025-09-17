@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>{% block title %}AI关键技术及产品智能发现平台{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<header class="site-header">
+    <div class="brand">人工智能关键技术及产品智能发现平台</div>
+    <nav class="nav">
+        <a href="{{ url_for('index') }}" class="nav-item {{ 'active' if active=='home' else '' }}">首页</a>
+        <a href="{{ url_for('identify_page') }}"
+           class="nav-item {{ 'active' if active=='discover' else '' }}">智发现</a>
+        <a href="{{ url_for('portrait_page') }}"
+           class="nav-item {{ 'active' if active=='portrait' else '' }}">全画像</a>
+        <a href="{{ url_for('ranking_page') }}" class="nav-item {{ 'active' if active=='ranking' else '' }}">排行榜</a>
+    </nav>
+</header>
+
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+    <div>版本 1.0 · 作者：胡经璇</div>
+</footer>
+</body>
+</html>

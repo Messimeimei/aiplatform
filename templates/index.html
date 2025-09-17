@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}首页{% endblock %}
+{% block content %}
+    <h1>首页 - 检索入口</h1>
+    <p>这里是首页，可以放简介和检索框。</p>
+    <a href="{{ url_for('results_page') }}">去检索结果页</a>
+{% endblock %}

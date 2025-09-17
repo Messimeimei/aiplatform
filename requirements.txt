@@ -1,0 +1,21 @@
+--index-url https://pypi.org/simple
+Flask
+Flask-Cors
+gunicorn
+python-dotenv
+Jinja2
+pandas
+networkx
+pdfminer.six
+PyPDF2
+SQLAlchemy
+
+
+
+
+
+
+
+
+
+

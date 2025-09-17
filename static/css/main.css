@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    background: #001530;
+    color: #e0f0ff;
+    font-family: system-ui, Segoe UI, Arial;
+}
+
+.nav {
+    display: flex;
+    gap: 18px;
+    padding: 12px 20px;
+    background: #000c1e;
+    border-bottom: 1px solid rgba(0, 100, 200, .2)
+}
+
+.nav a {
+    color: #8ac6ff;
+    text-decoration: none
+}
+
+.container {
+    padding: 16px 20px;
+    max-width: 1180px;
+    margin: 0 auto
+}
+
+.search-hero {
+    display: flex;
+    gap: 12px;
+    align-items: center
+}
+
+#q {
+    width: 420px;
+    padding: 8px;
+    border: 1px solid rgba(100, 150, 255, .4);
+    background: #001a3a;
+    color: #fff
+}
+
+.card-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap: 12px
+}
+
+.card {
+    background: rgba(5, 30, 60, .3);
+    border: 1px solid rgba(0, 120, 255, .15);
+    border-radius: 6px;
+    padding: 10px
+}
+
+.card .title a {
+    color: #e0f0ff;
+    font-weight: 700;
+    text-decoration: none
+}
+
+.card .meta {
+    color: #8ac6ff;
+    font-size: 12px;
+    margin: 4px 0
+}
+
+.card .abs {
+    font-size: 13px;
+    color: #d3e9ff
+}
+
+.card .score {
+    font-size: 12px;
+    color: #b4ffb4
+}
+
+.tag {
+    display: inline-block;
+    margin: 4px 6px 0 0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    background: #003a6b
+}
+
+.tag.tech {
+    background: #004d7a
+}
+
+.tag.prod {
+    background: #385a00
+}
+
+.filters select, .filters input {
+    margin-right: 8px;
+    padding: 6px;
+    background: #001a3a;
+    border: 1px solid rgba(100, 150, 255, .3);
+    color: #fff
+}
+
+button {
+    background: #005ac1;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer
+}
+
+button:hover {
+    filter: brightness(1.1)
+}

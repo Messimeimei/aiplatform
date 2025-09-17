@@ -1,0 +1,30 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+.site-header {
+    background: #f5f5f5;
+    padding: 10px;
+}
+
+.nav .nav-item {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.nav .nav-item.active {
+    font-weight: bold;
+    color: blue;
+}
+
+.container {
+    padding: 20px;
+}
+
+.site-footer {
+    background: #f5f5f5;
+    padding: 10px;
+    text-align: center;
+}
