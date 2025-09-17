@@ -1,28 +1,41 @@
-name: Deploy to Server
+name: Deploy to Alibaba Cloud ACR
 
 on:
   push:
-    branches: [ "main" ]   # 推送到 main 分支时触发
+    branches:
+      - main  # 每次推送 main 分支就触发
 
 jobs:
-  deploy:
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_KEY }}
+      - name: Log in to ACR
+        run: echo "${{ secrets.ACR_PASSWORD }}" | docker login ${{ secrets.ACR_REGISTRY }} -u ${{ secrets.ACR_USERNAME }} --password-stdin
 
-      - name: Deploy via SSH
-        run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} << 'EOF'
-            cd /root/aiplatform || git clone https://github.com/你的用户名/你的仓库.git /root/aiplatform
-            cd /root/aiplatform
-            git pull
-            docker compose down
-            docker compose up -d --build
-          EOF
+      - name: Build Docker image
+        run: docker build -t ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest .
+
+      - name: Push Docker image
+        run: docker push ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-push
+
+    steps:
+      - name: SSH to ECS and deploy
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.ECS_HOST }}
+          username: root
+          key: ${{ secrets.ECS_SSH_KEY }}
+          script: |
+            docker login ${{ secrets.ACR_REGISTRY }} -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
+            docker pull ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest
+            docker stop ai-keytech-web || true
+            docker rm ai-keytech-web || true
+            docker run -d --name ai-keytech-web -p 8000:8000 ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest
