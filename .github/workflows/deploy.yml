@@ -36,4 +36,6 @@ jobs:
             docker compose down || true
             docker compose up -d --build
             docker ps -a
+          command_timeout: 20m
+          script_stop: true
       
