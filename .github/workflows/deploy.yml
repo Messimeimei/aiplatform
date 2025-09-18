@@ -17,7 +17,6 @@ jobs:
         run: |
           echo "${{ secrets.ACR_PASSWORD }}" | docker login ${{ secrets.ACR_REGISTRY }} -u "${{ secrets.ACR_USERNAME }}" --password-stdin
     
-
       - name: Build Docker image
         run: docker build -t ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest .
 
@@ -30,8 +29,9 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: root
           key: ${{ secrets.SERVER_SSH_KEY }}
+          port: 22
           script: |
             cd /root/aiplatform
             docker pull ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest
-            docker compose down
-            docker compose up -d
+            docker compose down || true
+            docker compose up -d --build

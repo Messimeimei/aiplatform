@@ -5,7 +5,7 @@ services:
     build: .
     container_name: ai-keytech-web
     ports:
-      - "80:8000"
+      - "80:8000"   # 外部80端口 → 内部Gunicorn 8000端口
     env_file:
       - .env
     volumes:
