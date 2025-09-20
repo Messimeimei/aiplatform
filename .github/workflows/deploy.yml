@@ -34,7 +34,7 @@ jobs:
             cd /root/aiplatform
             docker pull ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest
             docker compose down || true
-            docker compose up -d --build
+            docker compose up -d
             docker ps -a
           command_timeout: 20m
           script_stop: true
