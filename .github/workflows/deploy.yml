@@ -15,13 +15,13 @@ jobs:
 
       - name: Log in to ACR
         run: |
-          echo "${{ secrets.ACR_PASSWORD }}" | docker login registry.cn-hangzhou.aliyuncs.com -u "${{ secrets.ACR_USERNAME }}" --password-stdin
+          echo "${{ secrets.ACR_PASSWORD }}" | docker login ${{ secrets.ACR_REGISTRY }} -u "${{ secrets.ACR_USERNAME }}" --password-stdin
 
       - name: Build Docker image
-        run: docker build -t registry.cn-hangzhou.aliyuncs.com/messimeimei/meiss:latest .
+        run: docker build -t ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest .
 
       - name: Push Docker image
-        run: docker push registry.cn-hangzhou.aliyuncs.com/messimeimei/meiss:latest
+        run: docker push ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest
 
       - name: Deploy on server
         uses: appleboy/ssh-action@v0.1.7
@@ -31,22 +31,11 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
           script: |
-            set -e
-            apt-get update -y
-            apt-get install -y git docker-compose-plugin
-
-            echo "===== 清理旧目录并拉取新代码 ====="
-            cd /root
-            rm -rf aiplatform
-            git clone https://github.com/Messimeimei/aiplatform.git aiplatform
-            ls -l /root/aiplatform
-
-            echo "===== 部署容器 ====="
             cd /root/aiplatform
-            docker pull registry.cn-hangzhou.aliyuncs.com/messimeimei/meiss:latest
+            docker pull ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest
             docker compose down || true
-            docker compose up -d   # ✅ 不再 build
-
-            echo "===== 当前容器列表 ====="
+            docker compose up -d --build
             docker ps -a
-    timeout-minutes: 30
+          command_timeout: 20m
+          script_stop: true
+
