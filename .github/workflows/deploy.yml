@@ -34,8 +34,11 @@ jobs:
             set -e
             cd /root
             rm -rf aiplatform
-            git clone -b main https://github.com/Messimeimei/aiplatform.git aiplatform
+            git clone https://github.com/Messimeimei/aiplatform.git aiplatform
             cd aiplatform
+            git fetch --all
+            git checkout main
+            git pull origin main
 
             echo "===== 当前 commit ID ====="
             git rev-parse HEAD
@@ -45,6 +48,7 @@ jobs:
             docker compose down || true
             docker compose up -d
             docker ps -a
+          
           
 
           command_timeout: 20m
