@@ -31,11 +31,18 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
           script: |
-            cd /root/aiplatform
+            set -e
+            cd /root
+            rm -rf aiplatform
+            git clone https://github.com/Messimeimei/aiplatform.git aiplatform
+            cd aiplatform
+
+            echo "===== 拉取镜像并启动 ====="
             docker pull ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest
             docker compose down || true
             docker compose up -d
             docker ps -a
+
           command_timeout: 20m
           script_stop: true
 
