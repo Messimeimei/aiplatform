@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 拉取 GitHub 仓库代码到 Runner
+      # 拉取代码（Runner 本地，也就是 GitHub 服务器）
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -23,7 +23,7 @@ jobs:
       - name: Build Docker image
         run: docker build -t ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest .
 
-      # 推送镜像到 ACR
+      # 推送 Docker 镜像到 ACR
       - name: Push Docker image
         run: docker push ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest
 
@@ -37,18 +37,22 @@ jobs:
           port: 22
           script: |
             set -e
-            cd /root
-            # 拉取最新代码（如果是私有仓库，换成带 token 的 URL）
-            if [ -d "aiplatform" ]; then
-              rm -rf aiplatform
-            fi
-            git clone https://github.com/Messimeimei/aiplatform.git aiplatform
-            cd aiplatform
+            # 保证环境依赖存在
+            apt-get update -y
+            apt-get install -y git docker-compose-plugin
 
-            # 部署容器
+            echo "===== 清理旧目录并拉取新代码 ====="
+            cd /root
+            rm -rf aiplatform
+            git clone https://github.com/Messimeimei/aiplatform.git aiplatform
+            ls -l /root/aiplatform
+
+            echo "===== 部署容器 ====="
+            cd /root/aiplatform
             docker pull ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest
             docker compose down || true
             docker compose up -d --build
+
+            echo "===== 当前容器列表 ====="
             docker ps -a
-          command_timeout: 20m
-          script_stop: true
+    timeout-minutes: 30
