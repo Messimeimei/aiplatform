@@ -40,40 +40,67 @@ jobs:
           docker push $IMAGE_NAME:latest
 
       - name: Deploy on ECS
-        uses: appleboy/ssh-action@v0.1.7
+        uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: root
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
+          script_stop: true
+          debug: true
           script: |
-            set -euo pipefail
+            set -euxo pipefail
             cd /root/aiplatform
-
+            
+            # 设置环境变量
+            export REGISTRY="${{ secrets.ACR_REGISTRY }}"
+            export NAMESPACE="${{ secrets.ACR_NAMESPACE }}"
+            export REPO="meiss"
+            export IMAGE_NAME="$REGISTRY/$NAMESPACE/$REPO"
+            export IMAGE_TAG="latest"
+            
+            echo "Current directory: $(pwd)"
+            ls -la
+            
+            echo "Environment variables:"
+            echo "REGISTRY: $REGISTRY"
+            echo "NAMESPACE: $NAMESPACE"
+            echo "REPO: $REPO"
+            echo "IMAGE_NAME: $IMAGE_NAME"
+            echo "IMAGE_TAG: $IMAGE_TAG"
+            
             # 准备运行必需的文件/目录
             test -f .env || (echo "PORT=8000" > .env && echo "DB_PATH=/data/data.db" >> .env)
             mkdir -p data static/uploads
-
+            
             echo "===== Login ACR ====="
             echo "${{ secrets.ACR_PASSWORD }}" | docker login $REGISTRY \
               -u "${{ secrets.ACR_USERNAME }}" --password-stdin
-
-            echo "===== Pull & Run with immutable tag ====="
-            IMAGE_NAME="$REGISTRY/$NAMESPACE/$REPO"
-            IMAGE_TAG="${{ steps.meta.outputs.SHORT_SHA }}"
-
+            
+            echo "===== Pull & Run with latest tag ====="
             # 先拉再起，保证拿到最新层
             docker pull "$IMAGE_NAME:$IMAGE_TAG"
-
+            
             # 以变量注入给 compose（对应 docker-compose.yml 里的 ${IMAGE_NAME}:${IMAGE_TAG}）
             export IMAGE_NAME IMAGE_TAG
-
+            
             # 强制重建，避免沿用旧容器
             docker compose down || true
             docker compose up -d --force-recreate
-
+            
+            echo "===== Waiting for container to start (10s) ====="
+            sleep 10
+            
             echo "===== Running containers ====="
             docker ps -a
-
+            
+            echo "===== Container logs ====="
+            docker logs ai-keytech-web || true
+            
             echo "===== Sanity check (port 80) ====="
-            curl -sI http://127.0.0.1:80 || true
+            curl -sI -m 5 http://127.0.0.1:80 || echo "Health check failed but continuing."
+            
+            echo "===== Port check ====="
+            ss -tlnp | grep -E ':80|:8000' || true
+            
+            echo "===== Deployment completed successfully ====="
