@@ -1,40 +1,35 @@
-env:
-  DOCKER_BUILDKIT: 1
-  COMPOSE_DOCKER_CLI_BUILD: 1
-
 name: Deploy
 
 on:
   push:
     branches:
-      - main   # 监听 main 分支代码变动
+      - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # 拉取代码（在 GitHub Runner 上）
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 登录阿里云 ACR
+      # 登录 ACR
       - name: Log in to ACR
         run: |
           echo "${{ secrets.ACR_PASSWORD }}" | docker login crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com \
             -u "${{ secrets.ACR_USERNAME }}" --password-stdin
 
-      # 构建镜像（注意 tag 要写完整地址）
+      # 构建镜像
       - name: Build Docker image
-        run: |
-          docker build -t crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest .
+        run: docker build -t crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest .
 
-      # 推送镜像
+      # 推送镜像到 ACR
       - name: Push Docker image
-        run: |
-          docker push crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest
+        run: docker push crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest
 
-      # 部署到 ECS 服务器
-      - name: Deploy on ECS
+      # 部署到服务器
+      - name: Deploy on server
         uses: appleboy/ssh-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -44,21 +39,15 @@ jobs:
           script: |
             set -e
             cd /root/aiplatform
-            git fetch --all
-            git reset --hard origin/main
-            echo "===== 当前 commit ====="
-            git rev-parse HEAD
 
             echo "===== 登录 ACR ====="
             echo "${{ secrets.ACR_PASSWORD }}" | docker login crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com \
               -u "${{ secrets.ACR_USERNAME }}" --password-stdin
 
-            echo "===== 拉取镜像并启动 ====="
+            echo "===== 拉取最新镜像并启动 ====="
             docker pull crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest
             docker compose down || true
             docker compose up -d
 
             echo "===== 当前容器 ====="
             docker ps -a
-          command_timeout: 20m
-          script_stop: true
