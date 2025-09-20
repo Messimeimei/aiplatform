@@ -1,3 +1,7 @@
+env:
+  DOCKER_BUILDKIT: 1
+  COMPOSE_DOCKER_CLI_BUILD: 1
+
 name: Deploy
 
 on:
@@ -39,15 +43,11 @@ jobs:
           port: 22
           script: |
             set -e
-            echo "===== 更新代码 ====="
-            cd /root
-            if [ ! -d "aiplatform" ]; then
-              git clone -b main https://github.com/Messimeimei/aiplatform.git aiplatform
-            fi
-            cd aiplatform
+            cd /root/aiplatform
             git fetch --all
             git reset --hard origin/main
-            echo "当前 commit:" $(git rev-parse HEAD)
+            echo "===== 当前 commit ====="
+            git rev-parse HEAD
 
             echo "===== 登录 ACR ====="
             echo "${{ secrets.ACR_PASSWORD }}" | docker login crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com \
@@ -60,3 +60,5 @@ jobs:
 
             echo "===== 当前容器 ====="
             docker ps -a
+          command_timeout: 20m
+          script_stop: true
