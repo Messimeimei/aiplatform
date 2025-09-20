@@ -2,34 +2,44 @@ name: Deploy
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
+    env:
+      REGISTRY: crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com
+      NAMESPACE: messimeimei
+      REPO: meiss
+      IMAGE_NAME: crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss
+
     steps:
-      # 拉取代码（在 GitHub Runner 上）
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 登录 ACR
-      - name: Log in to ACR
+      - name: Compute image tag (short sha)
+        id: meta
+        run: echo "SHORT_SHA=$(git rev-parse --short=7 HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Log in to ACR (personal)
         run: |
-          echo "${{ secrets.ACR_PASSWORD }}" | docker login crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com \
+          echo "${{ secrets.ACR_PASSWORD }}" | docker login $REGISTRY \
             -u "${{ secrets.ACR_USERNAME }}" --password-stdin
 
-      # 构建镜像
-      - name: Build Docker image
-        run: docker build -t crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest .
+      - name: Build image (latest + sha)
+        run: |
+          docker build \
+            -t $IMAGE_NAME:latest \
+            -t $IMAGE_NAME:${{ steps.meta.outputs.SHORT_SHA }} \
+            .
 
-      # 推送镜像到 ACR
-      - name: Push Docker image
-        run: docker push crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest
+      - name: Push images
+        run: |
+          docker push $IMAGE_NAME:${{ steps.meta.outputs.SHORT_SHA }}
+          docker push $IMAGE_NAME:latest
 
-      # 部署到服务器
-      - name: Deploy on server
+      - name: Deploy on ECS
         uses: appleboy/ssh-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -37,17 +47,33 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
           script: |
-            set -e
+            set -euo pipefail
             cd /root/aiplatform
 
-            echo "===== 登录 ACR ====="
-            echo "${{ secrets.ACR_PASSWORD }}" | docker login crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com \
+            # 准备运行必需的文件/目录
+            test -f .env || (echo "PORT=8000" > .env && echo "DB_PATH=/data/data.db" >> .env)
+            mkdir -p data static/uploads
+
+            echo "===== Login ACR ====="
+            echo "${{ secrets.ACR_PASSWORD }}" | docker login $REGISTRY \
               -u "${{ secrets.ACR_USERNAME }}" --password-stdin
 
-            echo "===== 拉取最新镜像并启动 ====="
-            docker pull crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest
-            docker compose down || true
-            docker compose up -d
+            echo "===== Pull & Run with immutable tag ====="
+            IMAGE_NAME="$REGISTRY/$NAMESPACE/$REPO"
+            IMAGE_TAG="${{ steps.meta.outputs.SHORT_SHA }}"
 
-            echo "===== 当前容器 ====="
+            # 先拉再起，保证拿到最新层
+            docker pull "$IMAGE_NAME:$IMAGE_TAG"
+
+            # 以变量注入给 compose（对应 docker-compose.yml 里的 ${IMAGE_NAME}:${IMAGE_TAG}）
+            export IMAGE_NAME IMAGE_TAG
+
+            # 强制重建，避免沿用旧容器
+            docker compose down || true
+            docker compose up -d --force-recreate
+
+            echo "===== Running containers ====="
             docker ps -a
+
+            echo "===== Sanity check (port 80) ====="
+            curl -sI http://127.0.0.1:80 || true
