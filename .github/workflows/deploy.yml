@@ -10,19 +10,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 拉取 GitHub 仓库代码到 Runner
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # 登录 ACR
       - name: Log in to ACR
         run: |
           echo "${{ secrets.ACR_PASSWORD }}" | docker login ${{ secrets.ACR_REGISTRY }} -u "${{ secrets.ACR_USERNAME }}" --password-stdin
-    
+
+      # 构建 Docker 镜像
       - name: Build Docker image
         run: docker build -t ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest .
 
+      # 推送镜像到 ACR
       - name: Push Docker image
         run: docker push ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest
 
+      # 部署到服务器
       - name: Deploy on server
         uses: appleboy/ssh-action@v0.1.7
         with:
@@ -31,11 +36,19 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
           script: |
-            cd /root/aiplatform
+            set -e
+            cd /root
+            # 拉取最新代码（如果是私有仓库，换成带 token 的 URL）
+            if [ -d "aiplatform" ]; then
+              rm -rf aiplatform
+            fi
+            git clone https://github.com/Messimeimei/aiplatform.git aiplatform
+            cd aiplatform
+
+            # 部署容器
             docker pull ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest
             docker compose down || true
             docker compose up -d --build
             docker ps -a
           command_timeout: 20m
           script_stop: true
-      
