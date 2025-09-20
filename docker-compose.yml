@@ -1,6 +1,6 @@
 services:
   web:
-    image: ${IMAGE_NAME}:${IMAGE_TAG}
+    image: crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest
     container_name: ai-keytech-web
     ports:
       - "80:8000"          # 外部 80 -> 容器 8000
@@ -11,3 +11,4 @@ services:
       - ./static/uploads:/app/static/uploads
     command: >
       sh -c "gunicorn -w 2 -b 0.0.0.0:8000 app:app"
+
