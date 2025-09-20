@@ -3,27 +3,34 @@ name: Deploy
 on:
   push:
     branches:
-      - main
+      - main   # 监听 main 分支代码变动
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # 登录阿里云 ACR
       - name: Log in to ACR
         run: |
-          echo "${{ secrets.ACR_PASSWORD }}" | docker login ${{ secrets.ACR_REGISTRY }} -u "${{ secrets.ACR_USERNAME }}" --password-stdin
+          echo "${{ secrets.ACR_PASSWORD }}" | docker login crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com \
+            -u "${{ secrets.ACR_USERNAME }}" --password-stdin
 
+      # 构建镜像（注意 tag 要写完整地址）
       - name: Build Docker image
-        run: docker build -t ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest .
+        run: |
+          docker build -t crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest .
 
+      # 推送镜像
       - name: Push Docker image
-        run: docker push ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest
+        run: |
+          docker push crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest
 
-      - name: Deploy on server
+      # 部署到 ECS 服务器
+      - name: Deploy on ECS
         uses: appleboy/ssh-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -42,8 +49,12 @@ jobs:
             git reset --hard origin/main
             echo "当前 commit:" $(git rev-parse HEAD)
 
-            echo "===== 部署容器 ====="
-            docker pull ${{ secrets.ACR_REGISTRY }}/messimeimei/meiss:latest
+            echo "===== 登录 ACR ====="
+            echo "${{ secrets.ACR_PASSWORD }}" | docker login crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com \
+              -u "${{ secrets.ACR_USERNAME }}" --password-stdin
+
+            echo "===== 拉取镜像并启动 ====="
+            docker pull crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest
             docker compose down || true
             docker compose up -d
 

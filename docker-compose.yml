@@ -2,10 +2,10 @@ version: '3.9'
 
 services:
   web:
-    image: registry.cn-hangzhou.aliyuncs.com/messimeimei/meiss:latest
+    image: crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest
     container_name: ai-keytech-web
     ports:
-      - "80:8000"   # 外部80端口 → 内部Gunicorn 8000端口
+      - "80:8000"
     env_file:
       - .env
     volumes:
