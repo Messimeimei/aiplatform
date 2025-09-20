@@ -1,8 +1,13 @@
-version: "3.9"
 services:
   web:
-    build: .
-    container_name: aiplatform
+    image: ${IMAGE_NAME}:${IMAGE_TAG}
+    container_name: ai-keytech-web
     ports:
-      - "8000:8000"
-    restart: unless-stopped
+      - "80:8000"          # 外部 80 -> 容器 8000
+    env_file:
+      - .env
+    volumes:
+      - ./data:/data
+      - ./static/uploads:/app/static/uploads
+    command: >
+      sh -c "gunicorn -w 2 -b 0.0.0.0:8000 app:app"

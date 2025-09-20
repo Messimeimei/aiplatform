@@ -1,27 +1,25 @@
-# 运行层
-FROM python:3.11-slim
+# 基础镜像
+FROM python:3.10-slim
 
-# 基础依赖
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential curl && rm -rf /var/lib/apt/lists/*
-
-# 工作目录
 WORKDIR /app
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
 
-# 仅复制依赖清单以利用缓存
-COPY requirements.txt /app/requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# 系统依赖
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential libffi-dev libxml2 libxslt1-dev poppler-utils \
+  && rm -rf /var/lib/apt/lists/*
 
-# 复制项目
-COPY . /app
+# 安装 Python 依赖
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple
 
-# 环境变量
-ENV PYTHONUNBUFFERED=1 \
-    PORT=8000 \
-    HOST=0.0.0.0
+# 复制所有代码
+COPY . .
 
-# 启动命令（Flask通常 app:app 为 WSGI 入口）
-# 如 app.py 里是 app = Flask(__name__)
-CMD ["python", "-c", "import os; print('Tip: use gunicorn in production'); import app; app.app.run(host='0.0.0.0', port=int(os.getenv('PORT',8000)))"]
-# 生产建议：改为 gunicorn（更稳）
-# CMD ["gunicorn", "-w", "2", "-k", "gthread", "-b", "0.0.0.0:8000", "app:app"]
+# 数据目录 & 持久化挂载点
+RUN mkdir -p /data /app/static/uploads
+VOLUME ["/data"]
+
+EXPOSE 8000
+CMD ["gunicorn","-w","2","-b","0.0.0.0:8000","app:app"]

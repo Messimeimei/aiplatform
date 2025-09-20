@@ -1,52 +1,79 @@
-name: Deploy to Aliyun LTS via Docker Compose
+name: Deploy
 
 on:
   push:
-    branches: [ "main" ]
-  workflow_dispatch: {}
+    branches: [ main ]
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
+    env:
+      REGISTRY: crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com
+      NAMESPACE: messimeimei
+      REPO: meiss
+      IMAGE_NAME: crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      # 把仓库代码同步到服务器（不用服务器装 git）
-      - name: Upload files to server
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_KEY }}
-          source: "."
-          target: ${{ secrets.REMOTE_DIR }}
-          # 忽略不必要文件，加速
-          rm: true
-          strip_components: 0
-          overwrite: true
+      - name: Compute image tag (short sha)
+        id: meta
+        run: echo "SHORT_SHA=$(git rev-parse --short=7 HEAD)" >> "$GITHUB_OUTPUT"
 
-      - name: Deploy via SSH
+      - name: Log in to ACR (personal)
+        run: |
+          echo "${{ secrets.ACR_PASSWORD }}" | docker login $REGISTRY \
+            -u "${{ secrets.ACR_USERNAME }}" --password-stdin
+
+      - name: Build image (latest + sha)
+        run: |
+          docker build \
+            -t $IMAGE_NAME:latest \
+            -t $IMAGE_NAME:${{ steps.meta.outputs.SHORT_SHA }} \
+            .
+
+      - name: Push images
+        run: |
+          docker push $IMAGE_NAME:${{ steps.meta.outputs.SHORT_SHA }}
+          docker push $IMAGE_NAME:latest
+
+      - name: Deploy on ECS
         uses: appleboy/ssh-action@v0.1.7
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_KEY }}
+          host: ${{ secrets.SERVER_HOST }}
+          username: root
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: 22
           script: |
-            set -e
-            cd ${REMOTE_DIR:-/opt/apps/aiplatform}
+            set -euo pipefail
+            cd /root/aiplatform
 
-            # 优先使用 docker compose（plugin），否则回退 docker-compose
-            if command -v docker compose >/dev/null 2>&1; then
-              COMPOSE="docker compose"
-            else
-              COMPOSE="docker-compose"
-            fi
+            # 准备运行必需的文件/目录
+            test -f .env || (echo "PORT=8000" > .env && echo "DB_PATH=/data/data.db" >> .env)
+            mkdir -p data static/uploads
 
-            $COMPOSE down || true
-            $COMPOSE build --pull
-            $COMPOSE up -d
-            docker image prune -f || true
+            echo "===== Login ACR ====="
+            echo "${{ secrets.ACR_PASSWORD }}" | docker login $REGISTRY \
+              -u "${{ secrets.ACR_USERNAME }}" --password-stdin
+
+            echo "===== Pull & Run with immutable tag ====="
+            IMAGE_NAME="$REGISTRY/$NAMESPACE/$REPO"
+            IMAGE_TAG="${{ steps.meta.outputs.SHORT_SHA }}"
+
+            # 先拉再起，保证拿到最新层
+            docker pull "$IMAGE_NAME:$IMAGE_TAG"
+
+            # 以变量注入给 compose（对应 docker-compose.yml 里的 ${IMAGE_NAME}:${IMAGE_TAG}）
+            export IMAGE_NAME IMAGE_TAG
+
+            # 强制重建，避免沿用旧容器
+            docker compose down || true
+            docker compose up -d --force-recreate
+
+            echo "===== Running containers ====="
+            docker ps -a
+
+            echo "===== Sanity check (port 80) ====="
+            curl -sI http://127.0.0.1:80 || true
