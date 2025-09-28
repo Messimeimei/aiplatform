@@ -14,7 +14,7 @@ cd /root/aiplatform
 sed -i 's#^ \{2,4\}image: .*#    image: crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest#' docker-compose.yml
 
 ## 2) 登录个人版 ACR 并拉镜像（用访问凭证用户名/密码）
-docker login crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com -u '<你的ACR用户名>' -p '<你的ACR密码>'
+docker login crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com -u '梅西的护腿板' -p '20040616wldn@YX'
 docker pull  crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest
 
 ## 3) 启动

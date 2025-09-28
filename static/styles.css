@@ -116,3 +116,9 @@ p { color: var(--muted); line-height: 1.7; }
 /* 折叠按钮也稍微小一点（可选） */
 .navbar-toggler { padding: .15rem .4rem; }
 .navbar-toggler-icon { width: 1.15rem; height: 1.15rem; }
+
+/* 放在 styles.css 末尾，覆盖 Bootstrap 的 min-vh-100 */
+@supports (height: 100svh) {
+  body.min-vh-100 { min-height: 100svh; }
+}
+

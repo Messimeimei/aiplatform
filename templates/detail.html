@@ -1,24 +1,178 @@
 {% extends "base.html" %}
 {% block title %}详情 - AI关键技术及产品智能发现平台{% endblock %}
+{% block container_class %}container py-3{% endblock %}
+
+{% block extra_head %}
+<style>
+  .surface { background:#fff; color:#212529; border-radius:14px; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.08); }
+  .bar-title { position:relative; padding-left:.75rem; margin:0; line-height:1.2; font-weight:600; }
+  .bar-title::before{ content:""; position:absolute; left:0; top:0.15em; bottom:0.15em; width:3px; border-radius:2px; background:#0d6efd; }
+  .section-box { background:#fff; border:1px solid #e9ecef; border-radius:12px; padding:16px; box-shadow:0 4px 14px rgba(0,0,0,.06); }
+  .toc { position: sticky; top: calc(var(--header-h,72px) + 12px); }
+  .toc .list-group-item.active { background:#e7f1ff; color:#0d6efd; border-color:#b6d4fe; }
+  .entry-title { margin:0; }
+  .entry-meta { color:#6c757d; }
+  .section-box img { max-width:100%; height:auto; border-radius:8px; }
+  .skeleton { background:linear-gradient(90deg,#f2f4f7, #e9ecef, #f2f4f7); background-size:200% 100%; animation:shine 1.2s linear infinite; border-radius:8px; }
+  @keyframes shine { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+</style>
+{% endblock %}
+
 {% block content %}
-    <h1>条目详情</h1>
-    <div id="box" class="detail">加载中…</div>
-    <script>
-        (async () => {
-            const id = {{ item_id }};
-            const res = await fetch(`/api/detail/${id}`);
-            const d = await res.json();
-            const el = document.getElementById('box');
-            if (!d || !d.id) {
-                el.textContent = "未找到";
-                return;
-            }
-            el.innerHTML = `
-    <div class="title">${d.name || '-'}</div>
-    <div class="meta">${d.kind || '-'} · ${d.field || '-'} · ${d.country || '-'} · ${d.year || '-'}</div>
-    <p>${d.abstract || ''}</p>
-    <p><a class="btn" href="/portrait/${d.id}">进入全画像</a></p>
-  `;
-        })();
-    </script>
+<div class="surface">
+  <div class="row g-3">
+    <!-- 左侧内容 -->
+    <div class="col-12 col-lg-8" id="contentCol">
+      <div class="mb-3">
+        <h1 class="entry-title h3" id="entryTitle">加载中…</h1>
+        <div class="entry-meta small" id="entryMeta">—</div>
+      </div>
+      <div id="sections" class="vstack gap-4">
+        <div class="section">
+          <h2 class="bar-title h5">概要</h2>
+          <div class="section-box mt-2">
+            <div class="skeleton" style="height:96px;"></div>
+          </div>
+        </div>
+        <div class="section">
+          <h2 class="bar-title h5">图文</h2>
+          <div class="section-box mt-2">
+            <div class="skeleton" style="height:180px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右侧目录 -->
+    <div class="col-12 col-lg-4">
+      <div class="card">
+        <div class="card-body toc">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="fw-semibold">目录</div>
+            <button id="btnBack" class="btn btn-sm btn-outline-secondary">返回</button>
+          </div>
+          <div class="list-group list-group-flush small" id="tocList">
+            <div class="list-group-item text-muted">加载目录…</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(async () => {
+  const id = {{ item_id }};
+  const res = await fetch(`/api/detail/${id}`);
+  const d = await res.json();
+
+  const titleEl = document.getElementById('entryTitle');
+  const metaEl  = document.getElementById('entryMeta');
+  const secWrap = document.getElementById('sections');
+  const tocList = document.getElementById('tocList');
+
+  if (!d || !d.id) {
+    titleEl.textContent = '未找到';
+    metaEl.textContent = '';
+    secWrap.innerHTML = '';
+    tocList.innerHTML = '<div class="list-group-item text-muted">无可用内容</div>';
+    return;
+  }
+
+  titleEl.textContent = d.name || '-';
+  metaEl.innerHTML = [
+    esc(d.kind || '-'),
+    esc(d.field || '-'),
+    esc(d.country || '-'),
+    esc(d.year || '-')
+  ].join(' · ');
+
+  const sections = [];
+  if (d.abstract || d.summary) {
+    sections.push({id: 'overview', title: '概要', html: `<p>${esc(d.abstract || d.summary)}</p>`});
+  }
+  if (d.metrics && Object.keys(d.metrics).length) {
+    const rows = Object.entries(d.metrics).map(([k,v])=>
+      `<tr><td class="text-muted">${esc(k)}</td><td class="text-end">${esc(String(v))}</td></tr>`).join('');
+    sections.push({id: 'metrics', title: '关键指标', html: `<div class="table-responsive"><table class="table table-sm mb-0"><tbody>${rows}</tbody></table></div>`});
+  }
+  if (Array.isArray(d.images) && d.images.length) {
+    sections.push({id: 'gallery', title: '图文', html: d.images.map(src=>`<img src="${esc(src)}" class="mb-2" alt="">`).join('')});
+  }
+  if (Array.isArray(d.relatedTech) && d.relatedTech.length) {
+    sections.push({id: 'reltech', title: '关联关键技术', html: chipsHtml(d.relatedTech)});
+  }
+  if (Array.isArray(d.relatedProduct) && d.relatedProduct.length) {
+    sections.push({id: 'relprod', title: '关联关键产品', html: chipsHtml(d.relatedProduct)});
+  }
+  if (Array.isArray(d.sources) && d.sources.length) {
+    const items = d.sources.map(s=>{
+      const url = typeof s==='string' ? s : (s.url||'#');
+      const name= typeof s==='string' ? s : (s.name||s.url||'来源');
+      return `<li class="mb-1"><a href="${esc(url)}" target="_blank" rel="noopener">${esc(name)}</a></li>`;
+    }).join('');
+    sections.push({id: 'sources', title: '来源与参考', html: `<ul class="mb-0">${items}</ul>`});
+  }
+  if (!sections.length) {
+    sections.push({id: 'intro', title: '介绍', html: `<p>${esc(d.description || '暂无详细介绍。')}</p>`});
+  }
+
+  secWrap.innerHTML = sections.map(sec => `
+    <section class="section" id="${sec.id}">
+      <h2 class="bar-title h5">${esc(sec.title)}</h2>
+      <div class="section-box mt-2">${sec.html}</div>
+    </section>
+  `).join('');
+
+  tocList.innerHTML = sections.map((sec,i) => `
+    <a class="list-group-item list-group-item-action ${i===0?'active':''}" href="#${sec.id}" data-target="${sec.id}">
+      ${esc(sec.title)}
+    </a>
+  `).join('');
+
+  const headings = sections.map(s => document.getElementById(s.id));
+  const tocItems = Array.from(tocList.querySelectorAll('[data-target]'));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.sort((a,b)=>a.boundingClientRect.top - b.boundingClientRect.top);
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        tocItems.forEach(a=>a.classList.toggle('active', a.dataset.target===id));
+      }
+    });
+  }, { root: null, rootMargin: '-20% 0px -70% 0px', threshold: [0, 0.2, 1] });
+
+  headings.forEach(sec => io.observe(sec));
+
+  document.getElementById('btnBack').addEventListener('click', ()=>{
+    if (document.referrer) history.back();
+    else window.location.href = "{{ url_for('results_page') }}";
+  });
+
+  tocItems.forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const id = a.getAttribute('data-target');
+      const target = document.getElementById(id);
+      if(!target) return;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 90, behavior:'smooth' });
+    });
+  });
+
+})().catch(err=>{
+  document.getElementById('entryTitle').textContent = '加载失败';
+  document.getElementById('entryMeta').textContent = '';
+  document.getElementById('sections').innerHTML = `<div class="alert alert-warning">获取详情失败：${esc(String(err))}</div>`;
+});
+
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
+function chipsHtml(arr){
+  return `<div class="d-flex flex-wrap gap-2">` + arr.map(t =>
+    `<span class="badge rounded-pill text-bg-primary-subtle border border-primary-subtle">${esc(t.name||t)}</span>`
+  ).join('') + `</div>`;
+}
+</script>
 {% endblock %}
