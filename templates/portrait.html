@@ -1,6 +1,275 @@
 {% extends "base.html" %}
 {% block title %}全画像{% endblock %}
+{% block container_class %}container py-3{% endblock %}
+
+{% block extra_head %}
+<!-- ECharts CDN -->
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+
+<style>
+  /* 大面板：高对比浅底 */
+  .surface { background:#fff; color:#212529; border-radius:14px; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.08); }
+
+  /* 卡片外观 */
+  .card-flat { background:#fff; border-radius:12px; border:1px solid #e9ecef; box-shadow:0 4px 14px rgba(0,0,0,.06); }
+  .card-flat .card-header { background:#f8f9fa; border-bottom:1px solid #e9ecef; }
+
+  /* 左侧介绍区：固定较大高度，超出滚动 */
+  .intro-box { min-height: 360px; max-height: 520px; overflow:auto; }
+
+  /* 右侧图区域：自适应高度 */
+  .graph-wrap { height: 520px; position: relative; border:1px solid #e9ecef; border-radius:12px; background: #f8fafc; }
+  #graphCanvas { width: 100%; height: 100%; }
+
+  .muted { color:#6c757d; }
+</style>
+{% endblock %}
+
 {% block content %}
-    <h1>全画像</h1>
-    <p>这里放图谱展示。</p>
+<div class="surface">
+  <div class="row g-3">
+    <!-- 左侧 -->
+    <div class="col-12 col-lg-4">
+      <div class="card card-flat mb-3">
+        <div class="card-header fw-semibold">检索与生成</div>
+        <div class="card-body">
+          <form id="searchForm" class="row g-2 align-items-stretch">
+            <!-- 输入在左，按钮在右 -->
+            <div class="col-9">
+              <input id="searchInput" class="form-control" placeholder="搜索节点（名称/ID/标签）…" autocomplete="off">
+            </div>
+            <div class="col-3 d-grid">
+              <button id="btnGenerate" class="btn btn-success" type="submit">生成</button>
+            </div>
+          </form>
+          <div class="small muted mt-2">提示：试试 “多模态 / 知识蒸馏 / 边缘计算 / 智能体平台”。</div>
+        </div>
+      </div>
+
+      <div class="card card-flat">
+        <div class="card-header fw-semibold">节点介绍</div>
+        <div class="card-body intro-box" id="introBox">
+          <div class="muted">
+            这里将显示节点的基本信息、属性与关联摘要。你可以：
+            <ul class="mb-0">
+              <li>在上方输入框搜索节点；</li>
+              <li>点击右侧图谱中的节点。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-footer bg-white d-flex gap-2 justify-content-end">
+          <button class="btn btn-outline-secondary" id="btnClear">清空</button>
+          <button class="btn btn-primary" id="btnFocus">聚焦当前节点</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右侧：ECharts 图展示 -->
+    <div class="col-12 col-lg-8">
+      <div class="card card-flat h-100">
+        <div class="card-header fw-semibold d-flex justify-content-between align-items-center">
+          <span>节点图谱</span>
+          <span class="small muted">可拖拽/缩放；点击节点查看详情</span>
+        </div>
+        <div class="card-body">
+          <div class="graph-wrap">
+            <div id="graphCanvas"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  /***************
+   * Demo 节点/边（替换为后端返回即可）
+   ***************/
+  const demoNodes = [
+    { id:'n1', name:'多模态',          type:'tech',    desc:'多模态（vision+text+audio）融合感知与表征。' },
+    { id:'n2', name:'知识蒸馏',        type:'tech',    desc:'将大模型知识迁移到小模型，提升推理效率。' },
+    { id:'n3', name:'边缘计算',        type:'tech',    desc:'在靠近数据源的边缘侧进行计算，降低延迟。' },
+    { id:'n4', name:'OCR识别平台',     type:'product', desc:'面向票据/合同/档案的文字识别与结构化。' },
+    { id:'n5', name:'智能体平台',      type:'product', desc:'可编排的 Agent 能力平台，支持多工具协同。' },
+    { id:'n6', name:'企业知识库',      type:'product', desc:'企业内部语料索引与检索问答（RAG）。' },
+  ];
+  const demoLinks = [
+    { source:'n1', target:'n5', label:'支撑' },
+    { source:'n2', target:'n5', label:'蒸馏优化' },
+    { source:'n3', target:'n4', label:'部署' },
+    { source:'n3', target:'n6', label:'落地' },
+    { source:'n1', target:'n4', label:'OCR多模态' },
+    { source:'n6', target:'n5', label:'知识协同' },
+  ];
+
+  /***************
+   * ECharts 初始化
+   ***************/
+  const chart = echarts.init(document.getElementById('graphCanvas'));
+  window.addEventListener('resize', () => chart.resize());
+
+  // 映射颜色/尺寸
+  const colorOf = t => (t==='tech' ? '#2b6cb0' : '#2f855a'); // 蓝/绿
+  const sizeOf  = t => (t==='tech' ? 36 : 32);
+
+  const option = {
+    tooltip: { trigger: 'item', formatter: params => {
+      if (params.dataType === 'node') {
+        const n = params.data;
+        return `<div><b>${escapeHtml(n.name)}</b><br/><span style="color:#999">ID：</span>${n.id}</div>`;
+      } else if (params.dataType === 'edge') {
+        return `${escapeHtml(params.data.source)} → ${escapeHtml(params.data.target)} <br/>${escapeHtml(params.data.label || '')}`;
+      }
+      return '';
+    }},
+    legend: { data: ['关键技术','关键产品'] },
+    series: [{
+      type: 'graph',
+      layout: 'force',
+      roam: true,                      // 可缩放/平移
+      draggable: true,
+      zoom: 1,
+      label: { show: true, fontSize: 12, color: '#111' },
+      force: { repulsion: 240, gravity: 0.08, edgeLength: [80, 140] },
+      emphasis: { focus: 'adjacency' },
+      lineStyle: { color: '#9aa4b2', width: 1.5, curveness: 0.15 },
+      edgeLabel: { show: true, fontSize: 10, color: '#666', formatter: p => p.data.label || '' },
+      data: demoNodes.map(n => ({
+        id: n.id, name: n.name, value: n.name, category: n.type==='tech' ? 0 : 1,
+        symbolSize: sizeOf(n.type),
+        itemStyle: { color: colorOf(n.type) }
+      })),
+      links: demoLinks.map(e => ({ source: e.source, target: e.target, label: e.label })),
+      categories: [{ name: '关键技术' }, { name: '关键产品' }]
+    }]
+  };
+  chart.setOption(option);
+
+  /***************
+   * 状态与工具
+   ***************/
+  let activeId = null;
+
+  function findNodeIndexById(id) {
+    const data = chart.getOption().series[0].data;
+    const idx = data.findIndex(d => d.id === id);
+    return idx >= 0 ? idx : null;
+  }
+
+  function selectNode(id) {
+    const idx = findNodeIndexById(id);
+    if (idx == null) return;
+
+    activeId = id;
+
+    // 先取消已有高亮
+    const dataLen = chart.getOption().series[0].data.length;
+    for (let i=0; i<dataLen; i++) {
+      chart.dispatchAction({ type: 'downplay', seriesIndex: 0, dataIndex: i });
+    }
+    // 高亮 & 关联高亮
+    chart.dispatchAction({ type: 'focusNodeAdjacency', seriesIndex: 0, dataIndex: idx });
+    chart.dispatchAction({ type: 'highlight', seriesIndex: 0, dataIndex: idx });
+
+    // 更新左侧介绍
+    const nodeMeta = demoNodes.find(n => n.id === id);
+    renderIntro(nodeMeta);
+  }
+
+  function renderIntro(node) {
+    const box = document.getElementById('introBox');
+    if (!node) {
+      box.innerHTML = '<div class="muted">（无节点）</div>';
+      return;
+    }
+    const nb = neighbors(node.id);
+    box.innerHTML = `
+      <div class="mb-2">
+        <span class="badge ${node.type === 'tech' ? 'text-bg-primary' : 'text-bg-success'}">${node.type==='tech'?'关键技术':'关键产品'}</span>
+      </div>
+      <h5 class="mb-1">${escapeHtml(node.name)}</h5>
+      <div class="text-muted mb-3">ID：${node.id}</div>
+      <p>${escapeHtml(node.desc || '（无简介）')}</p>
+
+      <hr>
+      <div class="mb-2 fw-semibold">相邻节点</div>
+      <div>${ nb.length ? nb.map(n=>`<span class="badge rounded-pill text-bg-secondary me-1 mb-1">${escapeHtml(n.name)}</span>`).join('') : '—' }</div>
+    `;
+  }
+
+  function neighbors(id) {
+    // 返回与 id 相连的去重节点（基于 demoLinks）
+    const adjIds = new Set();
+    demoLinks.forEach(e => {
+      if (e.source === id) adjIds.add(e.target);
+      if (e.target === id) adjIds.add(e.source);
+    });
+    return demoNodes.filter(n => adjIds.has(n.id));
+  }
+
+  function escapeHtml(s){ return (s||'').replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
+
+  /***************
+   * 交互：点击图节点
+   ***************/
+  chart.on('click', params => {
+    if (params.dataType === 'node') {
+      selectNode(params.data.id);
+    }
+  });
+
+  /***************
+   * 搜索/生成（当前为选择逻辑；接后端时可在无命中时“生成并追加”）
+   ***************/
+  document.getElementById('searchForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const q = document.getElementById('searchInput').value.trim().toLowerCase();
+    if (!q) return;
+
+    const hit = demoNodes.find(n =>
+      n.name.toLowerCase().includes(q) ||
+      (n.desc || '').toLowerCase().includes(q) ||
+      n.id.toLowerCase() === q
+    );
+    if (hit) {
+      selectNode(hit.id);
+      // 让节点居中（用渐进式方法：缩放+平移动画）
+      tryCenterOnNode(hit.id);
+    } else {
+      alert('未找到匹配节点（可在此处接入后端生成/扩展图谱）');
+    }
+  });
+
+  // 清空 & 聚焦当前
+  document.getElementById('btnClear').addEventListener('click', () => {
+    activeId = null;
+    document.getElementById('introBox').innerHTML = '<div class="muted">已清空。输入关键字或点击右侧节点以查看详情。</div>';
+    // 取消所有高亮
+    const dataLen = chart.getOption().series[0].data.length;
+    for (let i=0; i<dataLen; i++) {
+      chart.dispatchAction({ type:'downplay', seriesIndex:0, dataIndex:i });
+    }
+  });
+  document.getElementById('btnFocus').addEventListener('click', () => {
+    if (!activeId) return alert('请先选择一个节点');
+    tryCenterOnNode(activeId);
+  });
+
+  // 尝试把节点居中（近似方案：显示 tooltip + 依赖 roam 手动微调）
+  function tryCenterOnNode(id) {
+    const idx = findNodeIndexById(id);
+    if (idx == null) return;
+    // 显示提示，帮助用户定位；也可进一步用 graphic/roam API 做平移动画
+    chart.dispatchAction({ type:'showTip', seriesIndex:0, dataIndex:idx });
+    // 可选：轻微缩放，暗示位置
+    const zr = chart.getZr();
+    zr.animation && zr.animation.animate('dummy', {}, 300);
+  }
+
+  // 初始：选中一个默认节点
+  selectNode('n5');
+</script>
 {% endblock %}

@@ -1,30 +1,64 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <title>{% block title %}AI关键技术及产品智能发现平台{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
-<header class="site-header">
-    <div class="brand">人工智能关键技术及产品智能发现平台</div>
-    <nav class="nav">
-        <a href="{{ url_for('index') }}" class="nav-item {{ 'active' if active=='home' else '' }}">首页</a>
-        <a href="{{ url_for('identify_page') }}"
-           class="nav-item {{ 'active' if active=='discover' else '' }}">智发现</a>
-        <a href="{{ url_for('portrait_page') }}"
-           class="nav-item {{ 'active' if active=='portrait' else '' }}">全画像</a>
-        <a href="{{ url_for('ranking_page') }}" class="nav-item {{ 'active' if active=='ranking' else '' }}">排行榜</a>
-    </nav>
-</header>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>{% block title %}AI关键技术及产品智能发现平台{% endblock %}</title>
 
-<main class="container">
-    {% block content %}{% endblock %}
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- 自定义样式（放在 Bootstrap 后面以便覆盖） -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+<!-- 顶部导航（更紧凑） -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm py-1">
+  <div class="container">
+    <a class="navbar-brand fw-semibold fs-6 me-3 py-0" href="{{ url_for('index') }}">
+      人工智能关键技术及产品智能发现平台
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link {% if active=='home' %}active{% endif %} py-1 px-2" href="{{ url_for('index') }}">首页</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if active=='discover' %}active{% endif %} py-1 px-2" href="{{ url_for('identify_page') }}">智发现</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if active=='portrait' %}active{% endif %} py-1 px-2" href="{{ url_for('portrait_page') }}">全画像</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if active=='ranking' %}active{% endif %} py-1 px-2" href="{{ url_for('ranking_page') }}">排行榜</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- 页面主体（把 py-4 放进可覆盖块，首页可改成 p-0） -->
+<main class="{% block container_class %}container py-0{% endblock %}">
+  {% block content %}{% endblock %}
 </main>
 
-<footer class="site-footer">
-    <div>版本 4.0 · 版权@智能与创新治理研究所</div>
+<!-- 页脚（更紧凑） -->
+<footer class="bg-dark text-white-50 py-1 mt-auto">
+  <div class="container small text-center">
+    版本 4.0 · 版权@智能与创新治理研究所
+  </div>
 </footer>
+
+<!-- Bootstrap JS -->
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+{% block scripts %}{% endblock %}
 </body>
 </html>

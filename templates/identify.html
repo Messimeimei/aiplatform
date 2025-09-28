@@ -1,6 +1,241 @@
 {% extends "base.html" %}
 {% block title %}智发现{% endblock %}
+{% block container_class %}container py-3{% endblock %}
+
+{% block extra_head %}
+<style>
+  /* 浅底面板（与 results 一致的高对比阅读区） */
+  .surface { background:#fff; color:#212529; border-radius:14px; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.08); }
+
+  /* 卡片外观 */
+  .card-flat { background:#fff; border-radius:12px; border:1px solid #e9ecef; box-shadow:0 4px 14px rgba(0,0,0,.06); }
+  .card-flat .card-header { background:#f8f9fa; border-bottom:1px solid #e9ecef; }
+
+  /* —— 文本模式输入框：固定高度、超出滚动、非 textarea —— */
+  .input-box {
+    height: 320px;                         /* 固定高度 */
+    overflow: auto;                        /* 超出滚动 */
+    border: 1px solid #ced4da;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 1.6;
+    outline: none;
+  }
+  /* 焦点态 */
+  .input-box:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 4px rgba(13,110,253,.15);
+  }
+  /* 占位提示（contenteditable 的 placeholder 技巧） */
+  .input-box[contenteditable="true"]:empty:before {
+    content: attr(data-placeholder);
+    color: #6c757d;
+  }
+
+  /* 文件模式上传框 */
+  .upload-box { border:1px dashed #ced4da; border-radius:12px; padding:24px; text-align:center; background:#f8f9fa; }
+  .upload-box input[type="file"] { display:none; }
+  .upload-box .filename { margin-top:10px; color:#6c757d; font-size:.9rem; }
+
+  /* —— 结果区：按钮风格的 Chips —— */
+  .chips { display:flex; flex-wrap:wrap; gap:8px; }
+  .chip {
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:6px 12px;
+    border-radius: 999px;                  /* 胶囊 */
+    border:1px solid #cfe3ff;
+    background: #f4f8ff;
+    color:#0b5ed7;
+    font-size: 13px;
+    cursor: default;
+    user-select: text;
+    transition: background .15s ease, border-color .15s ease, transform .05s ease;
+    white-space: nowrap;
+  }
+  .chip:hover { background:#e9f2ff; border-color:#b6d4fe; }
+  .chip .mark { margin-left:8px; font-size:11px; color:#6c757d; }
+
+  /* 结果滚动区域（如果内容较多） */
+  .result-body { max-height: 220px; overflow:auto; }
+</style>
+{% endblock %}
+
 {% block content %}
-    <h1>智发现</h1>
-    <p>这里放文本识别/文件上传的入口。</p>
+<div class="surface">
+  <div class="row g-3">
+    <!-- 左侧：输入区 -->
+    <div class="col-12 col-lg-8">
+      <div class="card card-flat h-100">
+        <div class="card-header d-flex align-items-center justify-content-between">
+          <div class="btn-group" role="group" aria-label="识别类型">
+            <button type="button" class="btn btn-outline-primary active" id="btnText">文本识别</button>
+            <button type="button" class="btn btn-outline-primary" id="btnFile">文件识别</button>
+          </div>
+          <div class="small text-muted">选择识别方式，输入内容后开始识别</div>
+        </div>
+        <div class="card-body">
+          <!-- 文本模式（非 textarea） -->
+          <div id="modeText">
+            <label class="form-label">请输入待识别文本</label>
+            <div id="textInput"
+                 class="input-box"
+                 contenteditable="true"
+                 spellcheck="false"
+                 data-placeholder="在此粘贴或输入文本…"></div>
+          </div>
+
+          <!-- 文件模式 -->
+          <div id="modeFile" class="d-none">
+            <label class="form-label">请选择待识别文件</label>
+            <div class="upload-box" id="uploadArea">
+              <label class="btn btn-outline-secondary">
+                选择文件
+                <input type="file" id="fileInput" accept=".txt,.pdf,.doc,.docx,.md,.rtf,.csv"/>
+              </label>
+              <div class="filename" id="fileName">尚未选择文件</div>
+              <div class="small text-muted mt-2">支持常见文档；后端接入后将在服务器解析内容。</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer bg-white d-flex gap-2 justify-content-end">
+          <button class="btn btn-outline-secondary" id="btnClear">清空</button>
+          <button class="btn btn-success" id="btnRun">开始识别</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右侧：结果区 -->
+    <div class="col-12 col-lg-4">
+      <!-- 关键技术 -->
+      <div class="card card-flat mb-3">
+        <div class="card-header fw-semibold">关键技术</div>
+        <div class="card-body result-body" id="techResult">
+          <div class="text-muted">识别结果将显示在这里…</div>
+        </div>
+      </div>
+      <!-- 关键产品 -->
+      <div class="card card-flat">
+        <div class="card-header fw-semibold">关键产品</div>
+        <div class="card-body result-body" id="productResult">
+          <div class="text-muted">识别结果将显示在这里…</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // —— 模式切换：文本识别 / 文件识别
+  (function(){
+    const btnText = document.getElementById('btnText');
+    const btnFile = document.getElementById('btnFile');
+    const modeText = document.getElementById('modeText');
+    const modeFile = document.getElementById('modeFile');
+
+    btnText.addEventListener('click', ()=>{
+      btnText.classList.add('active'); btnFile.classList.remove('active');
+      modeText.classList.remove('d-none'); modeFile.classList.add('d-none');
+    });
+    btnFile.addEventListener('click', ()=>{
+      btnFile.classList.add('active'); btnText.classList.remove('active');
+      modeFile.classList.remove('d-none'); modeText.classList.add('d-none');
+    });
+  })();
+
+  // —— 文件名显示
+  (function(){
+    const fileInput = document.getElementById('fileInput');
+    const fileNameEl = document.getElementById('fileName');
+    fileInput?.addEventListener('change', ()=>{
+      fileNameEl.textContent = fileInput.files?.[0]?.name || '尚未选择文件';
+    });
+  })();
+
+  // —— 清空
+  (function(){
+    const btnClear = document.getElementById('btnClear');
+    btnClear.addEventListener('click', ()=>{
+      document.getElementById('textInput').innerText = '';
+      const f = document.getElementById('fileInput');
+      if (f) { f.value = ''; document.getElementById('fileName').textContent = '尚未选择文件'; }
+      clearResults();
+    });
+  })();
+
+  // —— 开始识别（示例逻辑；接后端时替换为真实接口）
+  (function(){
+    const btnRun = document.getElementById('btnRun');
+    btnRun.addEventListener('click', async ()=>{
+      clearResults();
+
+      // 判断当前模式与输入
+      const isTextMode = document.getElementById('btnText').classList.contains('active');
+      let payload = {};
+      if (isTextMode) {
+        const text = document.getElementById('textInput').innerText.trim();  // 非 textarea：用 innerText
+        if (!text) return toast('请输入文本后再识别');
+        payload = { mode: 'text', text };
+      } else {
+        const file = document.getElementById('fileInput').files?.[0];
+        if (!file) return toast('请选择文件后再识别');
+        payload = { mode: 'file', filename: file.name };
+        // 真实接入：FormData 上传文件
+        // const fd = new FormData(); fd.append('file', file);
+        // const res = await fetch('/api/identify', { method:'POST', body: fd });
+      }
+
+      // TODO: 调用你的后端接口，拿到形如 {tech:[], product:[]} 的结果
+      // const data = await (await fetch('/api/identify', {...})).json();
+      // renderResults(data);
+
+      // —— Demo：简单关键词模拟识别
+      const demo = demoExtract(payload);
+      renderResults(demo);
+    });
+  })();
+
+  // —— 工具函数
+  function clearResults(){
+    document.getElementById('techResult').innerHTML = '<div class="text-muted">识别结果将显示在这里…</div>';
+    document.getElementById('productResult').innerHTML = '<div class="text-muted">识别结果将显示在这里…</div>';
+  }
+  function renderResults(data){
+    const tech = document.getElementById('techResult');
+    const prod = document.getElementById('productResult');
+    tech.innerHTML = chipTemplate(data.tech || []);
+    prod.innerHTML = chipTemplate(data.product || []);
+  }
+  // 按“按钮风格”渲染
+  function chipTemplate(arr){
+    if (!arr.length) return '<div class="text-muted">（无识别结果）</div>';
+    return '<div class="chips">'+
+      arr.map(t=>`<span class="chip">${escapeHtml(t)}<span class="mark">识别</span></span>`).join('')+
+    '</div>';
+  }
+  function toast(msg){ alert(msg); }
+  function escapeHtml(s){ return s.replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
+
+  // —— Demo 识别
+  function demoExtract(payload){
+    if (payload.mode === 'file') {
+      return {
+        tech: ['（示例）多模态融合', '（示例）知识蒸馏', '（示例）边缘推理'],
+        product: ['（示例）OCR识别平台', '（示例）文本生成引擎']
+      };
+    }
+    const text = payload.text;
+    const seeds = [
+      '大模型','多模态','蒸馏','量化','加速','OCR','NLP','RAG','Agent','检索增强',
+      '知识图谱','分割','检测','重识别','对比学习','联邦学习','边缘计算','AIGC'
+    ];
+    const found = seeds.filter(k=>text.includes(k));
+    const tech = found.slice(0,5).map(s=>'（示例）'+s);
+    const product = (text.length>30 ? ['（示例）智能体平台','（示例）企业知识库'] : ['（示例）文本生成引擎']);
+    return { tech, product };
+  }
+</script>
 {% endblock %}

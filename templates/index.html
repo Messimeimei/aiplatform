@@ -1,7 +1,97 @@
 {% extends "base.html" %}
 {% block title %}首页{% endblock %}
+{% block container_class %}container-fluid p-0{% endblock %}
+
+{% block extra_head %}
+<style>
+  /* 满屏检索区：高度=视口 - 导航 - 页脚 */
+  .hero {
+    min-height: calc(100vh - var(--header-h,72px) - var(--footer-h,56px));
+    display: grid; place-items: center;
+    background:
+      radial-gradient(80% 60% at 80% -10%, rgba(91,140,255,.18), transparent),
+      linear-gradient(180deg, #121937, #0f1530),
+      url("{{ url_for('static', filename='hero-bg.jpg') }}") center/cover no-repeat;
+  }
+  .shell { width: min(92vw, 980px); }
+  .tag-row { display: grid; grid-template-columns: repeat(7, 1fr); gap: .5rem; }
+  .tag-btn { white-space: nowrap; }
+</style>
+{% endblock %}
+
 {% block content %}
-    <h1>首页 - 检索入口</h1>
-    <p>这里是首页，可以放简介和检索框。</p>
-    <a href="{{ url_for('results_page') }}">去检索结果页</a>
+<section class="hero" id="hero">
+  <div class="shell">
+
+    <!-- 顶部：关键技术 / 关键产品 -->
+    <div class="mb-3 d-flex gap-2">
+      <button type="button" class="btn btn-outline-light active" data-type="tech">关键技术</button>
+      <button type="button" class="btn btn-outline-light" data-type="product">关键产品</button>
+    </div>
+
+    <!-- 中部：输入 + 绿色按钮（总宽拉满，同行对齐） -->
+    <form class="row g-2 align-items-stretch" action="{{ url_for('results_page') }}" method="get">
+      <input type="hidden" name="type" id="typeInput" value="tech">
+      <div class="col-12 col-md-9 col-lg-10">
+        <input class="form-control form-control-lg" name="q" placeholder="请输入技术/产品、企业、论文、专利、关键词…" required>
+      </div>
+      <div class="col-12 col-md-3 col-lg-2 d-grid">
+        <button class="btn btn-success btn-lg" type="submit">检索</button>
+      </div>
+    </form>
+
+    <!-- 底部：7 个标签（宽度总和与上方一行一致） -->
+    <div class="mt-3 tag-row">
+      <button type="button" class="btn btn-outline-light tag-btn">大模型推理加速</button>
+      <button type="button" class="btn btn-outline-light tag-btn">多模态识别</button>
+      <button type="button" class="btn btn-outline-light tag-btn">AIGC 文本生成</button>
+      <button type="button" class="btn btn-outline-light tag-btn">智能体 (Agent)</button>
+      <button type="button" class="btn btn-outline-light tag-btn">知识蒸馏</button>
+      <button type="button" class="btn btn-outline-light tag-btn">视觉分割</button>
+      <button type="button" class="btn btn-outline-light tag-btn">边缘计算</button>
+    </div>
+
+{#    <div class="text-white-50 mt-2 small">提示：点击类型或标签可快速开始检索</div>#}
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // 自适应高度：计算 header/footer 实际高度，避免滚动条
+  (function(){
+    function fit(){
+      const h=document.querySelector('.navbar')?.offsetHeight||0;
+      const f=document.querySelector('footer')?.offsetHeight||0;
+      document.documentElement.style.setProperty('--header-h', h+'px');
+      document.documentElement.style.setProperty('--footer-h', f+'px');
+    }
+    window.addEventListener('load', fit);
+    window.addEventListener('resize', fit);
+  })();
+
+  // 类型切换（关键技术 / 关键产品）
+  (function () {
+    const input = document.getElementById('typeInput');
+    document.querySelectorAll('[data-type]').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        document.querySelectorAll('[data-type]').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        input.value = btn.dataset.type;
+      });
+    });
+  })();
+
+  // 标签点击：填入输入并提交
+  (function(){
+    const form = document.querySelector('form');
+    const q = form.querySelector('input[name="q"]');
+    document.querySelectorAll('.tag-btn').forEach(tag=>{
+      tag.addEventListener('click',()=>{
+        q.value = tag.textContent.trim();
+        form.submit();
+      })
+    })
+  })();
+</script>
 {% endblock %}

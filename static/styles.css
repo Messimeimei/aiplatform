@@ -1,30 +1,118 @@
+:root {
+  --bg: #0b1020;
+  --surface: #121937;
+  --surface-2: #0f1530;
+  --text: #e8edff;
+  --muted: #a7b1d6;
+  --brand: #5b8cff;
+  --brand-2: #7aa2ff;
+  --ring: rgba(123, 170, 255, .35);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
 body {
-    font-family: sans-serif;
-    margin: 0;
+  margin: 0;
+  font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 80% -10%, rgba(91,140,255,.15), transparent) , var(--bg);
 }
 
 .site-header {
-    background: #f5f5f5;
-    padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px;
+  background: linear-gradient(180deg, rgba(18,25,55,.95), rgba(18,25,55,.85));
+  border-bottom: 1px solid rgba(123,170,255,.2);
+  backdrop-filter: blur(6px);
 }
 
+.brand {
+  font-weight: 700;
+  letter-spacing: .5px;
+  font-size: 16px;
+}
+
+.nav { display: flex; gap: 10px; }
 .nav .nav-item {
-    margin-right: 10px;
-    text-decoration: none;
-    color: #333;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: all .2s ease;
+  border: 1px solid transparent;
 }
-
+.nav .nav-item:hover {
+  color: var(--text);
+  border-color: var(--ring);
+  background: rgba(123,170,255,.08);
+}
 .nav .nav-item.active {
-    font-weight: bold;
-    color: blue;
+  color: white;
+  background: linear-gradient(180deg, var(--brand), var(--brand-2));
+  border-color: transparent;
+  box-shadow: 0 0 0 6px var(--ring);
 }
 
 .container {
-    padding: 20px;
+  max-width: 1100px;
+  margin: 28px auto;
+  padding: 0 20px;
+}
+
+h1, h2 { margin: 0 0 16px; }
+h1 { font-size: 26px; }
+p { color: var(--muted); line-height: 1.7; }
+
+.card {
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  border: 1px solid rgba(123,170,255,.18);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
 }
 
 .site-footer {
-    background: #f5f5f5;
-    padding: 10px;
-    text-align: center;
+  margin-top: 40px;
+  padding: 16px 20px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid rgba(123,170,255,.2);
+  background: rgba(15,21,48,.6);
 }
+/* —— 桌面端压缩 header/footer 高度，移动端保持触控面积 —— */
+@media (min-width: 992px) {
+  /* 导航整体上下留白（Bootstrap 5 用变量控制） */
+  .navbar { --bs-navbar-padding-y: .25rem; }  /* 默认约 .5rem，减半 */
+
+  /* 品牌更紧凑：字号略小、去掉上下 padding */
+  .navbar .navbar-brand {
+    font-size: .95rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 1.2;
+  }
+
+  /* 导航链接更紧凑：减 padding、字号微降 */
+  .navbar .nav-link {
+    padding: .25rem .5rem;
+    font-size: .95rem;
+    line-height: 1.2;
+  }
+
+  /* 页脚更紧凑 */
+  footer.bg-dark {
+    padding-top: .25rem !important;
+    padding-bottom: .25rem !important;
+  }
+}
+
+/* 折叠按钮也稍微小一点（可选） */
+.navbar-toggler { padding: .15rem .4rem; }
+.navbar-toggler-icon { width: 1.15rem; height: 1.15rem; }
