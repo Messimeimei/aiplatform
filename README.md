@@ -1,6 +1,6 @@
-# 启动方式
+# 本地启动方式
 
- docker build -t aiplatform .
+docker compose -f docker-compose.dev.yml up --build
 
 # 访问方式
 ## 打开 http://localhost:8000
@@ -17,9 +17,8 @@ docker login crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com -u '梅�
 docker pull  crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest
 
 ## 3) 启动
-docker compose down || true
-docker compose up -d
-
+docker compose -f docker-compose.prod.yml down --remove-orphans || true
+docker compose -f docker-compose.prod.yml up -d
 ## 4) 看容器与端口
 docker ps -a
 ss -tlnp | grep -E ':80|:8000' || true

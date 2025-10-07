@@ -7,7 +7,6 @@ services:
     env_file:
       - .env
     volumes:
-      - ./data:/app/data                    # ✅ 修改这里
       - ./static/uploads:/app/static/uploads
     command: >
       sh -c "gunicorn -w 2 -b 0.0.0.0:8000 app:app"

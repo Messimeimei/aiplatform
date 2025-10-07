@@ -20,6 +20,10 @@ from docx import Document
 from dashscope import Generation
 from dotenv import load_dotenv
 
+# 保证无论在哪运行都能找到 /app/data
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(os.path.dirname(BASE_DIR), "data")
+
 # ==================== 环境配置 ====================
 load_dotenv()  # 自动读取 .env 文件
 API_KEY = os.getenv("DASHSCOPE_API_KEY", "sk-xxxx")  # 建议放在环境变量

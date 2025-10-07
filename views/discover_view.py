@@ -30,7 +30,7 @@ def api_identify():
             text = request.json.get("text", "").strip()
             if not text:
                 return jsonify({"error": "empty_text"}), 400
-            result = intelligent_discovery(text, "data")
+            result = intelligent_discovery(text, "/app/data")
 
         elif mode == "file":
             if "file" not in request.files:
@@ -39,7 +39,7 @@ def api_identify():
             save_path = os.path.join("static", "uploads", file.filename)
             os.makedirs(os.path.dirname(save_path), exist_ok=True)
             file.save(save_path)
-            result = intelligent_discovery(save_path, "data")
+            result = intelligent_discovery(save_path, "/app/data")
 
         else:
             return jsonify({"error": "invalid_mode"}), 400
