@@ -19,7 +19,7 @@ COPY . .
 
 # 数据目录 & 持久化挂载点
 RUN mkdir -p /data /app/static/uploads
-VOLUME ["/data"]
+VOLUME ["/app/data"]
 
 EXPOSE 8000
 CMD ["gunicorn","-w","2","-b","0.0.0.0:8000","app:app"]
