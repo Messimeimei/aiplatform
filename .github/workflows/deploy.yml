@@ -15,18 +15,22 @@ jobs:
       IMAGE_NAME: ${{ secrets.ACR_REGISTRY }}/${{ secrets.ACR_NAMESPACE }}/meiss
 
     steps:
+      # 1️⃣ 检出仓库
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
+      # 2️⃣ 设置短版本号（用于打 tag）
       - name: Compute image tag (short sha)
         id: meta
         run: echo "SHORT_SHA=$(git rev-parse --short=7 HEAD)" >> "$GITHUB_OUTPUT"
 
+      # 3️⃣ 登录到阿里云 ACR
       - name: Log in to ACR (personal)
         run: |
           echo "${{ secrets.ACR_PASSWORD }}" | docker login $REGISTRY \
             -u "${{ secrets.ACR_USERNAME }}" --password-stdin
 
+      # 4️⃣ 构建镜像（同时打 latest 与 commit sha 两个 tag）
       - name: Build image (latest + sha)
         run: |
           docker build \
@@ -34,11 +38,13 @@ jobs:
             -t $IMAGE_NAME:${{ steps.meta.outputs.SHORT_SHA }} \
             .
 
+      # 5️⃣ 推送到 ACR 仓库
       - name: Push images
         run: |
           docker push $IMAGE_NAME:${{ steps.meta.outputs.SHORT_SHA }}
           docker push $IMAGE_NAME:latest
 
+      # 6️⃣ SSH 登录到服务器并自动部署
       - name: Deploy on ECS
         uses: appleboy/ssh-action@v0.1.7
         with:
@@ -50,30 +56,28 @@ jobs:
             set -euo pipefail
             cd /root/aiplatform
 
-            # 准备运行必需的文件/目录
-            test -f .env || (echo "PORT=8000" > .env && echo "DB_PATH=/data/data.db" >> .env)
+            echo "===== 确保必要目录存在 ====="
             mkdir -p data static/uploads
 
-            echo "===== Login ACR ====="
+            echo "===== 登录阿里云 ACR ====="
             echo "${{ secrets.ACR_PASSWORD }}" | docker login $REGISTRY \
               -u "${{ secrets.ACR_USERNAME }}" --password-stdin
 
-            echo "===== Pull & Run with immutable tag ====="
             IMAGE_NAME="$REGISTRY/$NAMESPACE/$REPO"
             IMAGE_TAG="${{ steps.meta.outputs.SHORT_SHA }}"
 
-            # 先拉再起，保证拿到最新层
+            echo "===== 拉取最新镜像 ====="
             docker pull "$IMAGE_NAME:$IMAGE_TAG"
 
-            # 以变量注入给 compose（对应 docker-compose.yml 里的 ${IMAGE_NAME}:${IMAGE_TAG}）
-            export IMAGE_NAME IMAGE_TAG
+            echo "===== 更新 compose 文件镜像引用 ====="
+            sed -i "s#^\(\s*image:\s*\).*#\1$IMAGE_NAME:$IMAGE_TAG#" docker-compose.prod.yml
 
-            # 强制重建，避免沿用旧容器
-            docker compose down || true
-            docker compose up -d --force-recreate
+            echo "===== 重新部署容器 ====="
+            docker compose -f docker-compose.prod.yml down || true
+            docker compose -f docker-compose.prod.yml up -d --force-recreate
 
-            echo "===== Running containers ====="
+            echo "===== 当前运行容器 ====="
             docker ps -a
 
-            echo "===== Sanity check (port 80) ====="
+            echo "===== 健康检查 (http://127.0.0.1:80) ====="
             curl -sI http://127.0.0.1:80 || true
