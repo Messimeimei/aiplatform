@@ -16,6 +16,7 @@ RUN pip install --no-cache-dir -r requirements.txt -i https://mirrors.aliyun.com
 
 # 复制所有代码
 COPY . .
+RUN mkdir -p /app/data
 
 # 数据目录 & 持久化挂载点
 RUN mkdir -p /data /app/static/uploads
