@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  ai-keytech-web:
+    build: .                           # ✅ 使用本地 Dockerfile 自动构建
+    image: ai-keytech:local            # 给本地镜像一个名字
+    container_name: ai-keytech-web-dev
+    ports:
+      - "8000:8000"                    # 本地端口与容器一致，方便调试
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data               # ✅ 挂载本地 data，可直接修改
+      - ./static:/app/static           # ✅ 挂载整个 static，调试前端资源
+      - ./templates:/app/templates     # ✅ 挂载模板，调试 HTML 不需重启
+    command: >
+      sh -c "gunicorn -w 2 -b 0.0.0.0:8000 app:app --timeout 180"
+    restart: unless-stopped
