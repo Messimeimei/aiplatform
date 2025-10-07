@@ -149,7 +149,7 @@
 
   document.getElementById('btnBack').addEventListener('click', ()=>{
     if (document.referrer) history.back();
-    else window.location.href = "{{ url_for('results_page') }}";
+    else window.location.href = "{{ url_for('base.results_page') }}";
   });
 
   tocItems.forEach(a=>{

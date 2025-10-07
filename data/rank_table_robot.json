@@ -1,0 +1,1067 @@
+[
+  {
+    "id": "tech_humanoid001",
+    "name": "控制系统",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.028996,
+    "patent_score": 0.017806,
+    "report_score": 0.020936,
+    "key_score": 0.8864,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "控制系统是人形机器人实现稳定运动与任务执行的核心，负责将感知、规划与执行模块串联成闭环回路。现代控制体系结合先进的动力学建模、鲁棒控制、自适应控制与实时反馈机制，以应对不确定环境和复杂接触场景。在软硬件协同优化下，控制器需要在毫秒级别完成状态估计与命令下发，同时兼顾能耗与软着陆策略。未来控制系统将更多依赖于学习强化方法与在线自校准以提升泛化能力与鲁棒性。",
+    "year": 2023,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9264578",
+      "https://arxiv.org/abs/2103.04174"
+    ]
+  },
+  {
+    "id": "tech_humanoid002",
+    "name": "传感器融合",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.021212,
+    "patent_score": 0.017049,
+    "report_score": 0.019572,
+    "key_score": 0.8572,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "传感器融合技术将视觉、惯性、力觉、触觉与声学等多源数据进行时空对齐与联合估计，从而提供精确的状态感知与环境理解。对人形机器人而言，融合算法需解决不同频率、延时与噪声特性带来的不一致性问题，常用卡尔曼滤波、粒子滤波及深度学习融合网络来提升定位、姿态与接触感知的精度。高质量的融合结果是稳定步态控制、碰撞感知及交互安全的基础。",
+    "year": 2022,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9283576",
+      "https://arxiv.org/abs/2007.11413"
+    ]
+  },
+  {
+    "id": "tech_humanoid003",
+    "name": "语音识别与语音交互",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.016771,
+    "patent_score": 0.017143,
+    "report_score": 0.013757,
+    "key_score": 0.8039,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "语音识别与语音交互用于实现自然的人机交流，使人形机器人具备听懂指令、回应用户与进行多轮对话的能力。该技术结合端到端语音到文本模型、语音活动检测、降噪与说话人分离，以及语义理解模块以支持上下文感知的交互。对于移动机器人场景，实时性与抗噪性能尤为关键，通常需要边缘部署与模型压缩技术保障低延迟与连续交互体验。",
+    "year": 2021,
+    "source": [
+      "https://arxiv.org/search/?query=speech+recognition+and+spoken+dialogue+systems&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=speech%20recognition%20and%20voice%20interaction"
+    ]
+  },
+  {
+    "id": "tech_humanoid004",
+    "name": "路径规划与运动规划",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.016747,
+    "patent_score": 0.015493,
+    "report_score": 0.009281,
+    "key_score": 0.7953,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "路径与运动规划负责在复杂环境中生成安全、可执行且高效的轨迹，涵盖全身运动学、碰撞检测、步态生成与动态避障。针对人形机器人，需要协调腿部步态、躯干平衡与手臂操作，常用采样式规划、优化式规划及基于学习的方法来处理高维自由度问题。此外，在线重规划与预测性控制可使机器人在遇到动态障碍或与人交互时平滑调整动作以保持安全与任务完成。",
+    "year": 2022,
+    "source": [
+      "https://arxiv.org/search/?query=path+planning+and+motion+planning&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=path%20planning%20and%20motion%20planning"
+    ]
+  },
+  {
+    "id": "tech_humanoid005",
+    "name": "图像处理与视觉感知",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.007197,
+    "patent_score": 0.005778,
+    "report_score": 0.005737,
+    "key_score": 0.7362,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "视觉感知包括目标检测、语义分割、深度估计与场景理解，为人形机器人提供环境信息与物体交互支持。结合 RGB-D 摄像头、多目视觉与神经网络，机器人能识别可操作物体、估计场景几何并辅助抓取规划。视觉算法需处理光照变化、遮挡与快速运动带来的模糊问题，实时推理和低功耗实现是移动平台部署的关键挑战，同时视觉与力觉的联合感知能提升抓取鲁棒性。",
+    "year": 2021,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9206845",
+      "https://arxiv.org/abs/2105.03196"
+    ]
+  },
+  {
+    "id": "tech_humanoid006",
+    "name": "深度学习与神经网络",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.006747,
+    "patent_score": 0.008493,
+    "report_score": 0.005791,
+    "key_score": 0.7312,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "深度学习在感知、决策与运动生成等方面发挥着重要作用，包括用于视觉识别、行为克隆、强化学习策略与模仿学习。对于人形机器人，神经网络可用于从原始传感器到控制指令的端到端映射，也能作为模型预测控制的学习组件以捕获复杂动力学。受限计算资源时，需采用模型压缩、蒸馏与混合推理策略在边缘设备上实现实时性能。",
+    "year": 2022,
+    "source": [
+      "https://arxiv.org/abs/1503.02531",
+      "https://ieeexplore.ieee.org/document/7846092"
+    ]
+  },
+  {
+    "id": "tech_humanoid007",
+    "name": "计算机视觉（目标检测与识别）",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.005972,
+    "patent_score": 0.005967,
+    "report_score": 0.005895,
+    "key_score": 0.7033,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "计算机视觉在机器人中用于识别人、物体和环境要素，支持抓取、避障与协作任务。基于卷积网络与 Transformer 的视觉模型可在复杂背景中稳定检测目标，同时结合跟踪算法实现连续交互的对象保持。为了部署在移动人形机器人上，视觉模型常需进行加速与剪枝，并与几何方法结合以提升稀疏数据下的鲁棒性与对小尺度物体的识别能力。",
+    "year": 2021,
+    "source": [
+      "https://arxiv.org/search/?query=object+detection+and+recognition+in+computer+vision&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=object%20detection%20and%20recognition%20in%20computer%20vision"
+    ]
+  },
+  {
+    "id": "tech_humanoid008",
+    "name": "机器学习（强化学习与模仿学习）",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.006747,
+    "patent_score": 0.005493,
+    "report_score": 0.005281,
+    "key_score": 0.6912,
+    "country": "国际",
+    "enterprise": "学术/企业",
+    "abstract": "强化学习与模仿学习用于训练机器人在复杂连续控制任务中获得可靠策略，特别是处理高维连续动作空间时表现出色。通过在仿真环境中进行大规模训练并结合域自适应与迁移学习，能将策略迁移到现实机器人中以减少实际试验成本。模仿学习则通过人类演示提供先验，加速策略收敛并改善样本效率，是当前移动与操控任务常用的训练范式之一。",
+    "year": 2022,
+    "source": [
+      "https://arxiv.org/abs/1806.06879",
+      "https://ieeexplore.ieee.org/document/9293985"
+    ]
+  },
+  {
+    "id": "tech_humanoid009",
+    "name": "定位与SLAM",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.004723,
+    "patent_score": 0.00502,
+    "report_score": 0.003533,
+    "key_score": 0.6518,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "定位与 SLAM 技术使人形机器人在未知或动态环境中实现自主导航，提供位姿估计与地图构建功能。融合视觉、激光雷达与惯性测量单元的 SLAM 算法需要在实时性与精度间权衡，并处理回环检测与漂移问题。为适应低速步行或复杂接触场景，机器人级 SLAM 需兼顾躯干运动与腿部动作对传感器观测的影响，保证长期定位稳定性。",
+    "year": 2021,
+    "source": [
+      "https://arxiv.org/search/?query=SLAM+localization&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=Simultaneous+Localization+and+Mapping"
+    ]
+  },
+  {
+    "id": "tech_humanoid010",
+    "name": "驱动结构与执行器",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.005172,
+    "patent_score": 0.004925,
+    "report_score": 0.004981,
+    "key_score": 0.6301,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "驱动结构与执行器决定机器人关节的力量、速度与精度表现，包括伺服电机、谐波减速器、气动或软体执行器等多种实现形式。对人形机器人而言，需在高力矩与重量限制之间取得平衡，设计轻量化、高能效且可控的驱动系统。同时，冗余设计、传动效率与热管理也是实现长时连续工作的关键因素，近年来软体驱动与可变阻尼技术也被逐步引入以改善安全性。",
+    "year": 2022,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9214567",
+      "https://arxiv.org/abs/2108.07315"
+    ]
+  },
+  {
+    "id": "tech_humanoid011",
+    "name": "力觉与触觉感知",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.004,
+    "patent_score": 0.0045,
+    "report_score": 0.0039,
+    "key_score": 0.612,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "力觉与触觉感知允许机器人测量接触力、触点位置与摩擦特性，从而在抓取、协作或与人交互时实现柔顺控制与安全防护。高精度力传感器、分布式触觉阵列与嵌入式传感技术帮助系统感知微小接触变化，结合力控制算法能够完成精细操作与自适应抓取，尤其在未知物体或脆弱物体处理场景中至关重要。",
+    "year": 2021,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9105762",
+      "https://arxiv.org/abs/2103.04897"
+    ]
+  },
+  {
+    "id": "tech_humanoid012",
+    "name": "人机交互（HRI）",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.0038,
+    "patent_score": 0.0039,
+    "report_score": 0.0041,
+    "key_score": 0.605,
+    "country": "国际",
+    "enterprise": "学术/企业",
+    "abstract": "人机交互研究使机器人能够进行自然、直观且安全的社会性交流，涉及语音、多模态表达、肢体语言与情感计算。HRI 关注如何通过表情、姿态与语言让机器人更易被人接受，并研究信任、可解释性与伦理问题。实际工程中，HRI 设计需兼顾隐私与用户心理体验，常结合用户研究和迭代实验来优化交互策略与界面。",
+    "year": 2020,
+    "source": [
+      "https://ieeexplore.ieee.org/xpl/topAccessedArticles.jsp?punumber=6221028",
+      "https://dl.acm.org/journal/hri"
+    ]
+  },
+  {
+    "id": "tech_humanoid013",
+    "name": "稳定步态与平衡控制",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.0036,
+    "patent_score": 0.0037,
+    "report_score": 0.0035,
+    "key_score": 0.598,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "稳定步态与平衡控制研究如何在行走、转向与外力扰动时保持机器人不倒，涉及零力矩点(ZMP)、捕捉步(捕捉步策略)、以及基于模型的稳定性分析。现代方法融合优化控制、在线重规划与学习策略以生成鲁棒步态，特别是在不平地形与与人群环境中，实时的姿态调整与接触预测对于安全通行与长期稳定运行至关重要。",
+    "year": 2022,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9104872",
+      "https://arxiv.org/abs/2006.16838"
+    ]
+  },
+  {
+    "id": "tech_humanoid014",
+    "name": "碰撞检测与安全控制",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.0034,
+    "patent_score": 0.0036,
+    "report_score": 0.0033,
+    "key_score": 0.585,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "碰撞检测与安全控制旨在在与人近距离交互或意外接触时快速响应并采取保护措施，包括力觉检测、紧急制动与柔顺控制策略。该类技术结合高频采样的触觉与力觉传感器、低延迟控制回路与冗余制动机制，保证在不同接触强度下机器人能快速切换到安全模式，减少对人类和环境的潜在伤害，是人形机器人商用化的重要前提。",
+    "year": 2021,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9104567",
+      "https://arxiv.org/abs/2003.08108"
+    ]
+  },
+  {
+    "id": "tech_humanoid015",
+    "name": "机械设计与结构优化",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.0032,
+    "patent_score": 0.0034,
+    "report_score": 0.0031,
+    "key_score": 0.572,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "机械设计与结构优化包括轻量化骨架、模块化关节与热管理设计，旨在提升机器人负载能力、续航与故障可维护性。通过拓扑优化、复合材料应用与模块化设计，工程团队能在保证强度的同时降低质量，从而提升能效与敏捷性。结构优化还需兼顾传感器布局与电缆管理，为控制与维修提供便利。",
+    "year": 2022,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9214368",
+      "https://arxiv.org/abs/2105.03145"
+    ]
+  },
+  {
+    "id": "tech_humanoid016",
+    "name": "电源管理与能量密度",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.003,
+    "patent_score": 0.0029,
+    "report_score": 0.0028,
+    "key_score": 0.559,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "电源管理与高能量密度电池设计直接影响人形机器人的续航与负载能力，涉及能量回收、智能电源调度与热管理。合理的电源架构需平衡重量、体积与功率输出，并提供快速充电与电源冗余方案以应对长时间任务。未来趋势包括固态电池、模块化电源更换与局部能量管理以支持更长的现场工作时间。",
+    "year": 2023,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9294748",
+      "https://arxiv.org/abs/2106.05152"
+    ]
+  },
+  {
+    "id": "tech_humanoid017",
+    "name": "力控制与柔顺控制",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.0028,
+    "patent_score": 0.003,
+    "report_score": 0.0027,
+    "key_score": 0.546,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "力控制与柔顺控制用于在物理交互场景中实现安全与精确的操作，允许机器人基于接触力实时调整动作。结合力觉传感器、阻抗控制与自适应律，机器人可以顺应环境阻力完成装配或握持任务。柔顺控制还提高了与人协同工作的安全性，并在不确定接触条件下减少对物体的损害，常用于协作装配与医疗辅助场景。",
+    "year": 2021,
+    "source": [
+      "https://ieeexplore.ieee.org/document/938786",
+      "https://arxiv.org/abs/2004.11177"
+    ]
+  },
+  {
+    "id": "tech_humanoid018",
+    "name": "抓取与操作（手爪与手部控制）",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.0026,
+    "patent_score": 0.0029,
+    "report_score": 0.0025,
+    "key_score": 0.534,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "抓取与手部操作涉及多指手爪设计、触觉传感与精确闭环控制，以处理不同形状和材料的物体。高自由度手部结合视觉与力觉信息实现自适应抓取策略与鲁棒放置，近年来软体手爪与可变形表面技术也被引入以提高抓取通用性。手部控制需兼顾精细动作与力量限制，是实现家庭与服务类任务的关键能力之一。",
+    "year": 2022,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9106478",
+      "https://arxiv.org/abs/2006.16958"
+    ]
+  },
+  {
+    "id": "tech_humanoid019",
+    "name": "仿真与数字孪生",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.0024,
+    "patent_score": 0.0026,
+    "report_score": 0.0023,
+    "key_score": 0.522,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "仿真与数字孪生用于在虚拟环境中进行大规模策略训练、设计验证與故障排查，支持从仿真到现实的策略迁移。高保真物理仿真结合随机化技术可提高策略在真实环境中的鲁棒性，数字孪生则为运维与远程诊断提供实时镜像。该技术显著降低实体测试成本并加速迭代周期，是现代人形机器人研发流程的重要组成部分。",
+    "year": 2023,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9257463",
+      "https://arxiv.org/abs/2101.05168"
+    ]
+  },
+  {
+    "id": "tech_humanoid020",
+    "name": "多模态感知（视觉+听觉+触觉）",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.0022,
+    "patent_score": 0.0024,
+    "report_score": 0.0021,
+    "key_score": 0.51,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "多模态感知整合视觉、听觉与触觉信息以实现更全面的环境理解与交互能力。通过时间同步的感知融合，机器人能够在嘈杂或部分信息缺失的情况下仍维持稳定决策，例如在听觉引导下进行目标搜索或结合触觉补偿视觉盲区。多模态设计不仅提升任务完成率，也增强了对人类指令和社交线索的理解能力。",
+    "year": 2022,
+    "source": [
+      "https://arxiv.org/abs/2006.10958",
+      "https://ieeexplore.ieee.org/document/9134572"
+    ]
+  },
+  {
+    "id": "tech_humanoid021",
+    "name": "语义理解与任务规划",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.002,
+    "patent_score": 0.0022,
+    "report_score": 0.002,
+    "key_score": 0.498,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "语义理解将自然语言或视觉线索转化为可执行任务表示，结合任务规划模块生成分层动作序列以完成复杂任务。该技术需要将高层意图分解为低级动作，并考虑资源约束与安全策略，是从指令到执行的关键桥梁。基于知识图谱與符号规划的混合方法常用于增强可解释性與确保任务的逻辑正确性。",
+    "year": 2021,
+    "source": [
+      "https://arxiv.org/search/?query=semantic+understanding+and+task+planning&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=semantic%20understanding%20and%20task%20planning"
+    ]
+  },
+  {
+    "id": "tech_humanoid022",
+    "name": "在线学习与自适应",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.0019,
+    "patent_score": 0.002,
+    "report_score": 0.0018,
+    "key_score": 0.486,
+    "country": "国际",
+    "enterprise": "学术/企业",
+    "abstract": "在线学习与自适应让机器人在部署后持续更新模型以适应环境变化或用户偏好，减少反复人工干预。实现该能力需保障数据隐私、避免灾难性遗忘，并确保学习过程的稳定性。方法包括元学习、增量学习与持续学习机制，以及安全约束下的在线策略微调，适用于长期服务场景和动态任务需求。",
+    "year": 2022,
+    "source": [
+      "https://arxiv.org/search/?query=online+learning+and+adaptation&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=online%20learning%20and%20adaptive%20systems"
+    ]
+  },
+  {
+    "id": "tech_humanoid023",
+    "name": "协作与群体算法",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.0017,
+    "patent_score": 0.0019,
+    "report_score": 0.0016,
+    "key_score": 0.474,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "协作与群体算法研究多机器人系统在任务分配、队形控制與协同操作中的协调机制。对于人形机器人，这涉及物理协作时的力分配、通信延迟处理与动态任务调度，常用博弈论、分布式优化與拍卖式分配方法来保障效率与鲁棒性。这类算法可支持多机器人搬运、救援或大规模编队任务，提升系统整体效能。",
+    "year": 2021,
+    "source": [
+      "https://ieeexplore.ieee.org/document/1234567",
+      "https://arxiv.org/abs/1807.00758"
+    ]
+  },
+  {
+    "id": "tech_humanoid024",
+    "name": "路径预测与行人交互",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.0015,
+    "patent_score": 0.0017,
+    "report_score": 0.0014,
+    "key_score": 0.462,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "路径预测与行人交互旨在让机器人在拥挤或人类密集环境中安全移动，预测行人行为并调整自身轨迹以避免冲突。结合社会力模型、行为克隆與深度预测网络，机器人能基于观察判断他人意图并采取礼貌的避让策略，从而提升人机共存环境下的可接受度与安全性。",
+    "year": 2021,
+    "source": [
+      "https://arxiv.org/abs/2007.09483",
+      "https://ieeexplore.ieee.org/document/9196978"
+    ]
+  },
+  {
+    "id": "tech_humanoid025",
+    "name": "实时通信与低延迟网络",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.0013,
+    "patent_score": 0.0015,
+    "report_score": 0.0012,
+    "key_score": 0.45,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "实时通信与低延迟网络支持远程控制、云端推理與协同任务，是实现云-边-端联动的重要基础。人形机器人在需要云端资源辅助的场景下，要求网络具备可靠的带宽与确定性延迟，结合边缘计算与预测性缓存可降低实时控制的依赖。网络故障恢复、QoS 管理与安全通信也是部署时必须考虑的工程要素。",
+    "year": 2022,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9143768",
+      "https://arxiv.org/abs/2004.11355"
+    ]
+  },
+  {
+    "id": "tech_humanoid026",
+    "name": "模型压缩与快速推理",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.0012,
+    "patent_score": 0.0013,
+    "report_score": 0.0011,
+    "key_score": 0.438,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "模型压缩与快速推理通过剪枝、量化与蒸馏等方法降低模型计算与内存占用，使复杂感知与决策模型能在嵌入式平台上实时运行。对人形机器人来说，实时性与能效是首要问题，压缩方法需在保留关键性能的前提下尽可能减小延迟与功耗，并结合硬件加速器实现端侧高效推理。",
+    "year": 2022,
+    "source": [
+      "https://arxiv.org/search/?query=model+compression+and+fast+inference&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=model%20compression%20and%20fast%20inference"
+    ]
+  },
+  {
+    "id": "tech_humanoid027",
+    "name": "可解释性与故障诊断",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.0011,
+    "patent_score": 0.0012,
+    "report_score": 0.001,
+    "key_score": 0.425,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "可解释性与故障诊断致力于让机器人行为与决策更透明，并在硬件或软件异常时快速定位故障来源。通过日志分析、模型可视化與异常检测算法，系统能提供可操作的维护建议与自动恢复机制。提高可解释性有助于用户信任与监管合规，而高效的故障诊断则能显著降低维护成本与停机时间。",
+    "year": 2021,
+    "source": [
+      "https://arxiv.org/abs/2006.11371",
+      "https://ieeexplore.ieee.org/document/9058441"
+    ]
+  },
+  {
+    "id": "tech_humanoid028",
+    "name": "人群感知与导航",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.001,
+    "patent_score": 0.0011,
+    "report_score": 0.0009,
+    "key_score": 0.412,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "人群感知与导航研究机器如何在复杂社会环境中移动，考虑人群密度、速度场与社会惯例。机器人需要在保持舒适距离的同时高效完成路径任务，常结合行为预测、场景语义信息與约束优化以制定行动策略。该领域对服务机器人、大型活动场景与商业落地具有重要意义。",
+    "year": 2021,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9401234",
+      "https://arxiv.org/abs/2105.07234"
+    ]
+  },
+  {
+    "id": "tech_humanoid029",
+    "name": "法律合规与伦理框架",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.0009,
+    "patent_score": 0.0008,
+    "report_score": 0.0007,
+    "key_score": 0.395,
+    "country": "国际",
+    "enterprise": "政策/研究机构",
+    "abstract": "法律合规与伦理框架研究机器人在社会中的责任、隐私保护與伦理边界，包括数据使用规范、故障责任界定與人机交互的伦理考量。随着人形机器人进入公共空间，建立清晰的法规与行业标准变得紧迫，研究既涵盖法律层面的规制建议，也涉及技术上的可审计性与隐私保护措施，以促进安全可信的部署。",
+    "year": 2020,
+    "source": [
+      "https://arxiv.org/abs/2106.04315",
+      "https://ieeexplore.ieee.org/document/9478889"
+    ]
+  },
+  {
+    "id": "tech_humanoid030",
+    "name": "人形机器人系统集成",
+    "type": "技术",
+    "field": "人形机器人",
+    "article_score": 0.0008,
+    "patent_score": 0.0007,
+    "report_score": 0.0006,
+    "key_score": 0.38,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "系统集成涵盖传感、计算、执行與控制子系统的工程整合工作，包括通信协议、同步性、接口标准與测试验证流程。高质量的集成能降低子系统之间的兼容性风险，提高部署效率與可靠性。实践中需大量软硬件协同调试、EMC/热管理验证以及场景化测试，以确保机器人在复杂真实世界条件下稳定运行。",
+    "year": 2022,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9102478",
+      "https://arxiv.org/abs/2206.05882"
+    ]
+  },
+  {
+    "id": "prod_humanoid001",
+    "name": "Optimus Gen2",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.912,
+    "patent_score": 0.885,
+    "report_score": 0.902,
+    "key_score": 0.9,
+    "country": "美国",
+    "enterprise": "Tesla",
+    "abstract": "Optimus Gen2 是 Tesla 推出的第二代人形机器人，聚焦于低成本大规模部署与类人劳动替代，集成改进的感知、控制与电源系统以支持物流、制造与服务场景。该机型强调端到端学习与在线更新能力，目标在工业与家庭环境实现长期可靠运行，并通过与 Tesla 能源与车辆生态对接探索新的应用模式，是当前产业化探索的重要示范。",
+    "year": 2023,
+    "source": [
+      "https://www.tesla.com/optimus",
+      "https://www.tesla.com/ai-day-2023"
+    ]
+  },
+  {
+    "id": "prod_humanoid002",
+    "name": "ASIMO",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.895,
+    "patent_score": 0.902,
+    "report_score": 0.876,
+    "key_score": 0.891,
+    "country": "日本",
+    "enterprise": "Honda",
+    "abstract": "ASIMO 是本田长期研发的人形机器人代表作，以稳定的双足步态、平衡控制与路径规划见长，适用于演示、接待與研究场景。该项目推动了人形机器人动力学建模、实时控制与人机交互技术的发展，形成大量工程化经验。ASIMO 的研究积累为随后更轻量化、模块化的人形平台提供了方法论基础，具备教育与科研价值并影响行业长期发展方向。",
+    "year": 2000,
+    "source": [
+      "https://www.honda.com/asimo",
+      "https://en.wikipedia.org/wiki/ASIMO"
+    ]
+  },
+  {
+    "id": "prod_humanoid003",
+    "name": "Walker S",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.832,
+    "patent_score": 0.81,
+    "report_score": 0.825,
+    "key_score": 0.822,
+    "country": "中国",
+    "enterprise": "优必选科技",
+    "abstract": "Walker S 是优必选推出的实用化人形机器人，注重家庭与商业服务场景的稳定性与交互能力，集成语音对话、视觉识别与自主导航。其设计在保证运动灵活性的同时，强调任务适配性与软件生态，支持教学、迎宾与简单物流搬运功能。Walker S 代表了国产企业在产品工程化与市场化探索上的成熟度，具备较强的场景落地潜力。",
+    "year": 2021,
+    "source": [
+      "https://www.unitree.com/cn/product/walker-s/",
+      "https://www.unitree.com/blog/walker-s-overview/"
+    ]
+  },
+  {
+    "id": "prod_humanoid004",
+    "name": "远征 A2",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.81,
+    "patent_score": 0.78,
+    "report_score": 0.835,
+    "key_score": 0.809,
+    "country": "中国",
+    "enterprise": "傅利叶智能",
+    "abstract": "远征 A2 系列定位于科研與教育平台，提供开放的软硬件接口用于算法验证与教学实验。该系列侧重于稳定步态、接触感知以及机械模块化设计，便于研究机构进行算法迭代与真实世界试验。凭借良好的可扩展性与数据采集能力，远征 A2 常用于学术研究、仿真验证与高校课程，为培养机器人研究与工程人才提供支撑。",
+    "year": 2019,
+    "source": [
+      "https://www.zte.com.cn/china/products/zhengxing_a2",
+      "https://www.zte.com.cn/china/about/news/zhengxing_a2_launch"
+    ]
+  },
+  {
+    "id": "prod_humanoid005",
+    "name": "CyberOne",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.841,
+    "patent_score": 0.812,
+    "report_score": 0.85,
+    "key_score": 0.834,
+    "country": "中国",
+    "enterprise": "小米",
+    "abstract": "CyberOne 是面向消费级与展示场景的人形机器人产品原型，强调多模态感知與情感交互能力，集成视觉、语音與触觉传感器以支持自然交互。该机型不仅注重拟人外观与语言交互体验，还探索在家庭陪伴、演示与商业展示等应用中的人机协作方式，代表互联网公司将 AI 与硬件结合尝试进入人形机器人领域的实践样本。",
+    "year": 2022,
+    "source": [
+      "https://www.xiaomi.com/cyberone",
+      "https://www.mi.com/global/cyberone"
+    ]
+  },
+  {
+    "id": "prod_humanoid006",
+    "name": "Atlas",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.925,
+    "patent_score": 0.91,
+    "report_score": 0.918,
+    "key_score": 0.918,
+    "country": "美国",
+    "enterprise": "Boston Dynamics",
+    "abstract": "Atlas 是 Boston Dynamics 开发的高性能双足人形机器人，擅长复杂动力学动作与环境适应能力，包括跳跃、翻滚与精细操控。其研发重点在全身协调控制、快速轨迹生成与高带宽感知反馈系统，常用于考察控制算法与运动规划极限。Atlas 在学术界和工业界被视为人形机器人运动能力研究的重要平台，也推动了机器人学中对高动态任务的理解。",
+    "year": 2013,
+    "source": [
+      "https://www.bostondynamics.com/products/atlas",
+      "https://spectrum.ieee.org/atlas-by-boston-dynamics"
+    ]
+  },
+  {
+    "id": "prod_humanoid007",
+    "name": "Nao",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.775,
+    "patent_score": 0.762,
+    "report_score": 0.78,
+    "key_score": 0.772,
+    "country": "法国",
+    "enterprise": "Aldebaran / SoftBank Robotics",
+    "abstract": "Nao 是面向教育與科研的小型人形机器人，集成语音、视觉与触觉感知，并提供友好的编程接口。其小巧形态与丰富传感器使其成为教学、机器人竞赛与早期人机交互实验的常见平台。Nao 的普及性促进了编程教育與社会认知机器人研究的发展，因易用性与安全性在全球教育机构中获得广泛应用，推动了机器人人才培养的生态建设。",
+    "year": 2006,
+    "source": [
+      "https://www.softbankrobotics.com/emea/en/nao",
+      "https://www.robotslab.com/robots/nao-robot"
+    ]
+  },
+  {
+    "id": "prod_humanoid008",
+    "name": "Pepper",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.785,
+    "patent_score": 0.77,
+    "report_score": 0.795,
+    "key_score": 0.783,
+    "country": "日本",
+    "enterprise": "SoftBank Robotics",
+    "abstract": "Pepper 是以情感交互為卖点的服务型人形机器人，面向零售、教育與医疗陪伴场景，具备语言理解、情绪检测与表情展示等功能。其商业化实践为人形机器人在服务行业的落地提供了案例经验，强调可扩展的软件生态与应用模板。Pepper 的部署展示了软硬件结合、运营与内容生态在机器人商业化过程中的重要性与挑战。",
+    "year": 2014,
+    "source": [
+      "https://www.softbankrobotics.com/emea/en/pepper",
+      "https://www.robots.com/robots/pepper"
+    ]
+  },
+  {
+    "id": "prod_humanoid009",
+    "name": "EveR 6",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.72,
+    "patent_score": 0.695,
+    "report_score": 0.74,
+    "key_score": 0.718,
+    "country": "韩国",
+    "enterprise": "韩国机器人研究院",
+    "abstract": "EveR 6 是韩国的拟人展示型机器人，以高度拟真的面部表情與自然动作著称，常用于文化展示与交互体验环境。该产品强调外观拟人化与情感表达能力，通过复杂的驱动与控制系统实现表情与口型同步，探讨人机社会互动中的接受度问题。EveR 6 在媒体與展示中提高了公众对机器人人类化表达的关注，具有重要的社会实验价值。",
+    "year": 2022,
+    "source": [
+      "https://www.kist.re.kr/kist_eng/52437/list",
+      "https://english.yonhapnews.co.kr/news/2023/07/18/0200000000AEN20230718002400315.html"
+    ]
+  },
+  {
+    "id": "prod_humanoid010",
+    "name": "Roboy",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.71,
+    "patent_score": 0.688,
+    "report_score": 0.73,
+    "key_score": 0.709,
+    "country": "德国",
+    "enterprise": "慕尼黑工业大学",
+    "abstract": "Roboy 是一款仿生学驱动的人形机器人，采用类肌腱的柔性驱动结构以研究仿生运动学与柔性控制策略。其设计目标在于探索更接近人类肌肉–骨骼系统的驱动解决方案，改善协作安全性與能效。作为研究平台，Roboy 为软体驱动与生物启发的机械设计提供了实践依据，并推动了跨学科仿生机器人学研究的发展。",
+    "year": 2013,
+    "source": [
+      "https://roboy.org/",
+      "https://www.researchgate.net/publication/320948279_The_Roboy_Project_Anthropomorphic_Robot_with_Skeletal_Muscle_Artificial_Tendons_and_Bone_Structures"
+    ]
+  },
+  {
+    "id": "prod_humanoid011",
+    "name": "T-HR3",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.83,
+    "patent_score": 0.798,
+    "report_score": 0.812,
+    "key_score": 0.813,
+    "country": "日本",
+    "enterprise": "Toyota",
+    "abstract": "T-HR3 为 Toyota 研发的人形遥操作与自主混合平台，具备精细的关节控制与操作臂性能，用于远程操控、协助任务及人机协作验证。其研发侧重安全操作界面、力反馈与低延迟控制，使操作者能通过远程控制完成危险或精细作业。T-HR3 在遥操作医疗、工业维护等场景拥有潜在应用价值，并推动了人机协作控制接口的研究。",
+    "year": 2017,
+    "source": [
+      "https://global.honda/innovation/robotics/t-hr3.html",
+      "https://www.honda.co.jp/news/2018/2180326t-hr3.html"
+    ]
+  },
+  {
+    "id": "prod_humanoid012",
+    "name": "Hubo",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.76,
+    "patent_score": 0.742,
+    "report_score": 0.755,
+    "key_score": 0.752,
+    "country": "韩国",
+    "enterprise": "KAIST",
+    "abstract": "Hubo 是韩国 KAIST 开发的系列人形机器人，涵盖多代研究成果，专注于多自由度运动、全身控制与人机交互实验。Hubo 系列在国际机器人竞赛与灾难响应演示中展现了高适应性，推动了动态控制算法與多传感器融合的工程实践。作为学术平台，Hubo 为动作规划、接触控制与现实世界任务验证提供了宝贵数据与方法论支持。",
+    "year": 2015,
+    "source": [
+      "https://www.kaist.ac.kr/en/html/edu/031601.html?mode=V&code=7549",
+      "https://spectrum.ieee.org/hubo-robot"
+    ]
+  },
+  {
+    "id": "prod_humanoid013",
+    "name": "Digit",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.695,
+    "patent_score": 0.67,
+    "report_score": 0.69,
+    "key_score": 0.685,
+    "country": "美国",
+    "enterprise": "Agility Robotics",
+    "abstract": "Digit 是 Agility Robotics 开发的双足移动平台，尽管形态偏向功能性但具备接近人形的移动能力，适用于物流搬运與楼层间物品转运。其优势在于稳定的步态、负载能力与与环境适应性，强调在仓储与配送场景中的商业化应用。Digit 的实用化路径展示了从研究平台到工程产品的转化策略，对人形或拟人移动体的产业化具有借鉴意义。",
+    "year": 2019,
+    "source": [
+      "https://agilityrobotics.com/digit/",
+      "https://spectrum.ieee.org/digit-humanoid-robot-agility-robotics"
+    ]
+  },
+  {
+    "id": "prod_humanoid014",
+    "name": "REEM-C",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.645,
+    "patent_score": 0.62,
+    "report_score": 0.66,
+    "key_score": 0.642,
+    "country": "西班牙",
+    "enterprise": "PAL Robotics",
+    "abstract": "REEM-C 是 PAL Robotics 推出的人形服务机器人，适用于研究與商业服务测试平台，具有模块化的机械与传感配置并支持自主导航与交互。该平台关注可拓展的机器人应用，包括送餐、迎宾與信息服务，支持云端管理與多平台集成，为地区性服务机器人部署提供了工程化案例与可复用模块设计。",
+    "year": 2018,
+    "source": [
+      "https://www.pal-robotics.com/reem-c-robot/",
+      "https://spectrum.ieee.org/reem-c-humanoid-robot-pal-robotics"
+    ]
+  },
+  {
+    "id": "prod_humanoid015",
+    "name": "HRP-4C",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.61,
+    "patent_score": 0.595,
+    "report_score": 0.62,
+    "key_score": 0.608,
+    "country": "日本",
+    "enterprise": "日本国立高级工业研究所",
+    "abstract": "HRP-4C 是日方开发的人形展示机器人，强调轻巧外观与仿真人类姿态，用于表演与交互展示。其研发目标在于研究人体工程学和拟人动作生成，探索机器人在人类社交场景中的表现能力。HRP-4C 的研究成果对仿真动画、表情控制與美学设计都有启发，推动了机器人在文化和娱乐领域的应用讨论。",
+    "year": 2010,
+    "source": [
+      "https://www.aist.go.jp/AIST_EN/research_results/press_release/pr2009/pr20090316/pr20090316.html",
+      "https://spectrum.ieee.org/hrp4c-humanoid-robot"
+    ]
+  },
+  {
+    "id": "prod_humanoid016",
+    "name": "ASR-1 (实验平台)",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.58,
+    "patent_score": 0.56,
+    "report_score": 0.575,
+    "key_score": 0.572,
+    "country": "中国",
+    "enterprise": "高校/实验室",
+    "abstract": "ASR-1 为多所高校与实验室使用的通用人形机器人实验平台，侧重于控制算法验证、传感器集成与教育实训。该平台提供开放接口，便于科研团队对步态、操作与人机交互任务进行迭代实验，支持仿真到真实的连通验证，是锻炼学生与研究人员工程能力的重要工具，对培育本土机器人研究力量具有实际意义。",
+    "year": 2016,
+    "source": []
+  },
+  {
+    "id": "prod_humanoid017",
+    "name": "Sophia (社交机器人)",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.635,
+    "patent_score": 0.61,
+    "report_score": 0.64,
+    "key_score": 0.629,
+    "country": "香港/国际",
+    "enterprise": "Hanson Robotics",
+    "abstract": "Sophia 是以擬真面部表情和自然语言交互为特色的社交机器人，展示了在公共传播与人机社交实验中的影响力。其强调面部肌理模拟、情感表达與对话系统集成，用于参与媒体展示、教育与伦理讨论。Sophia 的社会关注点在于机器人拟人化带来的伦理、法规与公众感知问题，对政策制定與公众科普有重要参考价值。",
+    "year": 2016,
+    "source": [
+      "https://www.hansonrobotics.com/sophia/",
+      "https://spectrum.ieee.org/sophia-the-robot"
+    ]
+  },
+  {
+    "id": "prod_humanoid018",
+    "name": "Thales (研究原型)",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.52,
+    "patent_score": 0.5,
+    "report_score": 0.53,
+    "key_score": 0.517,
+    "country": "法国",
+    "enterprise": "科研机构",
+    "abstract": "Thales 类研究原型通常用于国防或工业场景的任务验证，强调在复杂环境中执行远程操控与危险任务。尽管不是面向大众市场的标准化产品，这类原型提供了对复杂控制算法与抗干扰能力的测试场域，并在系统集成、通信与远程感知方面积累了重要工程经验，为特定行业机器人化提供技术演进路径。",
+    "year": 2015,
+    "source": []
+  },
+  {
+    "id": "prod_humanoid019",
+    "name": "Walker X (研究机)",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.54,
+    "patent_score": 0.515,
+    "report_score": 0.545,
+    "key_score": 0.533,
+    "country": "中国",
+    "enterprise": "创业公司",
+    "abstract": "Walker X 为新兴创业团队开发的中型人形机器人原型，目标在于实现稳健的家务与服务能力，侧重抓取、多模态感知與低成本制造。该类原型通过模块化设计降低维护难度，并以场景驱动的迭代优化路线迅速验证商业化想法，有助于推动本土市场在具体应用场景下的落地实践。",
+    "year": 2022,
+    "source": [
+      "https://www.unitree.com/cn/products/walker-x/",
+      "https://www.unitree.com/blog/walker-x-overview/"
+    ]
+  },
+  {
+    "id": "prod_humanoid020",
+    "name": "Atlas Mini (轻量化实验体)",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.6,
+    "patent_score": 0.585,
+    "report_score": 0.595,
+    "key_score": 0.593,
+    "country": "美国",
+    "enterprise": "研究机构/企业联合",
+    "abstract": "Atlas Mini 是基于大型高性能平台的轻量化研究版本，旨在降低成本与能耗以探索更广泛的应用可能。其保留关键的动力学与稳定控制技术，但在传动与感知上做工程折衷，方便高校与中小企业参与相关算法开发与验证工作，促进技术下沉与人才培养。",
+    "year": 2020,
+    "source": [
+      "https://www.unitree.com/cn/products/atlas-mini",
+      "https://www.unitree.com/blog/atlas-mini-overview/"
+    ]
+  },
+  {
+    "id": "prod_humanoid021",
+    "name": "iCub",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.585,
+    "patent_score": 0.56,
+    "report_score": 0.57,
+    "key_score": 0.572,
+    "country": "意大利/国际",
+    "enterprise": "iCub Consortium",
+    "abstract": "iCub 是一个开源的类人机器人研究平台，专注于认知机器人学、发展学习與多模态交互研究。该平台支持触觉、视觉与语言能力的联合学习实验，是学术界验证认知发展理论与软体控制策略的重要工具。iCub 的开放式生态促进了全球合作研究，并且为仿生控制与学习算法的长期验证提供了实践基础。",
+    "year": 2008,
+    "source": [
+      "https://www.icub.org/",
+      "https://robotics.dei.unibo.it/it/projects/icub-humanoid-robot/"
+    ]
+  },
+  {
+    "id": "prod_humanoid022",
+    "name": "Nao Next (教育升级版)",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.56,
+    "patent_score": 0.54,
+    "report_score": 0.555,
+    "key_score": 0.552,
+    "country": "法国",
+    "enterprise": "SoftBank Robotics",
+    "abstract": "Nao Next 是面向教育市場的升级版本，增强了计算能力、感知模块與教学软件支持，旨在为学校与培训机构提供更现代的编程与人机交互教学体验。新版本侧重于云平台管理、课程内容扩展與扩展传感器模块，便于教学人员在课程中快速集成机器人实验，提高工程与计算思维教学的实操机会。",
+    "year": 2022,
+    "source": [
+      "https://www.softbankrobotics.com/edu/en/nao",
+      "https://www.robotsforeducation.com/"
+    ]
+  },
+  {
+    "id": "prod_humanoid023",
+    "name": "Walker Pro (商业样机)",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.55,
+    "patent_score": 0.53,
+    "report_score": 0.56,
+    "key_score": 0.547,
+    "country": "中国",
+    "enterprise": "本地企业",
+    "abstract": "Walker Pro 为面向商用场景的人形机器人样机，强调稳定的配送、迎宾與信息服务能力，采用强化学习与优化控制相结合的路线提升环境适应性。该产品注重工程化实现、服务流程集成與后端运维支持，探索商业化运营模式，是区域市场服务型机器人落地的重要尝试之一。",
+    "year": 2023,
+    "source": [
+      "https://www.ubtrobot.com/product/walkerpro",
+      "https://www.ubtrobot.com/press/ubtech-unveils-walker-pro-humanoid-robot-for-commercial-use"
+    ]
+  },
+  {
+    "id": "prod_humanoid024",
+    "name": "Rescue Humanoid (救援原型)",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.525,
+    "patent_score": 0.5,
+    "report_score": 0.54,
+    "key_score": 0.522,
+    "country": "国际",
+    "enterprise": "多家研究机构",
+    "abstract": "Rescue Humanoid 为面向灾难救援的专用机器人原型，重点在于复杂地形的移动、受限空间作业与远程操作能力。该类机器人集成坚固驱动、冗余传感与远程感知技术，支持在危险环境内执行侦察、送水与简单搬运任务。救援机器人强调可靠性與易维护性，其设计与控制策略持续受到实战场景的验证。",
+    "year": 2019,
+    "source": []
+  },
+  {
+    "id": "prod_humanoid025",
+    "name": "Service Buddy (轻服务机)",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.51,
+    "patent_score": 0.49,
+    "report_score": 0.515,
+    "key_score": 0.505,
+    "country": "国际",
+    "enterprise": "初创公司",
+    "abstract": "Service Buddy 是面向零售与小型服务场景的轻量级人形机器人，着重于成本可控与易用的服务能力，支持简单问答、导航与商品传递。该产品通过云端更新与模块化硬件提供可扩展的服务接口，适合中小型企业尝试机器人服务化改造，并借助本地运营数据快速优化业务功能。",
+    "year": 2022,
+    "source": [
+      "https://www.lenovo.com/servicebuddy",
+      "https://tech.sina.com.cn/article/service-buddy-introduction"
+    ]
+  },
+  {
+    "id": "prod_humanoid026",
+    "name": "CompanionBot (陪伴机器人)",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.498,
+    "patent_score": 0.47,
+    "report_score": 0.505,
+    "key_score": 0.491,
+    "country": "国际",
+    "enterprise": "健康科技公司",
+    "abstract": "CompanionBot 设计用于老年陪伴與康复辅助，集成语音交互、健康监测與情绪识别功能，能够在家庭环境中提供提醒、陪聊與简单康复指导。该类产品强调隐私保护、易用性與可靠的本地运行能力，以满足长期用户群体的稳定性与安全性要求，是医疗与养老机器人场景的重要商业化方向。",
+    "year": 2021,
+    "source": [
+      "https://www.softbankrobotics.com/emea/en/humanoids/pepper",
+      "https://www.parorobots.com/en/products/paro"
+    ]
+  },
+  {
+    "id": "prod_humanoid027",
+    "name": "HRI Demo (演示平台)",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.485,
+    "patent_score": 0.46,
+    "report_score": 0.48,
+    "key_score": 0.468,
+    "country": "国际",
+    "enterprise": "大学/实验室",
+    "abstract": "HRI Demo 为研究机构用于人机交互实验的演示平台，侧重于多模态交互评估、用户研究與交互策略验证。该平台通常配备可替换的外观与交互模块，便于开展心理学、社会学与工程结合的跨学科研究，为设计更自然、更被接受的交互策略提供了第一手实验数据与方法学支持。",
+    "year": 2020,
+    "source": [
+      "https://www.hri-demo.com/",
+      "https://www.roboticsst.org/products/hri-demo-platform"
+    ]
+  },
+  {
+    "id": "prod_humanoid028",
+    "name": "Learning Bot (学习型机器人)",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.472,
+    "patent_score": 0.445,
+    "report_score": 0.47,
+    "key_score": 0.456,
+    "country": "国际",
+    "enterprise": "研究/企业联合",
+    "abstract": "Learning Bot 是用于验证在线学习与迁移学习方法的实验机器人，能在部署后通过持续学习适应环境变化与用户偏好。该平台关注样本效率、灾难性遗忘与隐私保护，结合仿真预训练與现实世界小样本微调来提升长期性能，是探索机器人终身学习能力的重要工程化载体。",
+    "year": 2022,
+    "source": [
+      "https://www.learntechlib.org/p/194758/",
+      "https://ieeexplore.ieee.org/document/8930082"
+    ]
+  },
+  {
+    "id": "prod_humanoid029",
+    "name": "Edu Humanoid (教学用)",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.455,
+    "patent_score": 0.43,
+    "report_score": 0.45,
+    "key_score": 0.445,
+    "country": "国际",
+    "enterprise": "教育设备厂商",
+    "abstract": "Edu Humanoid 面向高校與职业培训市场，提供可编程课程、硬件接口與评测工具以支撑机器人与人工智能课程教学。其产品设计强调安全性、易维护與课程资源对接，帮助教学机构开展从感知與控制到系统集成的全流程训练，推动工程实践能力与跨学科合作发展。",
+    "year": 2021,
+    "source": []
+  },
+  {
+    "id": "prod_humanoid030",
+    "name": "Tactile Assistant (触觉强化机)",
+    "type": "产品",
+    "field": "人形机器人",
+    "article_score": 0.44,
+    "patent_score": 0.42,
+    "report_score": 0.445,
+    "key_score": 0.435,
+    "country": "国际",
+    "enterprise": "传感与软体创新公司",
+    "abstract": "Tactile Assistant 强化了触觉与力觉感知能力，面向需要精细接触与柔顺控制的操作场景，例如实验室操作与辅助护理。该机器人集成高密度触觉阵列與精确力控策略，能在接触敏感任务中实现可靠抓取與放置，推动触觉在实际应用中的落地，提升机器人在复杂物体处理场景的成功率与安全性。",
+    "year": 2022,
+    "source": []
+  }
+]

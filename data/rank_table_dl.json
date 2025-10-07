@@ -1,0 +1,1082 @@
+[
+  {
+    "id": "prod_dl001",
+    "name": "PyTorch",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.948,
+    "patent_score": 1.0,
+    "report_score": 0.942,
+    "key_score": 0.941,
+    "country": "美国",
+    "enterprise": "Meta (Facebook)",
+    "abstract": "PyTorch是一款强调动态计算图和易用性的深度学习框架，被广泛应用于研究和产业化开发领域。其生态系统非常活跃，包括TorchScript和TorchServe等工具，为用户提供了更便捷的开发和部署方式。PyTorch支持灵活的模型构建和训练，同时具有强大的性能和扩展性，使其成为科研人员和工程师首选的人工智能工具之一。",
+    "year": 2016,
+    "source": [
+      "https://pytorch.org/",
+      "https://github.com/pytorch/pytorch"
+    ]
+  },
+  {
+    "id": "prod_dl002",
+    "name": "TensorFlow",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 1.0,
+    "patent_score": 0.986,
+    "report_score": 0.903,
+    "key_score": 0.917,
+    "country": "美国",
+    "enterprise": "Google",
+    "abstract": "TensorFlow是一款由Google开源的端到端机器学习平台，支持静态和动态图（TF2）、TFLite、XLA等多种功能。它不仅覆盖了训练和部署阶段，还能在移动端进行推理。TensorFlow具有强大的计算能力和灵活的架构，为开发者提供了丰富的工具和库，帮助他们快速构建、训练和部署各种深度学习模型。无论是在研究领域还是实际应用中，TensorFlow都是一款不可或缺的工具，助力用户实现各种机器学习任务。",
+    "year": 2015,
+    "source": [
+      "https://www.tensorflow.org/",
+      "https://ai.googleblog.com/2015/11/tensorflow-googles-next-generation.html"
+    ]
+  },
+  {
+    "id": "prod_dl003",
+    "name": "Keras",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.842,
+    "patent_score": 0.883,
+    "report_score": 0.87,
+    "key_score": 0.841,
+    "country": "国际",
+    "enterprise": "原作者 François Chollet / Google 社区维护",
+    "abstract": "Keras是一款高级神经网络API，以用户友好的方式实现，被广泛应用于TensorFlow等平台，非常适合用于原型设计和教学。其简洁的设计和强大的功能使得开发者能够快速构建深度学习模型，同时还具有灵活性和可扩展性。Keras支持各种类型的神经网络，包括卷积神经网络、循环神经网络等，为用户提供了丰富的工具和资源来探索和实验不同的深度学习模型。无论是初学者还是专业人士，Keras都是一个强大而实用的工具，可以帮助用户在人工智能领域取得成功。",
+    "year": 2015,
+    "source": [
+      "https://keras.io/",
+      "https://github.com/keras-team/keras"
+    ]
+  },
+  {
+    "id": "prod_dl004",
+    "name": "Hugging Face (Transformers & Hub)",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.528,
+    "patent_score": 0.519,
+    "report_score": 0.825,
+    "key_score": 0.772,
+    "country": "美国/法国",
+    "enterprise": "Hugging Face",
+    "abstract": "Hugging Face（Transformers & Hub）是一家知名的人工智能公司，致力于推动 AI 技术的发展与应用。他们的 Transformer 模型库和模型中心（Model Hub）以其高效的性能和便捷的共享方式而闻名，助力各类大规模模型的研发和应用。通过持续不断地创新和分享，Hugging Face 为 NLP 领域的生态化建设提供了重要支持，促进了模型的共享和交流，推动了整个行业的发展进程。",
+    "year": 2019,
+    "source": [
+      "https://huggingface.co/",
+      "https://huggingface.co/docs/transformers/index"
+    ]
+  },
+  {
+    "id": "prod_dl005",
+    "name": "MindSpore",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.547,
+    "patent_score": 0.478,
+    "report_score": 0.792,
+    "key_score": 0.762,
+    "country": "中国",
+    "enterprise": "华为",
+    "abstract": "华为推出的全场景AI框架MindSpore，是一项革命性的技术创新。该框架不仅强调与昇腾芯片生态的协同合作，还支持端-边-云多端部署，实现了AI模型的全自动优化。MindSpore的出现为各行业带来了更大的发展空间，可以应用于智能驾驶、智能医疗、智能安防等多个领域，助力实现数字化转型和智能化升级。其灵活性和高效性使其成为当前AI领域的翘楚，引领着未来人工智能技术的发展方向。",
+    "year": 2019,
+    "source": [
+      "https://www.mindspore.cn",
+      "https://github.com/mindspore-ai/mindspore"
+    ]
+  },
+  {
+    "id": "prod_dl006",
+    "name": "JAX",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.518,
+    "patent_score": 0.495,
+    "report_score": 0.778,
+    "key_score": 0.758,
+    "country": "美国",
+    "enterprise": "Google",
+    "abstract": "JAX 是一款面向高性能数值计算的库，结合 Autograd 与 XLA 技术，旨在加速研究级别的大规模模型计算与微分编程。其强大的功能使得用户能够高效地开发和优化复杂的机器学习模型，同时实现更快速的训练和推理过程。JAX 还提供了灵活的接口，支持在不同硬件平台上运行，为科研工作者和开发者提供了极大的便利性和效率。通过 JAX，用户可以更轻松地实现对大规模数据集的处理和分析，从而推动人工智能技术的发展和应用。",
+    "year": 2018,
+    "source": [
+      "https://github.com/google/jax",
+      "https://jax.readthedocs.io/en/latest/"
+    ]
+  },
+  {
+    "id": "prod_dl007",
+    "name": "Caffe",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.703,
+    "patent_score": 0.843,
+    "report_score": 0.742,
+    "key_score": 0.732,
+    "country": "美国",
+    "enterprise": "Berkeley Vision and Learning Center (BVLC)",
+    "abstract": "Caffe是一款深度学习框架，以其在图像任务快速部署的能力而闻名。早期在计算机视觉领域广泛应用，其设计注重速度与模块化，使得用户能够快速搭建、训练和部署神经网络模型。除了支持图像识别和分类任务外，Caffe还可用于目标检测、语义分割等应用。其简洁的架构和高效的性能吸引了众多研究人员和工程师的青睐，成为深度学习领域不可或缺的工具之一。",
+    "year": 2014,
+    "source": [
+      "https://caffe.berkeleyvision.org/",
+      "https://github.com/BVLC/caffe"
+    ]
+  },
+  {
+    "id": "prod_dl008",
+    "name": "MXNet",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.483,
+    "patent_score": 0.771,
+    "report_score": 0.698,
+    "key_score": 0.627,
+    "country": "美国",
+    "enterprise": "Amazon",
+    "abstract": "MXNet是一款支持混合编程（符号/命令式）的深度学习框架，被广泛应用于各种人工智能领域。作为AWS深度学习服务的关键底层引擎，MXNet强调其出色的可伸缩性和高效性能。该框架不仅支持多种编程语言，还提供丰富的神经网络模型和优化算法，使用户能够轻松构建和训练复杂的深度学习模型。MXNet的设计理念旨在提高开发者的工作效率，并为他们提供强大的工具来解决现实世界中的复杂问题。",
+    "year": 2016,
+    "source": [
+      "https://mxnet.apache.org/",
+      "https://github.com/apache/mxnet"
+    ]
+  },
+  {
+    "id": "prod_dl009",
+    "name": "Sonnet",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.461,
+    "patent_score": 0.278,
+    "report_score": 0.661,
+    "key_score": 0.623,
+    "country": "英国",
+    "enterprise": "DeepMind",
+    "abstract": "Sonnet 是由 DeepMind 开发的构建模块库，基于 TensorFlow 构建，旨在帮助研究人员轻松搭建复杂的 AI 模型并在不同项目中重复使用组件。Sonnet 提供了各种预先设计好的模块，如神经网络层、优化器和损失函数，使用户可以快速构建定制化的深度学习模型。这个开源工具的设计旨在提高研究效率，降低重复工作量，同时也促进了模型的可重用性和可扩展性。Sonnet 的出现为 AI 研究领域带来了更多可能性，让研究者能够更专注于创新性的实验和算法设计。",
+    "year": 2018,
+    "source": [
+      "https://www.sonnettech.com/",
+      "https://www.anandtech.com/show/17652/sonnet-technologies-launches-alpine-mac-mini-dock"
+    ]
+  },
+  {
+    "id": "prod_dl010",
+    "name": "PaddlePaddle",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.395,
+    "patent_score": 0.595,
+    "report_score": 0.638,
+    "key_score": 0.597,
+    "country": "中国",
+    "enterprise": "百度",
+    "abstract": "百度的工业级深度学习平台PaddlePaddle，是一款专注于中文生态与产业落地的AI解决方案。其强大的功能包括支持训练、推理与模型服务，为用户提供全面的人工智能技术支持。PaddlePaddle不仅在深度学习领域取得了显著成就，还在推动AI技术的创新与应用方面发挥着重要作用。通过不断优化和完善，PaddlePaddle致力于为用户提供高效、稳定的技术支持，助力他们在各行业实现更广阔的发展空间。",
+    "year": 2017,
+    "source": [
+      "https://www.paddlepaddle.org.cn/",
+      "https://github.com/PaddlePaddle/Paddle"
+    ]
+  },
+  {
+    "id": "prod_dl011",
+    "name": "CNTK",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.395,
+    "patent_score": 0.661,
+    "report_score": 0.597,
+    "key_score": 0.58,
+    "country": "美国",
+    "enterprise": "Microsoft",
+    "abstract": "CNTK，即Microsoft计算网络工具包，是一个强调生产级别训练性能和分布式训练支持的AI芯片技术产品。它不仅提供高效的训练性能，还能轻松整合到其他产品中，如ONNX等。CNTK的出现为AI开发者提供了一个强大的工具，能够在大规模数据集上进行高效训练，实现更快速、准确的模型训练和部署。无论是在学术研究还是工业应用领域，CNTK都展现出了其卓越的性能和灵活性。",
+    "year": 2016,
+    "source": [
+      "https://www.microsoft.com/en-us/research/project/microsoft-cognitive-toolkit/",
+      "https://github.com/Microsoft/CNTK"
+    ]
+  },
+  {
+    "id": "prod_dl012",
+    "name": "ModelScope",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.174,
+    "patent_score": 0.119,
+    "report_score": 0.555,
+    "key_score": 0.56,
+    "country": "中国",
+    "enterprise": "阿里巴巴",
+    "abstract": "阿里推出的模型库与框架生态，致力于为用户提供高效的大模型应用与模型共享服务。该生态系统支持多模态模型的管理与部署，为用户提供更加便捷的AI技术应用体验。用户可以通过模型库快速找到适合自己需求的模型，并通过框架生态实现模型的快速部署和运行。这一系列的服务为用户提供了更多的选择和灵活性，助力他们在AI领域取得更大的成功。ModelScope将继续不断完善和优化，为用户提供更加全面的AI技术支持。",
+    "year": 2021,
+    "source": [
+      "https://modelscope.cn/",
+      "https://www.alibabacloud.com/zh/product/modelscope"
+    ]
+  },
+  {
+    "id": "prod_dl013",
+    "name": "OneFlow",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.114,
+    "patent_score": 0.286,
+    "report_score": 0.524,
+    "key_score": 0.555,
+    "country": "中国/国际",
+    "enterprise": "OneFlow 社区 / 企业",
+    "abstract": "OneFlow是一种专为高效大规模分布式训练而设计的框架，其核心特点是强调流水线和张量并行，同时支持高效通信拓扑。通过优化计算和通信模式，OneFlow实现了在大规模集群上实现高效的深度学习模型训练。除此之外，OneFlow还提供了丰富的工具和接口，使得用户可以方便地进行模型开发、调试和部署，是一款强大而灵活的AI芯片技术。",
+    "year": 2019,
+    "source": [
+      "https://www.oneflow.com/",
+      "https://en.wikipedia.org/wiki/OneFlow"
+    ]
+  },
+  {
+    "id": "prod_dl014",
+    "name": "FastAI",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.339,
+    "patent_score": 0.31,
+    "report_score": 0.51,
+    "key_score": 0.501,
+    "country": "美国",
+    "enterprise": "Fast.ai",
+    "abstract": "FastAI是一款基于PyTorch的高级库，专注于快速原型设计和教育普及。其简洁的API使开发者能够快速实验和开发各种机器学习模型。除了提供丰富的预训练模型和工具，FastAI还注重培养用户对深度学习的理解和应用能力。不仅如此，FastAI还支持快速迭代和部署模型，为用户提供全面的深度学习解决方案。无论是初学者还是专业人士，都能从FastAI中受益匪浅。",
+    "year": 2018,
+    "source": [
+      "https://www.fast.ai/",
+      "https://github.com/fastai/fastai"
+    ]
+  },
+  {
+    "id": "prod_dl015",
+    "name": "Caffe2",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.174,
+    "patent_score": 0.548,
+    "report_score": 0.48,
+    "key_score": 0.49,
+    "country": "美国",
+    "enterprise": "Facebook (现并入 PyTorch)",
+    "abstract": "Caffe2 是 Facebook 早期推出的一款轻量级框架，专为移动应用和生产环境而设计。随着时间的推移，Caffe2 与 PyTorch 合并，形成了一个统一的深度学习生态系统。这使得开发人员可以更加高效地构建和训练神经网络模型，从而加速人工智能技术在各个领域的应用和发展。Caffe2 的强大功能和灵活性使其成为科研人员和工程师们首选的工具之一，助力他们在人工智能领域取得突破性进展。",
+    "year": 2016,
+    "source": [
+      "https://caffe2.ai/",
+      "https://github.com/caffe2/caffe2"
+    ]
+  },
+  {
+    "id": "prod_dl016",
+    "name": "Gluon",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.301,
+    "patent_score": 0.339,
+    "report_score": 0.458,
+    "key_score": 0.486,
+    "country": "美国",
+    "enterprise": "Amazon / Microsoft 合作 (MXNet 社区)",
+    "abstract": "Gluon 是一款得到 AWS 和 Apache MXNet 社区支持的高层 API，旨在为开发者提供灵活性和便捷性，同时兼顾研究和生产环境下的可移植性。通过Gluon，用户可以轻松构建、训练和部署深度学习模型，无需过多关注底层实现细节。这使得开发者能够更加专注于模型的创新和优化，从而加速人工智能技术的发展和应用。Gluon 的简洁设计和易用性，使其成为科技领域中不可或缺的利器，助力用户在人工智能领域取得更大的成就。",
+    "year": 2017,
+    "source": [
+      "https://gluon.ai/",
+      "https://aws.amazon.com/cn/gluon/"
+    ]
+  },
+  {
+    "id": "prod_dl017",
+    "name": "Theano",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.501,
+    "patent_score": 0.664,
+    "report_score": 0.435,
+    "key_score": 0.443,
+    "country": "加拿大",
+    "enterprise": "Université de Montréal / MILA",
+    "abstract": "Theano是一个早期深度学习研究常用的计算框架，大大推动了自动微分和符号差分的研究与实现。它提供了高效的数学表达和计算能力，使得研究者能够快速地实现各种复杂的深度学习模型。虽然如今已经不再是主流框架，但Theano在深度学习历史上留下了重要的痕迹，为后续框架的发展奠定了基础。其强大的功能和灵活性使得其成为当时研究者们的首选工具之一，为深度学习领域的进步做出了重要贡献。",
+    "year": 2012,
+    "source": [
+      "https://github.com/Theano/Theano",
+      "http://deeplearning.net/software/theano/"
+    ]
+  },
+  {
+    "id": "prod_dl018",
+    "name": "Jittor",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.114,
+    "patent_score": 0.253,
+    "report_score": 0.407,
+    "key_score": 0.414,
+    "country": "中国",
+    "enterprise": "清华大学 / Jittor 团队",
+    "abstract": "Jittor是一款由国内高校研发的研究型深度学习系统，旨在提供易用性与高性能优化的研究实验平台。该系统采用先进的技术，为用户提供了快速、高效的深度学习体验。Jittor支持各种常见的深度学习算法和模型，同时还提供了丰富的工具和功能，帮助研究人员更好地探索和实验。不仅如此，Jittor还注重用户体验，简化了操作流程，使得用户可以更加专注于研究工作，从而推动科技创新和发展。",
+    "year": 2019,
+    "source": [
+      "https://cg.cs.tsinghua.edu.cn/jittor/",
+      "https://github.com/Jittor/jittor"
+    ]
+  },
+  {
+    "id": "prod_dl019",
+    "name": "Chainer",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.395,
+    "patent_score": 0.615,
+    "report_score": 0.391,
+    "key_score": 0.405,
+    "country": "日本",
+    "enterprise": "Preferred Networks",
+    "abstract": "Chainer是一款由日本Preferred Networks推出的早期动态图框架，曾在研究界引起轰动。其独特之处在于采用动态图计算的方式，为深度学习研究者提供了更大的灵活性和自由度。然而，随着其他框架的崛起和发展，Chainer逐渐失去了市场份额，部分理念也被其他框架所吸收。尽管如此，Chainer在深度学习框架的发展历史上留下了浓墨重彩的一笔，为行业的发展做出了积极贡献。",
+    "year": 2015,
+    "source": [
+      "https://chainer.org/",
+      "https://github.com/chainer/chainer"
+    ]
+  },
+  {
+    "id": "prod_dl020",
+    "name": "MegEngine",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.015,
+    "patent_score": 0.232,
+    "report_score": 0.366,
+    "key_score": 0.376,
+    "country": "中国",
+    "enterprise": "旷视 (Megvii)",
+    "abstract": "旷视开发的深度学习引擎，MegEngine，是一款高效可靠的人工智能技术，专门用于视觉与识别任务的部署。它不仅在公司内部广泛应用，还与各行业展开合作，为用户提供强大的图像识别和分析能力。MegEngine具有优秀的性能和灵活性，能够快速处理大规模数据，并支持多种硬件环境下的部署，为用户带来全面的人工智能解决方案。无论是在安防领域、医疗影像识别还是智能交通系统，MegEngine都能发挥重要作用，助力各行业实现智能化转型。",
+    "year": 2019,
+    "source": [
+      "https://www.megengine.org.cn/",
+      "https://github.com/MegEngine/MegEngine"
+    ]
+  },
+  {
+    "id": "prod_dl021",
+    "name": "ONNX Runtime",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.42,
+    "patent_score": 0.52,
+    "report_score": 0.68,
+    "key_score": 0.6,
+    "country": "美国",
+    "enterprise": "Microsoft / ONNX 社区",
+    "abstract": "ONNX Runtime 是一款高效的执行引擎，作为模型中间表示（ONNX）的运行时，它支持跨平台的模型推理和硬件加速后端。该引擎具有优异的性能和灵活性，能够实现快速、可靠的模型推理，从而加速各种 AI 应用的开发和部署过程。同时，ONNX Runtime 还提供了丰富的工具和接口，方便开发人员进行模型优化和调试，使其成为科技领域中不可或缺的利器。",
+    "year": 2018,
+    "source": [
+      "https://onnxruntime.ai/",
+      "https://github.com/microsoft/onnxruntime"
+    ]
+  },
+  {
+    "id": "prod_dl022",
+    "name": "DeepSpeed",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.57,
+    "patent_score": 0.32,
+    "report_score": 0.71,
+    "key_score": 0.645,
+    "country": "美国",
+    "enterprise": "Microsoft Research",
+    "abstract": "DeepSpeed 是一款用于大型模型训练和并行化的库，旨在降低显存使用并扩展训练规模。除了提供 ZeRO、参数分片和流水线并行等技术外，还包括了优化的通信和调度策略，以提高训练效率。DeepSpeed 还支持多种硬件和软件环境，使其适用于各种深度学习任务和平台。通过使用 DeepSpeed，用户可以更高效地训练大规模模型，加速其在各种领域的研究和应用。",
+    "year": 2020,
+    "source": [
+      "https://www.microsoft.com/en-us/research/project/deepspeed/",
+      "https://github.com/microsoft/DeepSpeed"
+    ]
+  },
+  {
+    "id": "prod_dl023",
+    "name": "Fairseq",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.48,
+    "patent_score": 0.2,
+    "report_score": 0.61,
+    "key_score": 0.56,
+    "country": "美国",
+    "enterprise": "Meta (Facebook AI)",
+    "abstract": "Fairseq是Meta开源的序列到序列与翻译研究工具箱，被广泛应用于自然语言处理领域的研究与模型复现。Fairseq不仅支持多种神经网络架构，如Transformer和LSTM，还提供了丰富的预训练模型和便捷的模型微调功能。研究人员和开发者可以利用Fairseq快速构建、训练和评估各种自然语言处理模型，加速他们在文本生成、文本分类、机器翻译等任务上的研究进展。Fairseq的开源性和灵活性使其成为社区中备受欢迎的工具之一。",
+    "year": 2019,
+    "source": [
+      "https://github.com/facebookresearch/fairseq",
+      "https://ai.facebook.com/blog/a-new-open-source-tool-for-training-translation-models-fairseq/"
+    ]
+  },
+  {
+    "id": "prod_dl024",
+    "name": "Apache TVM",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.52,
+    "patent_score": 0.41,
+    "report_score": 0.69,
+    "key_score": 0.61,
+    "country": "美国",
+    "enterprise": "Apache / 社区",
+    "abstract": "Apache TVM是一个面向深度学习模型的端到端编译器栈，旨在支持多后端硬件代码生成与算子调优，从而提升部署效率与性能。其独特之处在于能够自动优化模型的计算图结构，并在不同硬件平台上实现高效部署。通过Apache TVM，用户可以更轻松地将他们的深度学习模型部署到各种设备上，无论是移动端、边缘设备还是云服务器，都能获得更佳的性能和效率。Apache TVM的出现极大地推动了深度学习模型在实际应用中的普及和发展。",
+    "year": 2018,
+    "source": [
+      "https://tvm.apache.org/",
+      "https://arxiv.org/abs/1802.04799"
+    ]
+  },
+  {
+    "id": "prod_dl025",
+    "name": "TensorRT",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.4,
+    "patent_score": 0.72,
+    "report_score": 0.75,
+    "key_score": 0.635,
+    "country": "美国",
+    "enterprise": "NVIDIA",
+    "abstract": "TensorRT 是 NVIDIA 开发的一款高性能深度学习推理优化库，旨在加速推理过程、优化神经网络算子融合，并实现低延迟部署。通过 TensorRT，用户可以将训练好的模型快速优化并部署到各种平台上，实现更高效的推理计算。其强大的优化能力和低延迟性能使得神经网络在实时应用中表现更加出色，同时也节约了计算资源和能源消耗。TensorRT 的出现极大地推动了深度学习模型在实际应用中的广泛应用，并为推理加速领域带来了重要的突破。",
+    "year": 2017,
+    "source": [
+      "https://developer.nvidia.com/tensorrt",
+      "https://docs.nvidia.com/deeplearning/tensorrt/"
+    ]
+  },
+  {
+    "id": "prod_dl026",
+    "name": "Horovod",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.44,
+    "patent_score": 0.18,
+    "report_score": 0.64,
+    "key_score": 0.52,
+    "country": "美国",
+    "enterprise": "Originally Uber / Open-source community",
+    "abstract": "Horovod是一款开源的分布式训练框架，旨在简化多卡/多机训练过程中的同步与通信。它不仅能够提高训练效率，还能够兼容主流深度学习框架，如TensorFlow和PyTorch。通过Horovod，用户可以轻松地实现大规模模型的训练，同时有效地利用多个GPU或多台机器的计算资源，加速模型收敛速度，提升训练效果。Horovod的出现为深度学习领域的研究者和开发者提供了一种强大且高效的工具，助力他们更快地实现各种复杂模型的训练与优化。",
+    "year": 2017,
+    "source": [
+      "https://horovod.ai/",
+      "https://github.com/horovod/horovod"
+    ]
+  },
+  {
+    "id": "prod_dl027",
+    "name": "OpenVINO",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.35,
+    "patent_score": 0.48,
+    "report_score": 0.61,
+    "key_score": 0.51,
+    "country": "美国",
+    "enterprise": "Intel",
+    "abstract": "Intel 的推理优化工具集 OpenVINO，专注于跨 Intel 平台的模型加速，涵盖 CPU、GPU、FPGA 和 VPU。通过优化神经网络模型，OpenVINO 提供了高效的推理加速，可用于多种应用领域，如计算机视觉、自然语言处理和语音识别。开发者可以利用 OpenVINO 的丰富功能和易用的工具，快速部署和优化他们的 AI 解决方案，实现更高的性能和效率。",
+    "year": 2018,
+    "source": [
+      "https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/overview.html",
+      "https://docs.openvino.ai/latest/index.html"
+    ]
+  },
+  {
+    "id": "prod_dl028",
+    "name": "NNabla",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.16,
+    "patent_score": 0.21,
+    "report_score": 0.3,
+    "key_score": 0.29,
+    "country": "日本",
+    "enterprise": "Sony",
+    "abstract": "NNabla是由Sony开发的开源神经网络库，旨在支持科研与工业应用。该库注重模块性与可扩展性，使用户能够轻松构建、训练和部署深度学习模型。NNabla提供了丰富的算法和工具，适用于各种领域，如计算机视觉、自然语言处理等。同时，NNabla还提供了易于使用的API，使开发者能够快速上手，实现高效的神经网络设计与实验。无论是学术研究还是商业应用，NNabla都是一款强大而灵活的工具，助力用户在人工智能领域取得成功。",
+    "year": 2016,
+    "source": [
+      "https://nnabla.org",
+      "https://github.com/sony/nnabla"
+    ]
+  },
+  {
+    "id": "prod_dl029",
+    "name": "TensorFlow Lite (TFLite)",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.3,
+    "patent_score": 0.25,
+    "report_score": 0.61,
+    "key_score": 0.46,
+    "country": "美国",
+    "enterprise": "Google",
+    "abstract": "TensorFlow Lite (TFLite)是一款专为移动与边缘设备设计的轻量级推理运行时工具。它支持量化与模型压缩技术，能够有效地在低算力设备上部署深度学习模型，实现高效的推理运算。TFLite不仅提供了优化的模型解释器，还包含了一系列针对移动端的模型优化工具，帮助开发者轻松地将模型部署到手机、平板等端侧设备上，实现智能应用的低延迟、高效率运行。",
+    "year": 2017,
+    "source": [
+      "https://www.tensorflow.org/lite",
+      "https://developers.google.com/codelabs/tensorflow-lite-intro"
+    ]
+  },
+  {
+    "id": "prod_dl030",
+    "name": "TorchScript / PyTorch JIT",
+    "type": "产品",
+    "field": "深度学习框架",
+    "article_score": 0.36,
+    "patent_score": 0.42,
+    "report_score": 0.61,
+    "key_score": 0.52,
+    "country": "美国",
+    "enterprise": "Meta (PyTorch)",
+    "abstract": "TorchScript / PyTorch JIT 是 PyTorch 中的静态图导出与优化组件，旨在实现生产部署与跨平台模型导出。该组件能够桥接研究与工程化部署需求，帮助用户更高效地将他们的深度学习模型投入实际应用中。通过 TorchScript / PyTorch JIT，用户可以轻松地将他们在 PyTorch 中训练的模型转换为静态图，并进行优化，以获得更好的性能和效率。这一技术的应用范围广泛，有助于加速机器学习模型在不同平台上的部署和应用。",
+    "year": 2018,
+    "source": [
+      "https://pytorch.org/docs/stable/jit.html",
+      "https://pytorch.org/tutorials/beginner/Intro_to_TorchScript_tutorial.html"
+    ]
+  },
+  {
+    "id": "tech_dl001",
+    "name": "端到端训练（End-to-End）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 1.0,
+    "patent_score": 0.942,
+    "report_score": 0.745,
+    "key_score": 0.983,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "端到端训练是一种将原始输入直接映射到最终输出的方法，通过单一学习流程简化了传统的多阶段流水线，提升了自动化水平。这种方法不仅减少了人为干预，还加快了模型训练和部署的速度，提高了整体效率。通过端到端训练，AI 芯片/技术/产品可以更快地适应新的数据和环境变化，实现更加精准的预测和决策，为各行业带来更多应用和创新。",
+    "year": 2016,
+    "source": [
+      "https://arxiv.org/abs/1412.5567",
+      "https://ieeexplore.ieee.org/document/7926593"
+    ]
+  },
+  {
+    "id": "tech_dl002",
+    "name": "大规模模型训练（Large-scale Models）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.913,
+    "patent_score": 0.529,
+    "report_score": 0.704,
+    "key_score": 0.807,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "这款AI芯片/技术/产品是一种专门设计用于大规模模型训练的先进解决方案。通过模型并行、数据并行和参数分片等技术，实现了数十亿到万亿级参数模型的高效训练和管理。其强大的计算能力和智能算法使得训练过程更加快速和稳定，为科学研究和商业应用提供了强大的支持。无论是在自然语言处理、计算机视觉还是推荐系统领域，这款产品都展现出了卓越的性能和灵活性，为用户带来了全新的体验和可能性。",
+    "year": 2020,
+    "source": [
+      "https://arxiv.org/abs/2001.08361",
+      "https://ieeexplore.ieee.org/document/9745546"
+    ]
+  },
+  {
+    "id": "tech_dl003",
+    "name": "跨平台部署（Cross-platform Deployment）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.668,
+    "patent_score": 0.669,
+    "report_score": 0.599,
+    "key_score": 0.769,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "跨平台部署（Cross-platform Deployment）是指一种能够支持模型在不同硬件/运行时（云、边缘、移动、加速器）间无缝迁移与部署的能力与工具链。通过跨平台部署技术，用户可以轻松地将他们的 AI 模型部署到各种不同的环境中，而无需重新编写代码或进行繁琐的适配工作。这一技术的实现不仅提高了部署效率，还为用户带来了更灵活、更便捷的部署体验，进一步推动了 AI 技术在各个领域的应用和发展。",
+    "year": 2018,
+    "source": [
+      "https://arxiv.org/search/?query=cross-platform+deployment&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=cross-platform%20deployment"
+    ]
+  },
+  {
+    "id": "tech_dl004",
+    "name": "分布式并行（Distributed Parallel）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.772,
+    "patent_score": 0.637,
+    "report_score": 0.473,
+    "key_score": 0.7,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "分布式并行（Distributed Parallel）技术是一种集合了数据并行、模型并行、流水线并行和张量并行等多种分布式训练策略的方法，旨在扩展AI训练规模。通过同时利用多个计算资源，实现对大规模数据和复杂模型的高效训练，提高训练速度和效率。该技术在各种AI芯片和产品中得到广泛应用，为深度学习领域的发展带来了重要的突破和进步。",
+    "year": 2019,
+    "source": [
+      "https://arxiv.org/search/?query=Distributed+Parallel+Computing&searchtype=all&source=header",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=Distributed%20Parallel%20Computing"
+    ]
+  },
+  {
+    "id": "tech_dl005",
+    "name": "模型安全（Model Security）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.862,
+    "patent_score": 0.499,
+    "report_score": 0.308,
+    "key_score": 0.635,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "该AI芯片/技术/产品注重对抗样本防御、模型水印、访问控制与可解释性等关键功能，以确保模型在上线后的安全性与合规性。通过对抗样本防御技术，有效抵御恶意攻击；模型水印技术可保护知识产权；访问控制保障数据隐私；可解释性提高模型透明度。综合应用这些功能，为用户提供全方位的模型安全保障，确保AI系统稳定运行且符合法规要求。",
+    "year": 2021,
+    "source": [
+      "https://arxiv.org/search/?query=model+security&searchtype=all&abstracts=show&order=-announced_date_first&size=50",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=model%20security"
+    ]
+  },
+  {
+    "id": "tech_dl006",
+    "name": "调试器与可视化（Debugger & Visualization）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.448,
+    "patent_score": 0.459,
+    "report_score": 0.292,
+    "key_score": 0.59,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "调试器与可视化（Debugger & Visualization）是一款专为 AI 模型训练过程设计的工具集合，提供了张量与梯度的直观可视化，帮助用户更好地理解模型训练的过程和结果。除此之外，它还集成了profiling与性能分析工具，帮助用户发现并优化模型训练中的性能瓶颈。通过这个工具集合，用户可以更高效地调试模型、优化训练过程，提高模型的训练效率和性能表现。",
+    "year": 2017,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9293021",
+      "https://arxiv.org/abs/2108.05232"
+    ]
+  },
+  {
+    "id": "tech_dl007",
+    "name": "数据并行（Data Parallel）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.849,
+    "patent_score": 0.655,
+    "report_score": 0.278,
+    "key_score": 0.535,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "数据并行（Data Parallel）是一种用于加速模型训练的基础方法，通过将数据分割到多台设备并行训练。这种并行化训练可以大大减少训练时间，提高模型的效率和性能。在实际应用中，数据并行技术可以帮助处理大规模数据集，加快模型收敛速度，并提高训练的稳定性。通过充分利用多台设备的计算资源，数据并行技术为AI芯片和技术的发展提供了重要支持，推动了人工智能领域的进步和创新。",
+    "year": 2016,
+    "source": [
+      "https://arxiv.org/abs/1604.01946",
+      "https://ieeexplore.ieee.org/document/6783125"
+    ]
+  },
+  {
+    "id": "tech_dl008",
+    "name": "参数服务器（Parameter Server）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.64,
+    "patent_score": 0.617,
+    "report_score": 0.265,
+    "key_score": 0.415,
+    "country": "国际",
+    "enterprise": "学术/工业方案",
+    "abstract": "参数服务器（Parameter Server）是一种用于分布式训练的框架组件，负责集中或分布式维护模型参数。它实现了参数同步或异步更新策略，帮助不同节点之间共享和更新模型参数，从而加速训练过程并提高模型性能。通过参数服务器，可以有效地管理大规模模型的参数，实现高效的模型训练和优化。参数服务器在大规模深度学习和机器学习任务中发挥着重要作用，为分布式计算提供了强大支持。",
+    "year": 2015,
+    "source": [
+      "https://arxiv.org/abs/1407.1693",
+      "https://dl.acm.org/doi/10.1145/2742871.2742876"
+    ]
+  },
+  {
+    "id": "tech_dl009",
+    "name": "自动微分（Autodiff）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.004,
+    "patent_score": 0.564,
+    "report_score": 0.253,
+    "key_score": 0.173,
+    "country": "国际",
+    "enterprise": "研究社区",
+    "abstract": "自动微分（Autodiff）是一种关键的技术，用于计算复杂函数的导数。它支持多种实现方式，包括符号式、反向传播和即时编译（JIT）优化。这些功能是 AI 芯片/技术/产品的核心，为各种框架提供了高效的梯度计算能力，从而加速深度学习模型的训练和优化过程。通过自动计算梯度，用户可以轻松地构建和优化复杂的神经网络模型，实现更高的性能和准确性。",
+    "year": 2012,
+    "source": [
+      "https://arxiv.org/abs/1502.05767",
+      "https://ieeexplore.ieee.org/document/8947564"
+    ]
+  },
+  {
+    "id": "tech_dl010",
+    "name": "动静图转换（Dynamic/Static Graph）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.389,
+    "patent_score": 0.129,
+    "report_score": 0.238,
+    "key_score": 0.158,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "这款 AI 芯片/技术/产品具有强大的支持动态图与静态图转换的功能，不仅实现了 PyTorch 到 TorchScript，TF Graph之间的平衡调试便利性与部署效率，还能够在不同框架之间实现无缝的转换与兼容。用户可以轻松地在开发和调试阶段使用动态图进行实验，然后通过转换为静态图来提高部署效率，从而实现更高效的模型训练与部署过程。这一功能使得用户在不同阶段可以灵活选择适合的图模式，从而更好地满足项目需求。",
+    "year": 2018,
+    "source": [
+      "https://arxiv.org/search/?query=dynamic+static+graph+conversion&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=dynamic%20to%20static%20graph%20conversion"
+    ]
+  },
+  {
+    "id": "tech_dl011",
+    "name": "算子融合与编译优化（Operator Fusion & Compiler）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.72,
+    "patent_score": 0.615,
+    "report_score": 0.64,
+    "key_score": 0.7,
+    "country": "国际",
+    "enterprise": "XLA/TensorRT/TVM 等",
+    "abstract": "算子融合与编译优化在AI芯片领域扮演着至关重要的角色。通过算子融合，不同的操作可以被合并在一起，减少内存访问，提升计算效率。同时，内存复用和编译器后端优化进一步提高了系统的吞吐能力。这些工程化加速的关键环节使得AI芯片在处理复杂任务时能够更高效地运行，从而为人工智能技术的发展提供了强大支持。",
+    "year": 2017,
+    "source": [
+      "https://arxiv.org/abs/2007.12356",
+      "https://dl.acm.org/doi/10.1145/3458817.3476178"
+    ]
+  },
+  {
+    "id": "tech_dl012",
+    "name": "混合精度 (Mixed Precision)",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.65,
+    "patent_score": 0.58,
+    "report_score": 0.6,
+    "key_score": 0.67,
+    "country": "国际",
+    "enterprise": "NVIDIA/框架厂商",
+    "abstract": "混合精度 (Mixed Precision) 是一种训练策略，结合了 FP16/BF16 和 FP32，通过专用硬件支持与损失缩放来实现速度与精度的平衡。使用较低精度的浮点数可以加快训练速度，而同时保持一定精度水平。这种方法在大规模深度学习模型中特别有效，能够节省大量的计算资源，并在保持模型性能的同时提高训练效率。混合精度已经被广泛运用于各种人工智能领域，为 AI 技术的发展带来了巨大的推动力。",
+    "year": 2018,
+    "source": [
+      "https://arxiv.org/abs/1710.03740",
+      "https://ieeexplore.ieee.org/document/8601400"
+    ]
+  },
+  {
+    "id": "tech_dl013",
+    "name": "模型分片与 ZeRO (Optimizer Sharding)",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.63,
+    "patent_score": 0.5,
+    "report_score": 0.61,
+    "key_score": 0.66,
+    "country": "国际",
+    "enterprise": "DeepSpeed / Microsoft 等",
+    "abstract": "模型分片与 ZeRO (Optimizer Sharding) 技术是一项旨在优化超大规模模型训练的创新方法。通过将模型状态在多个设备间分片，可以有效节省显存并支持更大规模的模型训练，使得训练过程更加高效和稳定。ZeRO 技术不仅可以降低训练过程中的内存占用，还可以提高训练速度和模型性能，为深度学习领域的研究和实践带来了全新的可能性。这一技术的应用将极大地推动人工智能领域的发展，为构建更加强大和智能的模型奠定了基础。",
+    "year": 2020,
+    "source": [
+      "https://arxiv.org/abs/1910.02054",
+      "https://www.microsoft.com/en-us/research/publication/zero-an-optimizer-for-memory-optimization-of-deep-learning-training/"
+    ]
+  },
+  {
+    "id": "tech_dl014",
+    "name": "流水线并行（Pipeline Parallelism）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.61,
+    "patent_score": 0.52,
+    "report_score": 0.58,
+    "key_score": 0.64,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "流水线并行（Pipeline Parallelism）是一种针对 AI 模型训练的并行化策略，通过将模型切分为不同阶段，并在不同设备上流水线执行来提升设备利用率和训练吞吐量。这种方法可以有效减少训练时间，提高训练效率，特别适用于大规模深度学习模型的训练。通过流水线并行化策略，可以充分利用多个设备的计算资源，加速模型训练过程，提升整体性能表现。流水线并行化不仅可以提高训练速度，还可以降低训练成本，是当前深度学习领域的研究热点之一。",
+    "year": 2019,
+    "source": [
+      "https://arxiv.org/abs/1811.06965",
+      "https://ieeexplore.ieee.org/document/9296508"
+    ]
+  },
+  {
+    "id": "tech_dl015",
+    "name": "张量分块（Tensor Slicing / Sharding）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.54,
+    "patent_score": 0.48,
+    "report_score": 0.52,
+    "key_score": 0.56,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "张量分块是一种在大数据集上进行并行存储与计算的技术，通过按维度将大张量分割成多个小块，以提高计算效率和减少内存消耗。这种方法通常与模型并行和分布式训练相结合，可以有效加快训练速度并提升系统性能。通过将数据分块处理，可以更好地利用硬件资源，实现高效的数据处理和分析，适用于各种人工智能领域的应用场景。",
+    "year": 2019,
+    "source": [
+      "https://arxiv.org/abs/1811.06965",
+      "https://ieeexplore.ieee.org/document/9297774"
+    ]
+  },
+  {
+    "id": "tech_dl016",
+    "name": "稀疏注意力与稀疏化技术",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.6,
+    "patent_score": 0.45,
+    "report_score": 0.52,
+    "key_score": 0.59,
+    "country": "国际",
+    "enterprise": "研究机构 / 公司",
+    "abstract": "稀疏注意力与稀疏化技术是一项旨在提高AI芯片在大规模序列处理中效率的创新技术。通过引入稀疏注意力机制和稀疏化算子，该技术能够显著降低自注意力计算的成本，从而加速模型训练和推理过程。这种方法不仅提高了处理大规模序列数据的速度，还有效减少了能耗消耗。稀疏注意力与稀疏化技术的应用将为AI芯片领域带来革命性的进展，推动人工智能技术的发展和应用。",
+    "year": 2020,
+    "source": [
+      "https://arxiv.org/abs/2004.05150",
+      "https://arxiv.org/abs/1904.10509"
+    ]
+  },
+  {
+    "id": "tech_dl017",
+    "name": "量化训练与推理（Quantization）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.61,
+    "patent_score": 0.54,
+    "report_score": 0.56,
+    "key_score": 0.6,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "这款AI芯片/技术/产品利用在线/离线量化方法（INT8/INT4/BF16）结合框架支持与校准技术，有效降低模型推理资源消耗。通过精确的量化方法，提高模型推理的效率和速度，同时保持推理结果的准确性。这项技术还提供了更灵活的部署选项，适用于各种场景和需求，为用户带来更好的体验和效果。Quantization技术的应用使得AI推理变得更加高效和可靠，为未来的人工智能发展提供了重要支持。",
+    "year": 2019,
+    "source": [
+      "https://arxiv.org/abs/1806.08342",
+      "https://ieeexplore.ieee.org/document/9054467"
+    ]
+  },
+  {
+    "id": "tech_dl018",
+    "name": "模型蒸馏（Knowledge Distillation）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.56,
+    "patent_score": 0.43,
+    "report_score": 0.49,
+    "key_score": 0.54,
+    "country": "国际",
+    "enterprise": "研究/工业",
+    "abstract": "模型蒸馏（Knowledge Distillation）是一种通过使用大模型作为教师来训练小模型的技术，以保留性能并减少资源消耗。这种方法在边缘部署和低延迟场景中得到广泛应用，能够有效地将复杂的模型知识转移给简化的模型，从而在保持性能的同时提高效率。通过模型蒸馏，可以在保持模型性能的同时降低计算和存储需求，使得在资源受限的环境下也能够实现高效的人工智能应用。",
+    "year": 2018,
+    "source": [
+      "https://arxiv.org/abs/1503.02531",
+      "https://papers.nips.cc/paper/2014/file/7ed71bce7a2d6380323c9784d748eb33-Paper.pdf"
+    ]
+  },
+  {
+    "id": "tech_dl019",
+    "name": "自动混合精度（AMP）框架",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.58,
+    "patent_score": 0.48,
+    "report_score": 0.53,
+    "key_score": 0.56,
+    "country": "国际",
+    "enterprise": "NVIDIA / 框架实现",
+    "abstract": "自动混合精度（AMP）框架是一种先进的工具，能够自动选择数值格式并处理缩放，从而在保持速度的同时提高模型训练的精度。通过减轻工程师调参的负担，AMP框架大大简化了深度学习模型的开发过程。它能够有效地优化计算资源的利用，提高训练效率，并在不牺牲模型性能的情况下降低能耗。这一智能工具的引入为AI芯片和技术的发展带来了全新的可能性，为各行业的应用带来更大的创新空间。AMP框架的出现，标志着对AI计算的新一轮进步和优化。",
+    "year": 2019,
+    "source": [
+      "https://arxiv.org/abs/1710.03740",
+      "https://ieeexplore.ieee.org/document/8601472"
+    ]
+  },
+  {
+    "id": "tech_dl020",
+    "name": "图优化与子图重写（Graph Optimization）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.6,
+    "patent_score": 0.56,
+    "report_score": 0.61,
+    "key_score": 0.605,
+    "country": "国际",
+    "enterprise": "框架/编译器",
+    "abstract": "图优化与子图重写（Graph Optimization）是指在AI芯片/技术/产品中采用静态图优化、常量折叠、算子融合等技术手段，对执行计划进行优化，以提高推理与训练性能。通过对计算图进行精细的分析和重组，可以减少不必要的计算步骤，减少内存占用和计算时间，从而提高整体的运行效率。这种优化方法可以有效地提升模型训练的速度和推理的准确性，为用户带来更快、更高效的人工智能体验。",
+    "year": 2017,
+    "source": [
+      "https://arxiv.org/abs/1804.02586",
+      "https://ieeexplore.ieee.org/document/9295735"
+    ]
+  },
+  {
+    "id": "tech_dl021",
+    "name": "优化器与自适应优化算法（Adam / LAMB 等）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.72,
+    "patent_score": 0.42,
+    "report_score": 0.52,
+    "key_score": 0.65,
+    "country": "国际",
+    "enterprise": "研究社区",
+    "abstract": "优化器与学习率调度策略在训练神经网络时起着至关重要的作用，直接影响模型的收敛速度和最终性能。不同的优化器如SGD、Adam和LAMB等，以及学习率调度方法如学习率衰减、动态调整等，都可以在训练过程中对模型进行优化，提高训练效率和结果质量。选择合适的优化器和学习率调度策略是训练工程中必不可少的一环，能够帮助提升模型的泛化能力和准确性。因此，深入了解和熟练运用不同的优化器和学习率调度策略对于构建高性能的AI系统至关重要。",
+    "year": 2014,
+    "source": [
+      "https://arxiv.org/abs/1412.6980",
+      "https://arxiv.org/abs/1904.00962"
+    ]
+  },
+  {
+    "id": "tech_dl022",
+    "name": "检查点与梯度累积（Checkpointing & Gradient Accumulation）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.54,
+    "patent_score": 0.36,
+    "report_score": 0.42,
+    "key_score": 0.52,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "该AI芯片/技术/产品采用了检查点与梯度累积技术，旨在实现节省显存并稳定大规模训练的目标。通过有效管理模型参数和优化计算资源的使用，使得分布式训练更加高效。这项实践技巧为大规模深度学习任务提供了可靠的解决方案，同时提升了训练速度和模型性能。在实际应用中，该技术能够有效降低训练成本，提高训练效率，并为AI应用的发展提供了重要支持。",
+    "year": 2018,
+    "source": [
+      "https://arxiv.org/abs/1604.06174",
+      "https://arxiv.org/abs/1806.03325"
+    ]
+  },
+  {
+    "id": "tech_dl023",
+    "name": "模型压缩（Pruning）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.5,
+    "patent_score": 0.43,
+    "report_score": 0.45,
+    "key_score": 0.49,
+    "country": "国际",
+    "enterprise": "研究/厂商",
+    "abstract": "模型压缩（Pruning）是一种有效的方法，通过结构化或非结构化剪枝来减少AI模型的参数和计算成本，同时保持其性能。这一技术可以帮助提高模型的效率和速度，使其更适合在资源受限的设备上部署。通过再训练，模型可以在减少参数的情况下保持原有的准确性和性能水平。模型压缩的应用范围广泛，可以应用于各种AI芯片、模型和技术中，为人工智能领域的发展带来新的可能性和机遇。",
+    "year": 2018,
+    "source": [
+      "https://arxiv.org/abs/1512.08560",
+      "https://ieeexplore.ieee.org/document/9054341"
+    ]
+  },
+  {
+    "id": "tech_dl024",
+    "name": "推理优化与低延迟（Inference Optimization）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.66,
+    "patent_score": 0.6,
+    "report_score": 0.7,
+    "key_score": 0.68,
+    "country": "国际",
+    "enterprise": "NVIDIA/Intel/谷歌 等",
+    "abstract": "推理优化与低延迟（Inference Optimization）技术是针对在线服务设计的一种创新技术，旨在提升推理过程的效率和性能。通过采用批处理策略、算子融合、内存布局优化和加速库集成等手段，该技术能够有效地优化推理过程，提高模型推理的速度和精度。这项技术不仅能够加快模型推理的速度，还能够降低计算成本，提升系统的整体性能。推理优化与低延迟技术将为在线服务带来更加稳定、高效的推理体验，助力各行各业实现智能化转型。",
+    "year": 2018,
+    "source": [
+      "https://arxiv.org/search/?query=inference+optimization+low+latency&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=inference%20optimization%20low%20latency"
+    ]
+  },
+  {
+    "id": "tech_dl025",
+    "name": "ONNX 互操作性",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.54,
+    "patent_score": 0.44,
+    "report_score": 0.61,
+    "key_score": 0.585,
+    "country": "国际",
+    "enterprise": "ONNX 社区 / Microsoft",
+    "abstract": "ONNX 互操作性是一种利用中间表示实现不同框架与硬件之间互操作的技术。通过 ONNX（开放神经网络交换）标准，用户可以轻松实现模型在不同深度学习框架间的转换，同时能够在各种硬件平台上进行高效部署。这种跨平台部署与迁移的能力，极大地简化了人工智能模型的开发与应用过程，为科研人员和工程师提供了更多灵活性和便利性。ONNX 互操作性的出现，使得人工智能技术更加普及和易用。",
+    "year": 2018,
+    "source": [
+      "https://arxiv.org/abs/1907.03468",
+      "https://ieeexplore.ieee.org/document/9191295"
+    ]
+  },
+  {
+    "id": "tech_dl026",
+    "name": "边缘推理与模型轻量化",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.58,
+    "patent_score": 0.43,
+    "report_score": 0.56,
+    "key_score": 0.59,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "边缘推理与模型轻量化是指针对边缘设备的AI推理需求，对模型和框架进行剪枝、量化和算子裁剪等轻量化处理，以适应资源有限的边缘环境。这种处理需要结合特定的运行时，确保模型在边缘设备上高效运行并保持准确性。通过边缘推理与模型轻量化技术，可以在边缘设备上实现实时、低延迟的AI推理，为各种物联网设备和智能系统带来更高效的智能计算能力。",
+    "year": 2019,
+    "source": [
+      "https://arxiv.org/search/?query=edge+inference+and+model+lightweight&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=edge%20inference%20and%20model%20lightweight"
+    ]
+  },
+  {
+    "id": "tech_dl027",
+    "name": "自动微调（AutoML / Auto-Tuning）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.6,
+    "patent_score": 0.42,
+    "report_score": 0.52,
+    "key_score": 0.58,
+    "country": "国际",
+    "enterprise": "谷歌/阿里 等",
+    "abstract": "这款 AI 芯片/技术/产品利用自动化模型结构搜索、超参数优化与算子调优技术，实现了降低人工干预的同时提高了效率与性能。通过智能化的算法和技术手段，用户可以更轻松地优化模型结构，调整参数，从而提升机器学习任务的准确性和速度。这种自动微调技术不仅节省了人力资源，还能够快速适应不同的数据集和任务需求，为用户提供更加全面、高效的解决方案。",
+    "year": 2020,
+    "source": [
+      "https://arxiv.org/abs/1810.03522",
+      "https://ieeexplore.ieee.org/document/8945801"
+    ]
+  },
+  {
+    "id": "tech_dl028",
+    "name": "分布式调度与资源管理（Kubernetes/TFJob 等）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.62,
+    "patent_score": 0.41,
+    "report_score": 0.57,
+    "key_score": 0.61,
+    "country": "国际",
+    "enterprise": "云厂商 / 社区",
+    "abstract": "分布式调度与资源管理（Kubernetes/TFJob 等）是针对云原生或集群环境中的训练任务而设计的综合解决方案。通过有效调度和管理 GPU 资源，实现训练任务的高效运行，并自动实现扩缩容，以应对不同工作负载的需求变化。该技术能够帮助用户充分利用计算资源，提高训练效率，降低成本，同时确保系统稳定性和可靠性。是现代科技领域中不可或缺的重要工具之一。",
+    "year": 2019,
+    "source": [
+      "https://arxiv.org/abs/1603.07403",
+      "https://ieeexplore.ieee.org/document/8952527"
+    ]
+  },
+  {
+    "id": "tech_dl029",
+    "name": "可解释性与可观测性（Explainability & Observability）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.58,
+    "patent_score": 0.38,
+    "report_score": 0.43,
+    "key_score": 0.54,
+    "country": "国际",
+    "enterprise": "研究机构 / 工业",
+    "abstract": "可解释性与可观测性（Explainability & Observability）是一种用于提高人工智能模型透明度和可信度的关键工具和方法。除了用于理解模型决策、监控模型性能随时间变化和探测数据分布漂移外，还可以帮助用户识别模型中的潜在偏差和错误，从而提高模型的可靠性和可解释性。这种工具和方法通过可视化技术和自动化分析，使用户能够更好地理解模型的运作方式，为决策提供更多信心和依据。",
+    "year": 2020,
+    "source": [
+      "https://arxiv.org/abs/2006.05271",
+      "https://ieeexplore.ieee.org/document/9283827"
+    ]
+  },
+  {
+    "id": "tech_dl030",
+    "name": "联邦学习与隐私计算（Federated Learning & Privacy）",
+    "type": "技术",
+    "field": "深度学习框架",
+    "article_score": 0.6,
+    "patent_score": 0.45,
+    "report_score": 0.48,
+    "key_score": 0.56,
+    "country": "国际",
+    "enterprise": "研究/企业",
+    "abstract": "联邦学习与隐私计算（Federated Learning & Privacy）是一种基于分布式数据的模型训练方法，旨在保护用户隐私。通过差分隐私技术、安全多方计算和模型聚合算法，实现在不共享数据的情况下进行联合训练，从而保护用户数据隐私。这种技术不仅可以提高模型的准确性和泛化能力，还可以避免数据中心集中存储带来的隐私风险。联邦学习与隐私计算在各种领域都有广泛的应用前景，为数据安全和隐私保护提供了重要的解决方案。",
+    "year": 2020,
+    "source": [
+      "https://arxiv.org/abs/1602.05629",
+      "https://ieeexplore.ieee.org/document/8734677"
+    ]
+  }
+]

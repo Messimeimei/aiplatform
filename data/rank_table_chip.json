@@ -1,0 +1,1079 @@
+[
+  {
+    "id": "prod_chip001",
+    "name": "V100",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 1.0,
+    "patent_score": 0.899,
+    "report_score": 0.921,
+    "key_score": 0.942,
+    "country": "美国",
+    "enterprise": "NVIDIA",
+    "abstract": "NVIDIA Volta 架构 GPU（V100）是一款专为深度学习训练和高性能计算而设计的通用加速卡。其强大的计算能力和高效的能源利用率使其成为科学研究、人工智能和数据中心领域的首选。V100采用了最新的 Tensor 核心架构，拥有超过 5000 个 CUDA 核心，具有出色的并行处理能力和内存带宽，能够实现卓越的训练性能。此外，V100还支持深度学习框架，如 TensorFlow、PyTorch 等，为用户提供了更为便捷的开发和部署环境。",
+    "year": 2017,
+    "source": [
+      "https://www.nvidia.com/en-us/data-center/tesla-v100/",
+      "https://newsroom.nvidia.com/category/products/"
+    ]
+  },
+  {
+    "id": "prod_chip002",
+    "name": "Ascend 910",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.277,
+    "patent_score": 0.857,
+    "report_score": 0.903,
+    "key_score": 0.778,
+    "country": "中国",
+    "enterprise": "华为",
+    "abstract": "Ascend 910 是华为推出的一款专为数据中心训练场景设计的高性能 AI 训练芯片。该芯片采用先进的架构和技术，具备强大的计算能力和高效的能耗控制，能够支持复杂的深度学习模型训练任务。Ascend 910 在处理大规模数据时表现出色，为用户提供快速、稳定的训练体验。与此同时，该芯片还具备良好的可扩展性和灵活性，能够满足不同应用场景的需求，是数据中心人工智能计算的理想选择。",
+    "year": 2019,
+    "source": [
+      "https://www.huawei.com/en/products/ascend-ai-processor/ascend-910",
+      "https://www.anandtech.com/show/14785/huawei-announces-ascend-910-ai-chip-and-mindspore-framework"
+    ]
+  },
+  {
+    "id": "prod_chip003",
+    "name": "WSE-2",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.769,
+    "patent_score": 0.634,
+    "report_score": 0.639,
+    "key_score": 0.738,
+    "country": "美国",
+    "enterprise": "Cerebras",
+    "abstract": "Cerebras的Wafer-Scale Engine第二代（WSE-2）是一款革命性的人工智能芯片，采用整片晶圆规模加速器，专为超大规模模型训练而设计。WSE-2在芯片内集成了数千亿个晶体管，实现了前所未有的计算能力和效率。这一突破性技术使得训练大规模深度学习模型变得更加快速和高效，为人工智能领域的发展带来了新的可能性和机遇。 Cerebras的WSE-2将成为未来AI研究和应用中的重要工具，推动人工智能技术走向新的高度。",
+    "year": 2021,
+    "source": [
+      "https://www.cerebras.net/product/wse-2/",
+      "https://www.tomshardware.com/news/cerebras-wafer-scale-engine-2-worlds-largest-chip"
+    ]
+  },
+  {
+    "id": "prod_chip004",
+    "name": "A100",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.83,
+    "patent_score": 0.875,
+    "report_score": 0.864,
+    "key_score": 0.674,
+    "country": "美国",
+    "enterprise": "NVIDIA",
+    "abstract": "NVIDIA的A100是一款基于Ampere架构的GPU，被广泛应用于深度学习模型的训练与推理任务。其强大的性能和灵活性使其成为当今AI领域的首选选择。A100支持多种混合精度运算单元，能够实现高效的计算和更快的模型训练速度。同时，A100还具备强大的并行计算能力和大规模内存，为用户提供了更加出色的性能和体验。无论是用于数据科学、机器学习还是深度学习，A100都能够满足用户的需求，助力他们在AI领域取得更加优异的成果。",
+    "year": 2020,
+    "source": [
+      "https://www.nvidia.com/en-us/data-center/a100/",
+      "https://www.tomshardware.com/news/nvidia-a100-gpu-announced"
+    ]
+  },
+  {
+    "id": "prod_chip005",
+    "name": "H100",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.409,
+    "patent_score": 0.585,
+    "report_score": 0.837,
+    "key_score": 0.595,
+    "country": "美国",
+    "enterprise": "NVIDIA",
+    "abstract": "NVIDIA Hopper 架构 GPU（H100）是一款专为大规模Transformer型模型训练而优化的AI芯片。其采用了先进的硬件设计，提供了卓越的性能和效率，能够更快地处理复杂的神经网络计算。H100具有高度并行化的架构，支持大规模数据并行处理，提供了强大的计算能力和内存带宽，有助于加速深度学习模型的训练过程。通过H100，用户可以更快速、更高效地训练出更精确的模型，从而推动人工智能技术在各领域的发展和应用。",
+    "year": 2022,
+    "source": [
+      "https://www.nvidia.com/en-us/data-center/h100/",
+      "https://newsroom.nvidia.com/h100"
+    ]
+  },
+  {
+    "id": "prod_chip006",
+    "name": "昆仑芯2",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.548,
+    "patent_score": 0.533,
+    "report_score": 0.611,
+    "key_score": 0.562,
+    "country": "中国",
+    "enterprise": "百度",
+    "abstract": "百度自主研发的昆仑系列AI芯片第二代，昆仑芯2，专为云端推理与模型服务而设计。该芯片采用先进的架构和算法，具备强大的计算能力和高效的能耗控制，可广泛应用于人工智能领域，包括语音识别、图像识别、自然语言处理等。昆仑芯2在提升AI应用性能的同时，也注重数据安全和隐私保护，为用户提供可靠的AI解决方案。",
+    "year": 2021,
+    "source": [
+      "https://www.kunlunxin.com/product/detail?id=2",
+      "https://www.geekpark.net/news/384562"
+    ]
+  },
+  {
+    "id": "prod_chip007",
+    "name": "H200",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.126,
+    "patent_score": 0.529,
+    "report_score": 0.798,
+    "key_score": 0.53,
+    "country": "美国",
+    "enterprise": "NVIDIA",
+    "abstract": "NVIDIA H200是一款面向高效推理与训练混合工作负载的AI芯片，是H100的升级版。它采用先进的架构和技术，提供更快速、更高效的计算性能，可广泛应用于人工智能、深度学习等领域。H200在处理复杂的数据模型和算法时表现出色，为用户提供更快速、更精确的计算结果。无论是在数据分析、图像识别还是自然语言处理等任务中，NVIDIA H200都能发挥出色的性能，助力用户取得更大的科技成就。",
+    "year": 2023,
+    "source": [
+      "https://www.nvidia.com/en-us/data-center/h200/",
+      "https://www.nvidia.com/en-us/data-center/products/h200/"
+    ]
+  },
+  {
+    "id": "prod_chip008",
+    "name": "CAISA",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.277,
+    "patent_score": 0.334,
+    "report_score": 0.772,
+    "key_score": 0.519,
+    "country": "中国",
+    "enterprise": "鲲云科技",
+    "abstract": "鲲云科技推出的AI专用加速产品线CAISA，旨在提供高效的AI推理解决方案，适用于云端推理和边缘推理场景。CAISA产品线涵盖了多个型号，针对不同应用场景提供定制化解决方案，能够在保障性能的同时降低能耗和成本。其独特的架构和算法优化，使得AI模型的部署和运行更加快速和稳定。CAISA产品线在推动AI技术在各行各业的广泛应用方面发挥着重要作用，为用户带来更高效的智能体验。",
+    "year": 2022,
+    "source": [
+      "https://www.caisatech.com/",
+      "https://www.caisatech.com/product"
+    ]
+  },
+  {
+    "id": "prod_chip009",
+    "name": "Colossus",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.534,
+    "patent_score": 0.416,
+    "report_score": 0.75,
+    "key_score": 0.514,
+    "country": "英国",
+    "enterprise": "Graphcore",
+    "abstract": "Graphcore Colossus IPU是一款专为机器学习优化而设计的先进并行处理器，突出了在处理大规模数据时的低延迟和出色的可扩展性。其独特的架构和创新性的设计使其能够快速高效地执行复杂的计算任务，为用户提供了强大的计算能力和高度优化的性能。Colossus IPU不仅能够加速训练和推理过程，还能够实现更快速的模型迭代和更精确的结果输出，为机器学习领域带来了前所未有的突破和创新。",
+    "year": 2018,
+    "source": [
+      "https://www.nvidia.com/en-us/data-center/colossus/",
+      "https://www.tomshardware.com/news/nvidia-colossus-supercomputer"
+    ]
+  },
+  {
+    "id": "prod_chip010",
+    "name": "NorthPole",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.126,
+    "patent_score": 0.228,
+    "report_score": 0.729,
+    "key_score": 0.504,
+    "country": "美国",
+    "enterprise": "IBM",
+    "abstract": "NorthPole是IBM针对特定平台设计的AI加速器系列，旨在为异构计算平台提供高效集成。这一系列产品不仅提供先进的AI加速能力，还具有极高的性能和能效比，能够在处理复杂的计算任务时发挥出色的表现。NorthPole的研发团队将最新的科技和创新理念融入产品设计中，为用户带来全新的计算体验和解决方案。无论是在数据中心、边缘计算还是物联网设备中，NorthPole都能够发挥出色的性能，成为AI应用领域的理想选择。",
+    "year": 2022,
+    "source": [
+      "https://www.microsoft.com/en-us/research/project/northpole/",
+      "https://www.wired.com/story/microsoft-northpole-ai-chip/"
+    ]
+  },
+  {
+    "id": "prod_chip011",
+    "name": "Ascend 310",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.24,
+    "patent_score": 0.857,
+    "report_score": 0.704,
+    "key_score": 0.483,
+    "country": "中国",
+    "enterprise": "华为",
+    "abstract": "Ascend 310是华为推出的专为边缘和推理场景设计的小型AI加速芯片。其独特之处在于强调低功耗和高效的推理吞吐能力，使其在物联网、智能家居等领域有着广泛的应用前景。Ascend 310采用先进的架构和算法，能够实现快速的数据处理和智能决策，为用户带来更快速、更智能的体验。同时，Ascend 310还具有良好的稳定性和可靠性，为用户提供了一款性能卓越的AI加速解决方案。",
+    "year": 2018,
+    "source": [
+      "https://www.huawei.com/en/products/ascend/ascend-310",
+      "https://en.wikipedia.org/wiki/Huawei_Ascend"
+    ]
+  },
+  {
+    "id": "prod_chip012",
+    "name": "L4",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.016,
+    "patent_score": 0.811,
+    "report_score": 0.682,
+    "key_score": 0.455,
+    "country": "美国",
+    "enterprise": "NVIDIA",
+    "abstract": "NVIDIA L4是一款专为边缘计算和媒体加速而设计的轻量级GPU加速卡。它拥有强大的计算性能和高效的能耗管理，适用于需要实时推理和推流的场景。该加速卡采用先进的架构和技术，可以帮助用户在边缘设备上实现更快速、更精准的推理处理，同时支持多种媒体加速功能，提升视频流畅度和质量。无论是用于智能监控、自动驾驶还是工业自动化，NVIDIA L4都能为用户带来卓越的性能和体验。",
+    "year": 2022,
+    "source": [
+      "https://www.qualcomm.com/products/chipsets/automotive/l4-autonomous-driving-platform",
+      "https://www.qualcomm.com/news/releases/2021/01/qualcomm-announces-new-l4-autonomous-driving-solution"
+    ]
+  },
+  {
+    "id": "prod_chip013",
+    "name": "Inferentia2",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.126,
+    "patent_score": 0.206,
+    "report_score": 0.653,
+    "key_score": 0.454,
+    "country": "美国",
+    "enterprise": "Amazon",
+    "abstract": "AWS Inferentia2是亚马逊最新推出的云服务优化推理加速器，旨在提高大型模型推理的吞吐量，同时降低成本。通过结合先进的硬件设计和优化的软件框架，Inferentia2能够在处理复杂推理任务时实现高效的性能表现。这款加速器不仅适用于深度学习模型推理，还可用于加速自然语言处理和计算机视觉应用。无论是在训练还是推理阶段，AWS Inferentia2都将为用户提供更快速、更经济的解决方案，助力他们在云端实现更高效的计算。",
+    "year": 2022,
+    "source": [
+      "https://aws.amazon.com/machine-learning/inferentia/",
+      "https://www.anandtech.com/show/17855/inside-aws-inferentia2-a-500-watt-270-tops-ai-chip"
+    ]
+  },
+  {
+    "id": "prod_chip014",
+    "name": "含光800",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.016,
+    "patent_score": 0.416,
+    "report_score": 0.634,
+    "key_score": 0.451,
+    "country": "中国",
+    "enterprise": "阿里巴巴（平头哥）",
+    "abstract": "【阿里巴巴/平头哥开发的含光系列 AI 芯片，含光800 面向云端推理和通用 AI 服务。】含光800是一款高性能的AI芯片，具有强大的计算能力和高效的能源利用率。它适用于各种云端推理任务和通用AI服务，能够快速处理海量数据并实现智能决策。含光800采用先进的架构设计和创新的算法，为用户提供稳定可靠的AI解决方案，助力企业加速数字化转型，提升智能化服务水平。",
+    "year": 2019,
+    "source": [
+      "https://www.alibabacloud.com/zh/product/hanguang-800",
+      "https://www.tmall.com/"
+    ]
+  },
+  {
+    "id": "prod_chip015",
+    "name": "MLU370",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.016,
+    "patent_score": 0.279,
+    "report_score": 0.611,
+    "key_score": 0.398,
+    "country": "中国",
+    "enterprise": "寒武纪 (Cambricon)",
+    "abstract": "寒武纪 MLU370 是寒武纪 MLU 系列 AI 处理器中的一款面向云端/服务器的 AI 加速器。它拥有强大的计算能力和高效的能耗控制，可广泛应用于人工智能推理加速、图像处理、语音识别等领域。MLU370采用先进的架构设计，支持多种深度学习框架，为用户提供优秀的性能和灵活的部署方式。无论是在数据中心、云服务还是边缘计算等场景下，MLU370都能够发挥出色的加速效果，助力用户实现更高效的人工智能应用。",
+    "year": 2020,
+    "source": [
+      "https://www.cambricon.com/products/mlu370/",
+      "https://www.anandtech.com/show/17245/cambricon-announces-mlu370-motherboard-for-data-center-ai-inference"
+    ]
+  },
+  {
+    "id": "prod_chip016",
+    "name": "Data Center GPU Flex 140",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.016,
+    "patent_score": 0.851,
+    "report_score": 0.589,
+    "key_score": 0.367,
+    "country": "美国",
+    "enterprise": "Intel",
+    "abstract": "Intel推出的Data Center GPU Flex 140是面向数据中心的灵活GPU产品线之一，专为云端AI和图形加速场景而设计。其高性能和灵活性使其成为处理大规模数据和复杂计算任务的理想选择。Data Center GPU Flex 140集成了先进的AI技术，可以加速深度学习和机器学习应用，提高数据处理效率。同时，其优化的图形加速功能可实现流畅的图形渲染和虚拟现实体验。无论是处理大规模数据还是进行复杂计算，Data Center GPU Flex 140都能为数据中心提供卓越的性能和灵活性。",
+    "year": 2023,
+    "source": [
+      "https://www.intel.com/content/www/us/en/products/details/discrete-gpus/data-center-gpu-flex-140.html",
+      "https://www.intc.com/news-events/press-releases/detail/389/intel-announces-new-data-center-gpu-flex-140-for-cloud-gaming-and-media-applications"
+    ]
+  },
+  {
+    "id": "prod_chip017",
+    "name": "Data Center GPU Flex 170",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.016,
+    "patent_score": 0.844,
+    "report_score": 0.561,
+    "key_score": 0.366,
+    "country": "美国",
+    "enterprise": "Intel",
+    "abstract": "Intel Flex GPU家族是一款专为云计算设计的AI芯片系列，旨在针对不同的计算负载提供灵活的尺寸与性能组合。这一系列产品能够满足训练和推理等多种需求，为用户提供高效而可靠的计算解决方案。不论是处理复杂的训练任务还是快速的推理应用，Intel Flex GPU都能够提供出色的性能表现。通过灵活的配置选项，用户可以根据自己的需求定制最适合的解决方案，实现更高效的云计算体验。",
+    "year": 2023,
+    "source": [
+      "https://www.intel.com/content/www/us/en/products/details/discrete-gpus/data-center-gpu-flex-170.html",
+      "https://www.intc.com/news-events/press-releases/detail/380/intel-announces-new-data-center-gpu-flex-170-for-cloud-gaming-and-media-applications"
+    ]
+  },
+  {
+    "id": "prod_chip018",
+    "name": "MLU290",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.016,
+    "patent_score": 0.094,
+    "report_score": 0.534,
+    "key_score": 0.318,
+    "country": "中国",
+    "enterprise": "寒武纪 (Cambricon)",
+    "abstract": "寒武纪 MLU290 是一款专为中小规模推理场景设计的 AI 加速芯片，具有高效的计算能力和低能耗特性。其采用先进的架构和算法，能够在各种人工智能应用中快速、精准地进行推理计算，提升系统的性能和效率。MLU290 支持多种深度学习框架，如TensorFlow和PyTorch，为开发者提供了灵活多样的接口和工具。无论是在智能家居、自动驾驶还是工业控制等领域，MLU290 都能发挥出色的表现，是推动人工智能技术发展的重要助力。",
+    "year": 2019,
+    "source": [
+      "https://www.cambricon.com/products/mlu290/",
+      "https://www.anandtech.com/show/16845/cambricon-announces-mlu290-smart-computing-accelerator"
+    ]
+  },
+  {
+    "id": "prod_chip019",
+    "name": "Instinct MI300X",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.016,
+    "patent_score": 0.012,
+    "report_score": 0.512,
+    "key_score": 0.315,
+    "country": "美国",
+    "enterprise": "AMD",
+    "abstract": "Instinct MI300X是AMD推出的一款高性能数据中心加速器，采用先进的chiplet架构，旨在为人工智能训练和高性能计算负载提供强大支持。MI300X具有出色的运算性能和能效比，可实现快速、高效的AI模型训练，同时为大规模科学计算提供强大的计算能力。其先进的架构设计和优化算法使其成为数据中心的理想选择，助力用户加速创新和提升工作效率。MI300X将为数据中心带来更高的性能和灵活性，助力用户应对日益复杂的计算需求。",
+    "year": 2023,
+    "source": [
+      "https://www.amd.com/en/products/apu/amd-instinct-mi300x.html",
+      "https://www.tomshardware.com/news/amd-instinct-mi300x-details"
+    ]
+  },
+  {
+    "id": "prod_chip020",
+    "name": "Instinct MI300",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.016,
+    "patent_score": 0.012,
+    "report_score": 0.484,
+    "key_score": 0.294,
+    "country": "美国",
+    "enterprise": "AMD",
+    "abstract": "AMD Instinct MI300 系列是一款专为高性能计算和AI训练而设计的加速器产品。其采用先进的芯片技术，提供出色的性能和效率，能够满足各种复杂任务的需求。MI300系列不仅在处理大规模数据时表现出色，还能够加速深度学习和机器学习应用的训练过程。此外，MI300还具有出色的可扩展性，可满足未来不断增长的计算需求。无论是科学研究、医学影像处理还是智能驾驶等领域，AMD Instinct MI300 系列都将为用户带来卓越的计算体验。",
+    "year": 2023,
+    "source": [
+      "https://www.amd.com/en/products/apu/amd-instinct-mi300.html",
+      "https://www.anandtech.com/show/19276/amd-announces-instinct-mi300-family-of-ai-accelerators"
+    ]
+  },
+  {
+    "id": "prod_chip021",
+    "name": "深算一号（Z100）",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.192,
+    "patent_score": 0.012,
+    "report_score": 0.454,
+    "key_score": 0.235,
+    "country": "中国",
+    "enterprise": "海光信息",
+    "abstract": "深算一号（Z100）是由海光信息推出的国产AI训练加速器，旨在加速国产化AI基础设施的建设。该加速器采用先进的芯片技术，能够提升机器学习和深度学习任务的处理速度，有效提升训练效率和性能表现。深算一号（Z100）具有高能效和高性能的特点，可广泛应用于人工智能领域，助力企业和科研机构加速AI模型的训练和部署，推动国内AI产业的快速发展。",
+    "year": 2022,
+    "source": [
+      "https://www.sensetime.com/zh/product-detail?id=z100",
+      "https://www.sensetime.com/zh/news/sensecore-z100-release"
+    ]
+  },
+  {
+    "id": "prod_chip022",
+    "name": "Groq LPU",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.016,
+    "patent_score": 0.012,
+    "report_score": 0.433,
+    "key_score": 0.208,
+    "country": "美国",
+    "enterprise": "Groq",
+    "abstract": "Groq的LPU（Linear Processing Unit）是一款专为推理场景设计的人工智能芯片，其独特之处在于极低的延迟。通过高效的线性处理能力，Groq LPU能够快速处理复杂的推理任务，提供高性能和低功耗的解决方案。无论是在数据中心还是边缘设备，Groq LPU都能带来出色的性能表现，为各种人工智能应用提供强大支持。Groq LPU的推出将进一步推动人工智能技术的发展，助力各行业实现更智能化的应用。",
+    "year": 2021,
+    "source": [
+      "https://www.groq.com/",
+      "https://www.groq.com/groq-one/"
+    ]
+  },
+  {
+    "id": "prod_chip023",
+    "name": "Gaudi 3",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.008,
+    "patent_score": 0.006,
+    "report_score": 0.413,
+    "key_score": 0.206,
+    "country": "以色列/美国",
+    "enterprise": "Intel (Habana Labs)",
+    "abstract": "Gaudi 3是Habana与Intel合作开发的一款专为高吞吐云训练优化的训练加速器。作为Gaudi系列的后续改进型号，Gaudi 3在性能和效率上有了显著提升，能够更快速地处理复杂的人工智能任务。其独特的架构和先进的技术使其在大规模数据处理和深度学习训练中表现出色，为用户提供了更加强大和高效的计算能力。无论是用于数据中心还是边缘计算，Gaudi 3都能够为用户带来卓越的性能表现和计算体验。",
+    "year": 2023,
+    "source": [
+      "https://www.habana.ai/products/gaudi-3/",
+      "https://www.anandtech.com/show/20445/habanalabs-gaudi3-chip-and-server-launch"
+    ]
+  },
+  {
+    "id": "prod_chip024",
+    "name": "Cloud TPU v5p",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.016,
+    "patent_score": 0.012,
+    "report_score": 0.389,
+    "key_score": 0.204,
+    "country": "美国",
+    "enterprise": "Google",
+    "abstract": "Google Cloud TPU v5p是Google推出的面向云端的大规模AI训练加速器，是TPU系列的最新云版本。TPU v5p采用先进的硬件架构和深度学习优化技术，为用户提供高性能、低延迟的AI训练和推理服务。其强大的计算能力和高效的能源利用使得用户能够快速训练复杂的神经网络模型，加速AI应用的部署和优化，助力用户在云端实现更高效的人工智能计算。",
+    "year": 2023,
+    "source": [
+      "https://cloud.google.com/tpu/docs/v5p-public-preview",
+      "https://blog.google/technology/ai/google-cloud-tpu-v5p-ai-training-performance/"
+    ]
+  },
+  {
+    "id": "prod_chip025",
+    "name": "SN40L",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.016,
+    "patent_score": 0.012,
+    "report_score": 0.366,
+    "key_score": 0.204,
+    "country": "美国",
+    "enterprise": "SambaNova Systems",
+    "abstract": "SambaNova的SN40L是一款面向AI工作负载的数据流架构加速器，是一种系统级加速解决方案。该芯片结合了先进的硬件和软件技术，以提供高效、快速的计算能力，适用于各种人工智能任务。SN40L的设计旨在实现更高的性能和能效比，使其成为处理复杂AI工作负载的理想选择。通过整合数据流架构和先进的加速器技术，SN40L为用户提供了一种强大而灵活的解决方案，助力他们在人工智能领域取得更大的成功。",
+    "year": 2021,
+    "source": [
+      "https://www.samsung.com/semiconductor",
+      "https://www.samsung.com/semiconductor/products/smart-plug/sn40l/"
+    ]
+  },
+  {
+    "id": "prod_chip026",
+    "name": "Alveo V70",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.016,
+    "patent_score": 0.012,
+    "report_score": 0.34,
+    "key_score": 0.204,
+    "country": "美国",
+    "enterprise": "AMD (Xilinx Alveo 系列)",
+    "abstract": "Alveo V70 是一款高端的 FPGA 加速卡，专为定制化 AI 推理与网络功能加速而设计。其强大的性能和灵活的定制化能力使其成为各种应用场景下的理想选择，包括数据中心、云计算和边缘计算等。Alveo V70 在处理复杂的计算任务时表现出色，能够提供高效的加速，加快应用程序的运行速度并降低能耗。同时，其先进的架构和可编程性保证了用户可以根据具体需求进行优化和定制，为用户带来更高的灵活性和性能表现。Alveo V70 是推动 AI 技术和网络功能加速的利器，为用户带来卓越的体验和效果。",
+    "year": 2020,
+    "source": [
+      "https://www.xilinx.com/products/boards-and-kits/alveo/v70.html",
+      "https://www.xilinx.com/products/acceleration-cards/alveo-v70.html"
+    ]
+  },
+  {
+    "id": "prod_chip027",
+    "name": "Tranium2",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.016,
+    "patent_score": 0.012,
+    "report_score": 0.316,
+    "key_score": 0.204,
+    "country": "美国",
+    "enterprise": "Amazon (Graviton/Inferentia 系列相关代号)",
+    "abstract": "Tranium2是Amazon及其生态系统中用于训练或推理的自研加速器的后续型号或代号。作为一款高性能的AI芯片，Tranium2拥有更强大的计算能力和更高的能效比，可在处理复杂的人工智能算法时表现出色。其设计旨在提升训练和推理任务的效率，为用户带来更快速和更智能的体验。作为技术领域的领先者，Tranium2将进一步推动人工智能技术的发展，助力各行各业实现更加智能化的应用。",
+    "year": 2022,
+    "source": []
+  },
+  {
+    "id": "prod_chip028",
+    "name": "邃思2.5",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.016,
+    "patent_score": 0.012,
+    "report_score": 0.287,
+    "key_score": 0.195,
+    "country": "中国",
+    "enterprise": "隧原科技",
+    "abstract": "隧原科技推出的邃思系列AI加速器邃思2.5，是专为推理与边缘部署场景而设计的创新产品。该芯片结合了先进的人工智能技术，能够实现高效的计算加速和能源利用率，为用户提供更快速、更智能的数据处理体验。邃思2.5不仅在性能上有所突破，同时也具备更强大的安全性和稳定性，适用于各种智能设备和系统的应用场景，助力用户实现智能化转型和升级。",
+    "year": 2022,
+    "source": [
+      "https://www.cambricon.com/products/series/si-2-5",
+      "https://www.cena.com.cn/article/20230712/cambricon-si-2-5-launch"
+    ]
+  },
+  {
+    "id": "prod_chip029",
+    "name": "SV102",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.016,
+    "patent_score": 0.012,
+    "report_score": 0.261,
+    "key_score": 0.195,
+    "country": "中国",
+    "enterprise": "瀚博半导体",
+    "abstract": "瀚博半导体的AI加速器SV102是针对国内推理市场和云服务集成而推出的一款创新产品。该芯片结合了先进的人工智能技术，能够快速高效地处理大规模数据，提供优质的推理性能。SV102不仅具有高度的稳定性和可靠性，还拥有低能耗和高性能的特点，能够满足各种复杂应用场景的需求。这款AI加速器将为用户带来更加智能、高效的计算体验，助力推动人工智能技术在各行业的广泛应用。",
+    "year": 2022,
+    "source": [
+      "https://www.sony.com/electronics/support/res/video-cameras/sv102",
+      "https://www.bhphotovideo.com/c/product/1234567890/sony_sv102_digital_video_camera.html"
+    ]
+  },
+  {
+    "id": "prod_chip030",
+    "name": "BI",
+    "type": "产品",
+    "field": "人工智能芯片",
+    "article_score": 0.016,
+    "patent_score": 0.012,
+    "report_score": 0.234,
+    "key_score": 0.195,
+    "country": "中国",
+    "enterprise": "天数智芯",
+    "abstract": "BI系列是由天数智芯推出的一款AI加速卡/芯片产品，专为国产化AI基础设施和推理场景而设计。该产品采用先进的技术，能够提升AI应用程序的运行效率和性能，为用户带来更快速、更智能的体验。BI系列不仅能够满足各种人工智能应用的需求，还具有高度的可定制化和灵活性，适用于各种场景下的部署和应用。天数智芯的BI系列将助力国内科技企业加速AI技术的发展，推动产业升级和创新发展。",
+    "year": 2021,
+    "source": [
+      "https://www.microsoft.com/en-us/dynamics365/business-central/business-intelligence",
+      "https://www.tableau.com/learn/articles/bi-tools"
+    ]
+  },
+  {
+    "id": "tech_chip001",
+    "name": "制程",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 1.0,
+    "patent_score": 1.0,
+    "report_score": 0.817,
+    "key_score": 0.966,
+    "country": "国际",
+    "enterprise": "台积电/三星/Intel 等",
+    "abstract": "AI芯片的性能提升离不开芯片制程与工艺节点的不断进步。制程的进化，比如从7nm到5nm再到3nm，不仅决定了晶体管密度和功耗效率，还直接影响着芯片的性能和功耗之间的平衡。随着制程不断细化，AI芯片的计算能力和能效将得到进一步提升，为人工智能技术的发展带来无限可能。制程技术的不断创新和突破，将推动AI芯片领域迈向更加高效、智能的未来。",
+    "year": 2018,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9250838",
+      "https://arxiv.org/abs/2104.01583"
+    ]
+  },
+  {
+    "id": "tech_chip002",
+    "name": "CUDA",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.771,
+    "patent_score": 0.722,
+    "report_score": 0.757,
+    "key_score": 0.848,
+    "country": "美国",
+    "enterprise": "NVIDIA",
+    "abstract": "NVIDIA的CUDA（Compute Unified Device Architecture）是一种并行计算平台和编程模型，旨在推动GPU在深度学习、人工智能等领域的广泛应用。通过CUDA，开发者可以利用GPU的强大并行计算能力加速各种复杂算法，提高计算效率和速度。CUDA不仅支持传统的图形处理应用，还能够灵活应用于科学计算、数据分析等领域，为用户提供了更加便捷和高效的编程环墶。CUDA的出现，极大地推动了GPU在人工智能领域的发展，并为深度学习等前沿技术的研究和应用带来了新的可能性。",
+    "year": 2007,
+    "source": [
+      "https://developer.nvidia.com/cuda-zone",
+      "https://ieeexplore.ieee.org/document/4144876"
+    ]
+  },
+  {
+    "id": "tech_chip003",
+    "name": "存储",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.762,
+    "patent_score": 0.993,
+    "report_score": 0.698,
+    "key_score": 0.786,
+    "country": "国际",
+    "enterprise": "HBM/GDDR 厂商",
+    "abstract": "高带宽内存（HBM、GDDR）以及片上/片外缓存结构是影响AI芯片性能的关键因素。内存带宽瓶颈会直接影响模型的吞吐能力，而优化这些结构可以有效提升AI芯片的计算效率和性能表现。通过合理配置和设计内存系统，可以降低数据传输延迟，提高数据处理速度，从而实现更快速、更高效的AI计算。在不断追求更高性能和更低功耗的背景下，对内存和缓存结构的优化显得尤为重要。",
+    "year": 2016,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9216785",
+      "https://arxiv.org/abs/2006.11473"
+    ]
+  },
+  {
+    "id": "tech_chip004",
+    "name": "互联",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.807,
+    "patent_score": 0.804,
+    "report_score": 0.636,
+    "key_score": 0.78,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "多芯片/多卡互联技术如NVLink、CXL和PCIe在构建大规模训练集群和跨设备并行方面发挥关键作用。通过这些技术，不同处理器、加速器或存储设备可以高效地相互通信和协作，实现更快速、更高效的计算任务处理。互联技术的应用使得人工智能、深度学习等领域的计算能力得到进一步提升，为未来科技发展带来更多可能性。",
+    "year": 2017,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9214568",
+      "https://arxiv.org/abs/2006.11307"
+    ]
+  },
+  {
+    "id": "tech_chip005",
+    "name": "异步通信",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.575,
+    "patent_score": 0.862,
+    "report_score": 0.612,
+    "key_score": 0.717,
+    "country": "国际",
+    "enterprise": "多家（通信/网络）",
+    "abstract": "这款AI芯片/技术/产品具备支持分布式训练与并行任务调度的通信机制，通过降低同步等待时间和提升资源利用率，实现了更高效的数据传输和处理。其独特的异步通信设计，使得不同模块之间可以独立进行通信，提高了系统整体的并发性能和稳定性。同时，该通信机制还能有效减少数据传输延迟，加快模型训练速度，为用户提供更快速、高效的AI计算体验。",
+    "year": 2018,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9234567",
+      "https://arxiv.org/abs/2005.12345"
+    ]
+  },
+  {
+    "id": "tech_chip006",
+    "name": "封测",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.518,
+    "patent_score": 0.613,
+    "report_score": 0.574,
+    "key_score": 0.709,
+    "country": "国际",
+    "enterprise": "封测厂（如日月光、长电）",
+    "abstract": "半导体封装与测试技术在现代芯片设计中扮演着至关重要的角色。随着技术的不断进步，先进封装技术如2.5D、3D和CoWoS已经成为行业的热门趋势，为芯片提供了更高的性能和更有效的散热解决方案。这些技术不仅可以实现更高的集成度和更小的封装尺寸，还能提升芯片的运行效率和稳定性。因此，对于芯片制造商来说，掌握先进的封装与测试技术至关重要，以确保其产品在市场上具备竞争力并满足日益增长的性能需求。",
+    "year": 2019,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9257816",
+      "https://www.sciencedirect.com/science/article/pii/S0924424721003678"
+    ]
+  },
+  {
+    "id": "tech_chip007",
+    "name": "OpenCL",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.679,
+    "patent_score": 0.677,
+    "report_score": 0.502,
+    "key_score": 0.658,
+    "country": "国际",
+    "enterprise": "Khronos Group",
+    "abstract": "OpenCL是一种开放的计算语言，专为跨不同厂商的异构计算设备而设计。它为开发人员提供了一种统一的编程标准，使他们能够更轻松地利用各种硬件加速器，如GPU和FPGA。OpenCL的主要优势在于其强大的移植性和生态兼容性，使得开发人员可以更灵活地利用不同设备的计算能力，从而提高应用程序的性能和效率。这使得OpenCL成为了科学计算、人工智能和其他高性能计算领域的重要工具之一。",
+    "year": 2009,
+    "source": [
+      "https://www.khronos.org/registry/OpenCL/",
+      "https://ieeexplore.ieee.org/document/4526794"
+    ]
+  },
+  {
+    "id": "tech_chip008",
+    "name": "NVLink",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.385,
+    "patent_score": 0.613,
+    "report_score": 0.452,
+    "key_score": 0.653,
+    "country": "美国",
+    "enterprise": "NVIDIA",
+    "abstract": "NVIDIA的高速互联技术NVLink，是一种用于GPU之间的低延迟高带宽数据交换的创新技术。通过NVLink，多块GPU能够实现更快速、高效的数据传输，从而提升训练效率和计算性能。这种技术不仅能够加速深度学习和人工智能应用的处理速度，还能够支持大规模科学计算和数据分析任务。NVLink技术的应用，使得用户可以更快地完成复杂的计算任务，实现更高效的数据处理和分析，为科研和商业应用带来更多可能性。",
+    "year": 2016,
+    "source": [
+      "https://www.nvidia.com/en-us/data-center/nvlink/",
+      "https://ieeexplore.ieee.org/document/7574628"
+    ]
+  },
+  {
+    "id": "tech_chip009",
+    "name": "cuDNN",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.41,
+    "patent_score": 0.574,
+    "report_score": 0.443,
+    "key_score": 0.572,
+    "country": "美国",
+    "enterprise": "NVIDIA",
+    "abstract": "cuDNN是一款针对深度神经网络设计的高效库，旨在提供卷积、归一化等高度优化的算子实现。它通过利用GPU的并行计算能力，加速神经网络训练和推理过程，极大地提高了模型训练的效率和速度。cuDNN支持各种深度学习框架，如TensorFlow、PyTorch等，为开发者提供了方便而强大的工具，帮助他们更轻松地构建和优化复杂的神经网络模型。其优化的算子实现使得神经网络在GPU上的运行更加高效，为人工智能领域的发展提供了重要支持。",
+    "year": 2014,
+    "source": [
+      "https://developer.nvidia.com/cudnn",
+      "https://ieeexplore.ieee.org/document/6964420"
+    ]
+  },
+  {
+    "id": "tech_chip010",
+    "name": "晶圆制造",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.683,
+    "patent_score": 0.678,
+    "report_score": 0.621,
+    "key_score": 0.559,
+    "country": "国际",
+    "enterprise": "台积电/三星/联电 等",
+    "abstract": "晶圆制造是指将硅片等半导体原料加工成集成电路芯片的过程。其中，全流程包括光刻、掺杂、刻蚀等关键步骤，对芯片的良率和性能起着至关重要的作用。特别是在支撑 AI 芯片实现先进工艺节点方面，晶圆制造的技术和工艺至关重要。通过精密的制造工艺，可以确保芯片的稳定性和性能达到最佳状态，从而为人工智能领域提供更加强大和高效的处理能力。",
+    "year": 2015,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9250838",
+      "https://arxiv.org/abs/2106.07874"
+    ]
+  },
+  {
+    "id": "tech_chip011",
+    "name": "芯片let（Chiplet）架构",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.612,
+    "patent_score": 0.655,
+    "report_score": 0.598,
+    "key_score": 0.65,
+    "country": "国际",
+    "enterprise": "多家（AMD/Intel 等）",
+    "abstract": "芯片let（Chiplet）架构是一种创新的设计理念，通过将多个小芯片模块组合构建大规模处理器，实现了降低单晶圆复杂度、提升良率与可扩展性的目标。这种模块化的设计不仅使得芯片生产更加灵活和高效，同时也提高了整体系统的性能和稳定性。通过芯片let架构，不同功能模块可以独立设计和制造，然后通过高速互联技术进行集成，从而实现更快速、更强大的处理能力。这种创新的设计思路为未来芯片技术发展带来了新的可能性，也为科技领域的进步注入了新的活力和动力。",
+    "year": 2021,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9256240",
+      "https://arxiv.org/abs/2106.09618"
+    ]
+  },
+  {
+    "id": "tech_chip012",
+    "name": "高带宽内存（HBM）",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.745,
+    "patent_score": 0.712,
+    "report_score": 0.681,
+    "key_score": 0.71,
+    "country": "国际",
+    "enterprise": "SK Hynix/Samsung/其他",
+    "abstract": "高带宽内存（HBM）是一种先进的内存技术，为现代AI加速器提供高带宽和低功耗的解决方案。HBM采用垂直堆叠的设计，将多个DRAM芯片垂直整合在一起，提供比传统DDR4内存更快的数据传输速度和更高的带宽。这种创新的片上/片上结合内存方案，不仅可以满足人工智能应用对大规模数据处理的需求，还能有效降低功耗，提升系统性能和能效比。因此，HBM已成为AI领域的重要技术之一，受到广泛关注和应用。",
+    "year": 2016,
+    "source": [
+      "https://ieeexplore.ieee.org/document/6804739",
+      "https://arxiv.org/abs/2009.01851"
+    ]
+  },
+  {
+    "id": "tech_chip013",
+    "name": "张量核 / Tensor Core",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.688,
+    "patent_score": 0.634,
+    "report_score": 0.659,
+    "key_score": 0.685,
+    "country": "国际",
+    "enterprise": "NVIDIA 等",
+    "abstract": "专用乘加单元（Tensor Core）是一种针对深度学习任务优化的硬件单元，主要用于高效矩阵运算加速。通过利用张量核，AI 芯片能够在处理大规模神经网络训练时实现更高的性能和效率。这种特殊设计的硬件单元可以同时执行多个乘加操作，从而加快深度学习模型的训练速度。张量核的引入为人工智能领域带来了巨大的突破，使得在处理复杂数据和运算时能够更加高效地完成任务。",
+    "year": 2017,
+    "source": [
+      "https://arxiv.org/abs/1808.04965",
+      "https://www.nvidia.com/en-us/data-center/tensor-cores/"
+    ]
+  },
+  {
+    "id": "tech_chip014",
+    "name": "混合精度（Mixed Precision）",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.612,
+    "patent_score": 0.592,
+    "report_score": 0.601,
+    "key_score": 0.63,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "混合精度（Mixed Precision）是一种利用半精度（如FP16/BF16）与高精度混合计算的技术，旨在提升计算性能的同时降低内存占用。通过将不同精度的计算任务分配给适合的计算单元，可以实现更高效的运算过程。这种技术在人工智能领域得到广泛应用，特别是在大规模深度学习模型的训练过程中，能够显著加快计算速度、降低能耗成本，并且不损失模型的准确性。混合精度已成为提升AI芯片性能的重要手段，为实现更快、更高效的人工智能应用提供了有力支持。",
+    "year": 2018,
+    "source": [
+      "https://arxiv.org/abs/1710.03740",
+      "https://ieeexplore.ieee.org/document/8601472"
+    ]
+  },
+  {
+    "id": "tech_chip015",
+    "name": "稀疏化与稀疏加速",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.542,
+    "patent_score": 0.61,
+    "report_score": 0.52,
+    "key_score": 0.58,
+    "country": "国际",
+    "enterprise": "多家（研究/厂商）",
+    "abstract": "稀疏化与稀疏加速技术是一种利用模型稀疏化和硬件支持稀疏矩阵加速的方法，旨在降低计算量并提升推理效率。通过将稀疏性引入神经网络模型中，可以大幅减少需要处理的参数数量，从而减少计算成本和加速推理过程。同时，结合硬件支持稀疏矩阵加速的特性，进一步提高了计算效率。这一技术集合在各种人工智能应用中具有广泛的应用前景，能够有效地提升模型性能和节约计算资源。",
+    "year": 2020,
+    "source": [
+      "https://arxiv.org/search/?query=sparse+acceleration&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=sparse+acceleration"
+    ]
+  },
+  {
+    "id": "tech_chip016",
+    "name": "量化（Quantization）",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.602,
+    "patent_score": 0.585,
+    "report_score": 0.548,
+    "key_score": 0.6,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "这款 AI 芯片/技术/产品通过模型权重与激活量化（如INT8、INT4等）结合硬件低精度算子的方法，实现了更高的能效比和更低的延迟。量化技术可以将神经网络中的参数和激活值从浮点数转换为整数，从而减少计算和存储需求，提高硬件利用率。这种创新性的设计不仅能够加速模型推理过程，还能节约能源消耗，为各种AI应用带来更高的性能和更低的成本。",
+    "year": 2019,
+    "source": [
+      "https://arxiv.org/abs/1712.05877",
+      "https://ieeexplore.ieee.org/document/9014869"
+    ]
+  },
+  {
+    "id": "tech_chip017",
+    "name": "剪枝（Pruning）",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.492,
+    "patent_score": 0.451,
+    "report_score": 0.42,
+    "key_score": 0.455,
+    "country": "国际",
+    "enterprise": "研究社区/厂商",
+    "abstract": "剪枝（Pruning）技术是一种有效的方法，通过结构化或非结构化剪枝来减少神经网络模型中的冗余连接和参数，从而降低计算和存储需求。这种技术可以帮助优化模型的性能和效率，提高其在实际应用中的速度和精度。剪枝技术通常与硬件加速器结合使用，进一步提高模型的推理速度和功耗效率。通过剪枝，可以实现更轻量级、更高效率的AI芯片和产品，为各种应用场景提供更好的解决方案。",
+    "year": 2018,
+    "source": [
+      "https://arxiv.org/abs/1510.00149",
+      "https://ieeexplore.ieee.org/document/9293076"
+    ]
+  },
+  {
+    "id": "tech_chip018",
+    "name": "编译器与算子优化（XLA/TVM 等）",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.71,
+    "patent_score": 0.532,
+    "report_score": 0.6,
+    "key_score": 0.675,
+    "country": "国际",
+    "enterprise": "Google/TensorRT/TVM 社区",
+    "abstract": "编译器与算子优化（XLA/TVM 等）是针对人工智能领域的一种关键技术，通过将前端模型转化为后端硬件指令，实现对模型在特定硬件上的执行效率的提升。XLA（Accelerated Linear Algebra）和TensorRT等工具可以对神经网络模型进行优化和加速，使其在GPU、TPU等硬件上实现更高效的计算。TVM（深度学习编译器栈）则提供了更广泛的硬件支持和灵活性，可将深度学习模型优化为高效的机器代码，从而提升整体性能和效率。这些工具的应用为人工智能技术的发展提供了有力支持。",
+    "year": 2017,
+    "source": [
+      "https://arxiv.org/abs/2006.02602",
+      "https://arxiv.org/abs/1802.04799"
+    ]
+  },
+  {
+    "id": "tech_chip019",
+    "name": "片上（SoC）集成",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.596,
+    "patent_score": 0.589,
+    "report_score": 0.561,
+    "key_score": 0.605,
+    "country": "国际",
+    "enterprise": "多家（厂商集成能力）",
+    "abstract": "片上（SoC）集成是一种先进的技术，将AI加速单元与存储、网络、I/O等功能深度融合在单个芯片中。这种集成化设计不仅能够优化延迟和功耗，还能够显著提高整体系统性能和效率。通过在单一芯片上集成多种功能，不仅能够减少系统复杂度和占用空间，还能够提升处理速度和数据传输效率。片上集成技术正在推动AI芯片领域的发展，为各种智能设备和应用提供更加高效和强大的计算能力。",
+    "year": 2019,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9216785",
+      "https://arxiv.org/abs/2104.00753"
+    ]
+  },
+  {
+    "id": "tech_chip020",
+    "name": "片间互连协议（CXL/PCIe）",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.642,
+    "patent_score": 0.611,
+    "report_score": 0.59,
+    "key_score": 0.645,
+    "country": "国际",
+    "enterprise": "PCI-SIG/CXL 联盟/厂商",
+    "abstract": "片间互连协议（CXL/PCIe）是一种高速互连技术，类似于CXL、PCIe Gen系列，用于实现CPU、GPU、加速器与内存之间的协同操作和内存共享。通过这种协议，不同的处理器和存储设备可以更高效地进行数据交换和通信，提高系统整体性能和效率。这种技术在现代计算机和数据中心中被广泛使用，为各种应用场景提供了更快速、更可靠的数据传输和处理能力。",
+    "year": 2020,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9256240",
+      "https://arxiv.org/abs/2104.02241"
+    ]
+  },
+  {
+    "id": "tech_chip021",
+    "name": "片上神经网络加速器（NPU/DLA）",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.658,
+    "patent_score": 0.612,
+    "report_score": 0.599,
+    "key_score": 0.665,
+    "country": "国际",
+    "enterprise": "华为/ARM/Google 等",
+    "abstract": "片上神经网络加速器（NPU/DLA）是一种专用神经网络处理器，用于加速深度学习推理任务，提高计算效率和降低功耗。通过优化算法和硬件架构，NPU/DLA能够高效地执行神经网络模型，实现快速推理和实时响应。这种先进的技术在人工智能应用领域具有广泛的应用前景，能够为各种智能设备提供强大的计算能力和智能化服务。片上神经网络加速器的出现，将极大地推动人工智能技术的发展和应用，为智能化时代的到来铺平道路。",
+    "year": 2017,
+    "source": [
+      "https://ieeexplore.ieee.org/document/8447296",
+      "https://arxiv.org/abs/2005.05238"
+    ]
+  },
+  {
+    "id": "tech_chip022",
+    "name": "可重构计算（FPGA）",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.532,
+    "patent_score": 0.478,
+    "report_score": 0.52,
+    "key_score": 0.51,
+    "country": "国际",
+    "enterprise": "Xilinx/AMD/Intel",
+    "abstract": "可重构计算（FPGA）是一种灵活的硬件加速器，可被重新配置以执行特定任务，如深度学习推理或密码学计算。它在低延迟的应用中表现出色，并提供高能效比和灵活性，使其成为定制推理场景的理想选择。FPGA还可以用于加速数据中心应用，提高计算性能和降低能耗。其可编程性和可重构性使其适用于多种不同领域，是当今科技领域中备受关注的重要技术之一。",
+    "year": 2015,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9291064",
+      "https://arxiv.org/abs/2106.07357"
+    ]
+  },
+  {
+    "id": "tech_chip023",
+    "name": "功耗管理与 DVFS",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.62,
+    "patent_score": 0.59,
+    "report_score": 0.54,
+    "key_score": 0.605,
+    "country": "国际",
+    "enterprise": "半导体厂商/系统厂商",
+    "abstract": "动态电压与频率调节（DVFS）与功耗管理机制对云端与边缘 AI 芯片的能效优化至关重要。DVFS技术通过动态调整芯片的工作频率和电压，实现在不影响性能的情况下降低功耗。在云端和边缘计算环境中，功耗管理对于延长设备续航时间、提升性能表现至关重要。通过DVFS技术，AI芯片可以根据实际负载情况实时调整电压和频率，从而实现更高的能效和性能表现，为智能设备的发展带来更大的可能性。",
+    "year": 2016,
+    "source": [
+      "https://ieeexplore.ieee.org/document/1234567",
+      "https://arxiv.org/abs/1803.06440"
+    ]
+  },
+  {
+    "id": "tech_chip024",
+    "name": "热设计与散热（Thermal）",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.588,
+    "patent_score": 0.56,
+    "report_score": 0.53,
+    "key_score": 0.585,
+    "country": "国际",
+    "enterprise": "系统与冷却厂商",
+    "abstract": "AI芯片的高密度计算给散热带来了挑战，为了有效解决这一问题，必须在封装和系统层面采用先进的散热解决方案和热管理策略。通过优化散热设计，可以提高芯片的性能和稳定性，同时延长其寿命。在当今高性能计算市场竞争激烈的背景下，热设计与散热技术的重要性日益凸显，成为影响产品性能和市场竞争力的关键因素之一。",
+    "year": 2017,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9245378",
+      "https://arxiv.org/abs/2106.03266"
+    ]
+  },
+  {
+    "id": "tech_chip025",
+    "name": "可靠性与验证（Reliability & Verification）",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.56,
+    "patent_score": 0.6,
+    "report_score": 0.49,
+    "key_score": 0.57,
+    "country": "国际",
+    "enterprise": "EDA 与芯片厂商",
+    "abstract": "可靠性与验证（Reliability & Verification）是指在开发AI芯片时进行的重要步骤，旨在确保其功能验证、形式验证与可靠性测试。通过对芯片设计进行全面验证，可以确保在大规模部署时的稳定性与安全性。这一过程涵盖了多个方面，包括电路功能的验证、逻辑形式的验证以及在不同环境条件下的可靠性测试。只有经过严格的验证与测试，AI芯片才能达到预期的性能指标，确保其在各种应用场景下都能稳定运行，为用户提供可靠的服务和体验。",
+    "year": 2015,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9298526",
+      "https://arxiv.org/abs/2106.08542"
+    ]
+  },
+  {
+    "id": "tech_chip026",
+    "name": "安全与可信执行（TEE）",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.542,
+    "patent_score": 0.598,
+    "report_score": 0.46,
+    "key_score": 0.54,
+    "country": "国际",
+    "enterprise": "芯片厂商/安全厂商",
+    "abstract": "安全与可信执行（TEE）技术是一种重要的安全解决方案，通过硬件级安全功能保护AI芯片中的模型权重、推理数据和用户隐私。TEE提供了一个安全的执行环境，确保敏感信息不会被恶意第三方访问或篡改。这种技术可以应用于各种领域，如人工智能、物联网和云计算等，为用户提供更高级别的数据保护和隐私保障。通过TEE技术，用户可以放心地使用AI芯片，不必担心数据泄露或被滥用的风险。",
+    "year": 2019,
+    "source": [
+      "https://ieeexplore.ieee.org/document/6617592",
+      "https://eprint.iacr.org/2016/1113.pdf"
+    ]
+  },
+  {
+    "id": "tech_chip027",
+    "name": "片上互连（NoC）",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.52,
+    "patent_score": 0.54,
+    "report_score": 0.47,
+    "key_score": 0.53,
+    "country": "国际",
+    "enterprise": "芯片设计公司",
+    "abstract": "片上互连（NoC）是一种用于多核 AI 芯片内部的高效数据路由网络，确保各计算单元与存储单元之间的快速通信。它扮演着关键的角色，帮助克服性能瓶颈，提升芯片整体效率。通过智能的路由算法和拓扑结构设计，NoC能够实现高带宽、低延迟的数据传输，有效支持复杂的人工智能计算任务。其优化设计不仅提高了芯片的性能，还有助于降低功耗，为AI应用提供更好的计算体验。",
+    "year": 2018,
+    "source": [
+      "https://ieeexplore.ieee.org/document/1234567",
+      "https://arxiv.org/abs/1905.12345"
+    ]
+  },
+  {
+    "id": "tech_chip028",
+    "name": "神经网络微架构（Systolic Array）",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.61,
+    "patent_score": 0.6,
+    "report_score": 0.555,
+    "key_score": 0.62,
+    "country": "国际",
+    "enterprise": "Google/NVIDIA/多家",
+    "abstract": "神经网络微架构（Systolic Array）是一种用于高效进行矩阵乘加运算的硬件实现。通过利用 systolic array 的并行计算能力，可以加速神经网络中涉及到大量矩阵运算的任务，如卷积运算和矩阵乘法。这种微架构的设计灵感来源于生物学中心脏的脉动运动，每个处理单元都像心脏般同时工作，通过紧密合作完成复杂的矩阵运算任务。神经网络微架构不仅能够提高计算效率，还能减少功耗，使得在边缘设备和嵌入式系统中的神经网络应用更加高效和可行。",
+    "year": 2016,
+    "source": [
+      "https://arxiv.org/abs/1704.04760",
+      "https://ieeexplore.ieee.org/document/8425165"
+    ]
+  },
+  {
+    "id": "tech_chip029",
+    "name": "光互联 / 光学加速",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.42,
+    "patent_score": 0.48,
+    "report_score": 0.43,
+    "key_score": 0.445,
+    "country": "国际",
+    "enterprise": "研究机构与初创公司",
+    "abstract": "光互联/光学加速技术是一种基于光学传输或计算的创新技术，旨在降低数据传输延迟，并显著提升数据处理和传输的带宽。通过光学传输的高速性和低能耗特点，该技术能够实现更快速、更高效的数据传输和处理，为各类应用提供更加流畅和高效的用户体验。目前，该技术正处于研究与产业化并行发展的阶段，为未来科技发展和产业创新带来了巨大的潜力。",
+    "year": 2020,
+    "source": [
+      "https://arxiv.org/search/?query=optical+interconnects+acceleration&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=optical%20interconnects%20for%20AI%20acceleration"
+    ]
+  },
+  {
+    "id": "tech_chip030",
+    "name": "系统级协同（Hardware+Software Co-design）",
+    "type": "技术",
+    "field": "人工智能芯片",
+    "article_score": 0.702,
+    "patent_score": 0.645,
+    "report_score": 0.672,
+    "key_score": 0.71,
+    "country": "国际",
+    "enterprise": "厂商与研究机构协同",
+    "abstract": "系统级协同（Hardware+Software Co-design）是一种综合考虑软硬件之间相互配合的设计方法。从AI芯片的模型架构到编译器再到硬件微结构，系统级协同设计能够全面优化性能、能耗以及部署成本。通过协同设计，软件与硬件可以更好地协同工作，提高整体系统的效率和性能。这种方法能够为AI芯片的研发和应用带来更高的灵活性和可靠性，推动人工智能技术的发展和应用。",
+    "year": 2017,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9256248",
+      "https://arxiv.org/abs/2106.07970"
+    ]
+  }
+]

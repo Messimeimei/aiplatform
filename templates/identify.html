@@ -1,63 +1,24 @@
 {% extends "base.html" %}
-{% block title %}智发现{% endblock %}
+{% block title %}智能发现{% endblock %}
 {% block container_class %}container py-3{% endblock %}
 
 {% block extra_head %}
 <style>
-  /* 浅底面板（与 results 一致的高对比阅读区） */
   .surface { background:#fff; color:#212529; border-radius:14px; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.08); }
-
-  /* 卡片外观 */
   .card-flat { background:#fff; border-radius:12px; border:1px solid #e9ecef; box-shadow:0 4px 14px rgba(0,0,0,.06); }
-  .card-flat .card-header { background:#f8f9fa; border-bottom:1px solid #e9ecef; }
-
-  /* —— 文本模式输入框：固定高度、超出滚动、非 textarea —— */
   .input-box {
-    height: 320px;                         /* 固定高度 */
-    overflow: auto;                        /* 超出滚动 */
-    border: 1px solid #ced4da;
-    border-radius: 12px;
-    background: #ffffff;
-    padding: 12px 14px;
-    font-size: 14px;
-    line-height: 1.6;
-    outline: none;
+    height: 320px; overflow: auto; border: 1px solid #ced4da; border-radius: 12px;
+    background: #ffffff; padding: 12px 14px; font-size: 14px; line-height: 1.6; outline: none;
   }
-  /* 焦点态 */
-  .input-box:focus {
-    border-color: #86b7fe;
-    box-shadow: 0 0 0 4px rgba(13,110,253,.15);
-  }
-  /* 占位提示（contenteditable 的 placeholder 技巧） */
   .input-box[contenteditable="true"]:empty:before {
-    content: attr(data-placeholder);
-    color: #6c757d;
+    content: attr(data-placeholder); color: #6c757d;
   }
-
-  /* 文件模式上传框 */
   .upload-box { border:1px dashed #ced4da; border-radius:12px; padding:24px; text-align:center; background:#f8f9fa; }
   .upload-box input[type="file"] { display:none; }
   .upload-box .filename { margin-top:10px; color:#6c757d; font-size:.9rem; }
-
-  /* —— 结果区：按钮风格的 Chips —— */
   .chips { display:flex; flex-wrap:wrap; gap:8px; }
-  .chip {
-    display:inline-flex; align-items:center; justify-content:center;
-    padding:6px 12px;
-    border-radius: 999px;                  /* 胶囊 */
-    border:1px solid #cfe3ff;
-    background: #f4f8ff;
-    color:#0b5ed7;
-    font-size: 13px;
-    cursor: default;
-    user-select: text;
-    transition: background .15s ease, border-color .15s ease, transform .05s ease;
-    white-space: nowrap;
-  }
-  .chip:hover { background:#e9f2ff; border-color:#b6d4fe; }
-  .chip .mark { margin-left:8px; font-size:11px; color:#6c757d; }
-
-  /* 结果滚动区域（如果内容较多） */
+  .chip { display:inline-flex; align-items:center; justify-content:center; padding:6px 12px;
+          border-radius:999px; border:1px solid #cfe3ff; background:#f4f8ff; color:#0b5ed7; font-size:13px; }
   .result-body { max-height: 220px; overflow:auto; }
 </style>
 {% endblock %}
@@ -76,7 +37,7 @@
           <div class="small text-muted">选择识别方式，输入内容后开始识别</div>
         </div>
         <div class="card-body">
-          <!-- 文本模式（非 textarea） -->
+          <!-- 文本模式 -->
           <div id="modeText">
             <label class="form-label">请输入待识别文本</label>
             <div id="textInput"
@@ -85,7 +46,6 @@
                  spellcheck="false"
                  data-placeholder="在此粘贴或输入文本…"></div>
           </div>
-
           <!-- 文件模式 -->
           <div id="modeFile" class="d-none">
             <label class="form-label">请选择待识别文件</label>
@@ -95,7 +55,6 @@
                 <input type="file" id="fileInput" accept=".txt,.pdf,.doc,.docx,.md,.rtf,.csv"/>
               </label>
               <div class="filename" id="fileName">尚未选择文件</div>
-              <div class="small text-muted mt-2">支持常见文档；后端接入后将在服务器解析内容。</div>
             </div>
           </div>
         </div>
@@ -108,14 +67,12 @@
 
     <!-- 右侧：结果区 -->
     <div class="col-12 col-lg-4">
-      <!-- 关键技术 -->
       <div class="card card-flat mb-3">
         <div class="card-header fw-semibold">关键技术</div>
         <div class="card-body result-body" id="techResult">
           <div class="text-muted">识别结果将显示在这里…</div>
         </div>
       </div>
-      <!-- 关键产品 -->
       <div class="card card-flat">
         <div class="card-header fw-semibold">关键产品</div>
         <div class="card-body result-body" id="productResult">
@@ -129,74 +86,79 @@
 
 {% block scripts %}
 <script>
-  // —— 模式切换：文本识别 / 文件识别
-  (function(){
-    const btnText = document.getElementById('btnText');
-    const btnFile = document.getElementById('btnFile');
-    const modeText = document.getElementById('modeText');
-    const modeFile = document.getElementById('modeFile');
+document.addEventListener('DOMContentLoaded', function() {
 
-    btnText.addEventListener('click', ()=>{
-      btnText.classList.add('active'); btnFile.classList.remove('active');
-      modeText.classList.remove('d-none'); modeFile.classList.add('d-none');
-    });
-    btnFile.addEventListener('click', ()=>{
-      btnFile.classList.add('active'); btnText.classList.remove('active');
-      modeFile.classList.remove('d-none'); modeText.classList.add('d-none');
-    });
-  })();
+  const btnText = document.getElementById('btnText');
+  const btnFile = document.getElementById('btnFile');
+  const modeText = document.getElementById('modeText');
+  const modeFile = document.getElementById('modeFile');
+  if (!btnText || !btnFile) return console.warn("❗ DOM 未加载完整");
+
+  // —— 模式切换
+  btnText.addEventListener('click', ()=>{
+    btnText.classList.add('active'); btnFile.classList.remove('active');
+    modeText.classList.remove('d-none'); modeFile.classList.add('d-none');
+  });
+  btnFile.addEventListener('click', ()=>{
+    btnFile.classList.add('active'); btnText.classList.remove('active');
+    modeFile.classList.remove('d-none'); modeText.classList.add('d-none');
+  });
 
   // —— 文件名显示
-  (function(){
-    const fileInput = document.getElementById('fileInput');
-    const fileNameEl = document.getElementById('fileName');
-    fileInput?.addEventListener('change', ()=>{
-      fileNameEl.textContent = fileInput.files?.[0]?.name || '尚未选择文件';
-    });
-  })();
+  const fileInput = document.getElementById('fileInput');
+  const fileNameEl = document.getElementById('fileName');
+  fileInput?.addEventListener('change', ()=>{
+    fileNameEl.textContent = fileInput.files?.[0]?.name || '尚未选择文件';
+  });
 
   // —— 清空
-  (function(){
-    const btnClear = document.getElementById('btnClear');
-    btnClear.addEventListener('click', ()=>{
-      document.getElementById('textInput').innerText = '';
-      const f = document.getElementById('fileInput');
-      if (f) { f.value = ''; document.getElementById('fileName').textContent = '尚未选择文件'; }
-      clearResults();
-    });
-  })();
+  const btnClear = document.getElementById('btnClear');
+  btnClear?.addEventListener('click', ()=>{
+    document.getElementById('textInput').innerText = '';
+    const f = document.getElementById('fileInput');
+    if (f) { f.value = ''; document.getElementById('fileName').textContent = '尚未选择文件'; }
+    clearResults();
+  });
 
-  // —— 开始识别（示例逻辑；接后端时替换为真实接口）
-  (function(){
-    const btnRun = document.getElementById('btnRun');
-    btnRun.addEventListener('click', async ()=>{
-      clearResults();
+  // —— 开始识别
+  const btnRun = document.getElementById('btnRun');
+  btnRun?.addEventListener('click', async ()=>{
+    clearResults();
+    const isTextMode = btnText.classList.contains('active');
+    btnRun.disabled = true;
+    btnRun.innerText = '识别中...';
 
-      // 判断当前模式与输入
-      const isTextMode = document.getElementById('btnText').classList.contains('active');
-      let payload = {};
+    try {
+      let data = {};
       if (isTextMode) {
-        const text = document.getElementById('textInput').innerText.trim();  // 非 textarea：用 innerText
-        if (!text) return toast('请输入文本后再识别');
-        payload = { mode: 'text', text };
+        const text = document.getElementById('textInput').innerText.trim();
+        if (!text) { toast('请输入文本后再识别'); resetBtn(); return; }
+        const res = await fetch('/api/identify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ mode: 'text', text })
+        });
+        data = await res.json();
       } else {
         const file = document.getElementById('fileInput').files?.[0];
-        if (!file) return toast('请选择文件后再识别');
-        payload = { mode: 'file', filename: file.name };
-        // 真实接入：FormData 上传文件
-        // const fd = new FormData(); fd.append('file', file);
-        // const res = await fetch('/api/identify', { method:'POST', body: fd });
+        if (!file) { toast('请选择文件后再识别'); resetBtn(); return; }
+        const fd = new FormData(); fd.append('mode','file'); fd.append('file',file);
+        const res = await fetch('/api/identify', { method: 'POST', body: fd });
+        data = await res.json();
       }
+      if (data.error) throw new Error(data.error);
+      renderResults(data);
+    } catch (err) {
+      toast('识别失败：' + err.message);
+    } finally {
+      resetBtn();
+    }
 
-      // TODO: 调用你的后端接口，拿到形如 {tech:[], product:[]} 的结果
-      // const data = await (await fetch('/api/identify', {...})).json();
-      // renderResults(data);
-
-      // —— Demo：简单关键词模拟识别
-      const demo = demoExtract(payload);
-      renderResults(demo);
-    });
-  })();
+    function resetBtn(){
+      btnRun.disabled = false;
+      btnRun.innerText = '开始识别';
+    }
+  });
 
   // —— 工具函数
   function clearResults(){
@@ -209,7 +171,6 @@
     tech.innerHTML = chipTemplate(data.tech || []);
     prod.innerHTML = chipTemplate(data.product || []);
   }
-  // 按“按钮风格”渲染
   function chipTemplate(arr){
     if (!arr.length) return '<div class="text-muted">（无识别结果）</div>';
     return '<div class="chips">'+
@@ -218,24 +179,6 @@
   }
   function toast(msg){ alert(msg); }
   function escapeHtml(s){ return s.replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
-
-  // —— Demo 识别
-  function demoExtract(payload){
-    if (payload.mode === 'file') {
-      return {
-        tech: ['（示例）多模态融合', '（示例）知识蒸馏', '（示例）边缘推理'],
-        product: ['（示例）OCR识别平台', '（示例）文本生成引擎']
-      };
-    }
-    const text = payload.text;
-    const seeds = [
-      '大模型','多模态','蒸馏','量化','加速','OCR','NLP','RAG','Agent','检索增强',
-      '知识图谱','分割','检测','重识别','对比学习','联邦学习','边缘计算','AIGC'
-    ];
-    const found = seeds.filter(k=>text.includes(k));
-    const tech = found.slice(0,5).map(s=>'（示例）'+s);
-    const product = (text.length>30 ? ['（示例）智能体平台','（示例）企业知识库'] : ['（示例）文本生成引擎']);
-    return { tech, product };
-  }
+});
 </script>
 {% endblock %}

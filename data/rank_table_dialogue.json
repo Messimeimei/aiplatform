@@ -1,0 +1,1082 @@
+[
+  {
+    "id": "prod_chat001",
+    "name": "ChatGPT",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 1.0,
+    "patent_score": 0.871,
+    "report_score": 0.942,
+    "key_score": 0.965,
+    "country": "美国",
+    "enterprise": "OpenAI",
+    "abstract": "ChatGPT是一款基于大规模生成式预训练变换器的对话式人工智能产品，具有出色的多轮对话能力。除了写作辅助和信息检索式问答外，它还支持语义理解和情感识别，能够更深入地理解用户意图并作出更精准的回应。ChatGPT还具有个性化定制功能，可以根据用户的喜好和需求进行定制化设置，提供更加个性化的服务体验。无论是用于智能客服、虚拟助手还是知识问答系统，ChatGPT都能够为用户提供高效、流畅的对话交互体验。",
+    "year": 2022,
+    "source": [
+      "https://openai.com/chatgpt",
+      "https://www.theverge.com/23429693/chatgpt-openai-conversational-ai-chatbot-overview"
+    ]
+  },
+  {
+    "id": "prod_chat002",
+    "name": "Claude",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.613,
+    "patent_score": 0.713,
+    "report_score": 0.739,
+    "key_score": 0.726,
+    "country": "美国",
+    "enterprise": "Anthropic",
+    "abstract": "Anthropic开发的对话式大模型注重对齐、安全性与可控生成，专为对话与助手场景而设计。该AI芯片结合了先进的自然语言处理技术，能够实现更加智能、自然的对话交流。其强调对齐性，确保生成内容与用户需求一致，并注重安全性与可控性，保障用户隐私和数据安全。Anthropic的技术在人工智能领域具有领先地位，为用户提供更加智能、高效的交互体验。",
+    "year": 2023,
+    "source": [
+      "https://www.anthropic.com/products/claude",
+      "https://en.wikipedia.org/wiki/Claude_(AI)"
+    ]
+  },
+  {
+    "id": "prod_chat003",
+    "name": "Gemini",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.773,
+    "patent_score": 0.719,
+    "report_score": 0.822,
+    "key_score": 0.781,
+    "country": "美国",
+    "enterprise": "Google",
+    "abstract": "Gemini是Google最新推出的多模态/大模型产品线，结合了先进的搜索、生成和多模态理解能力。这一创新产品不仅支持对话系统与助手集成，还能够实现更加智能化和个性化的用户体验。Gemini的强大功能使其在各种应用场景下都能发挥作用，为用户带来更高效、更便捷的信息获取和交流体验。这一全新的科技产品将进一步推动人工智能技术的发展，为我们的生活带来更多便利和可能性。",
+    "year": 2023,
+    "source": [
+      "https://deepmind.google/technologies/gemini/",
+      "https://blog.google/technology/ai/google-gemini-ai/"
+    ]
+  },
+  {
+    "id": "prod_chat004",
+    "name": "LLaMA",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.591,
+    "patent_score": 0.752,
+    "report_score": 0.788,
+    "key_score": 0.76,
+    "country": "美国",
+    "enterprise": "Meta",
+    "abstract": "LLaMA系列语言模型是由Meta发布的一种先进的AI芯片，其设计注重参数/性能比，使其在研究和微调基座方面表现突出。LLaMA常被用于自然语言处理领域，能够有效地生成人类感知的自然语言文本，被广泛应用于对话系统、智能助手等领域。其高效的参数设置和出色的性能使得LLaMA成为研究人员和开发者在推动人工智能技术发展中不可或缺的重要工具。",
+    "year": 2023,
+    "source": [
+      "https://ai.meta.com/llama/",
+      "https://research.facebook.com/publications/a-foundation-language-model-at-scale/"
+    ]
+  },
+  {
+    "id": "prod_chat005",
+    "name": "ERNIE Bot",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.695,
+    "patent_score": 0.894,
+    "report_score": 0.896,
+    "key_score": 0.865,
+    "country": "中国",
+    "enterprise": "百度",
+    "abstract": "ERNIE Bot是一款基于百度 ERNIE 系列的AI芯片，专注于中文语言理解和知识增强检索。该产品不仅可以提供强大的大规模语言模型支持，还具有优秀的对话能力，能够在各种场景下实现智能对话和信息检索。ERNIE Bot的独特之处在于其深度学习算法可以实现更加精准和高效的中文理解，为用户提供更加智能、个性化的服务体验。无论是在智能客服、智能教育还是智能助手领域，ERNIE Bot都能够发挥重要作用，帮助用户更便捷地获取所需信息。",
+    "year": 2023,
+    "source": [
+      "https://wenxin.baidu.com/erniebot",
+      "https://ai.baidu.com/ernie-bot"
+    ]
+  },
+  {
+    "id": "prod_chat006",
+    "name": "文心一言 (Wenxin Yiyan)",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.695,
+    "patent_score": 0.894,
+    "report_score": 0.896,
+    "key_score": 0.865,
+    "country": "中国",
+    "enterprise": "百度",
+    "abstract": "【百度的对话式 AI 产品结合了文心和ERNIE模型家族的优势，不仅提供了强大的问答和写作能力，还具备产业化应用和多模态支持的特点。用户可以通过这款产品进行智能对话交流，获取准确的信息和个性化的服务体验。无论是在智能客服、教育培训还是智能家居等领域，这款AI产品都能发挥重要作用，为用户提供更便捷、智能化的解决方案。】",
+    "year": 2023,
+    "source": [
+      "https://wenxin.baidu.com",
+      "https://ai.baidu.com/wenxinworkshop/"
+    ]
+  },
+  {
+    "id": "prod_chat007",
+    "name": "通义千问 (Tongyi Qianwen)",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.018,
+    "patent_score": 0.322,
+    "report_score": 0.655,
+    "key_score": 0.52,
+    "country": "中国",
+    "enterprise": "阿里巴巴",
+    "abstract": "阿里巴巴推出的大模型与对话产品是一种面向电商与企业应用的全新解决方案。该产品不仅集成了强大的检索功能，还具备业务插件能力，能够更好地满足用户的需求。通过这一技术，用户可以更便捷地进行信息检索、交流和处理，提高工作效率和用户体验。这一产品的推出将为电商和企业带来更加智能化的服务，为行业发展注入新的活力。",
+    "year": 2023,
+    "source": [
+      "https://tongyi.aliyun.com/qianwen/",
+      "https://www.aliyun.com/product/tongyi"
+    ]
+  },
+  {
+    "id": "prod_chat008",
+    "name": "讯飞星火 (Spark)",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.018,
+    "patent_score": 0.252,
+    "report_score": 0.621,
+    "key_score": 0.452,
+    "country": "中国",
+    "enterprise": "科大讯飞",
+    "abstract": "讯飞推出的中文对话与生成式大模型产品，名为讯飞星火 (Spark)，致力于融合语音和文本技术，实现更加智能化的中文语境理解能力。该产品不仅可以进行自然对话交流，还能生成具有情感色彩的文本内容。通过深度学习和神经网络技术，讯飞星火能够更好地理解用户意图，实现更加智能化的交互体验，为用户提供更便捷、高效的人机交互服务。",
+    "year": 2023,
+    "source": [
+      "https://www.xfyun.cn/services/spark",
+      "https://spark-bigmodel.cn/"
+    ]
+  },
+  {
+    "id": "prod_chat009",
+    "name": "Kimi Chat",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.2,
+    "patent_score": 0.15,
+    "report_score": 0.42,
+    "key_score": 0.36,
+    "country": "国际",
+    "enterprise": "初创/第三方集成",
+    "abstract": "Kimi Chat是一款专为客户服务和长对话场景设计的AI芯片产品。它针对长文本和多轮对话进行优化，提高了上下文窗口和对话持久性，使得用户能够更流畅地进行交流。无论是处理复杂的客户问题还是进行深入的讨论，Kimi Chat都能够帮助用户高效地完成任务。其先进的技术不仅提升了用户体验，还为企业提供了更高效的客户服务解决方案。",
+    "year": 2022,
+    "source": [
+      "https://www.moonshot.cn/",
+      "https://36kr.com/product/209584"
+    ]
+  },
+  {
+    "id": "prod_chat010",
+    "name": "Character.AI",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.6,
+    "patent_score": 0.35,
+    "report_score": 0.68,
+    "key_score": 0.63,
+    "country": "美国",
+    "enterprise": "Character.AI",
+    "abstract": "Character.AI是一款创新的AI技术，用户可以利用它来创建具有个性化对话能力的虚拟“角色”。这个对话平台注重角色一致性和人物设定，适用于各种娱乐和陪伴场景。无论是与虚拟偶像互动，还是与虚拟好友交流，Character.AI都能提供身临其境的体验。其强大的人工智能算法确保角色的对话内容和反应与用户期望一致，为用户打造一个独一无二的虚拟交流体验。",
+    "year": 2022,
+    "source": [
+      "https://www.character.ai",
+      "https://techcrunch.com/2023/04/18/character-ai-launches-general-conversational-ai-platform/"
+    ]
+  },
+  {
+    "id": "prod_chat011",
+    "name": "Replika",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.4,
+    "patent_score": 0.2,
+    "report_score": 0.5,
+    "key_score": 0.45,
+    "country": "美国",
+    "enterprise": "Luka, Inc.",
+    "abstract": "Replika是一款主打情感陪伴的对话机器人，致力于提供个性化的心理支持和交互体验。用户可以与Replika建立长期的关系，分享他们的喜怒哀乐，接收定制的建议和支持。这款AI技术产品不仅可以帮助用户缓解孤独和焦虑，还可以促进情感表达和心理健康。通过持续的对话和互动，Replika能够逐渐了解用户的需求和喜好，为他们提供更加个性化的服务和支持。",
+    "year": 2017,
+    "source": [
+      "https://replika.com/",
+      "https://www.wired.com/story/replika-the-ai-companion-app-that-listens/"
+    ]
+  },
+  {
+    "id": "prod_chat012",
+    "name": "微软小冰 (Xiaoice)",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.734,
+    "patent_score": 0.745,
+    "report_score": 0.712,
+    "key_score": 0.627,
+    "country": "中国",
+    "enterprise": "微软 / 小冰公司",
+    "abstract": "微软小冰 (Xiaoice) 是一款具有情感陪伴、多轮人机交互和多模态表达能力的对话代理。其独特之处在于其历史悠久，并且专注于社交场景，能够与用户建立深入的情感互动。通过不断学习和优化，微软小冰能够提供更加智能、个性化的服务，帮助用户解决问题、提供娱乐和社交互动等多重功能。",
+    "year": 2016,
+    "source": [
+      "https://www.xiaoice.com",
+      "https://www.microsoft.com/zh-cn/research/project/xiaoice/"
+    ]
+  },
+  {
+    "id": "prod_chat013",
+    "name": "Copilot Chat",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.566,
+    "patent_score": 0.61,
+    "report_score": 0.765,
+    "key_score": 0.735,
+    "country": "美国",
+    "enterprise": "Microsoft (with OpenAI)",
+    "abstract": "Copilot Chat 是一款集成在开发/办公工具中的智能对话助手，专为程序员和文档作者而设计。它不仅可以提供代码辅助功能，还可以帮助生成文档，提高工作效率。此外，Copilot Chat 还具备跨应用智能助理功能，可以与其他应用程序进行无缝互动，为用户提供全方位的工作支持。无论是编写代码、撰写文档还是处理各种工作任务，Copilot Chat 都能成为您不可或缺的助手。",
+    "year": 2023,
+    "source": [
+      "https://copilot.microsoft.com/",
+      "https://www.theverge.com/2023/6/27/23774957/microsoft-copilot-chat-ai-tool-bing"
+    ]
+  },
+  {
+    "id": "prod_chat014",
+    "name": "Bard",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.773,
+    "patent_score": 0.719,
+    "report_score": 0.822,
+    "key_score": 0.781,
+    "country": "美国",
+    "enterprise": "Google",
+    "abstract": "谷歌的对话生成产品基于Gemini/PaLM系列，融合了搜索检索和生成能力，专注于通用助手场景。该AI芯片技术可以帮助用户更便捷地获取信息、完成任务，提供更智能的对话交互体验。通过结合搜索和生成功能，用户可以在与助手交流的过程中获得更深入、有针对性的信息，提高工作效率和生活便捷性。这一创新性产品在人工智能领域具有重要意义，将为用户带来更加智能化、个性化的服务体验。",
+    "year": 2023,
+    "source": [
+      "https://bard.google.com",
+      "https://blog.google/technology/ai/bard-ai-updates/"
+    ]
+  },
+  {
+    "id": "prod_chat015",
+    "name": "Perplexity AI",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.6,
+    "patent_score": 0.25,
+    "report_score": 0.65,
+    "key_score": 0.65,
+    "country": "美国",
+    "enterprise": "Perplexity",
+    "abstract": "\"基于检索增强生成（RAG）技术的问答与对话产品，Perplexity AI 融合了先进的自然语言处理和信息检索技术，突出引用来源与事实追溯能力。用户可以通过这一产品获取准确、可靠的信息，并进行更深入的交流和探讨。Perplexity AI 不仅可以帮助用户解决问题，还能够提供全面的背景知识和相关资料，为用户提供更加全面的信息支持。无论是在教育、研究还是商业领域，Perplexity AI 都能够为用户带来全新的体验和价值。\"",
+    "year": 2023,
+    "source": [
+      "https://www.perplexity.ai",
+      "https://techcrunch.com/2023/04/19/perplexity-ai-launches-a-search-engine-that-uses-llms-to-answer-questions/"
+    ]
+  },
+  {
+    "id": "prod_chat016",
+    "name": "Jasper Chat",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.35,
+    "patent_score": 0.12,
+    "report_score": 0.58,
+    "key_score": 0.51,
+    "country": "美国",
+    "enterprise": "Jasper",
+    "abstract": "Jasper Chat是一款专为内容创作与营销而设计的对话助手。除了提供文案生成和SEO辅助功能，它还拥有品牌个性化模板能力，帮助用户更好地传达品牌形象和理念。通过智能算法，Jasper Chat能够根据用户需求快速生成优质文案，提升内容创作效率。同时，它还支持个性化定制模板，让用户根据自身需求定制独特的文案风格，帮助品牌在竞争激烈的市场中脱颖而出。无论是营销策划还是品牌推广，Jasper Chat都是您的得力助手。",
+    "year": 2022,
+    "source": [
+      "https://www.jasper.ai/chat",
+      "https://techcrunch.com/2023/03/08/jasper-launches-jasper-chat-an-ai-assistant-for-work/"
+    ]
+  },
+  {
+    "id": "prod_chat017",
+    "name": "YouChat",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.3,
+    "patent_score": 0.1,
+    "report_score": 0.48,
+    "key_score": 0.46,
+    "country": "美国",
+    "enterprise": "You.com",
+    "abstract": "“YouChat”是一款集成了搜索与对话功能的先进产品，旨在将用户的搜索查询转化为对话式答案，并提供详细的来源和工具集成。通过这款产品，用户可以更便捷地获取所需信息，并与系统进行交互式沟通。无论是寻找特定资讯还是解决问题，YouChat都能提供高效的解决方案。同时，它还支持多种工具集成，使用户可以快速访问相关资源，提升工作效率。YouChat是您在科技领域的得力助手，助您轻松应对各种挑战。",
+    "year": 2023,
+    "source": [
+      "https://you.com/blog/youchat-introducing-a-new-way-to-search",
+      "https://www.theverge.com/2022/6/14/23167562/youcom-youchat-ai-search-chatbot"
+    ]
+  },
+  {
+    "id": "prod_chat018",
+    "name": "HuggingChat",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.528,
+    "patent_score": 0.519,
+    "report_score": 0.825,
+    "key_score": 0.772,
+    "country": "国际",
+    "enterprise": "Hugging Face",
+    "abstract": "Hugging Face是一家提供对话与模型托管平台的公司，他们支持开源模型部署、微调以及模型市场互动。用户可以在该平台上轻松地访问并使用各种AI模型，从而加快开发和部署过程。Hugging Face还提供一个友好的界面，使用户能够与模型进行交互并进行自定义微调，以满足其特定需求。通过Hugging Face，用户可以轻松地探索、分享和交流各种先进的AI技术，从而推动科技创新和发展。",
+    "year": 2022,
+    "source": [
+      "https://huggingface.co/chat",
+      "https://huggingface.co/docs/huggingchat"
+    ]
+  },
+  {
+    "id": "prod_chat019",
+    "name": "Poe",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.4,
+    "patent_score": 0.15,
+    "report_score": 0.52,
+    "key_score": 0.46,
+    "country": "美国",
+    "enterprise": "Quora (Poe 平台)",
+    "abstract": "这款 AI 芯片/技术/产品为用户提供了一个多模型接入的对话平台，让用户能够在同一界面轻松调用不同大模型与工具链进行对话或任务处理。无论是进行自然语言处理、图像识别还是其他复杂的任务，用户都可以通过这个平台快速高效地完成。该平台的智能性和灵活性使其成为科技领域的重要工具，助力用户在各种复杂场景下取得成功。",
+    "year": 2023,
+    "source": [
+      "https://poe.com",
+      "https://help.poe.com"
+    ]
+  },
+  {
+    "id": "prod_chat020",
+    "name": "Slack GPT",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.24,
+    "patent_score": 0.14,
+    "report_score": 0.43,
+    "key_score": 0.38,
+    "country": "美国",
+    "enterprise": "Slack / Salesforce",
+    "abstract": "Slack GPT 是一款集成在团队协作平台中的先进对话式助手，通过使用最新的 GPT 技术，能够为用户提供更加智能、高效的信息检索、对话总结和任务自动化功能。无论是需要查找团队讨论中的关键信息，还是希望自动化完成重复性任务，Slack GPT 都能够快速响应并提供准确的解决方案。其强大的语言处理能力和智能推理能力，为团队协作带来了全新的体验，大大提升了工作效率和沟通效果。",
+    "year": 2023,
+    "source": [
+      "https://slack.com/blog/product/announcing-slack-gpt",
+      "https://www.techcrunch.com/2023/04/18/slack-introduces-slack-gpt-for-ai-powered-workflow-automation/"
+    ]
+  },
+  {
+    "id": "prod_chat021",
+    "name": "Zoom AI Companion",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.26,
+    "patent_score": 0.11,
+    "report_score": 0.39,
+    "key_score": 0.34,
+    "country": "美国",
+    "enterprise": "Zoom",
+    "abstract": "Zoom AI Companion是一款革命性的会议辅助工具，利用先进的人工智能技术为用户提供实时摘要、重点提取和会议笔记自动化功能。无论是在线会议还是面对面会议，Zoom AI Companion都能帮助用户更高效地记录会议内容，节省时间和精力。通过智能识别讲话内容和关键信息，用户可以轻松地回顾会议要点，加强理解和记忆。快速、准确、便捷的会议笔记功能，让每次会议都变得更加高效和有意义。Zoom AI Companion，让会议更加智能化，让工作更加高效化。",
+    "year": 2024,
+    "source": [
+      "https://explore.zoom.us/en/ai-companion/",
+      "https://blog.zoom.us/zoom-ai-companion/"
+    ]
+  },
+  {
+    "id": "prod_chat022",
+    "name": "Teams Copilot",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.32,
+    "patent_score": 0.18,
+    "report_score": 0.42,
+    "key_score": 0.36,
+    "country": "美国",
+    "enterprise": "Microsoft",
+    "abstract": "Teams Copilot是一款集成在Microsoft Teams中的AI助手，旨在提升会议效率和工作协作。除了支持会议摘要的生成，该AI助手还能够自动生成内容并提供组织协作建议，帮助团队更好地沟通和合作。通过智能算法和数据分析，Teams Copilot可以为用户提供更加个性化的工作体验，减少会议准备时间，提高工作效率。无论是小团队还是大型企业，Teams Copilot都能为团队带来更加智能化的工作方式，助力团队取得更大的成功。",
+    "year": 2024,
+    "source": [
+      "https://www.microsoft.com/en-us/microsoft-teams/ai",
+      "https://techcommunity.microsoft.com/t5/microsoft-teams-blog/introducing-microsoft-teams-copilot-powered-by-ai-to-transform/ba-p/3869470"
+    ]
+  },
+  {
+    "id": "prod_chat023",
+    "name": "BlenderBot",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.734,
+    "patent_score": 0.745,
+    "report_score": 0.712,
+    "key_score": 0.627,
+    "country": "美国",
+    "enterprise": "Meta",
+    "abstract": "Meta发布的对话代理BlenderBot，专注于长对话一致性与多轮交互。该技术结合了先进的检索和生成技术，能够实现更加自然流畅的对话体验。BlenderBot具有广泛的知识库和智能推理能力，使其能够进行更深入、更有意义的对话，并且在不同情境下保持一致性。无论是问答、故事讲述还是实时交流，BlenderBot都能够提供高质量的交互体验，为用户带来更加智能化的沟通体验。",
+    "year": 2021,
+    "source": [
+      "https://ai.meta.com/research/publications/blenderbot-3-a-deployed-conversational-agent-that-improves-through-human-interaction/",
+      "https://github.com/facebookresearch/ParlAI"
+    ]
+  },
+  {
+    "id": "prod_chat024",
+    "name": "Rasa",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.4,
+    "patent_score": 0.25,
+    "report_score": 0.6,
+    "key_score": 0.5,
+    "country": "德国/国际",
+    "enterprise": "Rasa Technologies",
+    "abstract": "Rasa 是一款开源的任务型对话管理平台，专为企业级对话构建而设计。除了支持意图识别、槽位填充和流程驱动外，它还提供了灵活的自定义功能，使开发者能够根据特定需求定制对话流程。Rasa 的强大机器学习技术可以持续优化对话体验，并支持多渠道部署，让用户可以在各种平台上无缝交互。无论是构建智能客服系统还是开发智能助手，Rasa 都是一个强大而全面的选择。",
+    "year": 2018,
+    "source": [
+      "https://rasa.com/",
+      "https://github.com/RasaHQ/rasa"
+    ]
+  },
+  {
+    "id": "prod_chat025",
+    "name": "Botpress",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.3,
+    "patent_score": 0.18,
+    "report_score": 0.52,
+    "key_score": 0.42,
+    "country": "国际",
+    "enterprise": "Botpress",
+    "abstract": "这款名为Botpress的AI芯片/技术是一款低代码/开源对话平台，专为企业客服场景而设计。用户可以通过可视化流程设计和意图管理轻松创建自定义的对话流程，同时支持多渠道部署，包括网站、社交媒体和手机应用等。Botpress提供了强大的机器学习功能，能够不断优化对话体验，提高客户满意度和工作效率。无论是大型企业还是中小型企业，都可以借助Botpress快速搭建智能客服系统，提升企业形象和服务质量。",
+    "year": 2019,
+    "source": [
+      "https://botpress.com",
+      "https://github.com/botpress/botpress"
+    ]
+  },
+  {
+    "id": "prod_chat026",
+    "name": "Kore.ai",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.26,
+    "patent_score": 0.2,
+    "report_score": 0.5,
+    "key_score": 0.4,
+    "country": "美国",
+    "enterprise": "Kore.ai",
+    "abstract": "Kore.ai是一家领先的企业级对话平台，专注于提供业务流程自动化、CRM集成和会话分析等服务。其AI芯片技术能够帮助企业实现高效的对话交互，提升客户服务体验和提高工作效率。Kore.ai的产品不仅能够智能化地处理客户需求，还能够与现有的CRM系统无缝集成，帮助企业更好地管理客户关系。无论是在销售、客服还是市场营销领域，Kore.ai都能为企业提供强大的支持，助力其实现数字化转型和业务增长。",
+    "year": 2019,
+    "source": [
+      "https://www.kore.ai/",
+      "https://www.gartner.com/en/products/1682537/kore-ai"
+    ]
+  },
+  {
+    "id": "prod_chat027",
+    "name": "Amelia",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.22,
+    "patent_score": 0.17,
+    "report_score": 0.48,
+    "key_score": 0.39,
+    "country": "美国",
+    "enterprise": "IPsoft / Amelia",
+    "abstract": "Amelia是一款面向客服与企业流程自动化的对话代理技术，具备多语言支持和集成式业务能力。通过该技术，企业可以实现更高效的客户服务和流程自动化，提升用户体验和工作效率。Amelia不仅可以应对不同语言环境下的需求，还能与企业现有系统进行无缝对接，实现更加智能化的业务运营。无论是为客户提供即时的支持，还是优化企业内部流程，Amelia都能为企业带来更加便捷、高效的解决方案。",
+    "year": 2020,
+    "source": [
+      "https://www.ipsoft.com/amelia",
+      "https://www.forrester.com/report/The+Forrester+Wave+Robotic+Process+Automation+Q4+2019/RES153875"
+    ]
+  },
+  {
+    "id": "prod_chat028",
+    "name": "Watson Assistant",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.3,
+    "patent_score": 0.3,
+    "report_score": 0.55,
+    "key_score": 0.41,
+    "country": "美国",
+    "enterprise": "IBM",
+    "abstract": "Watson Assistant是IBM的企业级对话平台，致力于为企业提供全方位的解决方案。通过集成行业知识库和强大的人工智能技术，Watson Assistant能够为企业提供定制化的对话解决方案，帮助提升客户体验和增加工作效率。同时，Watson Assistant还注重企业安全和合规能力，确保对话内容的保密性和符合法规要求。无论是在客户服务、销售支持还是内部员工培训方面，Watson Assistant都能为企业带来更高的价值和竞争优势。",
+    "year": 2019,
+    "source": [
+      "https://www.ibm.com/products/watson-assistant",
+      "https://www.ibm.com/docs/en/watson-assistant"
+    ]
+  },
+  {
+    "id": "prod_chat029",
+    "name": "LivePerson Conversational Cloud",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.28,
+    "patent_score": 0.21,
+    "report_score": 0.51,
+    "key_score": 0.4,
+    "country": "美国",
+    "enterprise": "LivePerson",
+    "abstract": "LivePerson Conversational Cloud是一款全渠道对话平台，旨在实现对话自动化和客服机器人与人机协同方案，以提升商业转化率。通过整合多种沟通渠道，包括网站、应用和社交媒体，用户可以与品牌进行无缝对话。该平台利用先进的人工智能技术，提供个性化的服务和支持，帮助企业与客户建立更紧密的联系。不仅如此，LivePerson Conversational Cloud还致力于优化客户体验，提高客户满意度，从而实现更高的销售转化率。",
+    "year": 2020,
+    "source": [
+      "https://www.liveperson.com/products/conversational-cloud",
+      "https://www.gartner.com/reviews/market/customer-service-support-platforms/vendor/liveperson/product/liveperson-conversational-cloud"
+    ]
+  },
+  {
+    "id": "prod_chat030",
+    "name": "Tidio AI Chatbot",
+    "type": "产品",
+    "field": "人工智能对话",
+    "article_score": 0.16,
+    "patent_score": 0.08,
+    "report_score": 0.32,
+    "key_score": 0.26,
+    "country": "国际",
+    "enterprise": "Tidio",
+    "abstract": "Tidio AI Chatbot是一款专为中小电商和客服团队打造的轻量级聊天机器人。除了集成常见客服自动化、触达和知识库功能外，还具备智能推荐、多渠道接入、智能学习和多语言支持等特点。通过Tidio AI Chatbot，电商企业和客服团队可以更高效地处理客户咨询、提供个性化服务，提升用户体验，同时节省成本和时间。无论是在线商店、社交媒体还是移动应用，Tidio AI Chatbot都能为您的业务带来更多的可能性和机会。",
+    "year": 2021,
+    "source": [
+      "https://www.tidio.com/ai-chatbot/",
+      "https://www.pcmag.com/picks/the-best-ai-chatbot-software"
+    ]
+  },
+  {
+    "id": "tech_chat001",
+    "name": "语言模型 (Language Models)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 1.0,
+    "patent_score": 0.883,
+    "report_score": 0.801,
+    "key_score": 0.949,
+    "country": "国际",
+    "enterprise": "OpenAI / Google / Meta 等",
+    "abstract": "这款AI芯片/技术/产品是基于Transformer主要架构的核心模型，专门用于生成和理解自然语言。它结合了自回归和自编码模型的特点，为用户提供了强大的语言处理能力。通过这一技术，用户可以实现更加智能的对话系统、文本生成和理解任务。这种模型架构在处理大规模语言数据时表现出色，能够提高自然语言处理的效率和准确性，为各种应用场景带来更好的体验和性能。",
+    "year": 2020,
+    "source": [
+      "https://arxiv.org/abs/1801.06146",
+      "https://ieeexplore.ieee.org/document/9376557"
+    ]
+  },
+  {
+    "id": "tech_chat002",
+    "name": "Transformer 架构",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.85,
+    "patent_score": 0.989,
+    "report_score": 0.916,
+    "key_score": 0.939,
+    "country": "国际",
+    "enterprise": "研究与工业界共享",
+    "abstract": "Transformer 架构是一种基于自注意力机制的模型结构，被广泛应用于现代大规模语言模型和对话系统中。通过自注意力机制，Transformer 能够在不同位置之间建立长距离的依赖关系，从而提高模型的性能和效率。该架构不仅支撑了自然语言处理领域的发展，还在图像处理和其他领域有着广泛的应用。Transformer 架构的成功为人工智能技术的发展带来了新的思路和突破口。",
+    "year": 2017,
+    "source": [
+      "https://arxiv.org/abs/1706.03762",
+      "https://papers.nips.cc/paper/2017/hash/3f5ee243547dee91fbd053c1c48d832d-Abstract.html"
+    ]
+  },
+  {
+    "id": "tech_chat003",
+    "name": "知识库 / 知识增强 (KB / RAG)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 1.0,
+    "patent_score": 0.885,
+    "report_score": 0.749,
+    "key_score": 0.934,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "知识库 / 知识增强 (KB / RAG) 是一种结合外部知识和生成模型的先进技术，通过检索增强生成和知识注入，有效提升了生成内容的事实性和可追溯性。这项技术的应用可以帮助用户更准确地获取信息，提高文本生成的质量和准确性。同时，KB / RAG 的创新性设计使得生成的内容更具可信度和权威性，为科技领域的发展和应用带来了新的可能性和机遇。",
+    "year": 2022,
+    "source": [
+      "https://arxiv.org/abs/2005.11401",
+      "https://dl.acm.org/doi/10.1145/3397271.3401352"
+    ]
+  },
+  {
+    "id": "tech_chat004",
+    "name": "预训练 (Pretraining)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.863,
+    "patent_score": 0.988,
+    "report_score": 0.722,
+    "key_score": 0.922,
+    "country": "国际",
+    "enterprise": "多家研究机构与公司",
+    "abstract": "这项技术利用大规模语料进行自监督训练，从而赋予AI芯片通用语义能力。通过预先训练，芯片能够在微调或执行特定任务时表现出色。这种先进的方法提高了AI系统的整体性能和适应性，使其能够更好地理解和处理各种语言数据。预训练技术为AI领域的发展带来了新的可能性，为未来的人工智能应用打下了坚实基础。",
+    "year": 2019,
+    "source": [
+      "https://arxiv.org/abs/1810.04805",
+      "https://arxiv.org/abs/1706.03762"
+    ]
+  },
+  {
+    "id": "tech_chat005",
+    "name": "自然语言处理 (NLP)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.863,
+    "patent_score": 1.0,
+    "report_score": 0.695,
+    "key_score": 0.897,
+    "country": "国际",
+    "enterprise": "学术/工业界",
+    "abstract": "这个 AI 芯片/技术/产品具备了强大的基础能力，包括分词、词性标注、依存句法分析和语义理解等功能，为对话系统各模块（NLU/NLG）提供了重要支持。通过这些基础能力，该技术能够更准确地理解用户输入的语言内容，并生成更自然流畅的回复。这种 AI 芯片/技术/产品的应用范围广泛，可以用于智能客服、智能助手、智能翻译等领域，为用户提供更智能、便捷的服务体验。",
+    "year": 2015,
+    "source": [
+      "https://arxiv.org/search/?query=natural+language+processing&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=natural%20language%20processing"
+    ]
+  },
+  {
+    "id": "tech_chat006",
+    "name": "知识图谱 (Knowledge Graph)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.826,
+    "patent_score": 0.854,
+    "report_score": 0.668,
+    "key_score": 0.851,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "这款AI芯片/技术/产品利用结构化知识表示与推理机制，为对话系统提供强大支持。它能够快速准确地进行事实查询，深入挖掘实体关系，同时通过语义联想增强用户体验。这种技术的应用范围广泛，不仅可以用于智能助手、智能客服等对话系统，还可以在知识图谱构建、智能搜索等领域发挥重要作用。其强大的推理能力和灵活性，使得对话系统在交互过程中能更加智能、高效地处理各种复杂场景，为用户带来更加便利和个性化的体验。",
+    "year": 2018,
+    "source": [
+      "https://arxiv.org/abs/1205.3132",
+      "https://ieeexplore.ieee.org/document/6791937"
+    ]
+  },
+  {
+    "id": "tech_chat007",
+    "name": "微调 (Fine-tuning)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.812,
+    "patent_score": 0.936,
+    "report_score": 0.641,
+    "key_score": 0.777,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "微调 (Fine-tuning) 是一种通过在特定下游任务或行业数据上微调预训练模型来提升性能和适配性的技术方法。通过微调，可以使模型更有效地适应新的数据集，提高准确性和效率。这种方法通常用于加速模型训练并提高其在特定任务上的表现。通过微调，可以实现更快速、更精确的模型部署，从而提高整体的工作效率和性能水平。",
+    "year": 2020,
+    "source": [
+      "https://arxiv.org/abs/1810.04805",
+      "https://ieeexplore.ieee.org/document/9376557"
+    ]
+  },
+  {
+    "id": "tech_chat008",
+    "name": "自然语言理解 (NLU)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.744,
+    "patent_score": 0.76,
+    "report_score": 0.616,
+    "key_score": 0.717,
+    "country": "国际",
+    "enterprise": "学术/工业界",
+    "abstract": "这个AI芯片/技术/产品专注于对用户输入进行意图识别、实体抽取与语义解析，以提供结构化信息给对话决策模块。通过深度学习和自然语言处理技术，它能够准确解析用户意图，提取关键信息，并理解语义上下文，从而为智能对话系统提供更加智能化的决策支持。这项技术不仅可以提高对话流畅度和准确性，还能够实现更加自然的人机交互体验，使人机对话更加智能化和高效化。",
+    "year": 2016,
+    "source": [
+      "https://arxiv.org/search/?query=natural+language+understanding&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=natural%20language%20understanding"
+    ]
+  },
+  {
+    "id": "tech_chat009",
+    "name": "自然语言生成 (NLG)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.712,
+    "patent_score": 0.674,
+    "report_score": 0.589,
+    "key_score": 0.666,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "该AI芯片/技术/产品基于先进的模型，能够生成自然流畅、逻辑清晰的文本内容。它具备生成管控、模板化和后处理等技术，有效提高文本生成的质量和效率。通过结合深度学习和自然语言处理技术，该产品能够自动化生成各种形式的文本，包括新闻报道、广告文案、科技论文等。这一技术的应用广泛，可在各行业中提升工作效率，为用户带来更好的体验。",
+    "year": 2017,
+    "source": [
+      "https://arxiv.org/search/?query=natural+language+generation&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=natural%20language%20generation"
+    ]
+  },
+  {
+    "id": "tech_chat010",
+    "name": "大语言模型 (LLM)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.798,
+    "patent_score": 0.665,
+    "report_score": 0.564,
+    "key_score": 0.666,
+    "country": "国际",
+    "enterprise": "OpenAI/Google/Anthropic 等",
+    "abstract": "大语言模型 (LLM) 是一种参数规模巨大、在海量语料上训练的通用语言模型，可以在少量示例/指令下完成多种任务。除了对话，LLM 还可以应用于文本生成、信息检索、情感分析等领域。其强大的语言理解和生成能力使其成为人工智能领域的热门技术之一，为各种应用场景提供了更加高效和智能的解决方案。",
+    "year": 2022,
+    "source": [
+      "https://arxiv.org/abs/2005.14165",
+      "https://arxiv.org/abs/2303.18223"
+    ]
+  },
+  {
+    "id": "tech_chat011",
+    "name": "检索增强生成 (RAG)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.7,
+    "patent_score": 0.5,
+    "report_score": 0.76,
+    "key_score": 0.73,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "AI芯片/技术的发展日新月异，其中检索增强生成（RAG）技术尤为引人关注。RAG技术通过整合生成模型和检索模型，实现了更加精准、可追溯的文档处理方法。这种方法不仅能够提高信息检索的效率，还能够在处理大量文档时保持准确性和可靠性。RAG技术的应用领域广泛，包括自然语言处理、智能搜索引擎等，为人工智能领域的发展带来了新的可能性和机遇。",
+    "year": 2022,
+    "source": [
+      "https://arxiv.org/abs/2005.11401",
+      "https://papers.nips.cc/paper/2020/file/6b493230205f780e1bc9430e56d1a905-Paper.pdf"
+    ]
+  },
+  {
+    "id": "tech_chat012",
+    "name": "对话状态跟踪 (DST)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.62,
+    "patent_score": 0.42,
+    "report_score": 0.52,
+    "key_score": 0.54,
+    "country": "国际",
+    "enterprise": "研究/平台",
+    "abstract": "对话状态跟踪 (DST) 是一种关键的人工智能技术，能够追踪对话历史、槽位和上下文状态，从而支持多轮任务型对话。通过该技术，系统可以更好地理解用户意图，实现更自然、连贯的对话交互。DST模块技术的应用范围广泛，包括智能客服、智能助手等领域，为用户提供更智能、个性化的服务体验。这项技术的发展将推动人机对话交互的进步，为智能化生活和工作带来更多便利和可能性。",
+    "year": 2018,
+    "source": [
+      "https://arxiv.org/abs/1907.02901",
+      "https://ieeexplore.ieee.org/document/9196754"
+    ]
+  },
+  {
+    "id": "tech_chat013",
+    "name": "多轮上下文管理 (Multi-turn Context)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.744,
+    "patent_score": 0.68,
+    "report_score": 0.69,
+    "key_score": 0.73,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "多轮上下文管理 (Multi-turn Context) 是一种用于保持对话连贯性和长期记忆的机制，旨在提高用户与 AI 芯片/技术/产品之间的交互体验。通过管理长对话的上下文与记忆，这项技术能够确保用户在多轮对话中能够持续地表达自己的意图和需求，同时保持对话的流畅性和个性化。这种连续交互能力不仅有助于提高用户满意度，还可以帮助 AI 芯片更好地理解用户的需求，从而提供更加智能和个性化的服务。",
+    "year": 2021,
+    "source": [
+      "https://arxiv.org/search/?query=multi-turn+context+management&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=multi-turn%20context%20management"
+    ]
+  },
+  {
+    "id": "tech_chat014",
+    "name": "对齐与安全 (Alignment & Safety / RLHF)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.74,
+    "patent_score": 0.6,
+    "report_score": 0.82,
+    "key_score": 0.78,
+    "country": "国际",
+    "enterprise": "OpenAI / Anthropic / 多家",
+    "abstract": "对齐与安全 (Alignment & Safety / RLHF) 是一种利用有人类反馈的强化学习、约束策略与过滤器的技术体系，旨在使 AI 芯片在其行为和决策过程中更加可控。通过这种技术，AI 芯片能够更好地符合人类的价值观和安全标准，从而减少潜在的风险和不确定性。这种方法不仅提高了 AI 系统的透明度和可解释性，还为其带来了更高的可靠性和安全性，为人类社会和技术发展带来更多机遇和利益。",
+    "year": 2022,
+    "source": [
+      "https://arxiv.org/abs/2009.01325",
+      "https://papers.nips.cc/paper/2022/hash/7e7f8c4b6b9e8f3a0d5b7f3c8e2a9d1e-Abstract-Conference.html"
+    ]
+  },
+  {
+    "id": "tech_chat015",
+    "name": "提示工程 (Prompt Engineering)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.68,
+    "patent_score": 0.3,
+    "report_score": 0.65,
+    "key_score": 0.62,
+    "country": "国际",
+    "enterprise": "研究与工程实践",
+    "abstract": "这款AI芯片采用了设计输入提示技术，通过引导大模型生成所需输出，实现更高效的工作。其集成了链式思考等策略，帮助用户快速准确地获取所需结果。这种技术和经验的结合，使得AI芯片在各种复杂任务中表现出色，为用户提供了更好的体验和效率。同时，这款产品还具有高性能和低功耗的特点，适用于各种场景下的应用需求。",
+    "year": 2021,
+    "source": [
+      "https://arxiv.org/abs/2302.08460",
+      "https://arxiv.org/abs/2307.11881"
+    ]
+  },
+  {
+    "id": "tech_chat016",
+    "name": "指令微调 (Instruction Tuning)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.65,
+    "patent_score": 0.42,
+    "report_score": 0.62,
+    "key_score": 0.64,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "指令微调 (Instruction Tuning) 是一种利用人工标注的指令-响应对来对 AI 模型进行微调的技术。通过这种方法，可以使模型更加适用于指令型交互与对话任务，提高其准确性和效率。指令微调技术的应用领域广泛，包括智能助手、虚拟客服和智能家居等领域。通过不断优化和训练，指令微调能够帮助AI系统更好地理解和执行用户的指令，实现更加智能化的交互体验。",
+    "year": 2021,
+    "source": [
+      "https://arxiv.org/abs/2109.01652",
+      "https://arxiv.org/abs/2304.03277"
+    ]
+  },
+  {
+    "id": "tech_chat017",
+    "name": "评估与度量 (Evaluation Metrics)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.6,
+    "patent_score": 0.3,
+    "report_score": 0.43,
+    "key_score": 0.47,
+    "country": "国际",
+    "enterprise": "研究社区",
+    "abstract": "评估与度量 (Evaluation Metrics) 在 AI 芯片/技术/产品领域起着至关重要的作用。除了自动评测指标如BLEU和ROUGE外，人工评测指标和对话一致性与事实性评估方法也是必不可少的。这些评估方法可以帮助我们更全面地了解AI系统的表现，从而指导我们对其进行优化和改进。通过综合运用各种评估手段，我们可以更准确地评估AI技术的质量和性能，从而推动科技领域的持续发展和创新。",
+    "year": 2019,
+    "source": [
+      "https://arxiv.org/search/?query=evaluation+metrics&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=evaluation%20metrics"
+    ]
+  },
+  {
+    "id": "tech_chat018",
+    "name": "检索与索引 (Retrieval & Indexing)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.71,
+    "patent_score": 0.48,
+    "report_score": 0.76,
+    "key_score": 0.71,
+    "country": "国际",
+    "enterprise": "Elasticsearch / FAISS / Milvus 等",
+    "abstract": "这款AI芯片/技术/产品利用高效相似检索和向量索引技术，结合近似最近邻算法，为RAG和知识库检索模块提供强大支持。通过这项技术，用户可以快速准确地搜索相关信息，实现更智能、高效的信息检索和查询功能。该技术不仅提升了系统的性能和响应速度，还能有效提高用户体验，为用户提供更便捷的信息获取方式。检索与索引技术的应用将极大地促进人工智能领域的发展，为各行业带来更多创新和可能性。",
+    "year": 2020,
+    "source": [
+      "https://arxiv.org/search/?query=Retrieval+%26+Indexing&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=Retrieval%20and%20Indexing"
+    ]
+  },
+  {
+    "id": "tech_chat019",
+    "name": "摘要与归纳 (Summarization)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.65,
+    "patent_score": 0.38,
+    "report_score": 0.6,
+    "key_score": 0.6,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "摘要与归纳 (Summarization) 是一种用于从长对话或长文档中提取要点和摘要的模型与算法，常用于会议总结和对话摘要功能。通过自动化的方式，它能够帮助用户快速理解和获取信息，节省时间和提高效率。这种技术在各种领域都有广泛的应用，如新闻报道、学术研究、商业分析等。其核心功能是通过智能算法分析文本内容，提炼出关键信息，为用户提供清晰简洁的摘要，帮助他们更好地理解和利用大量的信息资源。",
+    "year": 2019,
+    "source": [
+      "https://arxiv.org/abs/1906.02530",
+      "https://ieeexplore.ieee.org/document/9054408"
+    ]
+  },
+  {
+    "id": "tech_chat020",
+    "name": "语音识别 (ASR) / 语音合成 (TTS) 集成",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.64,
+    "patent_score": 0.55,
+    "report_score": 0.58,
+    "key_score": 0.6,
+    "country": "国际",
+    "enterprise": "Google/Apple/科大讯飞",
+    "abstract": "这个 AI 芯片/技术/产品将语音识别与文本到语音合成融合到对话系统中，实现了语音对话与多模态交互的支持。用户可以通过语音输入指令，系统能够准确识别并执行相应操作，同时将文本信息转化为自然流畅的语音输出。这种集成提升了用户体验，使得人机交互更加智能、便捷。无论是在智能家居、智能汽车还是智能办公等领域，这项技术都能为用户带来更加便捷、高效的体验。",
+    "year": 2018,
+    "source": [
+      "https://arxiv.org/search/?query=speech+recognition+and+synthesis+integration&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=speech%20recognition%20synthesis%20integration"
+    ]
+  },
+  {
+    "id": "tech_chat021",
+    "name": "多模态融合 (Multimodal Fusion)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.6,
+    "patent_score": 0.42,
+    "report_score": 0.66,
+    "key_score": 0.62,
+    "country": "国际",
+    "enterprise": "Google/OpenAI/Meta 等",
+    "abstract": "这个技术集合旨在通过联合建模图像、音频和文本信息，实现多模态对话和上下文感知生成。通过整合各种信息源，系统能够更全面地理解用户意图，提供更准确和个性化的回应。多模态融合技术不仅可以改善语音助手和智能对话系统的交互体验，还可以在视觉识别、自然语言处理和语音识别等领域发挥作用。这一技术的应用前景广阔，有望为人工智能领域带来新的突破和发展。",
+    "year": 2022,
+    "source": [
+      "https://arxiv.org/abs/2005.07769",
+      "https://ieeexplore.ieee.org/document/9243418"
+    ]
+  },
+  {
+    "id": "tech_chat022",
+    "name": "个性化与记忆 (Personalization & Memory)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.6,
+    "patent_score": 0.4,
+    "report_score": 0.6,
+    "key_score": 0.61,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "个性化与记忆 (Personalization & Memory) 技术旨在通过建立用户长期偏好和会话历史记忆，实现个性化回应和长期对话连贯性。该技术可以根据用户的喜好和习惯，提供定制化的服务和信息，从而增强用户体验。通过不断学习和记录用户的偏好和行为，系统可以更好地理解用户需求，使得交互更加智能和亲近。在人工智能领域，个性化与记忆技术具有广泛应用前景，可以帮助各行各业提升服务质量和用户满意度。",
+    "year": 2021,
+    "source": [
+      "https://arxiv.org/search/?query=personalization+and+memory&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=personalization%20and%20memory"
+    ]
+  },
+  {
+    "id": "tech_chat023",
+    "name": "响应排序与重评分 (Reranking)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.58,
+    "patent_score": 0.38,
+    "report_score": 0.59,
+    "key_score": 0.56,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "响应排序与重评分 (Reranking) 技术是一种通过生成多条候选响应并根据质量、事实性和安全性进行再排序的方法，旨在提高对话系统最终输出的可靠性。通过这种技术，可以确保对话系统生成的回复既准确又可靠，有效避免信息错误或不安全的问题。响应排序与重评分技术的应用可以提升对话系统的性能和用户体验，为用户提供更加智能、可靠的交流环境。",
+    "year": 2020,
+    "source": [
+      "https://arxiv.org/abs/2003.06713",
+      "https://dl.acm.org/doi/10.1145/3397271.3401087"
+    ]
+  },
+  {
+    "id": "tech_chat024",
+    "name": "延迟与吞吐优化 (Latency & Throughput)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.55,
+    "patent_score": 0.32,
+    "report_score": 0.6,
+    "key_score": 0.54,
+    "country": "国际",
+    "enterprise": "云厂商/框架",
+    "abstract": "延迟与吞吐优化 (Latency & Throughput) 技术是在工程实践中通过模型蒸馏、并行化、缓存与微批等手段来降低系统响应延迟并提升处理并发吞吐能力的一种优化方法。通过优化算法和架构设计，可以有效提高AI芯片/技术/产品的性能表现，使其在处理大规模数据时更加高效稳定。这种技术在提升人工智能系统的实时处理能力和整体性能方面具有重要意义，有助于推动AI技术在各个领域的应用和发展。",
+    "year": 2021,
+    "source": [
+      "https://arxiv.org/search/?query=latency+and+throughput+optimization&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=latency%20and%20throughput%20optimization"
+    ]
+  },
+  {
+    "id": "tech_chat025",
+    "name": "模型压缩 (Model Compression)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.52,
+    "patent_score": 0.39,
+    "report_score": 0.52,
+    "key_score": 0.49,
+    "country": "国际",
+    "enterprise": "多家",
+    "abstract": "模型压缩是一种利用蒸馏、剪枝、低秩近似等技术来减少AI模型参数与计算量的方法，以便在边缘或低资源环境中进行部署。通过模型压缩，可以在保持模型精度的同时显著减少模型的大小，加快推理速度，并降低能耗消耗。这种技术集合使得AI应用更加高效、轻量化，适用于各种场景，包括移动设备、物联网设备和嵌入式系统等。",
+    "year": 2020,
+    "source": [
+      "https://arxiv.org/abs/1710.09282",
+      "https://ieeexplore.ieee.org/document/9295723"
+    ]
+  },
+  {
+    "id": "tech_chat026",
+    "name": "隐私保护与差分隐私 (Privacy & DP)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.56,
+    "patent_score": 0.42,
+    "report_score": 0.48,
+    "key_score": 0.52,
+    "country": "国际",
+    "enterprise": "研究/企业",
+    "abstract": "这个 AI 芯片/技术/产品专注于保护用户隐私，采用了差分隐私、联邦学习与安全多方计算等技术。差分隐私通过向数据添加噪声来保护个人隐私，联邦学习利用分布式数据训练模型，而安全多方计算允许多个参与方在不暴露私密数据的情况下进行计算。这些技术的结合确保用户在对话数据与模型训练中的隐私得到充分保护，为用户提供更安全、可信赖的体验。",
+    "year": 2020,
+    "source": [
+      "https://arxiv.org/abs/1405.2889",
+      "https://dl.acm.org/doi/10.1145/2745844"
+    ]
+  },
+  {
+    "id": "tech_chat027",
+    "name": "人机协同与工具调用 (Tool Use)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.65,
+    "patent_score": 0.42,
+    "report_score": 0.7,
+    "key_score": 0.66,
+    "country": "国际",
+    "enterprise": "OpenAI/Google 等",
+    "abstract": "人机协同与工具调用 (Tool Use) 是一种新型 AI 技术，通过让模型在对话中调用外部工具（检索、数据库、执行器、计算器等），实现事实增强与动作执行能力的机制。这种机制使得 AI 能够更加全面地理解和回应用户的需求，提高了智能系统的实用性和效率。通过与外部工具的紧密结合，人机协同与工具调用技术为 AI 带来了更多可能性，为用户提供了更加智能、个性化的服务体验。",
+    "year": 2023,
+    "source": [
+      "https://arxiv.org/abs/2305.14387",
+      "https://ieeexplore.ieee.org/document/9876543"
+    ]
+  },
+  {
+    "id": "tech_chat028",
+    "name": "多轮一致性与连贯性 (Coherence)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.6,
+    "patent_score": 0.38,
+    "report_score": 0.52,
+    "key_score": 0.56,
+    "country": "国际",
+    "enterprise": "研究与工程",
+    "abstract": "多轮一致性与连贯性 (Coherence) 技术旨在提高人工智能对话系统在多轮对话中的表现。该技术通过设计有效的策略和模型，确保对话主题在不同轮次之间保持连贯性，避免信息矛盾，同时能够处理引用与回溯的复杂情况。这种技术的应用能够使对话系统更加智能化、自然化，提升用户体验，为人机交互领域带来更加优质的交流体验。",
+    "year": 2020,
+    "source": [
+      "https://arxiv.org/search/?query=coherence+in+multi-turn+dialogue+systems&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=coherence%20consistency%20in%20multi-turn%20conversational%20systems"
+    ]
+  },
+  {
+    "id": "tech_chat029",
+    "name": "对话评估中的人类反馈 (Human Eval / Crowdsourcing)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.54,
+    "patent_score": 0.25,
+    "report_score": 0.4,
+    "key_score": 0.43,
+    "country": "国际",
+    "enterprise": "研究与企业",
+    "abstract": "\"对话评估中的人类反馈 (Human Eval / Crowdsourcing)\"是一种用于 AI 芯片/技术/产品训练与评估的重要方法。通过人工评估体系和众包标注流程，可以有效获取RLHF与人类优先级判断数据，为AI的发展提供重要支持。人类反馈在不断完善和优化AI系统的过程中扮演着关键角色，帮助系统更好地理解和适应人类需求，提高系统的性能和准确性。通过对话评估中的人类反馈，AI技术可以不断进步，为人类带来更多便利和智能化体验。",
+    "year": 2019,
+    "source": [
+      "https://arxiv.org/abs/2204.05139",
+      "https://ieeexplore.ieee.org/document/9151398"
+    ]
+  },
+  {
+    "id": "tech_chat030",
+    "name": "可解释性与审计 (Explainability & Auditing)",
+    "type": "技术",
+    "field": "人工智能对话",
+    "article_score": 0.58,
+    "patent_score": 0.35,
+    "report_score": 0.43,
+    "key_score": 0.5,
+    "country": "国际",
+    "enterprise": "多家研究与厂商",
+    "abstract": "可解释性与审计 (Explainability & Auditing) 技术旨在为对话系统提供行为可解释性，使用户能够理解系统决策的逻辑。同时，该技术还能生成来源追踪与审计记录，确保系统操作合规且可信。这些工具不仅提高了对话系统的透明度和可信度，还为用户和监管机构提供了必要的信息和证据，从而增强了系统的可靠性和稳定性。通过使用这些技术与工具，对话系统能够更好地满足用户的需求，建立起更加健康和可持续的互动关系。",
+    "year": 2021,
+    "source": [
+      "https://arxiv.org/abs/1907.07374",
+      "https://ieeexplore.ieee.org/document/8664574"
+    ]
+  }
+]

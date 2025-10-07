@@ -30,7 +30,7 @@
     </div>
 
     <!-- 中部：输入 + 绿色按钮（总宽拉满，同行对齐） -->
-    <form class="row g-2 align-items-stretch" action="{{ url_for('results_page') }}" method="get">
+    <form class="row g-2 align-items-stretch" action="{{ url_for('base.results_page') }}" method="get">
       <input type="hidden" name="type" id="typeInput" value="tech">
       <div class="col-12 col-md-9 col-lg-10">
         <input class="form-control form-control-lg" name="q" placeholder="请输入技术/产品、企业、论文、专利、关键词…" required>

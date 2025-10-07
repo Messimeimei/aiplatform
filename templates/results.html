@@ -26,7 +26,7 @@
         <strong>关键词：</strong><span class="text-dark">{{ q or request.args.get('q','') }}</span>
       </div>
       <div class="col-auto">
-        <a href="{{ url_for('index') }}" class="btn btn-sm btn-outline-secondary">返回修改</a>
+        <a href="{{ url_for('base.index') }}" class="btn btn-sm btn-outline-secondary">返回修改</a>
       </div>
     </div>
   </div>
@@ -43,7 +43,7 @@
           <p class="card-text text-dark">{{ item.abstract }}</p>
           <div class="d-flex gap-2">
             <!-- ✅ 详情页跳转 -->
-            <a href="{{ url_for('detail_page', item_id=item.id) }}" class="btn btn-sm btn-primary">详情</a>
+            <a href="{{ url_for('base.detail_page', item_id=item.id) }}" class="btn btn-sm btn-primary">详情</a>
             <!-- （可选）来源 -->
             <a href="#" class="btn btn-sm btn-outline-secondary">来源</a>
           </div>
@@ -64,7 +64,7 @@
           <div class="small text-muted mb-2">机构 · 2024-09</div>
           <p class="card-text text-dark">这里展示摘要/简介……</p>
           <div class="d-flex gap-2">
-            <a href="{{ url_for('detail_page', item_id=i+1) }}" class="btn btn-sm btn-primary">详情</a>
+            <a href="{{ url_for('base.base.detail_page', item_id=i+1) }}" class="btn btn-sm btn-primary">详情</a>
             <a href="#" class="btn btn-sm btn-outline-secondary">来源</a>
           </div>
         </div>

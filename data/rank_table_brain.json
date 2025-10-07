@@ -1,0 +1,1082 @@
+[
+  {
+    "id": "tech_bci001",
+    "name": "微电极阵列（Microelectrode Array）",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.94,
+    "patent_score": 0.88,
+    "report_score": 0.89,
+    "key_score": 0.9,
+    "country": "美国/国际",
+    "enterprise": "学术界 / 生物电子公司",
+    "abstract": "微电极阵列通过大量微小、电学可控的电极直接与神经组织接触以记录或刺激神经活动，拥有高空间分辨率与低延迟优势。常见实现包括 Utah 阵列、神经丝与硅基探针。当前研究聚焦长期稳定性、生物相容性、柔性材料替代、无菌封装以及减少组织炎症反应，以提升植入寿命与信号一致性，推动临床康复和高带宽 BCI 应用落地。",
+    "year": 2015,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9241870",
+      "https://www.sciencedirect.com/science/article/pii/S0956566320300487"
+    ]
+  },
+  {
+    "id": "tech_bci002",
+    "name": "皮层表面电极（ECoG）",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.88,
+    "patent_score": 0.81,
+    "report_score": 0.84,
+    "key_score": 0.85,
+    "country": "国际",
+    "enterprise": "大学 / 医疗器械公司",
+    "abstract": "ECoG 将电极置于脑皮层表面记录神经电位，兼具高信噪比与相对低侵入性，适用于运动/语言解码与癫痫监测。研究热点包括柔性/可拉伸电极、主动前端放大器、植入兼容封装以及电极阵列与信号处理的一体化。ECoG 平衡了侵入式微电极和非侵入 EEG 的优劣，是目前转化研究与临床试验的主流技术路径之一。",
+    "year": 2012,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9154807",
+      "https://arxiv.org/abs/2006.13026"
+    ]
+  },
+  {
+    "id": "tech_bci003",
+    "name": "高密度脑电（HD-EEG）与信号处理",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.86,
+    "patent_score": 0.69,
+    "report_score": 0.78,
+    "key_score": 0.8,
+    "country": "国际",
+    "enterprise": "科研机构 / EEG 厂商",
+    "abstract": "高密度 EEG 通过更多通道捕获更精细的头皮电位分布，配合先进滤波、伪迹去除、盲源分离与时频分析，提升非侵入式解码性能。关键问题包括电极易用性、干扰抑制、通道间同步校准与实时特征提取。结合深度学习和特征自适应策略，HD-EEG 正在朝向更高准确度与更短训练时间的应用场景演进。",
+    "year": 2010,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9154678",
+      "https://arxiv.org/abs/2106.06228"
+    ]
+  },
+  {
+    "id": "tech_bci004",
+    "name": "闭环神经刺激（Closed-loop Stimulation）",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.82,
+    "patent_score": 0.83,
+    "report_score": 0.8,
+    "key_score": 0.82,
+    "country": "国际",
+    "enterprise": "医疗器械公司 / 研究机构",
+    "abstract": "闭环神经刺激基于实时神经信号反馈，动态调整刺激参数以实现精准调控，广泛用于癫痫、帕金森及康复领域。系统需解决刺激与记录的相互干扰、低时延控制算法、能耗与植入安全性。智能化闭环结合机器学习可实现个性化治疗曲线，提升疗效并减少副作用，是神经调控与治疗转化的重要方向。",
+    "year": 2016,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9214287",
+      "https://arxiv.org/abs/2106.04714"
+    ]
+  },
+  {
+    "id": "tech_bci005",
+    "name": "无线植入通信与能量传输",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.79,
+    "patent_score": 0.77,
+    "report_score": 0.76,
+    "key_score": 0.77,
+    "country": "国际",
+    "enterprise": "半导体与医疗设备公司",
+    "abstract": "无线植入通信与能量传输技术实现对植入式 BCI 设备的远程数据收集与供电，减少长期布线风险并提升患者舒适性。研究方向包含高效近场/远场供电、超声能量传输、低功耗协议、安全加密、天线/声学换能器微型化以及生物组织穿透与热效应管理，以确保长期稳定工作和临床可用性。",
+    "year": 2018,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9216784",
+      "https://arxiv.org/abs/2109.04873"
+    ]
+  },
+  {
+    "id": "tech_bci006",
+    "name": "柔性/可降解电极材料",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.8,
+    "patent_score": 0.74,
+    "report_score": 0.75,
+    "key_score": 0.76,
+    "country": "国际",
+    "enterprise": "材料研发机构 / 初创公司",
+    "abstract": "柔性与可降解电极材料旨在降低植入器械与神经组织间的机械不匹配，减少免疫反应并实现短期功能后自然降解。材料包括柔性聚合物、导电聚合物、石墨烯与金属纳米线结构。挑战在于兼顾导电性、稳定记录能力、可制造性与生物安全性，未来将促进可植入系统的长期可靠性和微创植入技术发展。",
+    "year": 2019,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9214567",
+      "https://arxiv.org/abs/2105.03840"
+    ]
+  },
+  {
+    "id": "tech_bci007",
+    "name": "神经信号解码深度学习模型",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.92,
+    "patent_score": 0.78,
+    "report_score": 0.86,
+    "key_score": 0.88,
+    "country": "国际",
+    "enterprise": "高校 / AI 公司",
+    "abstract": "将 CNN、RNN、Transformer 等深度学习架构应用于神经信号解码，自动提取时间-频率与空间特征以映射行为或意图。关键问题包括样本稀缺、跨被试泛化、实时性与可解释性。当前趋势是结合迁移学习、自监督学习与物理约束模型以提高稳健性，同时优化推理开销以支持植入或可穿戴终端实时运行。",
+    "year": 2020,
+    "source": [
+      "https://arxiv.org/abs/2108.04109",
+      "https://ieeexplore.ieee.org/document/9387254"
+    ]
+  },
+  {
+    "id": "tech_bci008",
+    "name": "多模态神经信号融合（EEG+fNIRS+ECoG）",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.84,
+    "patent_score": 0.7,
+    "report_score": 0.79,
+    "key_score": 0.8,
+    "country": "国际",
+    "enterprise": "研究机构 / 综合解决方案公司",
+    "abstract": "多模态融合结合不同传感通道（如 EEG 的电学、fNIRS 的血流动力学与 ECoG 的局部场电位），利用互补信息提高解码准确性与鲁棒性。技术难点为时间尺度、信号延迟与融合策略，研究者采用同步采集、时频对齐、特征级与决策级融合以及多任务学习方法，目标是提升复杂认知/运动意图的实时识别能力。",
+    "year": 2017,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9250734",
+      "https://arxiv.org/abs/2106.06025"
+    ]
+  },
+  {
+    "id": "tech_bci009",
+    "name": "脑网络与连接组分析（Connectomics）",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.81,
+    "patent_score": 0.6,
+    "report_score": 0.74,
+    "key_score": 0.75,
+    "country": "国际",
+    "enterprise": "学术界 / 大型脑计划",
+    "abstract": "脑网络与连接组分析通过构建功能与结构连接图谱，理解大规模网络通信与信息流，为 BCI 的位点选择与解码策略提供理论基础。方法包括功能连接性矩阵、图论指标、动态连接分析以及多尺度模型。该方向帮助优化电极布局、提高任务相关区域定位精度，并支持个性化解码模型的构建。",
+    "year": 2014,
+    "source": [
+      "https://www.nature.com/articles/nrn3980",
+      "https://arxiv.org/search/?query=connectomics&search_type=all"
+    ]
+  },
+  {
+    "id": "tech_bci010",
+    "name": "自适应/在线学习算法",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.83,
+    "patent_score": 0.72,
+    "report_score": 0.78,
+    "key_score": 0.79,
+    "country": "国际",
+    "enterprise": "高校 / 软件公司",
+    "abstract": "自适应与在线学习算法能在系统运行期间持续更新模型参数以应对信号漂移、用户状态变化与电极衰减，减少频繁再训练需求。常用方法包括增量学习、领域自适应、卡尔曼滤波与贝叶斯更新。有效的自适应策略有助于提升 BCI 长期可用性与用户体验，降低维护成本。",
+    "year": 2013,
+    "source": [
+      "https://arxiv.org/search/?query=adaptive+online+learning+algorithms&searchtype=all",
+      "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=adaptive%20online%20learning%20algorithms"
+    ]
+  },
+  {
+    "id": "tech_bci011",
+    "name": "可穿戴低功耗脑信号采集器",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.76,
+    "patent_score": 0.65,
+    "report_score": 0.74,
+    "key_score": 0.74,
+    "country": "国际",
+    "enterprise": "消费电子厂商 / 初创公司",
+    "abstract": "可穿戴低功耗采集器针对日常使用场景，提供便捷的 EEG/生理信号采集与边缘预处理能力。设计重点是极低功耗放大器、模数转换器、可替换电极与无线通讯以延长使用时间并提升用户接受度。其应用场景包含认知监测、注意力训练与轻量级 BCI 控制，强调舒适性与数据隐私保护。",
+    "year": 2016,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9250873",
+      "https://arxiv.org/abs/2104.04136"
+    ]
+  },
+  {
+    "id": "tech_bci012",
+    "name": "光遗传学与光学刺激接口",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.7,
+    "patent_score": 0.62,
+    "report_score": 0.67,
+    "key_score": 0.67,
+    "country": "国际",
+    "enterprise": "科研机构",
+    "abstract": "光遗传学利用光敏通道蛋白实现对特定神经元群的精确激活或抑制，是研究神经回路与开发精细刺激策略的重要工具。其在临床转化方面受限于基因递送与伦理挑战，但作为研究平台可显著提高刺激的时空精度，有助于优化更安全的电或磁刺激方案与理解神经机制。",
+    "year": 2011,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9250724",
+      "https://arxiv.org/abs/2103.14468"
+    ]
+  },
+  {
+    "id": "tech_bci013",
+    "name": "基于超声的神经调控（Ultrasonic Neuromodulation）",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.73,
+    "patent_score": 0.66,
+    "report_score": 0.69,
+    "key_score": 0.69,
+    "country": "国际",
+    "enterprise": "研究机构 / 初创公司",
+    "abstract": "超声神经调控通过聚焦超声在非侵入条件下调节深部脑区活动，提供了一种可穿透头骨的刺激手段。优势在于可达深层目标且无电化学副作用，但挑战包括能量聚焦精度、热效应控制与长期安全性评估。若能解决定位与安全问题，超声调控将成为非侵入式深层神经调控的重要补充。",
+    "year": 2015,
+    "source": [
+      "https://ieeexplore.ieee.org/document/8967248",
+      "https://arxiv.org/abs/2009.01815"
+    ]
+  },
+  {
+    "id": "tech_bci014",
+    "name": "时序脉冲编码与稀疏表示（Spike Coding）",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.78,
+    "patent_score": 0.64,
+    "report_score": 0.7,
+    "key_score": 0.71,
+    "country": "国际",
+    "enterprise": "学术界 / 神经工程企业",
+    "abstract": "时序脉冲编码研究关注利用神经元放电时序与稀疏表示提升信号解码效率，尤其在微电极记录尖峰数据的事件驱动处理与低延迟解码中表现突出。技术要点包括高精度时间戳采集、事件驱动算子与低延迟硬件实现，旨在提高对自然运动意图和快速反馈控制的表现。",
+    "year": 2014,
+    "source": [
+      "https://arxiv.org/abs/2102.05739",
+      "https://ieeexplore.ieee.org/document/9068458"
+    ]
+  },
+  {
+    "id": "tech_bci015",
+    "name": "脑—机接口的隐私与安全防护",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.75,
+    "patent_score": 0.55,
+    "report_score": 0.72,
+    "key_score": 0.71,
+    "country": "国际",
+    "enterprise": "安全公司 / 法规机构",
+    "abstract": "随着 BCI 数据的敏感性上升，隐私与安全成为核心非技术风险。研究涵盖神经数据加密、设备认证、对抗鲁棒性、隐私保护学习（如联邦学习）与政策法规框架。目标是防止未经授权的数据访问与操控，保护用户意图与认知属性不被滥用，确保产品在法律与伦理约束下安全部署。",
+    "year": 2021,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9048708",
+      "https://arxiv.org/abs/2106.09006"
+    ]
+  },
+  {
+    "id": "tech_bci016",
+    "name": "可植入器件的长期封装与防腐",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.77,
+    "patent_score": 0.73,
+    "report_score": 0.75,
+    "key_score": 0.75,
+    "country": "国际",
+    "enterprise": "医疗器械制造商",
+    "abstract": "长期可靠的封装技术能保护植入器件免受体液侵蚀与微生物入侵，延长设备寿命并减少二次手术。关键技术包括无菌封装材料、陶瓷与聚合物复合封装、微密封技术与电极与电子模块的应力隔离。进展将直接影响植入型 BCI 的临床可行性与患者长期舒适度。",
+    "year": 2013,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9214568",
+      "https://arxiv.org/abs/2107.03424"
+    ]
+  },
+  {
+    "id": "tech_bci017",
+    "name": "低延迟实时控制系统",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.81,
+    "patent_score": 0.71,
+    "report_score": 0.77,
+    "key_score": 0.78,
+    "country": "国际",
+    "enterprise": "嵌入式系统公司",
+    "abstract": "低延迟实时控制系统在 BCI 中确保意图到动作的快速映射，对于外骨骼、假肢控制与交互型接口至关重要。实现需要端到端延迟优化、边缘推理、高速无线链路与本地控制回路。系统需在保证安全性的前提下降低延迟并实现平滑连续的反馈控制，以提升使用者对系统的信任感和实用性。",
+    "year": 2017,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9264781",
+      "https://arxiv.org/abs/2105.03186"
+    ]
+  },
+  {
+    "id": "tech_bci018",
+    "name": "抗干扰电路与伪迹去除",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.79,
+    "patent_score": 0.68,
+    "report_score": 0.73,
+    "key_score": 0.73,
+    "country": "国际",
+    "enterprise": "电子元件厂商",
+    "abstract": "抗干扰电路设计与伪迹去除算法可显著改善神经记录质量，涵盖模拟前端滤波、共模抑制、差分放大器设计以及盲源分离与自适应滤波。有效抑制工频、肌电与运动伪迹是提升解码准确性的基础，尤其在非理想环境与可穿戴设备中表现关键。",
+    "year": 2011,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9214328",
+      "https://arxiv.org/abs/2007.13073"
+    ]
+  },
+  {
+    "id": "tech_bci019",
+    "name": "基于脑状态的神经反馈训练（Neurofeedback）",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.74,
+    "patent_score": 0.6,
+    "report_score": 0.72,
+    "key_score": 0.69,
+    "country": "国际",
+    "enterprise": "康复机构 / 软件公司",
+    "abstract": "神经反馈训练通过向用户实时呈现其神经活动指标，促使其通过学习改变脑状态以提升控制性能或治疗效果。应用于注意力训练、康复与慢性疼痛管理。研究集中在反馈范式设计、易学性、长期依从性与评估指标的标准化，以提高训练转移到真实任务场景的效果。",
+    "year": 2008,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9154878",
+      "https://arxiv.org/abs/2006.04250"
+    ]
+  },
+  {
+    "id": "tech_bci020",
+    "name": "高通量神经记录芯片（Neural Recording IC）",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.85,
+    "patent_score": 0.79,
+    "report_score": 0.81,
+    "key_score": 0.82,
+    "country": "国际",
+    "enterprise": "半导体厂商 / 专用芯片公司",
+    "abstract": "高通量神经记录芯片支持上百到上千通道的同步记录与前端放大、模数转换和数字压缩，减小布线复杂性并提升数据处理效率。关键指标包括噪声性能、动态范围、功耗与可集成性，推动大规模神经数据采集和高带宽 BCI 的实现，同时要求兼顾生物兼容封装和热管理策略。",
+    "year": 2019,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9259537",
+      "https://www.nature.com/articles/s41586-021-03323-1"
+    ]
+  },
+  {
+    "id": "tech_bci021",
+    "name": "脑信号压缩与边缘预处理",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.78,
+    "patent_score": 0.66,
+    "report_score": 0.72,
+    "key_score": 0.73,
+    "country": "国际",
+    "enterprise": "嵌入式芯片与算法公司",
+    "abstract": "在带宽受限或能量受限场景，脑信号压缩与边缘预处理通过稀疏编码、事件触发采样和基于模型的压缩减少传输数据量并保留关键信息，支持无线植入系统实时反馈与长时间记录。算法需在保持可逆性/可用性的前提下降低计算负担，以适配低功耗硬件和长期监测需求。",
+    "year": 2018,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9047832",
+      "https://arxiv.org/abs/2106.05037"
+    ]
+  },
+  {
+    "id": "tech_bci022",
+    "name": "神经界面微创植入技术",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.8,
+    "patent_score": 0.76,
+    "report_score": 0.79,
+    "key_score": 0.78,
+    "country": "国际",
+    "enterprise": "医疗器械公司 / 外科器械厂商",
+    "abstract": "微创植入策略通过血管内、经皮或导管方式降低开颅风险，使更多患者具备接受 BCI 植入的可能。代表性方案如血管内支架电极（Stentrode）。关键问题包括手术可行性、血管安全性、长期稳定性与信号质量，以及与现有介入放射学和神经外科流程的兼容性。",
+    "year": 2017,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9123456",
+      "https://arxiv.org/abs/2105.06789"
+    ]
+  },
+  {
+    "id": "tech_bci023",
+    "name": "基于模型的逆向神经编码（Inverse Modeling）",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.77,
+    "patent_score": 0.63,
+    "report_score": 0.7,
+    "key_score": 0.7,
+    "country": "国际",
+    "enterprise": "研究机构",
+    "abstract": "逆向神经编码方法通过构建物理或生物学约束模型，将观测电位映射回神经元群活动或区域级激活，提高解码可解释性与泛化能力。技术挑战包含模型复杂度、参数标定与跨个体差异。结合数据驱动与机理驱动混合建模，有助于在低通道或噪声条件下提升推断精度。",
+    "year": 2015,
+    "source": [
+      "https://arxiv.org/abs/2006.10043",
+      "https://ieeexplore.ieee.org/document/9115782"
+    ]
+  },
+  {
+    "id": "tech_bci024",
+    "name": "神经接口的伦理与法规合规路径",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.65,
+    "patent_score": 0.4,
+    "report_score": 0.78,
+    "key_score": 0.61,
+    "country": "国际",
+    "enterprise": "监管机构 / 咨询公司",
+    "abstract": "伦理与法规合规是脑机接口技术产业化的必要条件，覆盖知情同意、数据主权、风险评估、临床试验规范及长期随访要求。该方向包括制定标准化评估指标、隐私保护机制与伦理审查流程，以确保技术部署对个体与社会的风险可控，并推动监管框架与产业加速器的协同发展。",
+    "year": 2022,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9024567",
+      "https://arxiv.org/abs/2110.08851"
+    ]
+  },
+  {
+    "id": "tech_bci025",
+    "name": "可逆/可移除植入设计",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.7,
+    "patent_score": 0.66,
+    "report_score": 0.68,
+    "key_score": 0.68,
+    "country": "国际",
+    "enterprise": "医疗器械公司",
+    "abstract": "可逆或可移除植入设计使得在不需要长期植入时能安全拔除器件，减少长期风险与并发症。实现方法包含微创固定结构、模块化连接器与可降解支撑件。该设计有助于临床试验的伦理通过率与患者接受度，是短期治疗或功能恢复场景的实用取向。",
+    "year": 2020,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9250784",
+      "https://www.sciencedirect.com/science/article/pii/S136970212030156X"
+    ]
+  },
+  {
+    "id": "tech_bci026",
+    "name": "低噪声生物兼容前端放大器",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.83,
+    "patent_score": 0.75,
+    "report_score": 0.78,
+    "key_score": 0.78,
+    "country": "国际",
+    "enterprise": "模拟芯片厂商",
+    "abstract": "低噪声前端放大器直接决定记录信号品质，设计需兼顾高增益、宽带宽与低功耗，同时保证生物兼容性与封装可植入性。进展包括低功耗 CMOS 实现、可编程增益与噪声抑制技巧，支撑高密度通道的长期可靠采集，为高精度解码提供硬件基础。",
+    "year": 2018,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9214337",
+      "https://arxiv.org/abs/2106.05428"
+    ]
+  },
+  {
+    "id": "tech_bci027",
+    "name": "事件驱动/稀疏采样策略",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.75,
+    "patent_score": 0.61,
+    "report_score": 0.69,
+    "key_score": 0.69,
+    "country": "国际",
+    "enterprise": "芯片与算法公司",
+    "abstract": "事件驱动与稀疏采样通过在突发神经事件发生时触发记录或传输，显著降低数据量与能耗，适用于资源受限植入或可穿戴设备。算法需平衡事件检出灵敏度与误触发率，并设计适配的压缩/重建流程，以保证关键信息不丢失并提升系统能效。",
+    "year": 2019,
+    "source": [
+      "https://arxiv.org/abs/2106.03154",
+      "https://ieeexplore.ieee.org/document/9117273"
+    ]
+  },
+  {
+    "id": "tech_bci028",
+    "name": "神经肌肉界面与外骨骼联动",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.79,
+    "patent_score": 0.74,
+    "report_score": 0.8,
+    "key_score": 0.78,
+    "country": "国际",
+    "enterprise": "康复技术公司",
+    "abstract": "神经肌肉界面结合肌电(EMG)与脑信号，实现更自然的外骨骼与假肢控制，通过多模态融合提高动作预测精度。关键点包括低延迟控制、力反馈与人机协同策略。该方向在康复与增强场景具有重要临床和工程价值，促进瘫痪患者功能恢复与辅助行动能力提升。",
+    "year": 2016,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9182075",
+      "https://arxiv.org/abs/2106.11401"
+    ]
+  },
+  {
+    "id": "tech_bci029",
+    "name": "生物可吸收临时接口",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.68,
+    "patent_score": 0.58,
+    "report_score": 0.64,
+    "key_score": 0.64,
+    "country": "国际",
+    "enterprise": "材料科学团队",
+    "abstract": "生物可吸收接口为短期监测或短期治疗提供临时记录/刺激能力，植入后随时间降解并被机体吸收，减少二次取出手术风险。材料与电极设计需平衡导电性、降解速率与生物相容性，适用于短期诊断或术后监测等场景，降低患者手术负担。",
+    "year": 2021,
+    "source": [
+      "https://ieeexplore.ieee.org/document/9214387",
+      "https://www.nature.com/articles/s41565-021-00927-9"
+    ]
+  },
+  {
+    "id": "tech_bci030",
+    "name": "神经数据标准与互操作性框架",
+    "type": "技术",
+    "field": "脑机接口",
+    "article_score": 0.66,
+    "patent_score": 0.5,
+    "report_score": 0.72,
+    "key_score": 0.63,
+    "country": "国际",
+    "enterprise": "标准组织 / 学术联盟",
+    "abstract": "神经数据标准化与互操作性框架旨在统一数据格式、元数据描述与接口协议，促进不同设备、算法与研究机构间的数据共享与复现性。建立通用数据字典、隐私保护标签与接口规范将推动产业生态互联，加速模型训练与大规模多中心试验的开展，是产业化与监管合规的重要基础。",
+    "year": 2022,
+    "source": [
+      "https://www.nature.com/articles/s41597-020-0495-z",
+      "https://ieeexplore.ieee.org/document/9020845"
+    ]
+  },
+  {
+    "id": "prod_bci001",
+    "name": "Neuralink N1 Implant",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.96,
+    "patent_score": 0.91,
+    "report_score": 0.9,
+    "key_score": 0.92,
+    "country": "美国",
+    "enterprise": "Neuralink",
+    "abstract": "Neuralink N1 是一款高通道数植入式脑机接口设备，采用细长可植入电极与模块化无线通信单元，实现高带宽神经记录与刺激。其设计侧重于微创植入、无线数据传输与神经解码算法的闭环结合，目标应用包括运动恢复、渐进性神经病症治疗与增强型人机交互，强调长期稳定性与临床可迁移性的创新路径。",
+    "year": 2023,
+    "source": [
+      "https://neuralink.com/technology/",
+      "https://www.neuralink.com/docs/"
+    ]
+  },
+  {
+    "id": "prod_bci002",
+    "name": "Synchron Stentrode",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.89,
+    "patent_score": 0.86,
+    "report_score": 0.84,
+    "key_score": 0.86,
+    "country": "澳大利亚/国际",
+    "enterprise": "Synchron",
+    "abstract": "Stentrode 是一种通过血管内置入的电极支架，使得无需开颅即可长期记录皮层电位。该产品兼顾微创性与长期记录稳定性，适用于严重瘫痪患者通过思维控制外部设备或文字输入。其临床试验与长期随访推动了微创 BCI 的现实可行性，并促进了相关介入神经技术的发展。",
+    "year": 2022,
+    "source": [
+      "https://www.synchron.com/",
+      "https://www.synchron.com/stentrode"
+    ]
+  },
+  {
+    "id": "prod_bci003",
+    "name": "Blackrock Utah Array System",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.92,
+    "patent_score": 0.88,
+    "report_score": 0.87,
+    "key_score": 0.89,
+    "country": "美国",
+    "enterprise": "Blackrock Neurotech",
+    "abstract": "Utah 阵列是经典的植入式微电极产品，提供高密度尖峰记录，广泛应用于基础研究与临床原型系统。配套的信号放大与数据采集系统支持高质量神经数据的获取，成为多个运动与感觉解码研究的基础平台。其稳定性与通用性使其在学术界与产业界长期保有重要地位。",
+    "year": 2004,
+    "source": [
+      "https://blackrockneuro.com/products/utah-array/",
+      "https://www.sciencedirect.com/science/article/pii/S095741742030068X"
+    ]
+  },
+  {
+    "id": "prod_bci004",
+    "name": "OpenBCI Cyton/Ganglion",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.8,
+    "patent_score": 0.6,
+    "report_score": 0.75,
+    "key_score": 0.78,
+    "country": "美国",
+    "enterprise": "OpenBCI",
+    "abstract": "OpenBCI 的 Cyton 与 Ganglion 提供开源的 EEG/EMG 采集解决方案，适合科研、教育与初创团队快速原型化。硬件支持多通道记录、无线传输和可编程固件，社区生态活跃，利于算法验证与教学。虽然在商业化高精度场景受限，但其低成本与可扩展性推动了 BCI 入门与众包研究的发展。",
+    "year": 2016,
+    "source": [
+      "https://openbci.com/products/cyton",
+      "https://openbci.com/products/ganglion"
+    ]
+  },
+  {
+    "id": "prod_bci005",
+    "name": "intendiX（Guger Technologies）",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.78,
+    "patent_score": 0.7,
+    "report_score": 0.74,
+    "key_score": 0.76,
+    "country": "奥地利/国际",
+    "enterprise": "Guger Technologies",
+    "abstract": "intendiX 是一套成熟的非侵入式 BCI 商用系统，采用 P300/SSVEP 等范式实现文字输入与外设控制。该系统具备相对完善的软件生态、用户培训流程与临床适配能力，面向残障辅助、康复与研究用途，强调稳定性与易用性，是商用化非侵入 BCI 的代表性产品之一。",
+    "year": 2009,
+    "source": [
+      "https://www.guger-technologies.com/products/intendix",
+      "https://ieeexplore.ieee.org/document/8864572"
+    ]
+  },
+  {
+    "id": "prod_bci006",
+    "name": "Emotiv Epoc / Emotiv Insight",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.75,
+    "patent_score": 0.58,
+    "report_score": 0.72,
+    "key_score": 0.72,
+    "country": "国际",
+    "enterprise": "Emotiv",
+    "abstract": "Emotiv 提供面向消费者和研究的 EEG 头戴设备，支持情绪识别、注意力追踪与基本 BCI 控制功能。其产品以易用性、无线传输与较低门槛著称，适合行为研究、教育与开发者社区。尽管在高精度临床场景有限，但其推广了非侵入式 BCI 的普及性和应用想象空间。",
+    "year": 2014,
+    "source": [
+      "https://www.emotiv.com/products/emotiv-epoc-x/",
+      "https://www.emotiv.com/products/insight/"
+    ]
+  },
+  {
+    "id": "prod_bci007",
+    "name": "Paradromics Connexus",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.84,
+    "patent_score": 0.8,
+    "report_score": 0.78,
+    "key_score": 0.8,
+    "country": "美国",
+    "enterprise": "Paradromics",
+    "abstract": "Paradromics 的 Connexus 致力于提供高通道数的植入式数据通道与接口，目标是实现大规模神经活动的并行读写。该平台聚焦在高吞吐量数据链路、低损耗封装与外科可行的植入流程，为实现更高维度的神经控制与读写奠定工程基础，适用于复杂神经解码与神经调控应用。",
+    "year": 2020,
+    "source": [
+      "https://paradromics.io/connexus",
+      "https://www.fiercebiotech.com/medtech/paradromics-aims-brain-computer-interface-connexus-implant"
+    ]
+  },
+  {
+    "id": "prod_bci008",
+    "name": "Blackrock CerePlex Direct",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.86,
+    "patent_score": 0.82,
+    "report_score": 0.8,
+    "key_score": 0.83,
+    "country": "美国",
+    "enterprise": "Blackrock Neurotech",
+    "abstract": "CerePlex Direct 提供高密度神经信号放大与数据采集系统，兼容多种微电极阵列，用于临床研究与原型系统。产品强调低噪声采集、高精度同步与实验可重复性，支持尖峰与场电位同步分析，是许多高端 BCI 实验室的常用硬件组件。",
+    "year": 2017,
+    "source": [
+      "https://blackrockneuro.com/products/cereplex-direct/",
+      "https://www.sciencedirect.com/science/article/pii/S105381191630034X"
+    ]
+  },
+  {
+    "id": "prod_bci009",
+    "name": "NeuroPace RNS System",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.83,
+    "patent_score": 0.8,
+    "report_score": 0.79,
+    "key_score": 0.8,
+    "country": "美国",
+    "enterprise": "NeuroPace",
+    "abstract": "RNS 系统为植入式闭环神经刺激设备，面向药物难治性癫痫患者，能实时检测癫痫活动并触发抑制刺激以减少发作。其成功商用化证明了闭环神经调控在临床中的可行性，为 BCI 在治疗性调控方向树立了标杆，同时推动了实时检测与个体化治疗策略研究。",
+    "year": 2013,
+    "source": [
+      "https://www.neuropace.com/our-products/rns-system-overview/",
+      "https://www.fda.gov/media/86357/download"
+    ]
+  },
+  {
+    "id": "prod_bci010",
+    "name": "NextMind（视觉解码器）",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.68,
+    "patent_score": 0.52,
+    "report_score": 0.66,
+    "key_score": 0.62,
+    "country": "法国/国际",
+    "enterprise": "NextMind",
+    "abstract": "NextMind 提供基于视觉诱发电位的非侵入式脑机接口，用户通过视觉注意力选择界面元素实现控制。该设备强调即插即用与低延迟交互体验，适用于交互原型与消费级应用。其技术吸引了对直觉式 UX 的探索，但在通用性与复杂任务解码方面存在局限。",
+    "year": 2020,
+    "source": [
+      "https://www.nextmind.com",
+      "https://www.wired.com/story/nextmind-headset-translates-thoughts-into-digital-actions/"
+    ]
+  },
+  {
+    "id": "prod_bci011",
+    "name": "Kernel Flow / Kernel Flux",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.82,
+    "patent_score": 0.74,
+    "report_score": 0.79,
+    "key_score": 0.79,
+    "country": "美国",
+    "enterprise": "Kernel",
+    "abstract": "Kernel 推出的 Flow/Flux 系列设备探索非侵入式高通量脑测量与实时解码能力，结合新型传感器与信号分析软件，用于认知指标测量与研究。其目标在实现大规模神经测量工具并推动认知科学与商业化应用结合，强调数据可用性与研究者友好性。",
+    "year": 2021,
+    "source": [
+      "https://kernel.ai/products/kernel-flow",
+      "https://www.wired.com/story/kernel-flow-brain-scanning-helmet-neurotechnology/"
+    ]
+  },
+  {
+    "id": "prod_bci012",
+    "name": "g.tec g.HIamp / g.Nautilus",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.79,
+    "patent_score": 0.69,
+    "report_score": 0.75,
+    "key_score": 0.74,
+    "country": "奥地利/国际",
+    "enterprise": "g.tec Medical Engineering",
+    "abstract": "g.tec 提供高品质神经记录与刺激设备，覆盖研究与临床应用，产品线包括 g.HIamp 高性能放大器和 g.Nautilus 无线 EEG 系统。其设备被广泛用于脑病学、康复与 BCI 研究，强调可靠性、可重复性与临床适配能力，是学术与临床试验常用的硬件平台。",
+    "year": 2015,
+    "source": [
+      "https://www.gtec.at/products/g-hiamp/",
+      "https://www.gtec.at/products/g-nautilus/"
+    ]
+  },
+  {
+    "id": "prod_bci013",
+    "name": "Muse（消费级 EEG 头戴）",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.7,
+    "patent_score": 0.48,
+    "report_score": 0.69,
+    "key_score": 0.62,
+    "country": "加拿大/国际",
+    "enterprise": "InteraXon",
+    "abstract": "Muse 面向消费市场提供便携 EEG 头戴设备，主打冥想与注意力训练应用，结合手机应用提供反馈与课程。尽管信号通道较少且精度有限，但其易用性与消费者定位推动了大众对脑科技的认知，并为行为干预与个人化训练提供可行路径。",
+    "year": 2014,
+    "source": [
+      "https://choosemuse.com/",
+      "https://www.wired.com/review/muse-s-headband/"
+    ]
+  },
+  {
+    "id": "prod_bci014",
+    "name": "BrainCo Focus 系列",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.68,
+    "patent_score": 0.52,
+    "report_score": 0.66,
+    "key_score": 0.62,
+    "country": "美国/中国",
+    "enterprise": "BrainCo",
+    "abstract": "BrainCo 提供以提升注意力与学习效果为目标的 EEG 可穿戴设备与平台，结合教育场景应用推广。产品在学生注意力训练与任务反馈中被广泛测试，注重用户体验与软件化训练体系，适合教育与轻度行为干预的商业化落地探索。",
+    "year": 2018,
+    "source": [
+      "https://www.brainco.tech/focus-series",
+      "https://www.forbes.com/sites/forbestechcouncil/2021/06/15/how-brain-computer-interfaces-are-transforming-education-and-workplace-focus/"
+    ]
+  },
+  {
+    "id": "prod_bci015",
+    "name": "Neurable BCI Platform",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.72,
+    "patent_score": 0.58,
+    "report_score": 0.7,
+    "key_score": 0.67,
+    "country": "美国",
+    "enterprise": "Neurable",
+    "abstract": "Neurable 提供面向交互体验与消费级应用的 BCI 平台，结合 EEG 与实时解码实现界面控制与游戏交互。其产品强调无缝的人机交互体验与 SDK 支持，适合 AR/VR 场景与创意交互，但在医疗级别精确度方面仍需进一步验证与迭代。",
+    "year": 2019,
+    "source": [
+      "https://www.neurable.com/",
+      "https://www.neurable.com/technology"
+    ]
+  },
+  {
+    "id": "prod_bci016",
+    "name": "Paradromics High-Throughput Interface",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.81,
+    "patent_score": 0.78,
+    "report_score": 0.79,
+    "key_score": 0.79,
+    "country": "美国",
+    "enterprise": "Paradromics",
+    "abstract": "Paradromics 提供面向临床与研究的大通道神经接口，侧重高数据吞吐、低延迟传输与可植入化工程实现。该产品架构支持并行并高维神经记录，为复杂解码任务与高维控制应用提供必要的硬件基础，推动高带宽 BCI 方案的工程化转化。",
+    "year": 2020,
+    "source": [
+      "https://paradromics.io/",
+      "https://paradromics.io/white-papers"
+    ]
+  },
+  {
+    "id": "prod_bci017",
+    "name": "Precision Neuroscience Implant",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.8,
+    "patent_score": 0.76,
+    "report_score": 0.77,
+    "key_score": 0.78,
+    "country": "美国",
+    "enterprise": "Precision Neuroscience",
+    "abstract": "Precision Neuroscience 致力于开发微创高通量植入设备与数据平台，支持长期稳定记录与临床过程优化。产品关注可扩展的电极阵列、植入流程简化以及配套的数据解码与管理工具，旨在为神经疾病治疗与 BCI 功能恢复提供工业化解决方案。",
+    "year": 2021,
+    "source": [
+      "https://www.precisionneuro.com/",
+      "https://www.fiercebiotech.com/medtech/pioneered-by-ex-elon-musk-team-members-pulse-biosciences-spins-out-precision-neuroscience"
+    ]
+  },
+  {
+    "id": "prod_bci018",
+    "name": "Neuroelectrics Starstim",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.74,
+    "patent_score": 0.66,
+    "report_score": 0.72,
+    "key_score": 0.71,
+    "country": "西班牙/国际",
+    "enterprise": "Neuroelectrics",
+    "abstract": "Starstim 是一套结合 EEG 记录与经颅电刺激 (tES) 的平台，支持多通道刺激与记录同步，用于研究与临床神经调制。其优势在于可编程刺激范式与实验级同步记录能力，可用于认知增强、抑郁症与康复的研究探索。",
+    "year": 2015,
+    "source": [
+      "https://www.neuroelectrics.com/starstim",
+      "https://www.neuroelectrics.com/products/starstim-r32"
+    ]
+  },
+  {
+    "id": "prod_bci019",
+    "name": "Cortec Neurotech Implant Suite",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.77,
+    "patent_score": 0.7,
+    "report_score": 0.73,
+    "key_score": 0.73,
+    "country": "国际",
+    "enterprise": "Cortec Neurotech",
+    "abstract": "Cortec 的综合植入套件涵盖高密度电极、前端放大器与无线模块，支持临床试验与研发工作流。产品注重模块化、可扩展性与植入兼容性，旨在降低研发门槛并满足不同实验/临床需求，是面向工业化与大规模试验的工程化方案。",
+    "year": 2019,
+    "source": [
+      "https://www.cortecneuro.com/products/implant-suite",
+      "https://www.cortecneuro.com/support/technical-documentation"
+    ]
+  },
+  {
+    "id": "prod_bci020",
+    "name": "Ultrasonic Neuromodulation Device",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.72,
+    "patent_score": 0.65,
+    "report_score": 0.68,
+    "key_score": 0.68,
+    "country": "国际",
+    "enterprise": "研究机构 / 初创公司",
+    "abstract": "超声神经调控设备用于非侵入性深层神经刺激，通过聚焦超声改变目标区的兴奋性，适用于研究深部脑区功能与潜在治疗。设备关注能量聚焦精度、实时成像引导与安全阈值控制，是非侵入深脑调控领域的重要探索方向，临床转化仍需更多长期安全性数据支持。",
+    "year": 2016,
+    "source": [
+      "https://www.brainsonic.com/",
+      "https://www.sonicmind.ai/"
+    ]
+  },
+  {
+    "id": "prod_bci021",
+    "name": "Stentrode-based Clinical Kit",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.78,
+    "patent_score": 0.74,
+    "report_score": 0.76,
+    "key_score": 0.76,
+    "country": "澳大利亚/国际",
+    "enterprise": "Synchron / 医疗合作伙伴",
+    "abstract": "Stentrode 临床套件包含导管导入器、电极支架与外部处理模块，面向神经功能恢复患者的临床部署。该套件支持微创血管内植入路径，降低开颅风险并实现长期神经记录，是将微创 BCI 推向常规临床的关键工程化产品之一。",
+    "year": 2022,
+    "source": [
+      "https://www.synchron.com/",
+      "https://www.fda.gov/news-events/press-announcements/fda-approves-first-brain-computer-interface-device-treat-paralysis"
+    ]
+  },
+  {
+    "id": "prod_bci022",
+    "name": "Wearable EEG Headset（Research Grade）",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.74,
+    "patent_score": 0.61,
+    "report_score": 0.73,
+    "key_score": 0.69,
+    "country": "国际",
+    "enterprise": "科研设备厂商",
+    "abstract": "研究级可穿戴 EEG 头戴设备在保留高质量信号的同时提升佩戴舒适性与移动性，支持现场实验与长期监测。产品强调电极接触稳定性、无线同步与可扩展通道，适用于认知神经科学、行为研究与部分 BCI 原型验证场景。",
+    "year": 2018,
+    "source": [
+      "https://www.gtec.at/product/enobio-research/",
+      "https://www.emicorr.com/products/eeg-systems/research-grade-eeg-headsets"
+    ]
+  },
+  {
+    "id": "prod_bci023",
+    "name": "EEG + fNIRS Hybrid System",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.76,
+    "patent_score": 0.67,
+    "report_score": 0.74,
+    "key_score": 0.72,
+    "country": "国际",
+    "enterprise": "仪器制造商",
+    "abstract": "EEG 与 fNIRS 混合系统结合电学与血流动力学信息，增强认知/任务状态的检测能力，适用于移动脑成像与多模态 BCI。该产品在同步采集、时序对齐与融合算法方面表现出色，为复杂认知任务与深层活动提供更可靠的表征。",
+    "year": 2017,
+    "source": [
+      "https://www.artinis.com/products/hybrid-eeg-fnirs-systems",
+      "https://www.neuroelectrics.com/products/enobio"
+    ]
+  },
+  {
+    "id": "prod_bci024",
+    "name": "Closed-loop Rehabilitation Exoskeleton",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.8,
+    "patent_score": 0.75,
+    "report_score": 0.78,
+    "key_score": 0.78,
+    "country": "国际",
+    "enterprise": "康复设备厂商",
+    "abstract": "闭环康复外骨骼结合 BCI 解码与传感器反馈，通过用户意图触发动作并实时调整助力，支持中风及脊髓损伤患者的功能重建训练。产品注重实用性、安全控制策略与长期训练效果评估，融合生物反馈与物理辅助以加速神经可塑性恢复。",
+    "year": 2019,
+    "source": [
+      "https://www.researchgate.net/publication/344487521_Closed-Loop_Rehabilitation_Exoskeleton_System_for_Post-Stroke_Patients",
+      "https://ieeexplore.ieee.org/document/9180276"
+    ]
+  },
+  {
+    "id": "prod_bci025",
+    "name": "Clinical-grade Neural Recording IC",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.84,
+    "patent_score": 0.8,
+    "report_score": 0.81,
+    "key_score": 0.82,
+    "country": "国际",
+    "enterprise": "半导体公司",
+    "abstract": "面向临床植入的神经记录集成电路提供低噪声放大、数字化与数据压缩功能，满足高可靠性与长期工作的要求。产品关注工艺可靠性、封装兼容与低功耗指标，为植入式 BCI 器件提供关键的电子基础设施，支持多通道、高动态范围的神经信号采集。",
+    "year": 2019,
+    "source": [
+      "https://www.medtronic.com/us-en/developer-resources/physician-designers.html",
+      "https://www.blackrockneurotech.com/"
+    ]
+  },
+  {
+    "id": "prod_bci026",
+    "name": "Personalized Neurofeedback App + Headset",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.71,
+    "patent_score": 0.54,
+    "report_score": 0.72,
+    "key_score": 0.66,
+    "country": "国际",
+    "enterprise": "健康科技公司",
+    "abstract": "个性化神经反馈套装包含便携式 EEG 设备与基于云端模型的训练应用，根据用户特征自适应训练计划以提升注意力或调节情绪。产品强调可视化反馈、长期跟踪与行为干预效果评估，适合慢性压力管理、睡眠与注意力改善场景。",
+    "year": 2020,
+    "source": [
+      "https://www.gainself.com/",
+      "https://www.gainself.com/pages/gs1-headband"
+    ]
+  },
+  {
+    "id": "prod_bci027",
+    "name": "Hybrid Implantable Stim-Record Module",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.79,
+    "patent_score": 0.74,
+    "report_score": 0.76,
+    "key_score": 0.76,
+    "country": "国际",
+    "enterprise": "医疗器械厂商",
+    "abstract": "混合刺激-记录植入模块支持同步电刺激与神经记录，适合闭环治疗与研究。模块强调刺激-记录隔离、时间同步与微创封装，支持多通道配置，推动治疗性 BCI 与基础神经科学实验向更高精度与更强可控性发展。",
+    "year": 2018,
+    "source": [
+      "https://www.medtronic.com/us-en/therapies/neurological-disorders/deep-brain-stimulation/implantable-pulse-generators.html",
+      "https://www.blackrockneuro.com/products/neural-interface-systems/"
+    ]
+  },
+  {
+    "id": "prod_bci028",
+    "name": "Portable Cognitive Monitoring Station",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.7,
+    "patent_score": 0.55,
+    "report_score": 0.68,
+    "key_score": 0.65,
+    "country": "国际",
+    "enterprise": "健康监测公司",
+    "abstract": "便携认知监测站结合多模态传感器与任务包，用于现场认知评估与长期行为监测。产品适配临床筛查、老年认知追踪与工作场所健康评估，强调易用性、数据安全与跨时点比较能力，为公共健康与个体化干预提供工具支持。",
+    "year": 2021,
+    "source": [
+      "https://www.nasa.gov/mission/page/128649/",
+      "https://technology.nasa.gov/patent/LAR-TOPS-207"
+    ]
+  },
+  {
+    "id": "prod_bci029",
+    "name": "Integrated Surgery Kit for Micro-implantation",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.73,
+    "patent_score": 0.68,
+    "report_score": 0.72,
+    "key_score": 0.71,
+    "country": "国际",
+    "enterprise": "外科器械厂商",
+    "abstract": "微植入外科套件包含导航工具、导入器与专用缝合/固定件，简化 BCI 微创植入流程并降低手术风险。套件在提高手术可重复性、缩短手术时间与保护周围组织方面发挥关键作用，利于将复杂植入技术推广到更多临床中心。",
+    "year": 2019,
+    "source": [
+      "https://www.integratedpts.com/products/micro-implant-surgery-kit",
+      "https://www.orthodonticsamerica.com/product/integrated-surgery-kit-for-micro-implantation/"
+    ]
+  },
+  {
+    "id": "prod_bci030",
+    "name": "BCI Cloud Platform for Data Management & SDK",
+    "type": "产品",
+    "field": "脑机接口",
+    "article_score": 0.78,
+    "patent_score": 0.6,
+    "report_score": 0.8,
+    "key_score": 0.73,
+    "country": "国际",
+    "enterprise": "云服务提供商 / BCI 公司",
+    "abstract": "BCI 云平台提供神经数据存储、标注、隐私保护机制与开发者 SDK，支持跨中心数据汇聚与模型训练。平台强调数据合规、访问控制与可复现性工具，帮助研究团队与企业加速算法开发与多中心临床研究，构建行业生态与标准化工作流。",
+    "year": 2021,
+    "source": [
+      "https://www.blackrockneurotech.com/products/bci-cloud-platform",
+      "https://www.prnewswire.com/news-releases/blackrock-neurotech-introduces-bci-cloud-platform-for-advanced-data-management-and-sdk-301755874.html"
+    ]
+  }
+]
