@@ -30,7 +30,7 @@ def api_identify():
             text = request.json.get("text", "").strip()
             if not text:
                 return jsonify({"error": "empty_text"}), 400
-            result = intelligent_discovery(text, "/app/data")
+            result = intelligent_discovery(text, "data")
 
         elif mode == "file":
             if "file" not in request.files:

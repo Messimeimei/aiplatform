@@ -3,273 +3,320 @@
 {% block container_class %}container py-3{% endblock %}
 
 {% block extra_head %}
-<!-- ECharts CDN -->
 <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
-
 <style>
-  /* 大面板：高对比浅底 */
-  .surface { background:#fff; color:#212529; border-radius:14px; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.08); }
+  /* ===== 全局底色：统一淡紫 ===== */
+  html, body { height: 100%; }
+  body { background:#f6f0ff !important; color:#212529; }
 
-  /* 卡片外观 */
-  .card-flat { background:#fff; border-radius:12px; border:1px solid #e9ecef; box-shadow:0 4px 14px rgba(0,0,0,.06); }
-  .card-flat .card-header { background:#f8f9fa; border-bottom:1px solid #e9ecef; }
+  /* 让容器与行透明，避免双底色叠加 */
+  .container, .surface, .row, #viewport { background: transparent !important; }
 
-  /* 左侧介绍区：固定较大高度，超出滚动 */
-  .intro-box { min-height: 360px; max-height: 520px; overflow:auto; }
+  /* ===== 标题条（可复用）===== */
+  .bar-title{ position:relative; padding-left:.75rem; font-weight:600; }
+  .bar-title::before{
+    content:""; position:absolute; left:0; top:.15em; bottom:.15em;
+    width:3px; border-radius:2px; background:#6f42c1;
+  }
 
-  /* 右侧图区域：自适应高度 */
-  .graph-wrap { height: 520px; position: relative; border:1px solid #e9ecef; border-radius:12px; background: #f8fafc; }
-  #graphCanvas { width: 100%; height: 100%; }
+  /* ===== 卡片：紫系边与柔和阴影 ===== */
+  .card-flat{
+    background:#fff; border:1px solid #ece9ff; border-radius:14px;
+    box-shadow:0 8px 22px rgba(111,66,193,.10);
+  }
+  .card-flat .card-header{
+    background:linear-gradient(180deg,#faf8ff,#f5f2ff);
+    border-bottom:1px solid #ece9ff;
+    padding:8px 12px; font-size:.95rem;
+  }
+  .card-body{ padding:12px 14px; }
 
-  .muted { color:#6c757d; }
+  /* ===== 左列：检索与介绍 ===== */
+  #leftCol{ display:flex; flex-direction:column; gap:10px; }
+
+  /* 表单更紧凑 */
+  #searchForm .form-label{ font-size:.8rem; color:#6b7280; margin-bottom:.25rem; }
+  #searchForm .form-select, #searchForm .form-control{ border-color:#e0dcff; }
+  #searchForm .form-select:focus, #searchForm .form-control:focus{
+    box-shadow:0 0 0 .2rem rgba(111,66,193,.15); border-color:#c8bfff;
+  }
+  #searchForm .btn-success{
+    background:#5c7cfa; border-color:#5c7cfa;
+  }
+  #searchForm .btn-success:hover{ background:#4c6ef5; border-color:#4c6ef5; }
+
+  /* 节点介绍区：高度可滚动，内容排版更好看 */
+  .intro-box{
+    max-height:240px; overflow:auto;
+    border:1px solid #ece9ff; border-radius:12px; padding:10px;
+    background:#fbfaff;
+  }
+  .intro-box h5{ font-size:1.05rem; }
+  .intro-box .meta{ color:#6b7280; font-size:.85rem; }
+  .intro-box .pill{
+    display:inline-block; padding:.2rem .5rem; border-radius:999px;
+    background:#f2edff; color:#4c1d95; border:1px solid #e4dcff; font-size:.8rem;
+  }
+  .intro-box hr{ border-color:#ece9ff; opacity:1; }
+
+  .card-footer{
+    border-top:1px solid #ece9ff;
+  }
+  .btn-outline-secondary.btn-sm{ border-color:#e0dcff; color:#4b5563; }
+  .btn-outline-secondary.btn-sm:hover{ background:#f2edff; border-color:#c8bfff; color:#382f6b; }
+  .btn-primary.btn-sm{ background:#6f42c1; border-color:#6f42c1; }
+  .btn-primary.btn-sm:hover{ background:#5b35a6; border-color:#5b35a6; }
+
+  /* ===== 右列：图谱卡片“填满” ===== */
+  #rightCol{ display:flex; flex-direction:column; }
+  #rightCol .card{ flex:1; display:flex; flex-direction:column; margin-bottom:0; }
+  #rightCol .card-body{
+    flex:1; display:flex; flex-direction:column; padding:10px 12px;
+  }
+
+  #graphWrap{
+    flex:1; min-height:240px;
+    border:1px solid #ece9ff; border-radius:12px; background:#f8fafc; overflow:hidden;
+  }
+  #graphCanvas{ width:100%; height:100%; display:block; }
+
+  /* ===== 表单提示 & 小字色 ===== */
+  .text-muted{ color:#6b7280 !important; }
+
+  /* ===== 自定义滚动条（WebKit）===== */
+  .intro-box::-webkit-scrollbar{ width:10px; }
+  .intro-box::-webkit-scrollbar-thumb{
+    background:#dcd6ff; border-radius:10px; border:2px solid #fbfaff;
+  }
+  .intro-box::-webkit-scrollbar-track{ background:#fbfaff; border-radius:10px; }
+
+  /* 页脚留白 */
+  footer{ margin-top:12px; }
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="surface">
-  <div class="row g-3">
+  <div class="d-flex align-items-center justify-content-between mb-2">
+    <h2 class="bar-title m-0">全画像</h2>
+    <div class="small text-muted">可拖拽 / 缩放；点击节点查看详情</div>
+  </div>
+
+  <div id="viewport" class="row g-3">
     <!-- 左侧 -->
-    <div class="col-12 col-lg-4">
-      <div class="card card-flat mb-3">
+    <div class="col-12 col-lg-4" id="leftCol">
+      <div class="card card-flat">
         <div class="card-header fw-semibold">检索与生成</div>
         <div class="card-body">
           <form id="searchForm" class="row g-2 align-items-stretch">
-            <!-- 输入在左，按钮在右 -->
-            <div class="col-9">
-              <input id="searchInput" class="form-control" placeholder="搜索节点（名称/ID/标签）…" autocomplete="off">
+            <div class="col-12">
+              <label class="form-label small mb-1">领域</label>
+              <select id="domainSelect" class="form-select">
+                <option value="brain">脑机接口（brain）</option>
+                <option value="chip">芯片（chip）</option>
+                <option value="dialogue">对话（dialogue）</option>
+                <option value="dl">深度学习（dl）</option>
+                <option value="robot">机器人（robot）</option>
+                <option value="video">视频生成（video）</option>
+              </select>
             </div>
-            <div class="col-3 d-grid">
-              <button id="btnGenerate" class="btn btn-success" type="submit">生成</button>
+            <div class="col-9">
+              <label class="form-label small mb-1">搜索节点（名称/ID）</label>
+              <input id="searchInput" class="form-control" placeholder="例如：高密度脑电 或 tech_bci003" autocomplete="off">
+            </div>
+            <div class="col-3 d-grid align-content-end">
+              <button class="btn btn-success" type="submit" style="height:38px;">生成</button>
             </div>
           </form>
-          <div class="small muted mt-2">提示：试试 “多模态 / 知识蒸馏 / 边缘计算 / 智能体平台”。</div>
+          <div class="small text-muted mt-2">提示：先选择领域，再输入关键词；支持完整 ID。</div>
         </div>
       </div>
 
       <div class="card card-flat">
         <div class="card-header fw-semibold">节点介绍</div>
-        <div class="card-body intro-box" id="introBox">
-          <div class="muted">
-            这里将显示节点的基本信息、属性与关联摘要。你可以：
-            <ul class="mb-0">
-              <li>在上方输入框搜索节点；</li>
-              <li>点击右侧图谱中的节点。</li>
-            </ul>
+        <div class="card-body">
+          <div class="intro-box" id="introBox">
+            <div class="text-muted">
+              这里显示当前领域的节点简介。你可以：
+              <ul class="mb-0">
+                <li>在上方搜索；</li>
+                <li>点击右侧图谱中的节点。</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="card-footer bg-white d-flex gap-2 justify-content-end">
-          <button class="btn btn-outline-secondary" id="btnClear">清空</button>
-          <button class="btn btn-primary" id="btnFocus">聚焦当前节点</button>
+          <button class="btn btn-outline-secondary btn-sm" id="btnClear">清空</button>
+          <button class="btn btn-primary btn-sm" id="btnFocus">聚焦当前节点</button>
         </div>
       </div>
     </div>
 
-    <!-- 右侧：ECharts 图展示 -->
-    <div class="col-12 col-lg-8">
+    <!-- 右侧 -->
+    <div class="col-12 col-lg-8" id="rightCol">
       <div class="card card-flat h-100">
         <div class="card-header fw-semibold d-flex justify-content-between align-items-center">
           <span>节点图谱</span>
-          <span class="small muted">可拖拽/缩放；点击节点查看详情</span>
+          <span class="small text-muted">ECharts Graph</span>
         </div>
         <div class="card-body">
-          <div class="graph-wrap">
+          <div id="graphWrap">
             <div id="graphCanvas"></div>
           </div>
         </div>
       </div>
     </div>
-
-  </div>
+  </div><!-- /row -->
 </div>
 {% endblock %}
 
 {% block scripts %}
 <script>
-  /***************
-   * Demo 节点/边（替换为后端返回即可）
-   ***************/
-  const demoNodes = [
-    { id:'n1', name:'多模态',          type:'tech',    desc:'多模态（vision+text+audio）融合感知与表征。' },
-    { id:'n2', name:'知识蒸馏',        type:'tech',    desc:'将大模型知识迁移到小模型，提升推理效率。' },
-    { id:'n3', name:'边缘计算',        type:'tech',    desc:'在靠近数据源的边缘侧进行计算，降低延迟。' },
-    { id:'n4', name:'OCR识别平台',     type:'product', desc:'面向票据/合同/档案的文字识别与结构化。' },
-    { id:'n5', name:'智能体平台',      type:'product', desc:'可编排的 Agent 能力平台，支持多工具协同。' },
-    { id:'n6', name:'企业知识库',      type:'product', desc:'企业内部语料索引与检索问答（RAG）。' },
-  ];
-  const demoLinks = [
-    { source:'n1', target:'n5', label:'支撑' },
-    { source:'n2', target:'n5', label:'蒸馏优化' },
-    { source:'n3', target:'n4', label:'部署' },
-    { source:'n3', target:'n6', label:'落地' },
-    { source:'n1', target:'n4', label:'OCR多模态' },
-    { source:'n6', target:'n5', label:'知识协同' },
-  ];
+let chart = null;
+let graphData = { nodes: [], edges: [] };
+let activeId = null;
+let ro = null; // ResizeObserver
 
-  /***************
-   * ECharts 初始化
-   ***************/
-  const chart = echarts.init(document.getElementById('graphCanvas'));
-  window.addEventListener('resize', () => chart.resize());
+function initChart() {
+  chart = echarts.init(document.getElementById('graphCanvas'));
 
-  // 映射颜色/尺寸
-  const colorOf = t => (t==='tech' ? '#2b6cb0' : '#2f855a'); // 蓝/绿
-  const sizeOf  = t => (t==='tech' ? 36 : 32);
+  chart.on('click', async (p) => {
+    if (p.dataType === 'node') {
+      await selectNode(p.data.id);
+    }
+  });
 
-  const option = {
-    tooltip: { trigger: 'item', formatter: params => {
-      if (params.dataType === 'node') {
-        const n = params.data;
-        return `<div><b>${escapeHtml(n.name)}</b><br/><span style="color:#999">ID：</span>${n.id}</div>`;
-      } else if (params.dataType === 'edge') {
-        return `${escapeHtml(params.data.source)} → ${escapeHtml(params.data.target)} <br/>${escapeHtml(params.data.label || '')}`;
-      }
-      return '';
-    }},
-    legend: { data: ['关键技术','关键产品'] },
+  // 强制自适应，避免底部空白
+  window.addEventListener('resize', () => chart && chart.resize());
+  const wrap = document.getElementById('graphWrap');
+  ro = new ResizeObserver(() => { if (chart) chart.resize(); });
+  ro.observe(wrap);
+}
+
+async function loadDomainGraph(domain) {
+  const res = await fetch(`/api/portrait_graph?domain=${encodeURIComponent(domain)}`);
+  graphData = await res.json() || {nodes:[], edges:[]};
+  renderGraph();
+
+  // 双保险 resize，杜绝“没填满”现象
+  requestAnimationFrame(() => chart.resize());
+  setTimeout(() => chart.resize(), 0);
+
+  if (graphData.nodes.length) {
+    await selectNode(graphData.nodes[0].id);
+  } else {
+    document.getElementById('introBox').innerHTML = '<div class="text-muted">该领域暂无图数据。</div>';
+  }
+}
+
+function renderGraph() {
+  const colorOf = k => k==='tech' ? '#5b6fd7' : (k==='product' ? '#2f855a' : '#6b7280');
+  const sizeOf  = k => k==='tech' ? 36 : (k==='product' ? 32 : 28);
+
+  chart.setOption({
+    tooltip: {
+      trigger: 'item',
+      backgroundColor: '#fff',
+      borderColor: '#ece9ff',
+      textStyle: { color:'#111' },
+      formatter: p => p.dataType==='node'
+        ? `<b>${escapeHTML(p.data._raw.name)}</b><br><span class="text-muted">ID：</span>${escapeHTML(p.data._raw.id)}`
+        : ''
+    },
+    animation: false,
     series: [{
       type: 'graph',
       layout: 'force',
-      roam: true,                      // 可缩放/平移
-      draggable: true,
-      zoom: 1,
-      label: { show: true, fontSize: 12, color: '#111' },
-      force: { repulsion: 240, gravity: 0.08, edgeLength: [80, 140] },
-      emphasis: { focus: 'adjacency' },
-      lineStyle: { color: '#9aa4b2', width: 1.5, curveness: 0.15 },
-      edgeLabel: { show: true, fontSize: 10, color: '#666', formatter: p => p.data.label || '' },
-      data: demoNodes.map(n => ({
-        id: n.id, name: n.name, value: n.name, category: n.type==='tech' ? 0 : 1,
-        symbolSize: sizeOf(n.type),
-        itemStyle: { color: colorOf(n.type) }
+      roam: true,
+      force: { repulsion: 220, edgeLength: [90, 150] },
+      label: { show: true, fontSize: 12, color: '#1f2937' },
+      lineStyle: { color: '#b9c1d0', width: 1.4, curveness: 0.15 },
+      edgeLabel: { show:false },
+      data: graphData.nodes.map(n => ({
+        id: n.id,
+        name: n.name,
+        symbolSize: sizeOf(n.kind),
+        itemStyle: { color: colorOf(n.kind), borderColor:'#fff', borderWidth:1.5 },
+        _raw: n
       })),
-      links: demoLinks.map(e => ({ source: e.source, target: e.target, label: e.label })),
-      categories: [{ name: '关键技术' }, { name: '关键产品' }]
+      links: graphData.edges.map(e => ({ source: e.source, target: e.target, _raw: e }))
     }]
-  };
-  chart.setOption(option);
+  });
+}
 
-  /***************
-   * 状态与工具
-   ***************/
-  let activeId = null;
+async function selectNode(id) {
+  activeId = id;
+  const domain = document.getElementById('domainSelect').value;
+  const res = await fetch(`/api/portrait_node_detail?domain=${encodeURIComponent(domain)}&node_id=${encodeURIComponent(id)}`);
+  const d = await res.json();
+  renderIntro(d);
 
-  function findNodeIndexById(id) {
-    const data = chart.getOption().series[0].data;
-    const idx = data.findIndex(d => d.id === id);
-    return idx >= 0 ? idx : null;
+  // 聚焦提示：显示 tip 并轻微高亮
+  const data = chart.getOption().series[0].data || [];
+  const idx = data.findIndex(x=>x.id===id);
+  if (idx>=0){
+    chart.dispatchAction({ type:'showTip', seriesIndex:0, dataIndex:idx });
+    chart.dispatchAction({ type:'highlight', seriesIndex:0, dataIndex:idx });
+    setTimeout(()=>chart.dispatchAction({ type:'downplay', seriesIndex:0, dataIndex:idx }), 600);
   }
+}
 
-  function selectNode(id) {
-    const idx = findNodeIndexById(id);
-    if (idx == null) return;
+function renderIntro(d) {
+  const box = document.getElementById('introBox');
+  if (!d || !d.id) { box.innerHTML = '<div class="text-muted">暂无详情</div>'; return; }
 
-    activeId = id;
+  const src = (d.source||[]).map((s,i)=>`
+    <li class="mb-1">
+      <span class="pill me-1">来源 ${i+1}</span>
+      <a href="${s}" target="_blank" rel="noopener">${escapeHTML(s)}</a>
+    </li>`).join('');
 
-    // 先取消已有高亮
-    const dataLen = chart.getOption().series[0].data.length;
-    for (let i=0; i<dataLen; i++) {
-      chart.dispatchAction({ type: 'downplay', seriesIndex: 0, dataIndex: i });
-    }
-    // 高亮 & 关联高亮
-    chart.dispatchAction({ type: 'focusNodeAdjacency', seriesIndex: 0, dataIndex: idx });
-    chart.dispatchAction({ type: 'highlight', seriesIndex: 0, dataIndex: idx });
+  box.innerHTML = `
+    <h5 class="mb-1">${escapeHTML(d.name||'-')}</h5>
+    <div class="meta mb-2">ID：${escapeHTML(d.id||'-')}</div>
+    <p class="mb-2">${escapeHTML(d.abstract||'无简介')}</p>
+    ${src?`<hr class="my-2"><ul class="mb-0 ps-3">${src}</ul>`:''}
+  `;
+}
 
-    // 更新左侧介绍
-    const nodeMeta = demoNodes.find(n => n.id === id);
-    renderIntro(nodeMeta);
-  }
+function escapeHTML(s){ return (s??'').toString().replace(/[&<>"']/g,m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
 
-  function renderIntro(node) {
-    const box = document.getElementById('introBox');
-    if (!node) {
-      box.innerHTML = '<div class="muted">（无节点）</div>';
-      return;
-    }
-    const nb = neighbors(node.id);
-    box.innerHTML = `
-      <div class="mb-2">
-        <span class="badge ${node.type === 'tech' ? 'text-bg-primary' : 'text-bg-success'}">${node.type==='tech'?'关键技术':'关键产品'}</span>
-      </div>
-      <h5 class="mb-1">${escapeHtml(node.name)}</h5>
-      <div class="text-muted mb-3">ID：${node.id}</div>
-      <p>${escapeHtml(node.desc || '（无简介）')}</p>
+/* 交互 */
+document.addEventListener('DOMContentLoaded', () => {
+  initChart();
+  loadDomainGraph('brain');
 
-      <hr>
-      <div class="mb-2 fw-semibold">相邻节点</div>
-      <div>${ nb.length ? nb.map(n=>`<span class="badge rounded-pill text-bg-secondary me-1 mb-1">${escapeHtml(n.name)}</span>`).join('') : '—' }</div>
-    `;
-  }
-
-  function neighbors(id) {
-    // 返回与 id 相连的去重节点（基于 demoLinks）
-    const adjIds = new Set();
-    demoLinks.forEach(e => {
-      if (e.source === id) adjIds.add(e.target);
-      if (e.target === id) adjIds.add(e.source);
-    });
-    return demoNodes.filter(n => adjIds.has(n.id));
-  }
-
-  function escapeHtml(s){ return (s||'').replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
-
-  /***************
-   * 交互：点击图节点
-   ***************/
-  chart.on('click', params => {
-    if (params.dataType === 'node') {
-      selectNode(params.data.id);
-    }
+  document.getElementById('domainSelect').addEventListener('change', e => {
+    loadDomainGraph(e.target.value);
   });
 
-  /***************
-   * 搜索/生成（当前为选择逻辑；接后端时可在无命中时“生成并追加”）
-   ***************/
-  document.getElementById('searchForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  document.getElementById('searchForm').addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    const q = (document.getElementById('searchInput').value || '').trim().toLowerCase();
     if (!q) return;
 
-    const hit = demoNodes.find(n =>
-      n.name.toLowerCase().includes(q) ||
-      (n.desc || '').toLowerCase().includes(q) ||
-      n.id.toLowerCase() === q
+    const hit = graphData.nodes.find(n =>
+      (n.id || '').toLowerCase() === q ||
+      (n.name || '').toLowerCase().includes(q)
     );
     if (hit) {
-      selectNode(hit.id);
-      // 让节点居中（用渐进式方法：缩放+平移动画）
-      tryCenterOnNode(hit.id);
+      await selectNode(hit.id);
     } else {
-      alert('未找到匹配节点（可在此处接入后端生成/扩展图谱）');
+      alert('该领域未找到此节点');
     }
   });
 
-  // 清空 & 聚焦当前
   document.getElementById('btnClear').addEventListener('click', () => {
-    activeId = null;
-    document.getElementById('introBox').innerHTML = '<div class="muted">已清空。输入关键字或点击右侧节点以查看详情。</div>';
-    // 取消所有高亮
-    const dataLen = chart.getOption().series[0].data.length;
-    for (let i=0; i<dataLen; i++) {
-      chart.dispatchAction({ type:'downplay', seriesIndex:0, dataIndex:i });
-    }
+    document.getElementById('introBox').innerHTML =
+      '<div class="text-muted">已清空。请选择右侧节点或重新搜索。</div>';
   });
+
   document.getElementById('btnFocus').addEventListener('click', () => {
-    if (!activeId) return alert('请先选择一个节点');
-    tryCenterOnNode(activeId);
+    if (!activeId) return;
+    const data = chart.getOption().series[0].data || [];
+    const idx = data.findIndex(x=>x.id===activeId);
+    if (idx>=0) chart.dispatchAction({ type:'showTip', seriesIndex:0, dataIndex:idx });
   });
-
-  // 尝试把节点居中（近似方案：显示 tooltip + 依赖 roam 手动微调）
-  function tryCenterOnNode(id) {
-    const idx = findNodeIndexById(id);
-    if (idx == null) return;
-    // 显示提示，帮助用户定位；也可进一步用 graphic/roam API 做平移动画
-    chart.dispatchAction({ type:'showTip', seriesIndex:0, dataIndex:idx });
-    // 可选：轻微缩放，暗示位置
-    const zr = chart.getZr();
-    zr.animation && zr.animation.animate('dummy', {}, 300);
-  }
-
-  // 初始：选中一个默认节点
-  selectNode('n5');
+});
 </script>
 {% endblock %}

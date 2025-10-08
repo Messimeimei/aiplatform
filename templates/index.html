@@ -4,63 +4,188 @@
 
 {% block extra_head %}
 <style>
-  /* 满屏检索区：高度=视口 - 导航 - 页脚 */
-  .hero {
-    min-height: calc(100vh - var(--header-h,72px) - var(--footer-h,56px));
-    display: grid; place-items: center;
-    background:
-      radial-gradient(80% 60% at 80% -10%, rgba(91,140,255,.18), transparent),
-      linear-gradient(180deg, #121937, #0f1530),
-      url("{{ url_for('static', filename='hero-bg.jpg') }}") center/cover no-repeat;
+/* 覆盖 base.html 的 body.bg-light（它是 !important） */
+  body.bg-light{ background: transparent !important; }
+
+  /* 整页背景放到 html/main，保证 .hero 外也一致 */
+  html, body, main{ min-height:100%; background:
+    radial-gradient(120% 100% at 90% -10%, rgba(124,92,255,.22), transparent 60%),
+    radial-gradient(100% 80% at 10% -10%, rgba(90,162,255,.16), transparent 60%),
+    linear-gradient(180deg,#0c1128,#0f1530) fixed !important;
   }
-  .shell { width: min(92vw, 980px); }
-  .tag-row { display: grid; grid-template-columns: repeat(7, 1fr); gap: .5rem; }
-  .tag-btn { white-space: nowrap; }
+
+  /* 去掉布局缝隙导致的露白 */
+  main{ padding:0 !important; margin:0 !important; }
+  .hero{ margin:0 !important; }
+  .navbar{ margin-bottom:0 !important; box-shadow: 0 8px 24px rgba(12,17,40,.6) !important; } /* 深色阴影 */
+  footer{ margin-top:0 !important; border-top: 0 !important; }
+  :root{
+    --hero-deep:#0f1530;
+    --hero-deeper:#0c1128;
+    --hero-accent:#7c5cff;   /* 英伦淡紫 */
+    --hero-accent-2:#5aa2ff; /* 次级蓝紫 */
+  }
+
+  /* 满屏检索区：高度=视口 - 导航 - 页脚 */
+  .hero{
+    min-height: calc(100vh - var(--header-h,72px) - var(--footer-h,56px));
+    display:grid; place-items:center;
+    background:
+      radial-gradient(120% 100% at 90% -10%, rgba(124,92,255,.22), transparent 60%),
+      radial-gradient(100% 80% at 10% -10%, rgba(90,162,255,.16), transparent 60%),
+      linear-gradient(180deg, var(--hero-deeper), var(--hero-deep));
+    position:relative;
+    overflow:hidden;
+  }
+  /* 背景纹理（可选图片叠加，若没有会被渐变掩盖） */
+  .hero::after{
+    content:""; position:absolute; inset:0;
+    background: url("{{ url_for('static', filename='hero-bg.jpg') }}") center/cover no-repeat;
+    opacity:.22; pointer-events:none; mix-blend:screen;
+  }
+
+  /* 居中容器 */
+  .shell{ width:min(92vw, 980px); position:relative; z-index:1; }
+
+  /* 玻璃卡片 */
+  .search-card{
+    backdrop-filter: saturate(140%) blur(10px);
+    background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.08));
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.18);
+    padding: 18px;
+    color:#e5e7eb;
+  }
+
+  /* 顶部类型切换 */
+  .type-toggle .btn{
+    --bs-btn-color:#e5e7eb;
+    --bs-btn-border-color:rgba(255,255,255,.32);
+    --bs-btn-hover-bg:rgba(255,255,255,.08);
+    --bs-btn-hover-border-color:rgba(255,255,255,.45);
+    --bs-btn-active-bg: linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,.12));
+    --bs-btn-active-border-color:rgba(255,255,255,.6);
+    border-radius: 999px;
+    padding:.38rem .9rem;
+  }
+  .type-toggle .btn.active{
+    background: var(--bs-btn-active-bg);
+    border-color: var(--bs-btn-active-border-color);
+    color:#fff;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.2);
+  }
+
+  /* 输入区：带图标的“大号搜索框” */
+  .search-wrap{ position:relative; }
+  .search-icon{
+    position:absolute; left:14px; top:50%; transform:translateY(-50%);
+    width:20px; height:20px; opacity:.8;
+  }
+  .search-wrap .form-control{
+    padding-left: 42px;
+    background: rgba(255,255,255,.92);
+    border: 1px solid rgba(255,255,255,.6);
+    border-radius: 12px;
+  }
+  .search-wrap .form-control:focus{
+    box-shadow: 0 0 0 .22rem rgba(124,92,255,.18);
+    border-color: var(--hero-accent);
+  }
+  .btn-search{
+    border-radius: 12px;
+    font-weight: 600;
+    background: linear-gradient(180deg, #34d399, #22c55e);
+    border: 0;
+  }
+  .btn-search:hover{ filter: brightness(1.02); transform: translateY(-1px); }
+  .btn-search:active{ transform: translateY(0); }
+
+  /* 标签区：七等分胶囊，透明边+发光 hover */
+  .tag-row{
+    display:grid; grid-template-columns: repeat(7, 1fr);
+    gap:.5rem;
+  }
+  @media (max-width: 992px){ .tag-row{ grid-template-columns: repeat(4, 1fr);} }
+  @media (max-width: 576px){ .tag-row{ grid-template-columns: repeat(2, 1fr);} }
+
+  .tag-btn{
+    white-space: nowrap;
+    border-radius: 999px;
+    border:1px solid rgba(255,255,255,.28);
+    color:#e6edff;
+    background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+    backdrop-filter: blur(6px);
+    transition: transform .12s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .tag-btn:hover{
+    transform: translateY(-1px);
+    border-color: rgba(255,255,255,.45);
+    box-shadow: 0 8px 24px rgba(124,92,255,.28);
+    background: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.08));
+  }
+
+  /* 底部提示（可选） */
+  .helper{ color: #cbd5e1; opacity:.9; }
+
+  /* 让 hero 内部的间距更紧凑一些 */
+  .hero .row.g-2{ --bs-gutter-x: .6rem; --bs-gutter-y: .6rem; }
 </style>
 {% endblock %}
 
 {% block content %}
 <section class="hero" id="hero">
   <div class="shell">
-
-    <!-- 顶部：关键技术 / 关键产品 -->
-    <div class="mb-3 d-flex gap-2">
-      <button type="button" class="btn btn-outline-light active" data-type="tech">关键技术</button>
-      <button type="button" class="btn btn-outline-light" data-type="product">关键产品</button>
-    </div>
-
-    <!-- 中部：输入 + 绿色按钮（总宽拉满，同行对齐） -->
-    <form class="row g-2 align-items-stretch" action="{{ url_for('base.results_page') }}" method="get">
-      <input type="hidden" name="type" id="typeInput" value="tech">
-      <div class="col-12 col-md-9 col-lg-10">
-        <input class="form-control form-control-lg" name="q" placeholder="请输入技术/产品、企业、论文、专利、关键词…" required>
+    <div class="search-card">
+      <!-- 顶部：关键技术 / 关键产品 -->
+      <div class="mb-3 d-flex gap-2 type-toggle">
+        <button type="button" class="btn btn-outline-light active" data-type="tech">关键技术</button>
+        <button type="button" class="btn btn-outline-light" data-type="product">关键产品</button>
       </div>
-      <div class="col-12 col-md-3 col-lg-2 d-grid">
-        <button class="btn btn-success btn-lg" type="submit">检索</button>
+
+      <!-- 中部：输入 + 绿色按钮（总宽拉满，同行对齐） -->
+      <form class="row g-2 align-items-stretch" action="{{ url_for('base.results_page') }}" method="get">
+        <input type="hidden" name="type" id="typeInput" value="tech">
+
+        <div class="col-12 col-md-9 col-lg-10">
+          <div class="search-wrap">
+            <!-- 搜索图标（SVG，不依赖外链） -->
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21 21l-4.2-4.2M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"
+                    stroke="#4b5563" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input class="form-control form-control-lg"
+                   name="q"
+                   placeholder="请输入技术/产品、企业、论文、专利、关键词…"
+                   required>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-3 col-lg-2 d-grid">
+          <button class="btn btn-success btn-lg btn-search" type="submit">检索</button>
+        </div>
+      </form>
+
+      <!-- 底部：7 个标签（宽度总和与上方一行一致） -->
+      <div class="mt-3 tag-row">
+        {% set _defaults = [
+          "大模型推理加速","多模态识别","AIGC 文本生成","智能体 (Agent)","知识蒸馏","视觉分割","边缘计算"
+        ] %}
+        {% set _tags = hot_tags if hot_tags is defined and hot_tags else _defaults %}
+        {% for t in _tags %}
+          <button type="button" class="btn tag-btn">{{ t }}</button>
+        {% endfor %}
       </div>
-    </form>
 
-    <!-- 底部：7 个标签（宽度总和与上方一行一致） -->
-    <div class="mt-3 tag-row">
-      {# 如果后端传了 hot_tags 就用它，否则用你当前这 7 个默认标签 #}
-      {% set _defaults = [
-        "大模型推理加速","多模态识别","AIGC 文本生成","智能体 (Agent)","知识蒸馏","视觉分割","边缘计算"
-      ] %}
-      {% set _tags = hot_tags if hot_tags is defined and hot_tags else _defaults %}
-      {% for t in _tags %}
-        <button type="button" class="btn btn-outline-light tag-btn">{{ t }}</button>
-      {% endfor %}
+      <div class="helper small mt-2">提示：点击类型或标签可快速开始检索</div>
     </div>
-
-
-{#    <div class="text-white-50 mt-2 small">提示：点击类型或标签可快速开始检索</div>#}
   </div>
 </section>
 {% endblock %}
 
 {% block scripts %}
 <script>
-  // 自适应高度：计算 header/footer 实际高度，避免滚动条
+  // 自适应高度：计算 header/footer 实际高度，避免出现滚动条
   (function(){
     function fit(){
       const h=document.querySelector('.navbar')?.offsetHeight||0;

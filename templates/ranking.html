@@ -4,92 +4,153 @@
 
 {% block extra_head %}
 <style>
-  /* 外层高对比浅底面板 */
-  .surface { background:#fff; color:#212529; border-radius:14px; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.08); }
-
-  /* 标题区：让右侧筛选靠“右下角”对齐 */
-  .title-row { display:flex; align-items:flex-end; justify-content:space-between; gap:1rem; }
-  .page-title { margin:0; line-height:1.2; }
-
-  /* 小标题左侧竖线样式 */
-  .bar-title { position:relative; padding-left:.75rem; font-weight:600; }
-  .bar-title::before{
-    content:""; position:absolute; left:0; top:0.15em; bottom:0.15em;
-    width:3px; border-radius:2px; background:#0d6efd;
+  /* ===== 页面基调：统一淡紫底，内容白面板 ===== */
+  body { background:#f6f0ff !important; }
+  .surface{
+    background:#fff; color:#212529; border-radius:16px;
+    padding:18px; box-shadow:0 10px 28px rgba(46,28,99,.10);
+    border:1px solid rgba(125,95,255,.08);
   }
 
-  /* 滚动表格容器 */
-  .scroll-card { background:#fff; border-radius:12px; border:1px solid #e9ecef; box-shadow:0 4px 14px rgba(0,0,0,.06); }
-  .scroll-head { padding:12px 16px; border-bottom:1px solid #e9ecef; display:flex; align-items:center; justify-content:space-between; }
-  .scroll-body { max-height:460px; overflow:auto; }
-  .table thead th { position: sticky; top: 0; background: #f8f9fa; z-index: 1; }
+  /* ===== 顶部：标题 & 筛选工具条 ===== */
+  .title-row{ display:flex; align-items:flex-end; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+  .page-title{ margin:0; line-height:1.15; letter-spacing:.2px; }
+  .toolbar{
+    display:flex; gap:.6rem; align-items:flex-end; flex-wrap:wrap;
+    background:linear-gradient(180deg,#faf7ff, #f6f0ff); padding:.6rem .8rem; border-radius:12px;
+    border:1px solid #eadfff;
+  }
+  .toolbar .form-label{ font-size:.8rem; margin-bottom:.25rem; color:#6b7280; }
+  .toolbar .form-select{ min-width:180px; }
+
+  /* ===== 小标题左侧强调条 ===== */
+  .bar-title{ position:relative; padding-left:.75rem; font-weight:600; }
+  .bar-title::before{
+    content:""; position:absolute; left:0; top:.15em; bottom:.15em;
+    width:3px; border-radius:2px; background:#6f42c1;
+  }
+
+  /* ===== 统计条（可选：展示数量/平均分） ===== */
+  .stats{
+    display:flex; gap:.75rem; flex-wrap:wrap;
+  }
+  .stat{
+    background:#faf7ff; border:1px solid #eadfff; border-radius:12px; padding:.5rem .75rem;
+    font-size:.9rem; color:#5b21b6;
+  }
+
+  /* ===== 滚动表样式 ===== */
+  .scroll-card{
+    background:#fff; border-radius:14px; border:1px solid #ece9ff;
+    box-shadow:0 6px 18px rgba(111,66,193,.10);
+  }
+  .scroll-head{
+    padding:12px 16px; border-bottom:1px solid #eee9ff;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .scroll-body{ max-height:520px; overflow:auto; }
+  .table thead th{
+    position:sticky; top:0; z-index:1; background:linear-gradient(180deg,#faf8ff,#f5f2ff);
+    border-bottom-color:#ece9ff !important;
+  }
+  .table-hover tbody tr:hover{ background:#f7f4ff; }
+  .table tbody tr:nth-child(odd){ background:#fcfbff; }
+  .table td, .table th{ vertical-align:middle; }
+
+  /* ===== 排名徽标 & 评分胶囊 ===== */
+  .rank-badge{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:34px; height:26px; border-radius:999px;
+    background:#efe9ff; color:#5b21b6; font-weight:600;
+    border:1px solid #e1d4ff;
+  }
+  .rank-badge.top1{ background:#ffeeda; color:#a15d00; border-color:#ffd8a8; }
+  .rank-badge.top2{ background:#edf2ff; color:#364fc7; border-color:#dbe4ff; }
+  .rank-badge.top3{ background:#e6fcf5; color:#087f5b; border-color:#c3fae8; }
+
+  .score-pill{
+    display:inline-block; padding:.2rem .55rem; border-radius:999px;
+    border:1px solid #dcd7ff; background:#f3f1ff; color:#4c1d95; font-weight:600; min-width:64px; text-align:center;
+  }
+
+  /* 名称列：溢出省略 & 悬停显完整ID */
+  .name-cell{ max-width: 0; }  /* 允许表格压缩时截断 */
+  .name-ellipsis{
+    display:inline-block; max-width:100%; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
+  }
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="surface">
 
-  <!-- 顶部标题 + 右下角筛选 -->
+  <!-- 顶部：标题 + 筛选 -->
   <div class="title-row mb-3">
-    <h1 class="page-title display-6">关键技术产品排行榜</h1>
+    <div>
+      <h1 class="page-title h3">关键技术 · 关键产品排行榜</h1>
+      <div class="stats mt-2">
+        <div class="stat">技术项：{{ items_tech|length }}</div>
+        <div class="stat">产品项：{{ items_prod|length }}</div>
+      </div>
+    </div>
 
-    <form class="row g-2 align-items-end" method="get" action="{{ url_for('base.ranking_page') }}">
-      <!-- 所属年份 -->
-      <div class="col-auto">
-        <label for="yearSel" class="form-label mb-1">所属年份</label>
-        <select id="yearSel" name="year" class="form-select" onchange="this.form.submit()">
-          {% set year_val = request.args.get('year', '') %}
-          {% for y in [2025, 2024, 2023, 2022, 2021] %}
-          <option value="{{ y }}" {{ 'selected' if year_val|string==y|string else '' }}>{{ y }}</option>
+    <form class="toolbar" method="get" action="{{ url_for('base.ranking_page') }}">
+      {% set year_val = request.args.get('year', '') %}
+      {% set field_val = request.args.get('field', '') %}
+      <div>
+        <label for="fieldSel" class="form-label">所属领域</label>
+        <select id="fieldSel" name="field" class="form-select" onchange="this.form.submit()">
+          {% for f in ['全部','脑机接口','人工智能芯片','人工智能对话','深度学习框架','人形机器人','视频生成'] %}
+          <option value="{{ f }}" {{ 'selected' if field_val==f else '' }}>{{ f }}</option>
           {% endfor %}
         </select>
       </div>
-      <!-- 所属领域 -->
-      <div class="col-auto">
-        <label for="fieldSel" class="form-label mb-1">所属领域</label>
-        <select id="fieldSel" name="field" class="form-select" onchange="this.form.submit()">
-          {% set field_val = request.args.get('field', '') %}
-          {% for f in ['全部','大模型','多模态','AIGC','智能体','计算机视觉','NLP','边缘计算'] %}
-          <option value="{{ f }}" {{ 'selected' if field_val==f else '' }}>{{ f }}</option>
+      <div>
+        <label for="yearSel" class="form-label">所属年份</label>
+        <select id="yearSel" name="year" class="form-select" onchange="this.form.submit()">
+          <option value="" {{ 'selected' if not year_val else '' }}>全部</option>
+          {% for y in [2025,2024,2023,2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010] %}
+          <option value="{{ y }}" {{ 'selected' if year_val|string==y|string else '' }}>{{ y }}</option>
           {% endfor %}
         </select>
       </div>
     </form>
   </div>
 
-  <!-- 两列滚动表格 -->
+  <!-- 两列 -->
   <div class="row g-3">
     <!-- 左：关键技术 -->
     <div class="col-12 col-lg-6">
       <div class="scroll-card h-100">
         <div class="scroll-head">
           <div class="bar-title">关键技术</div>
-          <div class="small text-muted">
-            数据更新时间：2025-09-28
-          </div>
+          <div class="small text-muted">按综合评分（key_score）降序</div>
         </div>
         <div class="scroll-body">
           <div class="table-responsive">
             <table class="table table-hover align-middle mb-0">
               <thead>
-                <tr class="table-light">
-                  <th style="width:64px;">#</th>
+                <tr>
+                  <th style="width:70px;">排名</th>
                   <th>技术名称</th>
                   <th style="width:120px;">评分</th>
-                  <th style="width:120px;">热度</th>
                 </tr>
               </thead>
               <tbody>
-                {% for i in range(1,21) %}
-                <tr>
-                  <td>{{ i }}</td>
-                  <td>示例技术 {{ i }}</td>
-                  <td>92.{{ 20-i }}</td>
-                  <td>
-                    <span class="badge text-bg-primary">高</span>
-                  </td>
-                </tr>
-                {% endfor %}
+                {% if items_tech %}
+                  {% for it in items_tech %}
+                  {% set cls = 'top1' if loop.index==1 else ('top2' if loop.index==2 else ('top3' if loop.index==3 else '')) %}
+                  <tr>
+                    <td><span class="rank-badge {{ cls }}">{{ loop.index }}</span></td>
+                    <td class="name-cell">
+                      <span class="name-ellipsis" title="ID：{{ it.id }}">{{ it.name }}</span>
+                    </td>
+                    <td><span class="score-pill">{{ '%.2f'|format(it.key_score) }}</span></td>
+                  </tr>
+                  {% endfor %}
+                {% else %}
+                  <tr><td colspan="3" class="text-muted text-center">暂无数据</td></tr>
+                {% endif %}
               </tbody>
             </table>
           </div>
@@ -102,34 +163,35 @@
       <div class="scroll-card h-100">
         <div class="scroll-head">
           <div class="bar-title">关键产品</div>
-          <div class="small text-muted">
-            数据更新时间：2025-09-28
-          </div>
+          <div class="small text-muted">按综合评分（key_score）降序</div>
         </div>
         <div class="scroll-body">
           <div class="table-responsive">
             <table class="table table-hover align-middle mb-0">
               <thead>
-                <tr class="table-light">
-                  <th style="width:64px;">#</th>
+                <tr>
+                  <th style="width:70px;">排名</th>
                   <th>产品名称</th>
                   <th style="width:120px;">评分</th>
-                  <th style="width:120px;">来源</th>
                 </tr>
               </thead>
               <tbody>
-                {% for i in range(1,21) %}
-                <tr>
-                  <td>{{ i }}</td>
-                  <td>示例产品 {{ i }}</td>
-                  <td>90.{{ 20-i }}</td>
-                  <td>
-                    <span class="badge text-bg-secondary">学术</span>
-                  </td>
-                </tr>
-                {% endfor %}
+                {% if items_prod %}
+                  {% for it in items_prod %}
+                  {% set cls = 'top1' if loop.index==1 else ('top2' if loop.index==2 else ('top3' if loop.index==3 else '')) %}
+                  <tr>
+                    <td><span class="rank-badge {{ cls }}">{{ loop.index }}</span></td>
+                    <td class="name-cell">
+                      <span class="name-ellipsis" title="ID：{{ it.id }}">{{ it.name }}</span>
+                    </td>
+                    <td><span class="score-pill">{{ '%.2f'|format(it.key_score) }}</span></td>
+                  </tr>
+                  {% endfor %}
+                {% else %}
+                  <tr><td colspan="3" class="text-muted text-center">暂无数据</td></tr>
+                {% endif %}
               </tbody>
-            </table>r
+            </table>
           </div>
         </div>
       </div>

@@ -3,9 +3,10 @@ from __future__ import annotations
 import json, os, glob, unicodedata, re
 from typing import Dict, Any, List, Optional, Tuple, Set
 from functools import lru_cache
+from services.detail_repo import load_all_details  # 复用你已有的索引
 
 ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
-DATA_DIR = os.path.join(ROOT_DIR, "/app/data")
+DATA_DIR = os.path.join(ROOT_DIR, "data")
 ENV_GRAPH_FILES = os.getenv("GRAPH_FILES", "").strip()
 
 TECH_TYPES = {"技术", "tech", "Technology"}
@@ -14,7 +15,8 @@ COMP_TYPES = {"企业", "company", "Company", "enterprise", "Enterprise"}
 COUNTRY_TYPES = {"国家", "country", "Country"}
 
 RELATION_GLOB = os.getenv("RELATION_GLOB", os.path.join(DATA_DIR, "relation_*.json"))
-RANK_GLOB     = os.getenv("RANK_GLOB",     os.path.join(DATA_DIR, "rank_table_*.json"))
+RANK_GLOB = os.getenv("RANK_GLOB", os.path.join(DATA_DIR, "rank_table_*.json"))
+
 
 def _norm(s: str) -> str:
     try:
@@ -22,12 +24,14 @@ def _norm(s: str) -> str:
     except Exception:
         return (s or "").lower().strip()
 
+
 def _discover_files(glob_pat: str) -> List[str]:
     if ENV_GRAPH_FILES:
         # 兼容旧环境变量：GRAPH_FILES 里也可能混着 rank/relations；都加载
         files = [p.strip() for p in ENV_GRAPH_FILES.split(",") if p.strip()]
         return [p if os.path.isabs(p) else os.path.join(ROOT_DIR, p) for p in files]
     return sorted(glob.glob(glob_pat))
+
 
 def _safe_load(path: str) -> Dict[str, Any]:
     try:
@@ -53,26 +57,30 @@ def _safe_load(path: str) -> Dict[str, Any]:
 
     return {"nodes": [], "edges": [], "rows": []}
 
+
 @lru_cache(maxsize=1)
 def load_all() -> Tuple[List[Tuple[str, Dict[str, Any]]], List[Tuple[str, Dict[str, Any]]]]:
     rel_files = _discover_files(RELATION_GLOB)
     rank_files = _discover_files(RANK_GLOB)
     relations = [(os.path.basename(fp), _safe_load(fp)) for fp in rel_files]
-    ranks     = [(os.path.basename(fp), _safe_load(fp)) for fp in rank_files]
+    ranks = [(os.path.basename(fp), _safe_load(fp)) for fp in rank_files]
     print("[GraphRepo] Relations:", ", ".join([n for n, _ in relations]) or "(none)")
-    print("[GraphRepo] Ranks:",     ", ".join([n for n, _ in ranks])     or "(none)")
+    print("[GraphRepo] Ranks:", ", ".join([n for n, _ in ranks]) or "(none)")
     return relations, ranks
+
 
 def _node_name(id2node: Dict[str, Dict[str, Any]], node_id: Optional[str]) -> str:
     if not node_id:
         return "-"
     return (id2node.get(node_id, {}) or {}).get("name") or str(node_id)
 
+
 def _chips_html(label: str, names: List[str]) -> str:
     if not names:
         return ""
     chips = "".join([f'<span class="chip" title="{n}">{n}</span>' for n in names])
     return f'<div class="meta-line"><span class="meta-label">{label}</span>{chips}</div>'
+
 
 @lru_cache(maxsize=1)
 def build_items_from_graphs() -> List[Dict[str, Any]]:
@@ -119,8 +127,8 @@ def build_items_from_graphs() -> List[Dict[str, Any]]:
             t = (n.get("type") or "").strip()
             if t in TECH_TYPES:
                 name = n.get("name", "")
-                rid  = n.get("id")
-                row  = rank_by_id.get(rid, {})  # ★ 合并 rank
+                rid = n.get("id")
+                row = rank_by_id.get(rid, {})  # ★ 合并 rank
                 # 别名（rank 名称不同）
                 aliases = []
                 rname = row.get("name")
@@ -191,10 +199,13 @@ def build_items_from_graphs() -> List[Dict[str, Any]]:
                 r_country = row.get("country")
                 if r_comp and r_comp not in comp_names:
                     comp_names.append(r_comp)
-                    org_html = _chips_html("企业", comp_names) + ( _chips_html("国家", country_names) if country_names else "" ) + ( _chips_html("技术", tech_names) if tech_names else "" )
+                    org_html = _chips_html("企业", comp_names) + (
+                        _chips_html("国家", country_names) if country_names else "") + (
+                                   _chips_html("技术", tech_names) if tech_names else "")
                 if r_country and r_country not in country_names:
                     country_names.append(r_country)
-                    org_html = _chips_html("企业", comp_names) + _chips_html("国家", country_names) + ( _chips_html("技术", tech_names) if tech_names else "" )
+                    org_html = _chips_html("企业", comp_names) + _chips_html("国家", country_names) + (
+                        _chips_html("技术", tech_names) if tech_names else "")
 
                 items.append({
                     "id": auto_inc,
@@ -230,7 +241,7 @@ def build_items_from_graphs() -> List[Dict[str, Any]]:
             t = (n.get("type") or "").strip()
             if t in COMP_TYPES:
                 name = n.get("name", "")
-                rid  = n.get("id")
+                rid = n.get("id")
                 cset = company_to_countries.get(rid, set())
                 countries = [_node_name(id2node, c) for c in sorted(cset)]
                 org_html = _chips_html("国家", countries) if countries else "-"
@@ -244,7 +255,7 @@ def build_items_from_graphs() -> List[Dict[str, Any]]:
                     "abstract": row.get("abstract") or f"企业：{name}",
                     "_node_id": rid,
                     "_source": row and id_source_map.get(rid, source_name) or source_name,
-                    "_aliases": [row.get("name")] if row.get("name") and row.get("name")!=name else [],
+                    "_aliases": [row.get("name")] if row.get("name") and row.get("name") != name else [],
                 })
                 auto_inc += 1
 
@@ -253,8 +264,8 @@ def build_items_from_graphs() -> List[Dict[str, Any]]:
             t = (n.get("type") or "").strip()
             if t in COUNTRY_TYPES:
                 name = n.get("name", "") or n.get("id") or "国家"
-                rid  = n.get("id")
-                row  = rank_by_id.get(rid, {})
+                rid = n.get("id")
+                row = rank_by_id.get(rid, {})
                 items.append({
                     "id": auto_inc,
                     "name": name,
@@ -264,7 +275,7 @@ def build_items_from_graphs() -> List[Dict[str, Any]]:
                     "abstract": row.get("abstract") or f"国家：{name}",
                     "_node_id": rid,
                     "_source": row and id_source_map.get(rid, source_name) or source_name,
-                    "_aliases": [row.get("name")] if row.get("name") and row.get("name")!=name else [],
+                    "_aliases": [row.get("name")] if row.get("name") and row.get("name") != name else [],
                 })
                 auto_inc += 1
 
@@ -322,8 +333,10 @@ def build_items_from_graphs() -> List[Dict[str, Any]]:
     items.sort(key=lambda it: (it["kind"], _norm(it["name"])))
     return items
 
+
 def get_items() -> List[Dict[str, Any]]:
     return build_items_from_graphs()
+
 
 def get_detail(item_id: int) -> Optional[Dict[str, Any]]:
     mp = {it["id"]: it for it in get_items()}
@@ -351,12 +364,223 @@ def get_detail(item_id: int) -> Optional[Dict[str, Any]]:
             "论文得分": (it.get("_scores") or {}).get("article"),
             "专利得分": (it.get("_scores") or {}).get("patent"),
             "报告得分": (it.get("_scores") or {}).get("report"),
-            "关键度":   (it.get("_scores") or {}).get("key"),
+            "关键度": (it.get("_scores") or {}).get("key"),
         },
         "sources": [{"name": "来源文件", "url": it.get("_source", "")}] + \
                    ([{"name": "rank 来源", "url": u} for u in srcs if u] if srcs else [])
     }
 
+
 def invalidate_cache():
     load_all.cache_clear()
     build_items_from_graphs.cache_clear()
+
+
+def _norm_type_portrait(t: str) -> str:
+    t = (t or "").strip()
+    if t in TECH_TYPES:    return "tech"
+    if t in PROD_TYPES:    return "product"
+    if t in COMP_TYPES:    return "company"
+    if t in COUNTRY_TYPES: return "country"
+    return "node"
+
+
+def _domain_of(filename: str) -> str:
+    base = os.path.splitext(filename)[0]
+    return base.replace("relation_", "").replace("rank_table_", "")
+
+
+@lru_cache(maxsize=1)
+def _load_all_relations() -> List[Tuple[str, Dict[str, Any]]]:
+    files = sorted(glob.glob(RELATION_GLOB))
+    out: List[Tuple[str, Dict[str, Any]]] = []
+    for fp in files:
+        out.append((os.path.basename(fp), _safe_load_relation(fp)))
+    # 可选：启动时打印一下
+    print("[GraphRepo] Relations:", ", ".join([n for n, _ in out]))
+    return out
+
+
+def build_graph_for_portrait() -> Dict[str, Any]:
+    """
+    画像页图谱：
+    - 合并所有 relation_*.json 的 nodes/edges（按 id 去重）
+    - 节点结构：{id,name,type(tech/product/company/country),aliases[],abstract,domain,score}
+    - 若 rank 索引里有相同 id，则把 rank.name 进 aliases，abstract/score 补充进去
+    """
+    rels = _load_all_relations()
+    rank_idx = load_all_details()  # {id -> 详情}
+
+    id2node: Dict[str, Dict[str, Any]] = {}
+    edges: List[Dict[str, Any]] = []
+
+    for fname, pkt in rels:
+        domain = _domain_of(fname)
+        for n in pkt["nodes"]:
+            nid = n.get("id")
+            if not nid:
+                continue
+            if nid not in id2node:
+                id2node[nid] = {
+                    "id": nid,
+                    "name": n.get("name") or nid,
+                    "type": _norm_type_portrait(n.get("type")),
+                    "aliases": [],
+                    "abstract": "",
+                    "domain": domain,
+                    "score": None,
+                }
+            else:
+                # 同一 id 在多个文件有不同的 name -> 收到 aliases
+                nm = n.get("name")
+                if nm and nm != id2node[nid]["name"] and nm not in id2node[nid]["aliases"]:
+                    id2node[nid]["aliases"].append(nm)
+
+        for e in pkt["edges"]:
+            s, t = e.get("source"), e.get("target")
+            if not s or not t:
+                continue
+            edges.append({
+                "source": s,
+                "target": t,
+                "relation": e.get("relation") or e.get("label") or "",
+                "domain": domain,
+            })
+
+    # 融合 rank 详情
+    for nid, node in id2node.items():
+        det = rank_idx.get(nid)
+        if not det:
+            continue
+        rname = det.get("name")
+        if rname and rname != node["name"] and rname not in node["aliases"]:
+            node["aliases"].append(rname)
+        node["abstract"] = det.get("abstract") or node["abstract"]
+        node["score"] = det.get("key_score") or det.get("article_score")
+
+    return {"nodes": list(id2node.values()), "edges": edges}
+
+
+def invalidate_portrait_cache():
+    _load_all_relations.cache_clear()
+
+
+from functools import lru_cache
+from typing import List, Dict, Any, Tuple
+from services.detail_repo import load_all_details  # 直接用你现成的详情索引
+
+_DOMAIN_FILE_MAP_CACHE: Dict[str, str] = {}  # {domain_key: relation_file_abs_path}
+
+
+def _discover_relation_files() -> List[str]:
+    pat = os.path.join(DATA_DIR, "relation_*.json")
+    return sorted(glob.glob(pat))
+
+
+def _domain_key_from_filename(filename: str) -> str:
+    base = os.path.splitext(os.path.basename(filename))[0]  # relation_brain
+    return base.replace("relation_", "", 1)
+
+
+def _safe_load_relation(path: str) -> Dict[str, Any]:
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception:
+        return {"nodes": [], "edges": []}
+    nodes = data.get("nodes") or data.get("Nodes") or []
+    edges = data.get("edges") or data.get("Edges") or data.get("links") or []
+    return {"nodes": nodes, "edges": edges}
+
+
+def list_domains() -> List[Dict[str, str]]:
+    """
+    返回可用领域列表：[{key:'brain', name:'脑机接口'},{...}]
+    name 只是友好名，默认用 key；你也可以按需映射。
+    """
+    global _DOMAIN_FILE_MAP_CACHE
+    _DOMAIN_FILE_MAP_CACHE = {}
+    out = []
+    for fp in _discover_relation_files():
+        key = _domain_key_from_filename(fp)
+        _DOMAIN_FILE_MAP_CACHE[key] = fp
+        out.append({"key": key, "name": key})  # 需要中文名可以自己映射
+    return out
+
+
+def _norm_portrait_type(t: str) -> str:
+    t = (t or "").strip()
+    if t in TECH_TYPES:    return "tech"
+    if t in PROD_TYPES:    return "product"
+    if t in COMP_TYPES:    return "company"
+    if t in COUNTRY_TYPES: return "country"
+    return "node"
+
+
+@lru_cache(maxsize=16)
+def build_graph_for_domain(domain_key: str) -> Dict[str, Any]:
+    """
+    只加载一个领域：relation_{domain}.json
+    节点合并详情 rank_table_{domain}.json（通过 detail_repo 的总索引自动命中）
+    """
+    # 找文件
+    if not _DOMAIN_FILE_MAP_CACHE:
+        list_domains()  # 填充缓存
+    fp = _DOMAIN_FILE_MAP_CACHE.get(domain_key)
+    if not fp or not os.path.exists(fp):
+        # 兜底：空图
+        return {"domain": domain_key, "nodes": [], "edges": []}
+
+    # 关系
+    rel = _safe_load_relation(fp)
+    nodes_raw, edges_raw = rel["nodes"], rel["edges"]
+
+    # 详情索引（全局一次加载，里面自然包含 rank_table_{domain}.json）
+    id2detail = load_all_details()
+
+    # 汇总
+    id2node: Dict[str, Dict[str, Any]] = {}
+    for n in nodes_raw:
+        nid = n.get("id")
+        if not nid:
+            continue
+        if nid not in id2node:
+            id2node[nid] = {
+                "id": nid,
+                "name": n.get("name") or nid,
+                "type": _norm_portrait_type(n.get("type")),
+                "aliases": [],
+                "abstract": "",
+            }
+        else:
+            alt = n.get("name")
+            if alt and alt != id2node[nid]["name"] and alt not in id2node[nid]["aliases"]:
+                id2node[nid]["aliases"].append(alt)
+
+    # 融合 rank 详情（只补已有 relation 节点）
+    for nid, node in id2node.items():
+        det = id2detail.get(nid)
+        if not det:
+            continue
+        rname = det.get("name")
+        if rname and rname != node["name"] and rname not in node["aliases"]:
+            node["aliases"].append(rname)
+        if det.get("abstract"):
+            node["abstract"] = det["abstract"]
+
+    edges = []
+    for e in edges_raw:
+        s, t = e.get("source"), e.get("target")
+        if not s or not t:
+            continue
+        edges.append({
+            "source": s,
+            "target": t,
+            "relation": e.get("relation") or e.get("label") or ""
+        })
+
+    return {
+        "domain": domain_key,
+        "nodes": list(id2node.values()),
+        "edges": edges
+    }

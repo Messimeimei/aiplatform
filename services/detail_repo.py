@@ -6,7 +6,7 @@ from typing import Dict, Any, List, Optional, Tuple
 from functools import lru_cache
 
 ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
-DATA_DIR = os.path.join(ROOT_DIR, "/app/data")
+DATA_DIR = os.path.join(ROOT_DIR, "data")
 
 # 可用环境变量覆盖详细文件清单，例如：
 # DETAIL_FILES="data/rank_table_video.json,data/rank_table_brain.json"

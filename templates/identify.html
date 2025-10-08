@@ -4,22 +4,109 @@
 
 {% block extra_head %}
 <style>
-  .surface { background:#fff; color:#212529; border-radius:14px; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.08); }
-  .card-flat { background:#fff; border-radius:12px; border:1px solid #e9ecef; box-shadow:0 4px 14px rgba(0,0,0,.06); }
-  .input-box {
-    height: 320px; overflow: auto; border: 1px solid #ced4da; border-radius: 12px;
-    background: #ffffff; padding: 12px 14px; font-size: 14px; line-height: 1.6; outline: none;
+  /* ===== 主题与底色（淡紫） ===== */
+  :root{
+    --violet-50:#f6f0ff;
+    --violet-100:#efe7ff;
+    --violet-200:#e6dcff;
+    --violet-300:#d7c8ff;
+    --violet-500:#6f42c1;
+    --violet-600:#5b35a6;
+    --ink-800:#1f2937;
+    --ink-600:#4b5563;
+    --ink-500:#6b7280;
+    --primary:#6f42c1;
+    --primary-ghost:#f2edff;
+    --ring:rgba(111,66,193,.18);
   }
-  .input-box[contenteditable="true"]:empty:before {
-    content: attr(data-placeholder); color: #6c757d;
+  body{ background:var(--violet-50) !important; color:var(--ink-800); }
+
+  /* 外层卡片 */
+  .surface{
+    background:#fff; color:#212529; border-radius:16px; padding:16px;
+    box-shadow:0 10px 28px rgba(111,66,193,.08);
+    border:1px solid var(--violet-200);
   }
-  .upload-box { border:1px dashed #ced4da; border-radius:12px; padding:24px; text-align:center; background:#f8f9fa; }
-  .upload-box input[type="file"] { display:none; }
-  .upload-box .filename { margin-top:10px; color:#6c757d; font-size:.9rem; }
-  .chips { display:flex; flex-wrap:wrap; gap:8px; }
-  .chip { display:inline-flex; align-items:center; justify-content:center; padding:6px 12px;
-          border-radius:999px; border:1px solid #cfe3ff; background:#f4f8ff; color:#0b5ed7; font-size:13px; }
-  .result-body { max-height: 220px; overflow:auto; }
+  .card-flat{
+    background:#fff; border-radius:14px; border:1px solid #ece9ff;
+    box-shadow:0 6px 18px rgba(111,66,193,.07);
+  }
+  .card-flat .card-header{
+    background:linear-gradient(180deg,#faf8ff,#f6f2ff);
+    border-bottom:1px solid #ece9ff; padding:.6rem .9rem;
+  }
+  .card-body{ padding:.9rem 1rem; }
+
+  /* ===== 顶部切换按钮组（视觉更明显） ===== */
+  .btn-group .btn{
+    border-color:#d8d2ff; color:#4b4b6b; background:#fff;
+  }
+  .btn-group .btn:hover{ background:#faf7ff; border-color:#c8bfff; }
+  .btn-group .btn.active{
+    background:var(--primary); color:#fff; border-color:var(--primary);
+    box-shadow:0 0 0 .18rem var(--ring);
+  }
+
+  /* ===== 输入区：文本与文件 ===== */
+  .input-box{
+    height: 320px; overflow:auto; border:1px solid #dedbf7; border-radius:12px;
+    background:#fff; padding:12px 14px; font-size:14px; line-height:1.65; outline:none;
+    transition:border-color .15s ease, box-shadow .15s ease, background .2s ease;
+  }
+  .input-box:focus{
+    border-color:#c8bfff; box-shadow:0 0 0 .22rem var(--ring);
+    background:#fefeff;
+  }
+  .input-box[contenteditable="true"]:empty:before{
+    content:attr(data-placeholder); color:var(--ink-500);
+  }
+
+  .upload-box{
+    border:1px dashed #d8d2ff; border-radius:12px; padding:24px; text-align:center; background:#fbfaff;
+    transition: border-color .15s ease, background .15s ease;
+  }
+  .upload-box:hover{ background:#f7f3ff; border-color:#c8bfff; }
+  .upload-box.dragover{ background:#f2edff; border-color:var(--primary); box-shadow:0 0 0 .22rem var(--ring); }
+  .upload-box input[type="file"]{ display:none; }
+  .upload-box .filename{ margin-top:10px; color:#6c757d; font-size:.9rem; }
+
+  /* ===== 结果区 ===== */
+  .result-body{ max-height:220px; overflow:auto; }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{
+    display:inline-flex; align-items:center; gap:.35rem; padding:.4rem .7rem;
+    border-radius:999px; border:1px solid #d6ddff; background:#eef1ff; color:#28327a; font-size:13px;
+    transition:transform .08s ease, box-shadow .12s ease, background .2s ease;
+    will-change:transform;
+  }
+  .chip:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(111,66,193,.12); background:#e8ecff; }
+  .chip .mark{
+    margin-left:.25rem; font-size:.7rem; color:#6b21a8; background:#f3e8ff; border:1px solid #e9d5ff;
+    padding:.05rem .35rem; border-radius:999px;
+  }
+
+  /* ===== 次要文本/提示 ===== */
+  .text-muted{ color:var(--ink-500) !important; }
+  .form-label{ font-weight:600; color:#46446b; }
+
+  /* ===== 按钮优化 ===== */
+  .btn-outline-secondary{ border-color:#d8d2ff; color:#4b5563; }
+  .btn-outline-secondary:hover{ background:#f3f0ff; border-color:#c8bfff; color:#2c2c40; }
+  .btn-success{ background:#5c7cfa; border-color:#5c7cfa; }
+  .btn-success:hover{ background:#4c6ef5; border-color:#4c6ef5; }
+
+  /* ===== 自定义滚动条（WebKit） ===== */
+  .result-body::-webkit-scrollbar,
+  .input-box::-webkit-scrollbar{ width:10px; height:10px; }
+  .result-body::-webkit-scrollbar-thumb,
+  .input-box::-webkit-scrollbar-thumb{
+    background:#dcd6ff; border-radius:10px; border:2px solid #fbfaff;
+  }
+  .result-body::-webkit-scrollbar-track,
+  .input-box::-webkit-scrollbar-track{ background:#fbfaff; border-radius:10px; }
+
+  /* 小图标（SVG） */
+  .ic{ width:16px; height:16px; display:inline-block; }
 </style>
 {% endblock %}
 
@@ -31,11 +118,18 @@
       <div class="card card-flat h-100">
         <div class="card-header d-flex align-items-center justify-content-between">
           <div class="btn-group" role="group" aria-label="识别类型">
-            <button type="button" class="btn btn-outline-primary active" id="btnText">文本识别</button>
-            <button type="button" class="btn btn-outline-primary" id="btnFile">文件识别</button>
+            <button type="button" class="btn btn-outline-primary active" id="btnText">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              文本识别
+            </button>
+            <button type="button" class="btn btn-outline-primary" id="btnFile">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 3v4a2 2 0 0 0 2 2h4M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9l-5-6Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              文件识别
+            </button>
           </div>
           <div class="small text-muted">选择识别方式，输入内容后开始识别</div>
         </div>
+
         <div class="card-body">
           <!-- 文本模式 -->
           <div id="modeText">
@@ -46,21 +140,28 @@
                  spellcheck="false"
                  data-placeholder="在此粘贴或输入文本…"></div>
           </div>
+
           <!-- 文件模式 -->
           <div id="modeFile" class="d-none">
             <label class="form-label">请选择待识别文件</label>
             <div class="upload-box" id="uploadArea">
-              <label class="btn btn-outline-secondary">
+              <label class="btn btn-outline-secondary mb-2">
                 选择文件
                 <input type="file" id="fileInput" accept=".txt,.pdf,.doc,.docx,.md,.rtf,.csv"/>
               </label>
               <div class="filename" id="fileName">尚未选择文件</div>
+              <div class="small text-muted mt-1">可拖拽文件到此区域</div>
             </div>
           </div>
         </div>
+
         <div class="card-footer bg-white d-flex gap-2 justify-content-end">
-          <button class="btn btn-outline-secondary" id="btnClear">清空</button>
-          <button class="btn btn-success" id="btnRun">开始识别</button>
+          <button class="btn btn-outline-secondary" id="btnClear">
+            清空
+          </button>
+          <button class="btn btn-success" id="btnRun">
+            开始识别
+          </button>
         </div>
       </div>
     </div>
@@ -80,6 +181,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </div>
 {% endblock %}
@@ -87,7 +189,6 @@
 {% block scripts %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-
   const btnText = document.getElementById('btnText');
   const btnFile = document.getElementById('btnFile');
   const modeText = document.getElementById('modeText');
@@ -104,19 +205,39 @@ document.addEventListener('DOMContentLoaded', function() {
     modeFile.classList.remove('d-none'); modeText.classList.add('d-none');
   });
 
-  // —— 文件名显示
+  // —— 文件名显示 + 拖拽高亮
   const fileInput = document.getElementById('fileInput');
   const fileNameEl = document.getElementById('fileName');
+  const uploadArea = document.getElementById('uploadArea');
   fileInput?.addEventListener('change', ()=>{
     fileNameEl.textContent = fileInput.files?.[0]?.name || '尚未选择文件';
+  });
+
+  ;['dragenter','dragover'].forEach(evt=>{
+    uploadArea.addEventListener(evt, e=>{
+      e.preventDefault(); e.stopPropagation();
+      uploadArea.classList.add('dragover');
+    });
+  });
+  ;['dragleave','drop'].forEach(evt=>{
+    uploadArea.addEventListener(evt, e=>{
+      e.preventDefault(); e.stopPropagation();
+      uploadArea.classList.remove('dragover');
+    });
+  });
+  uploadArea.addEventListener('drop', e=>{
+    const f = e.dataTransfer?.files?.[0];
+    if (!f) return;
+    if (fileInput){ fileInput.files = e.dataTransfer.files; }
+    fileNameEl.textContent = f.name;
   });
 
   // —— 清空
   const btnClear = document.getElementById('btnClear');
   btnClear?.addEventListener('click', ()=>{
-    document.getElementById('textInput').innerText = '';
-    const f = document.getElementById('fileInput');
-    if (f) { f.value = ''; document.getElementById('fileName').textContent = '尚未选择文件'; }
+    const ti = document.getElementById('textInput');
+    if (ti) ti.innerText = '';
+    if (fileInput) { fileInput.value = ''; fileNameEl.textContent = '尚未选择文件'; }
     clearResults();
   });
 
@@ -131,8 +252,8 @@ document.addEventListener('DOMContentLoaded', function() {
     try {
       let data = {};
       if (isTextMode) {
-        const text = document.getElementById('textInput').innerText.trim();
-        if (!text) { toast('请输入文本后再识别'); resetBtn(); return; }
+        const text = (document.getElementById('textInput').innerText || '').trim();
+        if (!text) { toast('请输入文本后再识别'); return; }
         const res = await fetch('/api/identify', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -140,8 +261,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         data = await res.json();
       } else {
-        const file = document.getElementById('fileInput').files?.[0];
-        if (!file) { toast('请选择文件后再识别'); resetBtn(); return; }
+        const file = fileInput?.files?.[0];
+        if (!file) { toast('请选择文件后再识别'); return; }
         const fd = new FormData(); fd.append('mode','file'); fd.append('file',file);
         const res = await fetch('/api/identify', { method: 'POST', body: fd });
         data = await res.json();
@@ -149,12 +270,8 @@ document.addEventListener('DOMContentLoaded', function() {
       if (data.error) throw new Error(data.error);
       renderResults(data);
     } catch (err) {
-      toast('识别失败：' + err.message);
+      toast('识别失败：' + (err?.message || err));
     } finally {
-      resetBtn();
-    }
-
-    function resetBtn(){
       btnRun.disabled = false;
       btnRun.innerText = '开始识别';
     }
@@ -174,11 +291,13 @@ document.addEventListener('DOMContentLoaded', function() {
   function chipTemplate(arr){
     if (!arr.length) return '<div class="text-muted">（无识别结果）</div>';
     return '<div class="chips">'+
-      arr.map(t=>`<span class="chip">${escapeHtml(t)}<span class="mark">识别</span></span>`).join('')+
+      arr.map(t=>`<span class="chip">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l3 7 7 .5-5.5 4.7 1.7 7.3L12 18l-6.2 4.5 1.7-7.3L2 10.5 9 10l3-7z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+        ${escapeHtml(String(t))}<span class="mark">识别</span></span>`).join('')+
     '</div>';
   }
   function toast(msg){ alert(msg); }
-  function escapeHtml(s){ return s.replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
+  function escapeHtml(s){ return (s||'').replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
 });
 </script>
 {% endblock %}

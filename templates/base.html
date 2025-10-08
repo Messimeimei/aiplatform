@@ -12,56 +12,154 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 
   <style>
-    /* 顶栏更窄，logo更贴近文字 */
-    .navbar {
-      padding-top: 0.25rem !important;
-      padding-bottom: 0.25rem !important;
+    :root{
+      --brand-bg:#0f172a;             /* 深靛蓝（导航/页脚底色） */
+      --brand-accent:#6f42c1;         /* 紫色点缀（激活/强调） */
+      --brand-accent-2:#0d6efd;       /* 次级强调（按钮/链接） */
+      --ink-900:#0b1220;
+      --ink-700:#334155;
+      --ink-500:#64748b;
+      --bg-soft:#f6f0ff;              /* 淡紫背景 */
+      --ring:#94a3b8;
     }
-    .navbar-brand img {
-      height: 22px;
-      width: auto;
-      margin-right: 6px;
-      vertical-align: middle;
+
+    /* ===== 顶部导航（更紧凑、更清晰） ===== */
+    .navbar{
+      min-height: 56px;
+      padding-top: .25rem !important;
+      padding-bottom: .25rem !important;
+      background: var(--brand-bg) !important;
+      box-shadow: 0 6px 18px rgba(0,0,0,.18);
     }
-    .navbar-brand {
-      font-size: 0.95rem;
+    .navbar .container{ gap:.5rem; }
+    .navbar-brand{
+      font-size: .95rem;
+      display:flex; align-items:center; gap:.5rem;
+      padding-top: .25rem; padding-bottom: .25rem;
+      color:#e5e7eb !important;
     }
+    .navbar-brand img{
+      height: 28px; width:auto; margin-right: 0;
+      vertical-align: middle; display:block;
+    }
+    .navbar-toggler{ padding:.2rem .45rem; border-color: rgba(255,255,255,.25); }
+
+    .navbar-nav .nav-link{
+      color:#cbd5e1 !important;
+      padding: .25rem .6rem !important;
+      border-radius: .5rem;
+      transition: color .15s ease, background .15s ease, transform .08s ease;
+    }
+    .navbar-nav .nav-link:hover{
+      color:#ffffff !important;
+      background: rgba(255,255,255,.06);
+      transform: translateY(-1px);
+    }
+    .navbar-nav .nav-link.active{
+      color:#fff !important;
+      background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.06));
+      border: 1px solid rgba(255,255,255,.22);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+    }
+
+    /* ===== 主体容器（默认再宽一点，视觉更舒展） ===== */
+    main.container, main.container-fluid, main.container-lg,
+    main.container-xl, main.container-xxl{
+      padding-top: .75rem !important;
+      padding-bottom: .75rem !important;
+    }
+    /* 默认用更宽的容器；子页可用 block 覆盖 */
+    @media (min-width: 1400px){
+      .container{ max-width: 1320px; }
+    }
+    @media (min-width: 1600px){
+      .container{ max-width: 1440px; }
+    }
+
+    /* ===== 通用交互可用性提升 ===== */
+    a, .btn, .form-control, .form-select{
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    a:focus-visible, .btn:focus-visible, .form-control:focus, .form-select:focus{
+      box-shadow: 0 0 0 .2rem rgba(13,110,253,.15) !important;
+      border-color: var(--brand-accent-2) !important;
+    }
+
+    /* ===== 页脚（更扁平、对比更强） ===== */
+    footer{
+      background: var(--brand-bg) !important;
+      color: #cbd5e1 !important;
+      border-top: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 -8px 24px rgba(0,0,0,.12) inset;
+    }
+    footer .container{ opacity:.95; }
+
+    /* ===== 细节微调：全局背景/滚动条/小字 ===== */
+    body.bg-light{ background: var(--bg-soft) !important; }
+    .text-muted{ color: var(--ink-500) !important; }
+
+    /* WebKit 滚动条美化（仅细微，不喧宾夺主） */
+    *::-webkit-scrollbar{ width: 8px; height: 8px; }
+    *::-webkit-scrollbar-thumb{
+      background: #cbd5e1; border-radius: 8px; border:2px solid transparent; background-clip: content-box;
+    }
+    *::-webkit-scrollbar-thumb:hover{ background:#94a3b8; background-clip: content-box; }
+
+    /* ===== 可选：给需要“全淡紫背景”的页面一个类（子页可在 <body> 上加 .page-soft） ===== */
+    body.page-soft{ background: var(--bg-soft) !important; }
+
+    /* 保持你原有的细微品牌间距设定（兼容） */
+    .navbar-brand img{ height: 32px; }
   </style>
 
   {% block extra_head %}{% endblock %}
 </head>
+
+{#
+  你可以在子模板里这样写，给全页淡紫背景：
+  <body class="bg-light d-flex flex-column min-vh-100 page-soft">
+#}
 <body class="bg-light d-flex flex-column min-vh-100">
 
 <!-- 顶部导航 -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm py-0" style="min-height: 60px;">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
   <div class="container">
-    <a class="navbar-brand fw-semibold me-2 py-0 d-flex align-items-center" href="{{ url_for('base.index') }}">
-      <img src="{{ url_for('static', filename='img/ai-logo.svg') }}" alt="AI Logo" style="height: 32px; width: auto; margin-right: 6px;">
-      <span style="font-size: 0.9rem;">人工智能关键技术及产品智能发现平台</span>
+    <a class="navbar-brand fw-semibold me-2" href="{{ url_for('base.index') }}">
+      <img src="{{ url_for('static', filename='img/ai-logo.svg') }}" alt="AI Logo">
+      <span class="d-none d-sm-inline">人工智能关键技术及产品智能发现平台</span>
+      <span class="d-inline d-sm-none">AI智能发现平台</span>
     </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
-            aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            aria-controls="mainNav" aria-expanded="false" aria-label="切换导航">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link {% if active=='home' %}active{% endif %} py-0 px-2" href="{{ url_for('base.index') }}">首页</a></li>
-        <li class="nav-item"><a class="nav-link {% if active=='discover' %}active{% endif %} py-0 px-2" href="{{ url_for('discover.identify_page') }}">智能发现</a></li>
-        <li class="nav-item"><a class="nav-link {% if active=='portrait' %}active{% endif %} py-0 px-2" href="{{ url_for('base.portrait_page') }}">全画像</a></li>
-        <li class="nav-item"><a class="nav-link {% if active=='ranking' %}active{% endif %} py-0 px-2" href="{{ url_for('base.ranking_page') }}">排行榜</a></li>
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item">
+          <a class="nav-link {% if active=='home' %}active{% endif %}" href="{{ url_for('base.index') }}">首页</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if active=='discover' %}active{% endif %}" href="{{ url_for('discover.identify_page') }}">智能发现</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if active=='portrait' %}active{% endif %}" href="{{ url_for('base.portrait_page') }}">全画像</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if active=='ranking' %}active{% endif %}" href="{{ url_for('base.ranking_page') }}">排行榜</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 
-
-<main class="{% block container_class %}container py-0{% endblock %}">
+<main class="{% block container_class %}container-xxl py-2{% endblock %}">
   {% block content %}{% endblock %}
 </main>
 
-<footer class="bg-dark text-white-50 py-1 mt-auto">
+<footer class="py-2 mt-auto">
   <div class="container small text-center">
     版本 4.0 · 版权@智能与创新治理研究所
   </div>
