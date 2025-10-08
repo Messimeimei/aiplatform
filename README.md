@@ -10,7 +10,7 @@ docker compose -f docker-compose.dev.yml up --build
 cd /root/aiplatform
 
 ## 1) 本地镜像打包+推送
-docker build -t messimeimei/meiss:latest .
+docker build -t crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest .
 docker push crpi-5vmn5esi06088rs1.cn-hangzhou.personal.cr.aliyuncs.com/messimeimei/meiss:latest
 
 ## 2) 服务器端，登录个人版 ACR 并拉镜像（用访问凭证用户名/密码）

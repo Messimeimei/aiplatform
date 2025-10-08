@@ -4,15 +4,93 @@
 
 {% block extra_head %}
 <style>
+  /* ===== 主题变量（只用在本页） ===== */
+  :root{
+    --prim:#6f6be8;             /* 主紫 */
+    --prim-600:#5c57e0;
+    --prim-50:#f6f3ff;          /* 极浅紫，用于 hover 背景 */
+    --prim-75:#efeaff;          /* 很浅紫，用于列表悬浮 */
+    --text:#1f2937;             /* 深灰可读文本 */
+  }
+
+  /* ===== 页面背景：所有留白都为淡紫色，不影响白色内容卡片 ===== */
+  body{ background: var(--prim-50); }
+
   .surface { background:#fff; color:#212529; border-radius:14px; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.08); }
   .bar-title { position:relative; padding-left:.75rem; margin:0; line-height:1.2; font-weight:600; }
   .bar-title::before{ content:""; position:absolute; left:0; top:0.15em; bottom:0.15em; width:3px; border-radius:2px; background:#0d6efd; }
   .section-box { background:#fff; border:1px solid #e9ecef; border-radius:12px; padding:16px; box-shadow:0 4px 14px rgba(0,0,0,.06); }
-  .toc { position: sticky; top: calc(var(--header-h,72px) + 12px); }
-  .toc .list-group-item.active { background:#e7f1ff; color:#0d6efd; border-color:#b6d4fe; }
+
+  /* ===== 顶部标题&徽章：加间距，避免覆盖 ===== */
   .entry-title { margin:0; }
-  .entry-meta { color:#6c757d; }
-  .section-box img { max-width:100%; height:auto; border-radius:8px; }
+  .entry-meta { margin-top:.6rem; color:#495057; display:flex; flex-wrap: wrap; gap:.5rem; }
+
+  .pill {
+    display:inline-flex; align-items:center; gap:.35rem;
+    padding:.28rem .6rem; border-radius:999px;
+    background:#f8f9fa; color:#343a40; font-size:.82rem; border:1px solid #e9ecef;
+  }
+  .pill .dot{ width:.5rem; height:.5rem; border-radius:50%; display:inline-block; }
+  .pill.blue .dot{ background:#0d6efd; } .pill.green .dot{ background:#12b886; }
+  .pill.purple .dot{ background:#7048e8; } .pill.orange .dot{ background:#f08c00; }
+
+  /* chips 行 */
+  .meta-line { display:flex; align-items:center; flex-wrap:wrap; gap:.5rem .5rem; margin-top:.35rem; }
+  .meta-label { font-size:.75rem; color:#6c757d; background:#f8f9fa; border:1px solid #e9ecef; border-radius:999px; padding:.2rem .5rem; }
+  .chip { font-size:.78rem; line-height:1.6; padding:.2rem .55rem; border-radius:999px; border:1px solid #d8e2ff; background:#eef3ff; color:#2149b5; }
+  .chip.alt { border-color:#c3e6cb; background:#ebfbef; color:#2b8a3e; }
+  .chip.grey{ border-color:#dee2e6; background:#f8f9fa; color:#495057; }
+
+  /* 评分条 */
+  .score-row { display:grid; grid-template-columns: 140px 1fr auto; gap:.5rem; align-items:center; }
+  .score-bar { height:8px; border-radius:6px; background:#f1f3f5; overflow:hidden; }
+  .score-bar > span{ display:block; height:100%; background:linear-gradient(90deg,#4dabf7,#1971c2); border-radius:6px; width:0; transition:width .6s ease; }
+
+  /* ===== TOC（目录）颜色统一：深灰文字、浅紫 hover、主紫激活 ===== */
+  .toc { position: sticky; top: calc(var(--header-h,72px) + 12px); }
+  .toc .card-body{ background:#fff; }
+  .toc .list-group-item{
+    color: var(--text);
+    background:#fff;
+    border-color:#e9ecef;
+  }
+  .toc .list-group-item:hover{
+    background: var(--prim-75);
+    color: var(--text);
+  }
+  .toc .list-group-item.active{
+    background: var(--prim);
+    color:#fff;
+    border-color: var(--prim);
+  }
+
+  /* 目录卡片容器也设为白色，避免深蓝底 */
+    .toc-card{
+      background:#fff !important;
+      border:1px solid #e9ecef !important;
+      color:#1f2937;
+      box-shadow:0 8px 24px rgba(0,0,0,.08); /* 和主内容卡片一致的阴影 */
+      border-radius:14px;
+    }
+    /* card-body 已经是白色，这里保留一次强化 */
+    .toc-card .toc{ background:#fff !important; }
+
+
+  /* ===== 来源（保持你之前的紧凑视觉） ===== */
+  .source-list { display:flex; flex-direction:column; gap:.5rem; }
+  .source-item {
+    display:flex; align-items:center; gap:.6rem;
+    padding:.6rem .75rem; border:1px solid #e9ecef; border-radius:10px;
+    background:#fafbff;
+    text-decoration:none; color:#0b5ed7;
+    transition:transform .08s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .source-item:hover { background:#f2f6ff; box-shadow:0 4px 12px rgba(13,110,253,.12); transform: translateY(-1px); }
+  .source-item .icon { width:16px; height:16px; opacity:.85; }
+  .source-host { color:#6c757d; font-size:.8rem; }
+  .source-right { margin-left:auto; color:#6c757d; font-size:.8rem; }
+
+  /* 骨架屏 */
   .skeleton { background:linear-gradient(90deg,#f2f4f7, #e9ecef, #f2f4f7); background-size:200% 100%; animation:shine 1.2s linear infinite; border-radius:8px; }
   @keyframes shine { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
 </style>
@@ -25,7 +103,9 @@
     <div class="col-12 col-lg-8" id="contentCol">
       <div class="mb-3">
         <h1 class="entry-title h3" id="entryTitle">加载中…</h1>
-        <div class="entry-meta small" id="entryMeta">—</div>
+        <div class="entry-meta small" id="entryMeta">
+          <span class="pill"><span class="dot"></span>—</span>
+        </div>
       </div>
       <div id="sections" class="vstack gap-4">
         <div class="section">
@@ -45,7 +125,7 @@
 
     <!-- 右侧目录 -->
     <div class="col-12 col-lg-4">
-      <div class="card">
+      <div class="card toc-card">
         <div class="card-body toc">
           <div class="d-flex justify-content-between align-items-center mb-2">
             <div class="fw-semibold">目录</div>
@@ -81,44 +161,73 @@
     return;
   }
 
+  // 顶部
   titleEl.textContent = d.name || '-';
   metaEl.innerHTML = [
-    esc(d.kind || '-'),
-    esc(d.field || '-'),
-    esc(d.country || '-'),
-    esc(d.year || '-')
-  ].join(' · ');
+    pill('类型', d.type || d.kind, 'blue'),
+    pill('领域', d.field, 'purple'),
+    pill('国家', d.country, 'green'),
+    pill('年份', d.year, 'orange')
+  ].filter(Boolean).join('');
 
+  // sections
   const sections = [];
-  if (d.abstract || d.summary) {
-    sections.push({id: 'overview', title: '概要', html: `<p>${esc(d.abstract || d.summary)}</p>`});
+  const baseChips = [];
+  if (d.enterprise) baseChips.push(metaLine('企业', [d.enterprise], 'chip'));
+  if (d.country)    baseChips.push(metaLine('国家', [d.country], 'chip alt'));
+  if (d.field)      baseChips.push(metaLine('领域', [d.field], 'chip grey'));
+  if (d.year)       baseChips.push(metaLine('年份', [d.year], 'chip grey'));
+  if (baseChips.length) sections.push({ id:'baseinfo', title:'基础信息', html: baseChips.join('') });
+
+  if (d.abstract || d.summary || d.description) {
+    sections.push({ id:'overview', title:'概要', html:`<p>${esc(d.abstract || d.summary || d.description)}</p>` });
   }
-  if (d.metrics && Object.keys(d.metrics).length) {
-    const rows = Object.entries(d.metrics).map(([k,v])=>
-      `<tr><td class="text-muted">${esc(k)}</td><td class="text-end">${esc(String(v))}</td></tr>`).join('');
-    sections.push({id: 'metrics', title: '关键指标', html: `<div class="table-responsive"><table class="table table-sm mb-0"><tbody>${rows}</tbody></table></div>`});
-  }
+
+  const scoreItems = [];
+  const S = [['论文', d.article_score], ['专利', d.patent_score], ['报告', d.report_score], ['关键度', d.key_score]];
+  S.forEach(([name,val])=>{ const num = toNum(val); if (num!=null) scoreItems.push(scoreRow(name, num)); });
+  if (scoreItems.length) sections.push({ id:'scores', title:'评分概览', html:`<div class="vstack gap-2">${scoreItems.join('')}</div>` });
+
   if (Array.isArray(d.images) && d.images.length) {
-    sections.push({id: 'gallery', title: '图文', html: d.images.map(src=>`<img src="${esc(src)}" class="mb-2" alt="">`).join('')});
+    sections.push({ id:'gallery', title:'图文', html: d.images.map(src=>`<img src="${esc(src)}" class="mb-2" alt="">`).join('') });
   }
   if (Array.isArray(d.relatedTech) && d.relatedTech.length) {
-    sections.push({id: 'reltech', title: '关联关键技术', html: chipsHtml(d.relatedTech)});
+    sections.push({ id:'reltech', title:'关联关键技术', html: chipsHtml(d.relatedTech) });
   }
   if (Array.isArray(d.relatedProduct) && d.relatedProduct.length) {
-    sections.push({id: 'relprod', title: '关联关键产品', html: chipsHtml(d.relatedProduct)});
-  }
-  if (Array.isArray(d.sources) && d.sources.length) {
-    const items = d.sources.map(s=>{
-      const url = typeof s==='string' ? s : (s.url||'#');
-      const name= typeof s==='string' ? s : (s.name||s.url||'来源');
-      return `<li class="mb-1"><a href="${esc(url)}" target="_blank" rel="noopener">${esc(name)}</a></li>`;
-    }).join('');
-    sections.push({id: 'sources', title: '来源与参考', html: `<ul class="mb-0">${items}</ul>`});
-  }
-  if (!sections.length) {
-    sections.push({id: 'intro', title: '介绍', html: `<p>${esc(d.description || '暂无详细介绍。')}</p>`});
+    sections.push({ id:'relprod', title:'关联关键产品', html: chipsHtml(d.relatedProduct) });
   }
 
+  // 来源
+  let sourceLinks = [];
+  if (Array.isArray(d.source) && d.source.length) sourceLinks = d.source;
+  else if (Array.isArray(d.sources) && d.sources.length) {
+    sourceLinks = d.sources.map(s => typeof s==='string' ? s : (s.url||'')).filter(Boolean);
+  }
+  if (sourceLinks.length) {
+    const items = sourceLinks.map((u,i)=>sourceItem(u, i+1)).join('');
+    sections.push({ id:'sources', title:'来源与参考', html:`<div class="source-list">${items}</div>` });
+  }
+
+  // 兜底属性
+  const exclude = new Set(['id','name','type','kind','field','country','enterprise','year','abstract','summary','description','images','relatedTech','relatedProduct','source','sources','article_score','patent_score','report_score','key_score','metrics','extra']);
+  const kv = [];
+  Object.keys(d||{}).forEach(k=>{
+    if (exclude.has(k)) return;
+    const v = d[k];
+    if (v==null) return;
+    if (typeof v === 'object' && !Array.isArray(v)) return;
+    if (Array.isArray(v) && !v.length) return;
+    kv.push([k, typeof v==='string' ? v : JSON.stringify(v)]);
+  });
+  if (kv.length) {
+    const rows = kv.map(([k,v])=>`<tr><td class="text-muted">${esc(k)}</td><td class="text-break">${esc(String(v))}</td></tr>`).join('');
+    sections.push({id:'props', title:'更多属性', html:`<div class="table-responsive"><table class="table table-sm mb-0"><tbody>${rows}</tbody></table></div>`});
+  }
+
+  if (!sections.length) sections.push({id:'intro', title:'介绍', html:`<p>暂无详细介绍。</p>`});
+
+  // 渲染主体 & 目录
   secWrap.innerHTML = sections.map(sec => `
     <section class="section" id="${sec.id}">
       <h2 class="bar-title h5">${esc(sec.title)}</h2>
@@ -132,9 +241,9 @@
     </a>
   `).join('');
 
+  // 目录高亮
   const headings = sections.map(s => document.getElementById(s.id));
   const tocItems = Array.from(tocList.querySelectorAll('[data-target]'));
-
   const io = new IntersectionObserver((entries) => {
     entries.sort((a,b)=>a.boundingClientRect.top - b.boundingClientRect.top);
     entries.forEach(entry=>{
@@ -144,14 +253,15 @@
       }
     });
   }, { root: null, rootMargin: '-20% 0px -70% 0px', threshold: [0, 0.2, 1] });
-
   headings.forEach(sec => io.observe(sec));
 
+  // 返回
   document.getElementById('btnBack').addEventListener('click', ()=>{
     if (document.referrer) history.back();
     else window.location.href = "{{ url_for('base.results_page') }}";
   });
 
+  // 目录点击平滑滚动
   tocItems.forEach(a=>{
     a.addEventListener('click', (e)=>{
       e.preventDefault();
@@ -162,17 +272,67 @@
     });
   });
 
+  // 评分条动画
+  requestAnimationFrame(()=>{
+    document.querySelectorAll('.score-bar > span[data-val]').forEach(el=>{
+      const v = Number(el.getAttribute('data-val')) || 0;
+      el.style.width = Math.max(0, Math.min(100, v)) + '%';
+    });
+  });
+
 })().catch(err=>{
   document.getElementById('entryTitle').textContent = '加载失败';
   document.getElementById('entryMeta').textContent = '';
   document.getElementById('sections').innerHTML = `<div class="alert alert-warning">获取详情失败：${esc(String(err))}</div>`;
 });
 
+/* ===== 工具函数 ===== */
 function esc(s){ return (s==null?'':String(s)).replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
+function pill(label, val, color){
+  if (!val) return '';
+  return `<span class="pill ${color||''}"><span class="dot"></span>${esc(label)}：${esc(val)}</span>`;
+}
+function metaLine(label, items, cls){
+  if (!items || !items.length) return '';
+  return `<div class="meta-line"><span class="meta-label">${esc(label)}</span>${
+    items.map(t=>`<span class="chip ${cls||''}" title="${esc(t)}">${esc(t)}</span>`).join('')
+  }</div>`;
+}
 function chipsHtml(arr){
   return `<div class="d-flex flex-wrap gap-2">` + arr.map(t =>
     `<span class="badge rounded-pill text-bg-primary-subtle border border-primary-subtle">${esc(t.name||t)}</span>`
   ).join('') + `</div>`;
+}
+function toNum(v){
+  if (v==null) return null;
+  const n = Number(v);
+  if (isNaN(n)) return null;
+  return n <= 1 ? n*100 : n; // 0~1 映射为 %
+}
+function scoreRow(name, percent){
+  const p = Math.max(0, Math.min(100, percent));
+  return `
+    <div class="score-row">
+      <div class="text-muted">${esc(name)}</div>
+      <div class="score-bar"><span data-val="${p}"></span></div>
+      <div class="text-muted" style="min-width:3.5rem; text-align:right">${p.toFixed(1)}%</div>
+    </div>
+  `;
+}
+function sourceItem(url, idx){
+  const u = String(url||'').trim();
+  if (!u) return '';
+  const host = u.replace(/^https?:\/\//,'').split('/')[0];
+  return `
+    <a class="source-item" href="${esc(u)}" target="_blank" rel="noopener">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M14 3h7v7m0-7L10 14m-4 7h7a3 3 0 0 0 3-3v-7"
+              stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>来源 ${idx}</span>
+      <span class="source-host">· ${esc(host)}</span>
+    </a>
+  `;
 }
 </script>
 {% endblock %}

@@ -1,65 +1,74 @@
-import os
+# -*- coding: utf-8 -*-
 from flask import Blueprint, render_template, request, jsonify
+from services.graph_repo import get_items, get_detail
+from services.search_service import search_items
+from services.detail_repo import get_detail_by_node_id  # 新增导入
 
 base_bp = Blueprint("base", __name__)
 
 def _render(tpl, active=None, **ctx):
     return render_template(tpl, active=active, **ctx)
 
-# —— 演示用的“数据库” —— #
-DEMO_ITEMS = [
-    {"id": 101, "name": "多模态", "kind": "关键技术", "org": "示例机构A", "date": "2025-08",
-     "abstract": "多模态融合感知与表征，包含视觉/文本/语音等模态的联合建模。"},
-    {"id": 202, "name": "智能体平台", "kind": "关键产品", "org": "示例企业B", "date": "2025-07",
-     "abstract": "可编排 Agent 能力平台，支持多工具协同与自动化执行。"},
-    {"id": 303, "name": "知识蒸馏", "kind": "关键技术", "org": "示例实验室C", "date": "2025-06",
-     "abstract": "将大模型知识迁移到小模型，保持精度的同时显著提效降本。"},
-]
-
-DEMO_DETAIL = {
-    101: {
-        "id": 101, "name": "多模态", "kind": "关键技术", "field": "多模态", "country": "CN", "year": 2025,
-        "abstract": "多模态（vision+text+audio）融合感知与表征，常见于跨模态检索、VQA 等。",
-        "metrics": {"论文数": 128, "引用": 5280, "机构数": 36},
-        "images": ["/static/hero-bg.jpg"],
-        "relatedTech": ["跨模态对齐", "检索增强", "对比学习"],
-        "relatedProduct": ["多模态识别平台", "智能体平台"],
-        "sources": [{"name": "示例百科", "url": "https://example.com/wiki"}]
-    },
-    202: {
-        "id": 202, "name": "智能体平台", "kind": "关键产品", "field": "智能体", "country": "CN", "year": 2025,
-        "abstract": "可编排的 Agent 平台，支持工具调用、记忆与反思、流程自动化。",
-        "metrics": {"企业部署": 42, "平均节省人力(%)": 37},
-        "images": [],
-        "relatedTech": ["规划-执行-反思", "RAG", "工具调用"],
-        "relatedProduct": ["企业知识库", "流程自动化套件"],
-        "sources": [{"name": "官网", "url": "https://example.com/agent"}]
-    },
-    303: {
-        "id": 303, "name": "知识蒸馏", "kind": "关键技术", "field": "模型压缩", "country": "US", "year": 2024,
-        "abstract": "将大模型的 soft targets 转移给学生模型，常与量化/剪枝结合以部署在边缘端。",
-        "metrics": {"论文数": 96, "开源实现": 18},
-        "images": [],
-        "relatedTech": ["量化", "剪枝", "蒸馏数据合成"],
-        "relatedProduct": ["边缘推理引擎"],
-        "sources": [{"name": "论文合集", "url": "https://example.com/papers"}]
-    }
-}
-
-# ——— 页面路由 ——— #
+# ---------------- 页面 ----------------
 @base_bp.route("/")
 def index():
-    return _render("index.html", active="home")
+    # 提供给 index.html 的热词；前端样式/脚本不变
+    hot_tags = [
+        "脑电图信号处理", "多模态脑信号融合", "低功耗接口芯片",
+        "可穿戴EEG", "深度学习神经解码", "双向神经接口", "云端BCI平台"
+    ]
+    return _render("index.html", active="home", hot_tags=hot_tags)
 
 @base_bp.route("/results")
 def results_page():
-    q = request.args.get("q", "")
-    type_ = request.args.get("type", "tech")
-    return _render("results.html", active="results", items=DEMO_ITEMS, q=q, type_=type_)
+    q = request.args.get("q", "") or ""
+    type_ = (request.args.get("type", "tech") or "tech").strip().lower()
+    if type_ not in ("tech", "product"):
+        type_ = "tech"
+
+    # ✅ 这里只在路由里调用搜索；不要在模块顶部调用！
+    found = search_items(get_items(), q, type_)
+
+    # 仅传模板需要的字段
+    view_items = [
+        {
+            "id": it["id"],
+            "name": it["name"],
+            "kind": it["kind"],
+            "org": it["org"],
+            "date": it["date"],
+            "abstract": it["abstract"],
+        }
+        for it in found
+    ]
+    return _render("results.html", active="results", items=view_items, q=q, type_=type_)
 
 @base_bp.route("/detail/<int:item_id>")
 def detail_page(item_id):
-    return _render("detail.html", active="results", item_id=item_id)
+    """
+    服务端渲染详情页（若你的 detail.html 里自己 fetch /api/detail，就不一定用到这些上下文）
+    """
+    # 1) 先在聚合卡片里把 item 找出来（拿到 _node_id）
+    mp = {it["id"]: it for it in get_items()}
+    base_item = mp.get(item_id)
+    if not base_item:
+        # 可渲染一个 404 模板；这里简单返回 detail.html 由前端再调用 /api/detail
+        return _render("detail.html", active="results", item_id=item_id)
+
+    node_id = base_item.get("_node_id", "")
+    detail = get_detail_by_node_id(node_id) or {}
+
+    # 2) 合并一些你模板可能会用到的字段（保持向后兼容）
+    #    detail 文件里已有 name/type/field/abstract/year/source/enterprise/country 等
+    ctx = {
+        "item_id": item_id,
+        "base_item": base_item,   # 卡片基础信息（name/kind等）
+        "detail": detail          # 领域详细信息
+    }
+    return _render("detail.html", active="results", **ctx)
+
+
+
 
 @base_bp.route("/portrait", defaults={"item_id": None})
 @base_bp.route("/portrait/<int:item_id>")
@@ -70,10 +79,43 @@ def portrait_page(item_id):
 def ranking_page():
     return _render("ranking.html", active="ranking")
 
-# ——— API ——— #
+# ---------------- API ----------------
 @base_bp.route("/api/detail/<int:item_id>")
 def api_detail(item_id):
-    d = DEMO_DETAIL.get(item_id)
-    if not d:
+    """
+    供前端 JS 使用的详情接口：
+    - 优先用 rank_table_*.json 的详细数据
+    - 找不到时，回退为卡片基础信息拼一个极简结构
+    """
+    mp = {it["id"]: it for it in get_items()}
+    base_item = mp.get(item_id)
+    if not base_item:
         return jsonify({"error": "not_found"}), 404
-    return jsonify(d)
+
+    node_id = base_item.get("_node_id", "")
+    det = get_detail_by_node_id(node_id) or {}
+
+    # 统一返回结构（尽量覆盖 detail 文件里的字段；没有就回退）
+    payload = {
+        "id": det.get("id") or node_id or item_id,
+        "name": det.get("name") or base_item.get("name"),
+        "type": det.get("type") or base_item.get("kind"),
+        "field": det.get("field") or "—",
+        "country": det.get("country") or base_item.get("org") or "—",
+        "enterprise": det.get("enterprise") or "—",
+        "year": det.get("year") or "—",
+        "abstract": det.get("abstract") or base_item.get("abstract") or "",
+        "article_score": det.get("article_score"),
+        "patent_score": det.get("patent_score"),
+        "report_score": det.get("report_score"),
+        "key_score": det.get("key_score"),
+        "source": det.get("source") or [],
+
+        # 也把卡片端拼过来的汇总行放在 extra 里（模板备用）
+        "extra": {
+            "kind": base_item.get("kind"),
+            "org_summary": base_item.get("org"),
+            "source_file": base_item.get("_source")
+        }
+    }
+    return jsonify(payload)

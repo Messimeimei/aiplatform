@@ -42,14 +42,16 @@
 
     <!-- 底部：7 个标签（宽度总和与上方一行一致） -->
     <div class="mt-3 tag-row">
-      <button type="button" class="btn btn-outline-light tag-btn">大模型推理加速</button>
-      <button type="button" class="btn btn-outline-light tag-btn">多模态识别</button>
-      <button type="button" class="btn btn-outline-light tag-btn">AIGC 文本生成</button>
-      <button type="button" class="btn btn-outline-light tag-btn">智能体 (Agent)</button>
-      <button type="button" class="btn btn-outline-light tag-btn">知识蒸馏</button>
-      <button type="button" class="btn btn-outline-light tag-btn">视觉分割</button>
-      <button type="button" class="btn btn-outline-light tag-btn">边缘计算</button>
+      {# 如果后端传了 hot_tags 就用它，否则用你当前这 7 个默认标签 #}
+      {% set _defaults = [
+        "大模型推理加速","多模态识别","AIGC 文本生成","智能体 (Agent)","知识蒸馏","视觉分割","边缘计算"
+      ] %}
+      {% set _tags = hot_tags if hot_tags is defined and hot_tags else _defaults %}
+      {% for t in _tags %}
+        <button type="button" class="btn btn-outline-light tag-btn">{{ t }}</button>
+      {% endfor %}
     </div>
+
 
 {#    <div class="text-white-50 mt-2 small">提示：点击类型或标签可快速开始检索</div>#}
   </div>
